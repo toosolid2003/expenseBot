@@ -4,7 +4,9 @@ import json
 import requests
 import time
 import urllib
+from dbhelper import DBHelper
 
+db = DBHelper()
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 URL = 'https://api.telegram.org/bot{}/'.format(TOKEN)
 
@@ -53,26 +55,37 @@ def getLastUpdateId(updates):
         updates_ids.append(int(update['update_id']))
     return max(updates_ids)
 
-def echoAll(updates):
-    '''Sends an echo reply to every received message'''
+def handle_updates(updates):
 
     for update in updates['result']:
         try:
             text = update['message']['text']
-            chatId = update['message']['chat']['id']
-            sendMsg(text, chatId)
-        except Exception as e:
-            print(e)
+            chat = update['message']['chat']['id']
+            items = db.get_items()
+
+            if text in items:
+                db.delete_item(text)
+                items = db.get_items()
+            else:
+                db.add_item(text)
+                items = db.get_items()
+
+            message = "\n".join(items)
+            sendMsg(message, chat)
+
+        except  KeyError:
+            pass
 
 def main():
-
+    
+    db.setup()
     lastUpdateId = None
 
     while True:
         updates = get_updates(lastUpdateId)
         if len(updates['result']) > 0:
             lastUpdateId = getLastUpdateId(updates) + 1
-            echoAll(updates)
+            handle_updates(updates)
         time.sleep(0.5)
 
 if __name__=='__main__':
