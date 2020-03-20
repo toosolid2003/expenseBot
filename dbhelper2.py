@@ -1,7 +1,4 @@
-# Ensemble de fonctions pour gerer la BD de mes expenses.
-
 import sqlite3
-
 
 class DBHelper:
     def __init__(self, dbname='todo.sqlite'):
@@ -13,15 +10,16 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit
 
-    def add_item(self, data_tuple):
-        stmt = "INSERT INTO items (amount, date, status, receipt) VALUES (?)"
-        self.conn.execute(stmt, data_tuple)
+    def add_item(self, item_text):
+        stmt = "INSERT INTO items (description) VALUES (?)"
+        args = (item_text, )
+        self.conn.execute(stmt, args)
         self.conn.commit()
 
     def delete_item(self, item_text):
         stmt = "DELETE FROM items WHERE description = (?)"
-        #args = (item_text, )
-        self.conn.execute(stmt, item_text)
+        args = (item_text, )
+        self.conn.execute(stmt, args)
         self.conn.commit()
 
     def get_items(self):

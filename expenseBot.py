@@ -4,12 +4,15 @@ import json
 import requests
 import time
 import urllib
-from dbhelper import DBHelper
+from dbhelper2 import DBHelper
+#import pdb; pdb.set_trace()     #Use the python debugger
+
 
 db = DBHelper()
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 URL = 'https://api.telegram.org/bot{}/'.format(TOKEN)
 
+# Basic functions
 def get_url(url):
 
     response = requests.get(url)
@@ -17,75 +20,87 @@ def get_url(url):
     return content
 
 def getJsonFromUrl(url):
-    '''Gets a string response and parsed it into a dictionnary'''
-
+    '''Gets a string response from Requests and parse it into a dictionnary'''
     content = get_url(url)
     js = json.loads(content)
     return js
 
-def get_updates(offset=None):
-    '''Gets the latest updates from the chatbot. Offset is a message id.
-    We are telling the API not send updates older than the offset id.'''
-
-    url = URL + "getUpdates?timeout=100"
-    if offset:
-        url += "&offset={}".format(offset)
-    js = getJsonFromUrl(url) 
-    return js
-
+# Functions to interact with the API
 def sendMsg(text, chatId):
     '''Sends a message to the bot.'''
-    
+
     text = urllib.parse.quote_plus(text)
     url = URL + 'sendMessage?text={}&chat_id={}'.format(text, chatId)
-    get_url(url)
 
-def getLastChat(updates):
-    '''Extracts last chat id and content'''
+def getUpdates(offset=None):
+    '''Get the latest updates from Telegram'''
+    url = URL + 'getUpdates?timeout=100'
+    if offset:
+        url += '&offset={}'.format(offset)
+    js = getJsonFromUrl(url)
+    return js
 
-    numUpdates = len(updates['result'])
-    lastUpdate = numUpdates - 1
-    text = updates['result'][lastUpdate]['message']['text']
-    chatId = updates['result'][lastUpdate]['message']['chat']['id']
-    return (text, chatId)
+#def getLastUpdateId(updates):
+#    updates_ids = []
+#    for update in updates['result']:
+#        updates_ids.append(int(update['update_id']))
+#    return max(updates_ids)
 
-def getLastUpdateId(updates):
-    updates_ids = []
-    for update in updates['result']:
-        updates_ids.append(int(update['update_id']))
-    return max(updates_ids)
+def getfileId(updates, lastUpdateId):
+    '''Extracts the fie Id of the high-definition pciture we want to save.
+    Returns a string, the fileId'''
 
-def handle_updates(updates):
+    fileId = updates['result'][lastUpdateId]['message']['photo'][2]['file_id']
+    return fileId
 
-    for update in updates['result']:
-        try:
-            text = update['message']['text']
-            chat = update['message']['chat']['id']
-            items = db.get_items()
+def downloadPic(file_id):
+    '''Download a picture from the Telegram API'''
+    #Get the file path fron Telegram API
+    url = URL + 'getFile?file_id={}'.format(file_id)
+    answer = getJsonFromUrl(url)
+    filePath = answer['result']['file_path']
 
-            if text in items:
-                db.delete_item(text)
-                items = db.get_items()
-            else:
-                db.add_item(text)
-                items = db.get_items()
+    #Download the file from Telegram API, different URL
+    urlDownload = 'https://api.telegram.org/file/bot' + TOKEN + '/' + filePath
+    photo = requests.get(urlDownload)
 
-            message = "\n".join(items)
-            sendMsg(message, chat)
+    #Save the file to the local HD
+    fileName = 'expense_{}.jpg'.format(time.strftime("%Y_%m_%d"))
+    open(fileName, 'wb').write(photo.content)
 
-        except  KeyError:
-            pass
+def hasPicture(updates, lastUpdateId):
+    '''Checks if a new message has a picutre in it. In which case, it sends back True'''
+
+    try:
+        updates['result'][lastUpdateId]['message']['photo']
+        return True
+    except KeyError:
+        return False
 
 def main():
-    
-    db.setup()
-    lastUpdateId = None
+    #Get all updates to get the latetst updateId
+    lastUpdateId = 0
+    offset = None
 
+    #Loop through last update to determine what's the best action
     while True:
-        updates = get_updates(lastUpdateId)
+        updates = getUpdates(offset)
         if len(updates['result']) > 0:
-            lastUpdateId = getLastUpdateId(updates) + 1
-            handle_updates(updates)
+                lastUpdateId = len(updates['result']) - 1
+
+                if hasPicture(updates, lastUpdateId):
+                    fileId = getfileId(updates, lastUpdateId)
+                    downloadPic(fileId)
+                else:
+                    msgContent = updates['result'][lastUpdateId]['message']['text']
+
+                    #try to convert it as float - in case it's a number
+                    try:
+                        msgContent = float(msgContent)
+                    except:
+                        pass
+                #Need to get the last update_id to pass it as offset number on the next call for updates
+                offset = updates['result'][lastUpdateId]['update_id'] + 1
         time.sleep(0.5)
 
 if __name__=='__main__':
