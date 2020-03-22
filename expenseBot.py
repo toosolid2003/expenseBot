@@ -4,9 +4,8 @@ import json
 import requests
 import time
 import urllib
-from dbhelper2 import DBHelper
-#import pdb; pdb.set_trace()     #Use the python debugger
-
+from dbhelper import DBHelper
+from io import BytesIO
 
 db = DBHelper()
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
@@ -40,12 +39,6 @@ def getUpdates(offset=None):
     js = getJsonFromUrl(url)
     return js
 
-#def getLastUpdateId(updates):
-#    updates_ids = []
-#    for update in updates['result']:
-#        updates_ids.append(int(update['update_id']))
-#    return max(updates_ids)
-
 def getfileId(updates, lastUpdateId):
     '''Extracts the fie Id of the high-definition pciture we want to save.
     Returns a string, the fileId'''
@@ -54,7 +47,7 @@ def getfileId(updates, lastUpdateId):
     return fileId
 
 def downloadPic(file_id):
-    '''Download a picture from the Telegram API'''
+    '''Download a picture from the Telegram API and returns a BLOB ready for the database'''
     #Get the file path fron Telegram API
     url = URL + 'getFile?file_id={}'.format(file_id)
     answer = getJsonFromUrl(url)
@@ -68,6 +61,12 @@ def downloadPic(file_id):
     fileName = 'expense_{}.jpg'.format(time.strftime("%Y_%m_%d"))
     open(fileName, 'wb').write(photo.content)
 
+    #Converts the file to BLOB to prepare for database injection
+    with open(fileName, 'rb') as file:
+        blobData = file.read()
+
+    return blobData
+
 def hasPicture(updates, lastUpdateId):
     '''Checks if a new message has a picutre in it. In which case, it sends back True'''
 
@@ -78,9 +77,14 @@ def hasPicture(updates, lastUpdateId):
         return False
 
 def main():
-    #Get all updates to get the latetst updateId
+    # Initiate all variables 
+    db.setup()
     lastUpdateId = 0
     offset = None
+    date = time.strftime("%Y-%m-%d")
+    reason = None
+    blob = None
+    amount = None
 
     #Loop through last update to determine what's the best action
     while True:
@@ -90,17 +94,26 @@ def main():
 
                 if hasPicture(updates, lastUpdateId):
                     fileId = getfileId(updates, lastUpdateId)
-                    downloadPic(fileId)
+                    blob = downloadPic(fileId)
                 else:
                     msgContent = updates['result'][lastUpdateId]['message']['text']
 
                     #try to convert it as float - in case it's a number
                     try:
-                        msgContent = float(msgContent)
+                        amount = float(msgContent)
                     except:
-                        pass
+                        reason = msgContent
+
                 #Need to get the last update_id to pass it as offset number on the next call for updates
                 offset = updates['result'][lastUpdateId]['update_id'] + 1
+
+                #Create the data tuple and inject it in the DB
+                if amount and reason and blob:
+                    data_tuple = (amount, date, reason,'pending', blob)
+                    db.add_item(data_tuple)
+                    sendMsg('All good bro, expense recorded.',updates['result'][lastUpdateId]['update_id'])
+                else:
+                    continue
         time.sleep(0.5)
 
 if __name__=='__main__':
