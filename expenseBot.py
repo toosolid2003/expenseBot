@@ -30,6 +30,7 @@ def sendMsg(text, chatId):
 
     text = urllib.parse.quote_plus(text)
     url = URL + 'sendMessage?text={}&chat_id={}'.format(text, chatId)
+    get_url(url)
 
 def getUpdates(offset=None):
     '''Get the latest updates from Telegram'''
@@ -81,38 +82,45 @@ def main():
     db.setup()
     lastUpdateId = 0
     offset = None
-    date = time.strftime("%Y-%m-%d")
-    reason = None
-    blob = None
-    amount = None
-    wbs = 'BLFG101X'
+    data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
+
+#    date = time.strftime("%Y-%m-%d")
+#    reason = None
+#    blob = None
+#    amount = None
+#    wbs = 'BLFG101X'
 
     #Loop through last update to determine what's the best action
     while True:
         updates = getUpdates(offset)
         if len(updates['result']) > 0:
                 lastUpdateId = len(updates['result']) - 1
+                chat_id = updates['result'][lastUpdateId]['message']['chat']['id']
 
                 if hasPicture(updates, lastUpdateId):
                     fileId = getfileId(updates, lastUpdateId)
-                    blob = downloadPic(fileId)
+                    data['blob'] = downloadPic(fileId)
                 else:
                     msgContent = updates['result'][lastUpdateId]['message']['text']
-
                     #try to convert it as float - in case it's a number
                     try:
-                        amount = float(msgContent)
+                        data['amount'] = float(msgContent)
+                        sendMsg('Got your amount', chat_id)
                     except:
-                        reason = msgContent
+                        data['reason'] = msgContent
+                        sendMsg('Got the reason', chat_id)
 
                 #Need to get the last update_id to pass it as offset number on the next call for updates
                 offset = updates['result'][lastUpdateId]['update_id'] + 1
 
                 #Create the data tuple and inject it in the DB
-                if amount and reason and blob:
-                    data_tuple = (amount, date, reason,'pending', wbs, blob)
+                if data['amount'] and data['reason'] and data['blob']:
+                    data_tuple = (data['amount'], data['date'], data['reason'],data['status'], data['wbs'], data['blob'])
                     db.add_item(data_tuple)
-                    sendMsg('All good bro, expense recorded.',updates['result'][lastUpdateId]['update_id'])
+                    sendMsg('All good bro, expense recorded.', chat_id)
+
+                    #Reinitialise the data dictionnary
+                    data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
                 else:
                     continue
         time.sleep(0.5)
