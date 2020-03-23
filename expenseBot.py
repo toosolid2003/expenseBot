@@ -58,15 +58,7 @@ def downloadPic(file_id):
     urlDownload = 'https://api.telegram.org/file/bot' + TOKEN + '/' + filePath
     photo = requests.get(urlDownload)
 
-    #Save the file to the local HD
-    fileName = 'expense_{}.jpg'.format(time.strftime("%Y_%m_%d"))
-    open(fileName, 'wb').write(photo.content)
-
-    #Converts the file to BLOB to prepare for database injection
-    with open(fileName, 'rb') as file:
-        blobData = file.read()
-
-    return blobData
+    return photo.content
 
 def hasPicture(updates, lastUpdateId):
     '''Checks if a new message has a picutre in it. In which case, it sends back True'''
