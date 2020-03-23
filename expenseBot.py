@@ -76,12 +76,6 @@ def main():
     offset = None
     data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
 
-#    date = time.strftime("%Y-%m-%d")
-#    reason = None
-#    blob = None
-#    amount = None
-#    wbs = 'BLFG101X'
-
     #Loop through last update to determine what's the best action
     while True:
         updates = getUpdates(offset)
@@ -108,11 +102,13 @@ def main():
                 #Create the data tuple and inject it in the DB
                 if data['amount'] and data['reason'] and data['blob']:
                     data_tuple = (data['amount'], data['date'], data['reason'],data['status'], data['wbs'], data['blob'])
-                    db.add_item(data_tuple)
-                    sendMsg('All good bro, expense recorded.', chat_id)
-
-                    #Reinitialise the data dictionnary
-                    data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
+                    try:
+                        db.add_item(data_tuple)
+                        sendMsg('All good bro, expense recorded.', chat_id)
+                        #Reinitialise the data dictionnary
+                        data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
+                    except:
+                        sendMsg('I ran into an issue logging the expense, sorry', chat_id)
                 else:
                     continue
         time.sleep(0.5)
