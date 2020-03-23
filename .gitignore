@@ -1,1 +1,8 @@
 *.py.swp
+.DS_Store
+__pycache*
+*.sqlite
+*.jpg
+*.png
+*.jpeg
+

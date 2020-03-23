@@ -85,6 +85,7 @@ def main():
     reason = None
     blob = None
     amount = None
+    wbs = 'BLFG101X'
 
     #Loop through last update to determine what's the best action
     while True:
@@ -109,7 +110,7 @@ def main():
 
                 #Create the data tuple and inject it in the DB
                 if amount and reason and blob:
-                    data_tuple = (amount, date, reason,'pending', blob)
+                    data_tuple = (amount, date, reason,'pending', wbs, blob)
                     db.add_item(data_tuple)
                     sendMsg('All good bro, expense recorded.',updates['result'][lastUpdateId]['update_id'])
                 else:
