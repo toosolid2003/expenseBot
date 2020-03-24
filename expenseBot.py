@@ -4,27 +4,12 @@ from dbhelper import DBHelper
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
-import logging
+import telegram
 
 #Initiates DB and creates an updater object used in the whole program
 db = DBHelper()
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
-updater = Updater(token=TOKEN, use_context=True)
-dispatcher = updater.dispatcher
-
-#Set up a logging function to know when things go south.
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                     level=logging.INFO)
-
-
-
-
 #Make space for the functions
-
-def start(update, context):
-    '''Function to reply to the /start command.'''
-
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome! I'm your expense bot, throw me your expenses and I'll make sure they're logged in IQ Navigator")
 
 def hasPic(update, context):
     '''Stores pic it in data['receipt']'''
@@ -37,13 +22,29 @@ def main():
     # Initiate all variables 
     db.setup()
     data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
+    bot = telegram.Bot(token=TOKEN)
 
-    #Picture handler
-    pic_handler = MessageHandler(Filters.document.category("image"), hasPic)
-    dispatcher.add_handler(pic_handler)
+    # Start of the loop
+    # Get latest update
+    updates = bot.getUpdates()
+    lastUpdateId = len(updates) - 1
 
-    #Start long polling
-    updater.start_polling()
+    # Get the photo
+    photoId = updates[lastUpdateId].message.photo[2]['file_id']
+    data['blob'] = bot.get_file(photoId).download_as_bytearray()
 
+    # Get the reson and amount
+    text = updates[lastUpdateId].message.caption
+    expenseData = text.split(sep=',')
+    data['amount'] = float(expenseData[0])
+    data['reason'] = expenseData[1]
+
+    # Inject into the database
+    data_tuple = (data['amount'], data['date'], data['reason'], data['status'], data['wbs'], data['blob'])
+    db.add_item(data_tuple)
+
+    # Send feedback
+    chat_id = updates[lastUpdateId].message.chat_id
+    bot.send_message(chat_id, text="Expense recorded, bro.")
 if __name__=='__main__':
     main()
