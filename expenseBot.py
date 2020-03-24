@@ -5,7 +5,6 @@ import requests
 import time
 import urllib
 from dbhelper import DBHelper
-from io import BytesIO
 
 db = DBHelper()
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
