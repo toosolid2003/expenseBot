@@ -23,28 +23,36 @@ def main():
     db.setup()
     data = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':'BLFG101X'}
     bot = telegram.Bot(token=TOKEN)
+    offset = None
 
     # Start of the loop
-    # Get latest update
-    updates = bot.getUpdates()
-    lastUpdateId = len(updates) - 1
+    while True:
+        # Get latest update
+        updates = bot.getUpdates(offset, timeout=15)                        # Tiemout set to 15 to avoid a bug in the library
+        if len(updates) > 0:
+            lastUpdateId = len(updates) - 1
 
-    # Get the photo
-    photoId = updates[lastUpdateId].message.photo[2]['file_id']
-    data['blob'] = bot.get_file(photoId).download_as_bytearray()
+            # Get the photo
+            photoId = updates[lastUpdateId].message.photo[2]['file_id']
+            data['blob'] = bot.get_file(photoId).download_as_bytearray()
 
-    # Get the reson and amount
-    text = updates[lastUpdateId].message.caption
-    expenseData = text.split(sep=',')
-    data['amount'] = float(expenseData[0])
-    data['reason'] = expenseData[1]
+            # Get the reson and amount from the caption
+            text = updates[lastUpdateId].message.caption
+            expenseData = text.split(sep=',')
+            data['amount'] = float(expenseData[0])
+            data['reason'] = expenseData[1]
 
-    # Inject into the database
-    data_tuple = (data['amount'], data['date'], data['reason'], data['status'], data['wbs'], data['blob'])
-    db.add_item(data_tuple)
+            # Inject into the database
+            data_tuple = (data['amount'], data['date'], data['reason'], data['status'], data['wbs'], data['blob'])
+            db.add_item(data_tuple)
 
-    # Send feedback
-    chat_id = updates[lastUpdateId].message.chat_id
-    bot.send_message(chat_id, text="Expense recorded, bro.")
+            # Send feedback
+            chat_id = updates[lastUpdateId].message.chat_id
+            bot.send_message(chat_id, text="Expense recorded, bro.")
+
+            # Update offset to avoid getting all updates every time
+            offset = updates[lastUpdateId].update_id + 1
+        time.sleep(1)
+
 if __name__=='__main__':
     main()
