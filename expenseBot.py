@@ -1,13 +1,10 @@
 # Source for this script: https://www.codementor.io/@garethdwyer/building-a-chatbot-using-telegram-and-python-part-2-sqlite-databse-backend-m7o96jger?icn=post-goi5fncay&ici=post-m7o96jger
 import time
 from dbhelper import DBHelper
-<<<<<<< HEAD
-=======
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
 import telegram
->>>>>>> telegramLib
 
 #Initiates DB and creates an updater object used in the whole program
 db = DBHelper()
