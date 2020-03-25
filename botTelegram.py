@@ -22,11 +22,16 @@ def start(update, context):
     text = "Bienvenue sur ton bot d'expenses. Cela va demenager."
     update.message.reply_text(text)
 
+#   Displays the wbs when no argument is provided. Changes the wbs when one argument is given.
 def wbs(update, context):
     global WBS
-    WBS = context.args[0]
-    update.message.reply_text('Your new WBS: {}'.format(WBS))
+    if len(context.args) > 0:
+        WBS = context.args[0]
+        update.message.reply_text('Your new WBS: {}'.format(WBS))
+    else:
+        update.message.reply_text('Your current WBS is {}'.format(WBS))
 
+# Downloads the receipt picture as a byte array to be stored in the DB
 def getPhoto(update):
     global DATA
     photoId = update.message.photo[-1]['file_id']
@@ -51,12 +56,6 @@ def captionCapture(update, context):
     db.add_item(data_tuple)
     update.message.reply_text('Your data has been recorded.')
 
-def enter(update, context):
-    '''A callback to enter the DATA in the database'''
-    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
-    db.add_item(data_tuple)
-    update.message.reply_text('Your data has been recorded.')
-
 def start_bot():
     global updater
     updater = Updater('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA', use_context=True)
@@ -65,7 +64,6 @@ def start_bot():
 
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
-    dispatcher.add_handler(CommandHandler('enter', enter))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
 
     updater.start_polling()
