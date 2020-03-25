@@ -6,7 +6,7 @@ import sqlite3
 class DBHelper:
     def __init__(self, dbname='expenses.sqlite'):
         self.dbname = dbname
-        self.conn = sqlite3.connect(dbname)
+        self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
         stmt = "CREATE TABLE IF NOT EXISTS items (amount float (2), date_expense date, reason text, status text, wbs text, receipt longblob)"

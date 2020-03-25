@@ -9,7 +9,8 @@ logger = logging.getLogger(__name__)
 
 #Initiating global variables
 updater = None
-DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs': None}
+WBS = '000000'
+DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS}
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
 
@@ -22,7 +23,9 @@ def start(update, context):
     update.message.reply_text(text)
 
 def wbs(update, context):
-    update.message.reply_text('Your current WBS: {}'.format(context.args[0]))
+    global WBS
+    WBS = context.args[0]
+    update.message.reply_text('Your new WBS: {}'.format(WBS))
 
 def getPhoto(update):
     global DATA
@@ -43,15 +46,16 @@ def captionCapture(update, context):
     DATA['amount'] = dataList[0]
     DATA['reason'] = dataList[1]
 
-    # Confirm everything went well
-    update.message.reply_text('Your data has been captured, thanks!')
-
-    return DATA
+    # Inject data into the local database
+    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
+    db.add_item(data_tuple)
+    update.message.reply_text('Your data has been recorded.')
 
 def enter(update, context):
     '''A callback to enter the DATA in the database'''
-    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], DATA['wbs'], DATA['blob'])
+    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
     db.add_item(data_tuple)
+    update.message.reply_text('Your data has been recorded.')
 
 def start_bot():
     global updater
