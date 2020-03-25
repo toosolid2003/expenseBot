@@ -14,7 +14,6 @@ TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 def hasPic(update, context):
     '''Stores pic it in data['receipt']'''
     photo_file = update.message.photo[-1].get_file()
-    breakpoint()
     photo_file.download('receipt.jpg')
     update.message.reply_text('Nice one. Thanks for the receipt')
 
@@ -28,7 +27,7 @@ def main():
     # Start of the loop
     while True:
         # Get latest update
-        updates = bot.getUpdates(offset, timeout=15)                        # Tiemout set to 15 to avoid a bug in the library
+        updates = bot.getUpdates(offset, timeout=15)                        # Tiemout set to 15 to avoid a bug in the Telegram library
         if len(updates) > 0:
             lastUpdateId = len(updates) - 1
 
@@ -36,7 +35,7 @@ def main():
             photoId = updates[lastUpdateId].message.photo[2]['file_id']
             data['blob'] = bot.get_file(photoId).download_as_bytearray()
 
-            # Get the reson and amount from the caption
+            # Get the reson and amount from the photo caption
             text = updates[lastUpdateId].message.caption
             expenseData = text.split(sep=',')
             data['amount'] = float(expenseData[0])
