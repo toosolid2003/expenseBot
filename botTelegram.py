@@ -18,11 +18,38 @@ bot = telegram.Bot(TOKEN)
 db = DBHelper()
 db.setup()
 
+# Database funcntions
+#################################################################
+
+def injectDATA():
+    '''inject the data contained in the DATA global dict into the sqlite db'''
+    global DATA
+    global WBS
+    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
+    db.add_item(data_tuple)
+    DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS}
+
+# Faulty test. Returns what the last value of the dict is: DATA['blob']. As soon as there is an image in the dict, checkCompletion says True.
+
+
+def checkCompletion():
+    '''Checks if the DATA dict has all the data to log the expense into the DB.
+    Returns a list of missing values for the db.'''
+
+    global DATA
+    rest = []
+    for key, value in DATA.items():
+        if value == None:
+            rest.append(key)
+    return rest
+
+# Commands
+#################################################################
+
 def start(update, context):
     text = "Bienvenue sur ton bot d'expenses. Cela va demenager."
     update.message.reply_text(text)
 
-#   Displays the wbs when no argument is provided. Changes the wbs when one argument is given.
 def wbs(update, context):
     global WBS
     if len(context.args) > 0:
@@ -31,19 +58,28 @@ def wbs(update, context):
     else:
         update.message.reply_text('Your current WBS is {}'.format(WBS))
 
+# Input handlers
+#################################################################
+
 # Downloads the receipt picture as a byte array to be stored in the DB
-def getPhoto(update):
+def photoCapture(update, context):
     global DATA
+
     photoId = update.message.photo[-1]['file_id']
     DATA['blob'] = bot.get_file(photoId).download_as_bytearray()
-
-    return DATA
+    # Inject the DATA
+    rList = checkCompletion()
+    if len(rList) == 0:
+        injectDATA()
+        update.message.reply_text('I have recorded your data.')
+    #else:
+        #update.message.reply_text(rList)
 
 def captionCapture(update, context):
     global DATA
 
     # Capture the photo
-    getPhoto(update)
+    photoCapture(update, context)
 
     # Get the amount and reason
     data = update.message.caption
@@ -51,10 +87,38 @@ def captionCapture(update, context):
     DATA['amount'] = dataList[0]
     DATA['reason'] = dataList[1]
 
-    # Inject data into the local database
-    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
-    db.add_item(data_tuple)
-    update.message.reply_text('Your data has been recorded.')
+    # Inject the DATA
+    rList = checkCompletion()
+    if len(rList) == 0:
+        injectDATA()
+        update.message.reply_text('I have recorded your data.')
+
+def textCapture(update, context):
+    global DATA
+
+    data = update.message.text
+    dataList = data.split(',')
+
+    if len(dataList) > 1:
+        DATA['amount'] = dataList[0]
+        DATA['reason'] = dataList[1]
+
+    elif len(dataList) == 1:
+        try:
+            DATA['amount'] = float(dataList[0])
+        except ValueError:
+            DATA['reason'] = dataList[0]
+    else:
+        update.message.reply_text('I cannot really tell which is the amount and which is the reason.')
+
+   # Inject the DATA
+    rList = checkCompletion()
+    if len(rList) == 0:
+        injectDATA()
+        update.message.reply_text('I have recorded your data.')
+    #else:
+    #    update.message.reply_text(rList)
+
 
 def start_bot():
     global updater
@@ -65,10 +129,11 @@ def start_bot():
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
+    dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
+    dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
 
     updater.start_polling()
 
     updater.idle()
 
 start_bot()
-
