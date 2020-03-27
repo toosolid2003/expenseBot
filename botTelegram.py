@@ -10,9 +10,12 @@ logger = logging.getLogger(__name__)
 #Initiating global variables
 updater = None
 WBS = '000000'
-DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS}
+DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS, 'type':'Misc. Travel'}
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
+#keybArray = [['Airfare','Business Meals','Lodging'],
+#                ['Rental Car', 'Transportation', 'Misc. Travel','Misc. Expenses']]
+#KEYBOARD = telegram.ReplyKeyboardMarkup(keybArray, resize_keyboard=True, one_time_keyboard=True)
 
 #Initiating the database
 db = DBHelper()
@@ -25,11 +28,11 @@ def injectDATA():
     '''inject the data contained in the DATA global dict into the sqlite db'''
     global DATA
     global WBS
-    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['blob'])
-    db.add_item(data_tuple)
-    DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS}
 
-# Faulty test. Returns what the last value of the dict is: DATA['blob']. As soon as there is an image in the dict, checkCompletion says True.
+    # Add the final piece of data: Expense Type
+    data_tuple = (DATA['amount'],DATA['date'], DATA['reason'], DATA['status'], WBS, DATA['type'], DATA['blob'])
+    db.add_item(data_tuple)
+    DATA = {'date':time.strftime("%Y-%m-%d"), 'reason':None,'status':'pending','blob':None,'amount':None,'wbs':WBS, 'type':'Misc. Travel'}
 
 
 def checkCompletion():
@@ -58,7 +61,7 @@ def wbs(update, context):
     else:
         update.message.reply_text('Your current WBS is {}'.format(WBS))
 
-# Input handlers
+    # Input handlers
 #################################################################
 
 # Downloads the receipt picture as a byte array to be stored in the DB
