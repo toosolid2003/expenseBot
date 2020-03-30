@@ -1,8 +1,10 @@
 *.py.swp
 .DS_Store
-__pycache*
+__pycache__/
 *.sqlite
 *.jpg
 *.png
 *.jpeg
 *.xlsx
+expenseBot/
+.gitignore
