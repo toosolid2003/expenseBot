@@ -18,6 +18,14 @@ class DBHelper:
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
+    def extract_pending(self):
+        '''Extracts all expenses with a 'pending' status. Returns a list of data tuple rows'''
+        status = ("pending",)
+        c = self.conn.cursor()
+        c.execute('''SELECT * FROM items WHERE status=?''', status)
+
+        return c.fetchall()
+
     #def delete_item(self, item_text):
     #    stmt = "DELETE FROM items WHERE description = (?)"
     #    #args = (item_text, )
@@ -27,3 +35,4 @@ class DBHelper:
     #def get_items(self):
     #    stmt = "SELECT description FROM items"
     #    return [x[0] for x in self.conn.execute(stmt)]
+
