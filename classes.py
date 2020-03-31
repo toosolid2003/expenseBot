@@ -1,7 +1,7 @@
 # Ensemble de fonctions pour gerer la BD de mes expenses.
 
 import sqlite3
-
+import time
 
 class DBHelper:
     def __init__(self, dbname='expenses.sqlite'):
@@ -26,13 +26,21 @@ class DBHelper:
 
         return c.fetchall()
 
-    #def delete_item(self, item_text):
-    #    stmt = "DELETE FROM items WHERE description = (?)"
-    #    #args = (item_text, )
-    #    self.conn.execute(stmt, item_text)
-    #    self.conn.commit()
+class Expense:
+    def __init__(self):
+        self.amount = None
+        self.date = time.strftime("%Y-%m-%d")
+        self.wbs = None
+        self.receipt = None
+        self.reason = None
+        self.type = None
+        self.status = 'pending'
 
-    #def get_items(self):
-    #    stmt = "SELECT description FROM items"
-    #    return [x[0] for x in self.conn.execute(stmt)]
+    def to_tuple(self):
+        '''Converts the data in the expense class into a tuple.
+        Input: expense class with all data
+        Output: a data tuple, ready for injection in the db'''
+
+        data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt)
+        return data_tuple
 
