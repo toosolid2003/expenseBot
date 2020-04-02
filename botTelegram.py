@@ -32,6 +32,9 @@ def injectDATA(exp):
     data_tuple = exp.to_tuple()
     db.add_item(data_tuple)
 
+    #Initiate a new expense object
+    del exp
+    exp = Expense()
 
 def checkCompletion(exp):
     '''Checks if the Expense object  has all the data to log the expense into the DB.
