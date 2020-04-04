@@ -2,14 +2,14 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispa
 import telegram
 import logging
 import time
-from classes import DBHelper, Expense
+from classes import *
 
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 #Initiating global variables
 updater = None
-WBS = 'BFG9000'
+WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
 #keybArray = [['Airfare','Business Meals','Lodging'],
@@ -18,36 +18,37 @@ bot = telegram.Bot(TOKEN)
 
 #Initiating the classes
 db = DBHelper()
-exp = Expense()
+#exp = Expense()
 #Setting up the database
 db.setup()
+
 
 # Database funcntions
 #################################################################
 
-def injectDATA(exp):
-    '''inject the data contained in the Expense object (exp) into the sqlite db'''
-
-    # Add the final piece of data: Expense Type
-    data_tuple = exp.to_tuple()
-    db.add_item(data_tuple)
-
-    #Initiate a new expense object
-    del exp
-    exp = Expense()
-
 def checkCompletion(exp):
-    '''Checks if the Expense object  has all the data to log the expense into the DB.
+    '''Checks if the Expense object has all the data to log the expense into the DB.
     Returns a list of missing values for the db.'''
 
     rest = []
     exp.wbs = WBS   #Assign a WBS to the expense now, for lack of better place.
-    exp.type = 'Misc. Expense'
-
     for key, value in exp.__dict__.items():
         if value == None:
             rest.append(key)
     return rest
+
+
+def injectDATA(exp):
+    '''inject the data contained in the Expense object (exp) into the sqlite db'''
+
+    #Convert to a tuple for SQL injection
+    data_tuple = exp.to_tuple()
+    db.add_item(data_tuple)
+
+    #Resetting the expense object
+    exp.amount = None
+    exp.receipt = None
+    exp.reason = None
 
 # Commands
 #################################################################
@@ -57,7 +58,7 @@ def start(update, context):
     update.message.reply_text(text)
 
 def wbs(update, context):
-    '''Changes the wbs value if it is provided as a parameter 
+    '''Changes the wbs value if it is provided as a parameter
     Otherwise, displays the current WBS against which expenses are logged'''
     global WBS
 
@@ -74,28 +75,32 @@ def wbs(update, context):
 def photoCapture(update, context):
     '''Capture only the picture into Expense object, as a byte array'''
 
+    global exp
+
     photoId = update.message.photo[-1]['file_id']
     exp.receipt = bot.get_file(photoId).download_as_bytearray()
-    # Inject the DATA
+    # Inject the DATA if expense object is complete
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
+
     #else:
     #    update.message.reply_text(rList)
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
 
-
+    global exp
     # Capture the photo
     photoCapture(update, context)
 
-    # Get the amount and reason
+    # Get the amount, reason and deduct type
     data = update.message.caption
     dataList = data.split(',')
     exp.amount = dataList[0]
     exp.reason = dataList[1]
+    exp = deductType(exp)
 
     # Inject the DATA
     rList = checkCompletion(exp)
@@ -105,18 +110,22 @@ def captionCapture(update, context):
 
 def textCapture(update, context):
 
+    global exp
     data = update.message.text
     dataList = data.split(',')
 
     if len(dataList) > 1:
         exp.amount = dataList[0]
         exp.reason = dataList[1]
+        exp = deductType(exp)
 
     elif len(dataList) == 1:
         try:
             exp.amount = float(dataList[0])
         except ValueError:
             exp.reason = dataList[0]
+            exp = deductType(exp)
+
     else:
         update.message.reply_text('I cannot really tell which is the amount and which is the reason.')
 
@@ -125,12 +134,14 @@ def textCapture(update, context):
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
-    #else:
+   #else:
     #    update.message.reply_text(rList)
 
 
 def start_bot():
     global updater
+    global exp
+    exp = Expense()
     updater = Updater('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA', use_context=True)
 
     dispatcher = updater.dispatcher

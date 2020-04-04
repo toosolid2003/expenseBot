@@ -22,18 +22,18 @@ class DBHelper:
         '''Extracts all expenses with a 'pending' status. Returns a list of data tuple rows'''
         status = ("pending",)
         c = self.conn.cursor()
-        c.execute('''SELECT * FROM items WHERE status=?''', status)
+        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=?''', status)
 
         return c.fetchall()
 
 class Expense:
     def __init__(self):
         self.amount = None
-        self.date = time.strftime("%Y-%m-%d")
+        self.date = time.strftime("%d-%-m-%Y")
         self.wbs = None
         self.receipt = None
         self.reason = None
-        self.type = None
+        self.type = 'Misc. Expenses'
         self.status = 'pending'
 
     def to_tuple(self):
@@ -44,25 +44,23 @@ class Expense:
         data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt)
         return data_tuple
 
-    def deductType(self):
-        '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
+def deductType(expense):
+   '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
 
-        #We infer the expense type by confronting the value in exp.reason to a list of possible words.
-        #If none matches, the exp.type attribute is set to 'Misc. Expenses'
+   #We infer the expense type by confronting the value in exp.reason to a list of possible words.
+   #If none matches, the exp.type attribute is set to 'Misc. Expenses'
 
-        types = {'Lodging':['hotel','airbnb','pension','hostel'], 
-                'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
-        'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-        'Rental Car':['avis','entreprise','rental car','alamo'],
-        'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
-        'Misc. Travel':['highway','public','gas','petrol']}
+   types = {'Lodging':['hotel','airbnb','pension','hostel'], 
+           'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
+   'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   'Rental Car':['avis','entreprise','rental car','alamo'],
+   'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
+   'Misc. Travel':['highway','public','gas','petrol']}
 
-        #The magic loop, where the deduction happens
-        for accType, typeList in types.items():
-            for elt in typeList:
-                if elt in exp.reason.lower():
-                    exp.type = accType
-                else:
-                    exp.type = 'Misc. Expenses'
-        if exp.type == None:
-            exp.type = 'Misc. Expenses'
+   #The magic loop, where the deduction happens
+   for accType, typeList in types.items():
+       for elt in typeList:
+           if elt in expense.reason.lower():
+               expense.type = accType
+
+   return expense
