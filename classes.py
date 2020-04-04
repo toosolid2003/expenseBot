@@ -44,3 +44,25 @@ class Expense:
         data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt)
         return data_tuple
 
+    def deductType(self):
+        '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
+
+        #We infer the expense type by confronting the value in exp.reason to a list of possible words.
+        #If none matches, the exp.type attribute is set to 'Misc. Expenses'
+
+        types = {'Lodging':['hotel','airbnb','pension','hostel'], 
+                'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
+        'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+        'Rental Car':['avis','entreprise','rental car','alamo'],
+        'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
+        'Misc. Travel':['highway','public','gas','petrol']}
+
+        #The magic loop, where the deduction happens
+        for accType, typeList in types.items():
+            for elt in typeList:
+                if elt in exp.reason.lower():
+                    exp.type = accType
+                else:
+                    exp.type = 'Misc. Expenses'
+        if exp.type == None:
+            exp.type = 'Misc. Expenses'

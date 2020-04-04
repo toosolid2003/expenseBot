@@ -4,6 +4,11 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 import time
+import logging
+
+#Set up logging module
+logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
 #Creating a dictionnary to host the names of the fields of the Add Expense form
@@ -92,5 +97,6 @@ time.sleep(2)
 ##Logout
 #logout = driver.find_element_by_id('logoutLink')
 #logout.click()
-saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
-saveNclose.click()
+#saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
+#saveNclose.click()
+
