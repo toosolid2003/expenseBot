@@ -9,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import logging
 from classes import *
+from functions import *
+import pickle
 
 #Set up logging module
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
@@ -33,6 +35,7 @@ for exp in expObjList:
     exp.type = pending[i][4]
     exp.receipt = pending[i][5]
     i += 1
+
 
 #Creating a dictionnary to host the names of the fields of the Add Expense form
 fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textBox',
@@ -66,6 +69,10 @@ lb[1].click()
 bt = driver.find_elements_by_class_name('actionButtonLabel')
 bt[0].click()
 
+#Enter a title for the Expense Report
+expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
+expReportTile.send_keys('Expenses for this week')
+
 #Add expense button
 bt = driver.find_elements_by_class_name('actionButtonLabel')
 bt[2].click()
@@ -77,54 +84,79 @@ time.sleep(5)
 
 # Add Expense form - start of the loop
 ## Enter date
-#for exp in expObjList:
+for exp in expObjList:
 
-label = driver.find_element_by_name(fields['date'])
-label.send_keys(exp.date)
-time.sleep(2)
+    #Temporarily use an expense object stored in a file
+    #with open('fileExp','rb') as fichier:
+    #    mydepickler = pickle.Unpickler(fichier)
+    #    exp = mydepickler.load()
+    
+    label = driver.find_element_by_name(fields['date'])
+    label.send_keys(exp.date)
+    time.sleep(2)
+    
+    #Enter Amount
+    label = driver.find_element_by_name(fields['amount'])
+    label.send_keys(str(exp.amount))
+    time.sleep(2)
+    
+    #Enter reason
+    label = driver.find_element_by_name(fields['reason'])
+    label.send_keys(exp.reason)
+    time.sleep(2)
+    
+    #Upload receipt
+    #Create a path for the receipt and pass it to the exp.receipt attribute
+    filepath = createImagePath(exp)
+    
+    btn = driver.find_element_by_name(fields['receipt'])
+    btn.send_keys(filepath)
+    #Click on 'Attach' button
+    buttn = driver.find_element_by_name(fields['attachBtn'])
+    buttn.click()
+    
+    time.sleep(5)  #Wait for receipt to load
+    
+    #Enter type (html select)
+    select_element = driver.find_element_by_name(fields['type'])
+    select_object = Select(select_element)
+    select_object.select_by_visible_text(exp.type)
+    time.sleep(2)
+    
+    
+    #Enter WBS
+    
+    # ------------
+    # Testing only
+    exp.wbs = 'BLXPB001'
+    # -----------
+    
+    select_element = driver.find_element_by_name(fields['wbs'])
+    select_element.send_keys(exp.wbs)
+    
+    #Truc sioux pour activer le js dans le champ WBS
+    label = driver.find_element_by_name(fields['reason'])
+    time.sleep(2)
+    
+    #Save and Add other expense
+    saveNadd= driver.find_element_by_name('saveAndAddButton:container:container_body:button')
+    saveNadd.click()
+    time.sleep(5)
+    #Save and Close
+    #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
+    #saveNclose.click()
 
-#Enter Amount
-label = driver.find_element_by_name(fields['amount'])
-label.send_keys(str(exp.amount))
-time.sleep(2)
+#Close the Add Expense modal
+closeBtn = driver.find_element_by_class_name('container-close')
+closeBtn.click()
 
-#Enter reason
-label = driver.find_element_by_name(fields['reason'])
-label.send_keys(exp.reason)
-time.sleep(2)
+#Save the draft
+#saveDraftBtn = driver.find_elemments_by_class_name('actionButtonLabel')
+#saveDraftBtn[1].click()
+#time.sleep(2)
+#Logout
+logout = driver.find_element_by_id('logoutLink')
+logout.click()
 
-#Upload receipt
-btn = driver.find_element_by_name(fields['receipt'])
-btn.send_keys('/Users/t.segura/Documents/Code/expenseBot/expense_2020_03_23.jpg')
-#Click on 'Attach' button
-buttn = driver.find_element_by_name(fields['attachBtn'])
-buttn.click()
-
-time.sleep(5)  #Wait for receipt to load
-
-#Enter type (html select)
-select_element = driver.find_element_by_name(fields['type'])
-select_object = Select(select_element)
-select_object.select_by_visible_text(exp.type)
-time.sleep(2)
-
-
-#Enter WBS
-select_element = driver.find_element_by_name(fields['wbs'])
-select_element.send_keys(exp.wbs)
-
-#Truc sioux pour activer le js dans le champ WBS
-label = driver.find_element_by_name(fields['reason'])
-time.sleep(2)
-
-#Save and Add other expense
-saveNadd= driver.find_element_by_name('saveAndAddButton:container:container_body:button')
-saveNadd.click()
-
-#Save and Close
-#saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
-#saveNclose.click()
-##Logout
-#logout = driver.find_element_by_id('logoutLink')
-#logout.click()
-
+#Close Chrome
+driver.close()
