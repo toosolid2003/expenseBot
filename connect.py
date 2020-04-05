@@ -150,13 +150,16 @@ for exp in expObjList:
 closeBtn = driver.find_element_by_class_name('container-close')
 closeBtn.click()
 
+time.sleep(2)
 #Save the draft
-#saveDraftBtn = driver.find_elemments_by_class_name('actionButtonLabel')
-#saveDraftBtn[1].click()
-#time.sleep(2)
+elts = driver.find_elements_by_class_name('actionButtonLabel')
+elts[1].click()
+time.sleep(2)
+
 #Logout
 logout = driver.find_element_by_id('logoutLink')
 logout.click()
 
 #Close Chrome
 driver.close()
+
