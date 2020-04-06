@@ -13,7 +13,7 @@ from functions import *
 import pickle
 
 #Set up logging module
-logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 #Getting a list of "pending expense" objects
