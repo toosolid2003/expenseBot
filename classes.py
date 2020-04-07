@@ -5,6 +5,7 @@ import time
 
 class DBHelper:
     def __init__(self, dbname='expenses.sqlite'):
+    #def __init__(self, dbname='expenses.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
@@ -25,6 +26,14 @@ class DBHelper:
         c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=?''', status)
 
         return c.fetchall()
+
+    def updateStatus(self, currentStatus, newStatus):
+        '''Modifies the status the expenses that have been logged into IQ Navigator. New status: logged'''
+
+        status = (newStatus, currentStatus)
+        c = self.conn.cursor()
+        c.execute('''UPDATE items SET status = ? WHERE status = ?''', status)
+        self.conn.commit()
 
 class Expense:
     def __init__(self):

@@ -50,17 +50,19 @@ fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBord
 #Login sequence
 
 driver = Chrome()
+
+print('Opening the login page')
 driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
 element = driver.find_element_by_id('username')
 element.send_keys('tsegura2')
 elemental = driver.find_element_by_id('password')
 elemental.send_keys('Brutasse1-')
 elemental.send_keys(Keys.RETURN)
-
+print('Logging in...')
 
 #Home page - wait for the logout element to load before doing anything
 element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
-
+print('Logged in. On Home Page')
 # Click on 'Create Expense Report' from Home page
 lb = driver.find_elements_by_class_name('launchButton')
 lb[1].click()
@@ -70,6 +72,7 @@ bt = driver.find_elements_by_class_name('actionButtonLabel')
 bt[0].click()
 
 #Enter a title for the Expense Report
+print('Creating a new expense report')
 expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
 expReportTile.send_keys('Expenses for this week')
 
@@ -77,15 +80,17 @@ expReportTile.send_keys('Expenses for this week')
 bt = driver.find_elements_by_class_name('actionButtonLabel')
 bt[2].click()
 time.sleep(5)
-
+print('Adding Expenses...')
 
 # ------------------------------------------------------------
 
 
 # Add Expense form - start of the loop
+j = 1
 ## Enter date
 for exp in expObjList:
 
+    print('Adding expense {}'.format(j))
     #Temporarily use an expense object stored in a file
     #with open('fileExp','rb') as fichier:
     #    mydepickler = pickle.Unpickler(fichier)
@@ -145,21 +150,27 @@ for exp in expObjList:
     #Save and Close
     #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
     #saveNclose.click()
-
+    j += 1
 #Close the Add Expense modal
 closeBtn = driver.find_element_by_class_name('container-close')
 closeBtn.click()
 
 time.sleep(2)
 #Save the draft
+print('Saving the draft of expense report')
 elts = driver.find_elements_by_class_name('actionButtonLabel')
 elts[1].click()
-time.sleep(2)
+time.sleep(4)
 
 #Logout
+print('Logging out')
 logout = driver.find_element_by_id('logoutLink')
 logout.click()
 
 #Close Chrome
 driver.close()
 
+#Update the database: change the status of logged expenses
+print('Updating the database')
+upDb = DBHelper()
+upDb.updateStatus("pending","logged")
