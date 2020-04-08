@@ -9,12 +9,9 @@ logger = logging.getLogger(__name__)
 
 #Initiating global variables
 updater = None
-WBS = 'BLXPB001'
+WBS = '000000'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
-#keybArray = [['Airfare','Business Meals','Lodging'],
-#                ['Rental Car', 'Transportation', 'Misc. Travel','Misc. Expenses']]
-#KEYBOARD = telegram.ReplyKeyboardMarkup(keybArray, resize_keyboard=True, one_time_keyboard=True)
 
 #Initiating the classes
 db = DBHelper()
