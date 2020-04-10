@@ -3,6 +3,7 @@ import telegram
 import logging
 import time
 from classes import *
+from functions import *
 
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -74,8 +75,16 @@ def photoCapture(update, context):
 
     global exp
 
-    photoId = update.message.photo[-1]['file_id']
-    exp.receipt = bot.get_file(photoId).download_as_bytearray()
+    #Is is a photo?
+    try:
+        photoId = update.message.photo[-1]['file_id']
+        exp.receipt = bot.get_file(photoId).download_as_bytearray()
+
+    #or a document (pdf?
+    except IndexError:
+        fileId = update.message.document['file_id']
+        exp.receipt = saveDocument(fileId, bot)
+
     # Inject the DATA if expense object is complete
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -93,11 +102,15 @@ def captionCapture(update, context):
     photoCapture(update, context)
 
     # Get the amount, reason and deduct type
-    data = update.message.caption
-    dataList = data.split(',')
-    exp.amount = dataList[0]
-    exp.reason = dataList[1]
-    exp = deductType(exp)
+    rawText = update.message.caption
+
+    parsedDict = parseText(rawText)
+    if parsedDict['amount']:
+        exp.amount = parsedDict['amount']
+    if parsedDict['reason']:
+        exp.reason = parsedDict['reason']
+    if exp.reason:
+        exp = deductType(exp)
 
     # Inject the DATA
     rList = checkCompletion(exp)
@@ -108,25 +121,18 @@ def captionCapture(update, context):
 def textCapture(update, context):
 
     global exp
-    data = update.message.text
-    dataList = data.split(',')
 
-    if len(dataList) > 1:
-        exp.amount = dataList[0]
-        exp.reason = dataList[1]
+    rawText = update.message.text
+
+    parsedDict = parseText(rawText)
+    if parsedDict['amount']:
+        exp.amount = parsedDict['amount']
+    if parsedDict['reason']:
+        exp.reason = parsedDict['reason']
+    if exp.reason:
         exp = deductType(exp)
 
-    elif len(dataList) == 1:
-        try:
-            exp.amount = float(dataList[0])
-        except ValueError:
-            exp.reason = dataList[0]
-            exp = deductType(exp)
-
-    else:
-        update.message.reply_text('I cannot really tell which is the amount and which is the reason.')
-
-   # Inject the DATA
+ # Inject the DATA
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)

@@ -1,6 +1,6 @@
 import unittest
 from classes import Expense
-from functions import checkCompletion, parseText
+from functions import *
 
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
@@ -16,40 +16,92 @@ class TestCheckCompletion(unittest.TestCase):
         self.assertNotEqual(len(testList), 0)
 
 class TestParsetext(unittest.TestCase):
+
     def testOrder1(self):
         raw = '667,Restau'
         result = parseText(raw)
-        expected = (667.0,'Restau')
+        expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testOrder2(self):
         raw = 'Restau,667'
         result = parseText(raw)
-        expected = (667.0,'Restau')
+        expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator1(self):
         raw = '667-Restau'
         result = parseText(raw)
-        expected = (667.0,'Restau')
+        expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator2(self):
         raw = '667;Restau'
         result = parseText(raw)
-        expected = (667.0,'Restau')
+        expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator3(self):
         raw = '667:Restau'
         result = parseText(raw)
-        expected = (667.0,'Restau')
+        expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
+
+    def testUniqueFloat(self):
+        raw = '55'
+        result = parseText(raw)
+        expected = {'amount':55.0,'reason':None}
+        self.assertEqual(expected, result)
+    def testUniqueReason(self):
+        raw = 'hotel beach'
+        result = parseText(raw)
+        expected = {'amount':None,'reason':'hotel beach'}
+        self.assertEqual(expected, result)
+
     def testCents(self):
         raw = '45.76,Restau'
         result = parseText(raw)
-        expected = (45.76,'Restau')
+        expected = {'amount':45.76,'reason':'Restau'}
         self.assertEqual(expected, result)
+
+    def testExpenseFeedingAmount(self):
+        raw = 'Hotel, 490'
+        result = parseText(raw)
+        expected = {'amount':490.0,'reason':'Hotel'}
+        self.assertEqual(expected, result)
+
+    def testExpenseFeedingReason(self):
+        raw = 'Hotel, 490'
+        result = parseText(raw)
+        expected = {'amount':490.0,'reason':'Hotel'}
+        self.assertEqual(expected, result)
+
+    def testCurrencyConvert(self):
+        raw = '45 eur, train'
+        expected = {'amount': 42.75,'reason':'train'}
+        result = parseText(raw)
+        self.assertEqual(result, expected)
+
+    def testCurrencyConvertUnique(self):
+        raw = '45 eur'
+        expected = {'amount':42.75,'reason':None}
+        result = parseText(raw)
+        self.assertEqual(expected, result)
+
+class TestEmailParser(unittest.TestCase):
+    def testEasyjetParseAmount(self):
+        filePath = 'easyjet-2020-04-10.json'
+        result = parseFlightEmail(filePath)
+        expected = Expense()
+        expected.amount = '69.00'
+        self.assertEqual(result.amount, expected.amount)
+
+    def testEasyjetParseReason(self):
+        filePath = 'easyjet-2020-04-10.json'
+        result = parseFlightEmail(filePath)
+        expected = Expense()
+        expected.reason = 'flight Amsterdam to Basel-Mulhouse-Freiburg'
+        self.assertEqual(result.reason, expected.reason)
 
 
 if __name__ == '__main__':
