@@ -1,24 +1,9 @@
 #coding: utf-8
 from PIL import Image
-from io import BytesIO
 import os
 import json
 from classes import Expense
 import time
-
-def createImagePath(exp):
-    '''Creates an image from the byte array stored in the expense object (exp.receipt).
-    The path to this image can then be sent to IQ Navigator as a receipt.
-    Input: an expense object
-    Output: path to the image file'''
-
-    img = Image.open(BytesIO(exp.receipt))
-    filename = 'receipt.png'
-    img.save(filename)
-
-    filepath = os.getcwd() + '/' + filename
-
-    return filepath
 
 def checkCompletion(exp):
     '''Checks if the Expense object has all the data to log the expense into the DB.
@@ -132,6 +117,6 @@ def saveDocument(fileId, bot):
 
     #Download the file
     filename = bot.get_file(fileId).download()
-    newFilepath = 'receipts/userId/' + filename
+    newFilepath = os.getcwd() + '/' + 'receipts/userId/' + filename
     os.rename(filename, newFilepath)
     return newFilepath

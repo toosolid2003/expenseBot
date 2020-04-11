@@ -59,7 +59,8 @@ def wbs(update, context):
 
 # Downloads the receipt picture as a byte array to be stored in the DB
 def photoCapture(update, context):
-    '''Capture only the picture into Expense object, as a byte array'''
+    '''Capture only the picture into Expense object, as an absolute path to the 
+    downloaded file.'''
 
     global exp
 
@@ -67,12 +68,11 @@ def photoCapture(update, context):
     try:
         photoId = update.message.photo[-1]['file_id']
         exp.receipt = saveDocument(photoId, bot)
-
     #or a document (pdf, etc.)?
     except IndexError:
         fileId = update.message.document['file_id']
         exp.receipt = saveDocument(fileId, bot)
-
+        update.message.reply_text(exp.receipt)
     # Inject the DATA if expense object is complete
     exp.wbs = WBS
     rList = checkCompletion(exp)
@@ -145,6 +145,7 @@ def start_bot():
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
     dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
+    dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
     updater.start_polling()
 

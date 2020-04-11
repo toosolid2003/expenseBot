@@ -1,4 +1,4 @@
-# Ensemble de fonctions pour gerer la BD de mes expenses.
+# Classes and functions to manage the expense Bot
 
 import sqlite3
 import time

@@ -95,33 +95,34 @@ for exp in expObjList:
     #with open('fileExp','rb') as fichier:
     #    mydepickler = pickle.Unpickler(fichier)
     #    exp = mydepickler.load()
-    
+
     label = driver.find_element_by_name(fields['date'])
     label.send_keys(exp.date)
     time.sleep(2)
-    
+
     #Enter Amount
     label = driver.find_element_by_name(fields['amount'])
     label.send_keys(str(exp.amount))
     time.sleep(2)
-    
+
     #Enter reason
     label = driver.find_element_by_name(fields['reason'])
     label.send_keys(exp.reason)
     time.sleep(2)
-    
+
     #Upload receipt
     #Create a path for the receipt and pass it to the exp.receipt attribute
-    filepath = createImagePath(exp)
-    
+    #filepath = createImagePath(exp)
+
     btn = driver.find_element_by_name(fields['receipt'])
-    btn.send_keys(filepath)
+    btn.send_keys(exp.receipt)
+    time.sleep(2)
     #Click on 'Attach' button
     buttn = driver.find_element_by_name(fields['attachBtn'])
     buttn.click()
-    
+
     time.sleep(5)  #Wait for receipt to load
-    
+
     #Enter type (html select)
     select_element = driver.find_element_by_name(fields['type'])
     select_object = Select(select_element)
