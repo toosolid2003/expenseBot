@@ -59,7 +59,7 @@ def wbs(update, context):
 
 # Downloads the receipt picture as a byte array to be stored in the DB
 def photoCapture(update, context):
-    '''Capture only the picture into Expense object, as an absolute path to the 
+    '''Capture only the picture into Expense object, as an absolute path to the
     downloaded file.'''
 
     global exp
@@ -72,8 +72,8 @@ def photoCapture(update, context):
     except IndexError:
         fileId = update.message.document['file_id']
         exp.receipt = saveDocument(fileId, bot)
-        update.message.reply_text(exp.receipt)
     # Inject the DATA if expense object is complete
+    exp.user = update.message.chat.username
     exp.wbs = WBS
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -103,6 +103,7 @@ def captionCapture(update, context):
 
     # Inject the DATA
     exp.wbs = WBS
+    exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
@@ -124,6 +125,7 @@ def textCapture(update, context):
 
  # Inject the DATA
     exp.wbs = WBS
+    exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)

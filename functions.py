@@ -1,5 +1,4 @@
 #coding: utf-8
-from PIL import Image
 import os
 import json
 from classes import Expense
@@ -118,5 +117,8 @@ def saveDocument(fileId, bot):
     #Download the file
     filename = bot.get_file(fileId).download()
     newFilepath = os.getcwd() + '/' + 'receipts/userId/' + filename
+
+    #Move the document to a dedicated folder
     os.rename(filename, newFilepath)
+
     return newFilepath

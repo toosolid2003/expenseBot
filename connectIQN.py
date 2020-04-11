@@ -10,7 +10,6 @@ import time
 import logging
 from classes import *
 from functions import *
-import pickle
 
 #Set up logging module
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)

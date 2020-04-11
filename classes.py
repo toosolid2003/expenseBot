@@ -5,17 +5,16 @@ import time
 
 class DBHelper:
     def __init__(self, dbname='expenses.sqlite'):
-    #def __init__(self, dbname='expenses.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = "CREATE TABLE IF NOT EXISTS items (amount float (2), date_expense date, reason text, status text, wbs text, type text, receipt longblob)"
+        stmt = "CREATE TABLE IF NOT EXISTS items (amount float (2), date_expense date, reason text, status text, wbs text, type text, receipt varchar, user varchar)"
         self.conn.execute(stmt)
-        self.conn.commit
+        self.conn.commit()
 
     def add_item(self, data_tuple):
-        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?)"
+        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
@@ -44,13 +43,14 @@ class Expense:
         self.reason = None
         self.type = 'Misc. Expenses'
         self.status = 'pending'
+        self.user = None
 
     def to_tuple(self):
         '''Converts the data in the expense class into a tuple.
         Input: expense class with all data
         Output: a data tuple, ready for injection in the db'''
 
-        data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt)
+        data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt, self.user)
         return data_tuple
 
 def deductType(expense):
@@ -59,7 +59,7 @@ def deductType(expense):
    #We infer the expense type by confronting the value in exp.reason to a list of possible words.
    #If none matches, the exp.type attribute is set to 'Misc. Expenses'
 
-   types = {'Lodging':['hotel','airbnb','pension','hostel'], 
+   types = {'Lodging':['hotel','airbnb','pension','hostel'],
            'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
    'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
    'Rental Car':['avis','entreprise','rental car','alamo'],
@@ -73,3 +73,25 @@ def deductType(expense):
                expense.type = accType
 
    return expense
+
+class userDB:
+    def __init__(self, dbname='users.sqlite'):
+        self.dbname = dbname
+        self.conn = sqlite3.connect(dbname, check_same_thread=False)
+
+    def setup(self):
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar)'''
+        self.conn.execute(stmt)
+        self.conn.commit()
+
+    def add_user(self, data):
+        stmt = '''INSERT INTO users VALUES (?,?,?,?)'''
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
+    def get_users_by_status(self, status):
+        data = (status,)
+        c = self.conn.cursor()
+        c.execute('''SELECT iq_username, iq_password FROM users WHERE status = ?''', data)
+
+        return c.fetchall()
