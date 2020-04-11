@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 #Initiating global variables
 updater = None
-WBS = '000000'
+WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
 
@@ -23,18 +23,6 @@ db.setup()
 
 # Database funcntions
 #################################################################
-
-def checkCompletion(exp):
-    '''Checks if the Expense object has all the data to log the expense into the DB.
-    Returns a list of missing values for the db.'''
-
-    rest = []
-    exp.wbs = WBS   #Assign a WBS to the expense now, for lack of better place.
-    for key, value in exp.__dict__.items():
-        if value == None:
-            rest.append(key)
-    return rest
-
 
 def injectDATA(exp):
     '''inject the data contained in the Expense object (exp) into the sqlite db'''
@@ -78,14 +66,15 @@ def photoCapture(update, context):
     #Is is a photo?
     try:
         photoId = update.message.photo[-1]['file_id']
-        exp.receipt = bot.get_file(photoId).download_as_bytearray()
+        exp.receipt = saveDocument(photoId, bot)
 
-    #or a document (pdf?
+    #or a document (pdf, etc.)?
     except IndexError:
         fileId = update.message.document['file_id']
         exp.receipt = saveDocument(fileId, bot)
 
     # Inject the DATA if expense object is complete
+    exp.wbs = WBS
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
@@ -113,6 +102,7 @@ def captionCapture(update, context):
         exp = deductType(exp)
 
     # Inject the DATA
+    exp.wbs = WBS
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
@@ -133,6 +123,7 @@ def textCapture(update, context):
         exp = deductType(exp)
 
  # Inject the DATA
+    exp.wbs = WBS
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)

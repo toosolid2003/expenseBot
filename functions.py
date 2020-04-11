@@ -130,11 +130,8 @@ def saveDocument(fileId, bot):
     Input: Telegram file_id and Telegram bot instance
     Output: absolute_path_to_file'''
 
-    #Create a filename
-    timestamp = int(time.time())
-    filepath = 'receipts/'+'doc_'+str(timestamp)+'.pdf'
-
     #Download the file
-    bot.get_file(fileId).download(filepath)
-
-    return filepath
+    filename = bot.get_file(fileId).download()
+    newFilepath = 'receipts/userId/' + filename
+    os.rename(filename, newFilepath)
+    return newFilepath
