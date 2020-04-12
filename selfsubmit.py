@@ -11,41 +11,22 @@ import logging
 from classes import *
 from functions import *
 
-#Set up logging module
-logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
+def submit_expenses(activeUserTelegram):
+    '''Submit all pending expenses on IQN.
+    Input: telegram username.
+    Output: result of submission (string)'''
 
+    #Creating a dictionnary to host the names of the fields on the Add Expense form
+    fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textBox',
+            'amount':'entryFieldsContainer:fieldGroup:fields:3:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textField',
+            'reason':'entryFieldsContainer:fieldGroup:fields:4:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textField',
+            'receipt':'entryFieldsContainer:fieldGroup:fields:5:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:container:attachmentPanel:feedback:border:feedback_body:fileInput',
+            'attachBtn':'entryFieldsContainer:fieldGroup:fields:5:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:container:attachmentPanel:feedback:border:feedback_body:fileSubmit:container:container_body:button',
+            'wbs':'entryFieldsContainer:fieldGroup:fields:7:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:sizingWrapper:textField:autocompleteField',
+            'type':'entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select'}
 
-#Creating a dictionnary to host the names of the fields on the Add Expense form
-fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textBox',
-        'amount':'entryFieldsContainer:fieldGroup:fields:3:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textField',
-        'reason':'entryFieldsContainer:fieldGroup:fields:4:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textField',
-        'receipt':'entryFieldsContainer:fieldGroup:fields:5:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:container:attachmentPanel:feedback:border:feedback_body:fileInput',
-        'attachBtn':'entryFieldsContainer:fieldGroup:fields:5:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:container:attachmentPanel:feedback:border:feedback_body:fileSubmit:container:container_body:button',
-        'wbs':'entryFieldsContainer:fieldGroup:fields:7:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:sizingWrapper:textField:autocompleteField',
-        'type':'entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select'}
+    db = DBHelper()
 
-#------------------------------------------------------------------------------------------
-
-#Getting a list of active users
-#------------------------------------------------------------------------------------------
-
-
-userdb = userDB()
-activeUsers = userdb.get_users_by_status('active')
-
-#------------------------------------------------------------------------------------------
-
-#Inject expenses for each active user:
-
-userCount = 0
-db = DBHelper()
-
-for user in activeUsers:
-    #Getting a list of "pending expense" objects
-    #------------------------------------------------------------------------------------------
-
-    activeUserTelegram = activeUsers[userCount][0]
     pending = db.extract_pending(activeUserTelegram)
 
     #Create a list of Expense objects to host the data
@@ -63,9 +44,12 @@ for user in activeUsers:
         exp.receipt = pending[i][5]
         i += 1
 
-    #Assign variables
-    username = activeUsers[userCount][1]
-    password = activeUsers[userCount][2]
+    #Get username and password for telegram user
+    userdb = userDB()
+    creds = userdb.get_iqn_credentials(activeUserTelegram)
+    username = creds[0]
+    password = creds[1]
+
     driver = Chrome()
     print('Logging expenses for {}'.format(activeUserTelegram))
 
@@ -182,7 +166,7 @@ for user in activeUsers:
     upDb = DBHelper()
     upDb.updateStatus("pending","logged",activeUserTelegram)
 
-    userCount += 1
 
-#Printint number of logged expenses
-print("Number of expensed logged into IQN: {}/{}".format(j, nbExpensesDB))
+    result = "Number of expensed logged into IQN: {}/{}".format(j, nbExpensesDB)
+
+    return result

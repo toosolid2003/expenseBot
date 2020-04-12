@@ -103,3 +103,15 @@ class userDB:
         c.execute('''SELECT telegram_username, iq_username, iq_password FROM users WHERE status = ?''', data)
 
         return c.fetchall()
+
+    def get_iqn_credentials(self, activeUserTelegram):
+        '''Gets a username and password from the users database.
+        Input: telegram username
+        Output: tuple containing username and password'''
+
+        data = (activeUserTelegram,)
+        stmt = '''SELECT iq_username, iq_password FROM users WHERE telegram_username = ?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+
+        return c.fetchone()

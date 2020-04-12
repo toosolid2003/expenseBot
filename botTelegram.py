@@ -4,6 +4,7 @@ import logging
 import time
 from classes import *
 from functions import *
+from selfsubmit import *
 
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -13,7 +14,6 @@ updater = None
 WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = telegram.Bot(TOKEN)
-
 #Initiating the classes
 db = DBHelper()
 #exp = Expense()
@@ -54,7 +54,13 @@ def wbs(update, context):
     else:
         update.message.reply_text('Your current WBS is {}'.format(WBS))
 
-    # Input handlers
+def submit(update, context):
+    '''Submit into IQ Navigtor the expenses that are still in pending status'''
+
+    response = submit_expenses(update.message.chat.username)
+    update.message.reply_text(response)
+
+# Input handlers
 #################################################################
 
 # Downloads the receipt picture as a byte array to be stored in the DB
@@ -79,9 +85,6 @@ def photoCapture(update, context):
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
-
-    #else:
-    #    update.message.reply_text(rList)
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -130,9 +133,6 @@ def textCapture(update, context):
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
-   #else:
-    #    update.message.reply_text(rList)
-
 
 def start_bot():
     global updater
@@ -144,6 +144,7 @@ def start_bot():
 
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
+    dispatcher.add_handler(CommandHandler('submit', submit))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
     dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
