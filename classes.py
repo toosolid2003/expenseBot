@@ -92,7 +92,7 @@ class userDB:
         Input:  telegram username, iq_username, iq_password
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, iq_username, ia_password, 'active')
+        data = (telegram_username, iq_username, iq_password, 'active')
         stmt = '''INSERT INTO users VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
@@ -115,3 +115,9 @@ class userDB:
         c.execute(stmt, data)
 
         return c.fetchone()
+
+    def del_user_by_iq_username(self,iq_username):
+        stmt = '''DELETE FROM users WHERE iq_username = ?'''
+        data = (iq_username,)
+        self.conn.execute(stmt, data)
+        self.conn.commit()

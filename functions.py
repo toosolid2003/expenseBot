@@ -67,7 +67,7 @@ def conversionRate(parsingElt):
     '''Converts an amount from CHF to a target ccy.
     Returns None if no currency has been found in the parsed element'''
 
-    ccyDict = {'eur':0.95,'usd':1.03,'nzd':1.71,'aud':1.65,'cad':1.44,'gbp':0.83}
+    ccyDict = {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2}
 
     for ccy in ccyDict.keys():
         if ccy in parsingElt.lower():
@@ -77,7 +77,7 @@ def convertUpdateElement(parsingElt):
     '''Substract the currency denominator from the parsed element to prepare it for
     type change withe float'''
 
-    ccyDict = {'eur':0.95,'usd':1.03,'nzd':1.71,'aud':1.65,'cad':1.44,'gbp':0.83}
+    ccyDict = {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2}
 
     tempElt = parsingElt.lower()
     for ccy in ccyDict.keys():
