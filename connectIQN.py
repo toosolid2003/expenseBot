@@ -15,26 +15,6 @@ from functions import *
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-#Getting a list of "pending expense" objects
-#------------------------------------------------------------------------------------------
-
-db = DBHelper()
-pending = db.extract_pending()
-
-#Create a list of Expense objects to host the data
-expObjList = [Expense() for i in range(len(pending))]
-
-#Transferring the data from the pending tuples to the expense objects
-i = 0
-for exp in expObjList:
-    exp.amount = str(pending[i][0]).replace('.',',')        #All this jazz to convert the dot into a comma for IQ Navigator (otherwise, it logs a dot as a thousand separator).
-    exp.date = pending[i][1]
-    exp.reason = pending[i][2]
-    exp.wbs = pending[i][3]
-    exp.type = pending[i][4]
-    exp.receipt = pending[i][5]
-    i += 1
-
 
 #Creating a dictionnary to host the names of the fields of the Add Expense form
 fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:textBox',
@@ -45,132 +25,177 @@ fields = {'date':'entryFieldsContainer:fieldGroup:fields:1:feedbackReportingBord
         'wbs':'entryFieldsContainer:fieldGroup:fields:7:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:sizingWrapper:textField:autocompleteField',
         'type':'entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select'}
 
+#------------------------------------------------------------------------------------------
 
-#Login sequence
-
-driver = Chrome()
-
-print('Opening the login page')
-driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
-element = driver.find_element_by_id('username')
-element.send_keys('tsegura2')
-elemental = driver.find_element_by_id('password')
-elemental.send_keys('Brutasse1-')
-elemental.send_keys(Keys.RETURN)
-print('Logging in...')
-
-#Home page - wait for the logout element to load before doing anything
-element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
-print('Logged in. On Home Page')
-# Click on 'Create Expense Report' from Home page
-lb = driver.find_elements_by_class_name('launchButton')
-lb[1].click()
-
-# Click on Create expense report from Assignment page
-bt = driver.find_elements_by_class_name('actionButtonLabel')
-bt[0].click()
-
-#Enter a title for the Expense Report
-print('Creating a new expense report')
-expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
-expReportTile.send_keys('Expenses for this week')
-
-#Add expense button
-bt = driver.find_elements_by_class_name('actionButtonLabel')
-bt[2].click()
-time.sleep(5)
-print('Adding Expenses...')
-
-# ------------------------------------------------------------
+#Getting a list of active users
+#------------------------------------------------------------------------------------------
 
 
-# Add Expense form - start of the loop
-j = 1
-## Enter date
-for exp in expObjList:
+userdb = userDB()
+activeUsers = userdb.get_users_by_status('active')
 
-    print('Adding expense {}'.format(j))
-    #Temporarily use an expense object stored in a file
-    #with open('fileExp','rb') as fichier:
-    #    mydepickler = pickle.Unpickler(fichier)
-    #    exp = mydepickler.load()
+#------------------------------------------------------------------------------------------
 
-    label = driver.find_element_by_name(fields['date'])
-    label.send_keys(exp.date)
-    time.sleep(2)
+#Inject expenses for each active user:
 
-    #Enter Amount
-    label = driver.find_element_by_name(fields['amount'])
-    label.send_keys(str(exp.amount))
-    time.sleep(2)
+userCount = 0
+db = DBHelper()
 
-    #Enter reason
-    label = driver.find_element_by_name(fields['reason'])
-    label.send_keys(exp.reason)
-    time.sleep(2)
+for user in activeUsers:
+    #Getting a list of "pending expense" objects
+    #------------------------------------------------------------------------------------------
 
-    #Upload receipt
-    #Create a path for the receipt and pass it to the exp.receipt attribute
-    #filepath = createImagePath(exp)
+    activeUserTelegram = activeUsers[userCount][0]
+    pending = db.extract_pending(activeUserTelegram)
 
-    btn = driver.find_element_by_name(fields['receipt'])
-    btn.send_keys(exp.receipt)
-    time.sleep(2)
-    #Click on 'Attach' button
-    buttn = driver.find_element_by_name(fields['attachBtn'])
-    buttn.click()
+    #Create a list of Expense objects to host the data
+    expObjList = [Expense() for i in range(len(pending))]
 
-    time.sleep(5)  #Wait for receipt to load
+    nbExpensesDB = len(pending)
+    #Transferring the data from the pending tuples to the expense objects
+    i = 0
+    for exp in expObjList:
+        exp.amount = str(pending[i][0]).replace('.',',')        #All this jazz to convert the dot into a comma for IQ Navigator (otherwise, it logs a dot as a thousand separator).
+        exp.date = pending[i][1]
+        exp.reason = pending[i][2]
+        exp.wbs = pending[i][3]
+        exp.type = pending[i][4]
+        exp.receipt = pending[i][5]
+        i += 1
+        print(exp.date, exp.amount)
 
-    #Enter type (html select)
-    select_element = driver.find_element_by_name(fields['type'])
-    select_object = Select(select_element)
-    select_object.select_by_visible_text(exp.type)
-    time.sleep(2)
-    
-    
-    #Enter WBS
-    
-    # ------------
-    # Testing only
-    exp.wbs = 'BLXPB001'
-    # -----------
-    
-    select_element = driver.find_element_by_name(fields['wbs'])
-    select_element.send_keys(exp.wbs)
-    
-    #Truc sioux pour activer le js dans le champ WBS
-    label = driver.find_element_by_name(fields['reason'])
-    time.sleep(2)
-    
-    #Save and Add other expense
-    saveNadd= driver.find_element_by_name('saveAndAddButton:container:container_body:button')
-    saveNadd.click()
+    #Assign variables
+    username = activeUsers[userCount][1]
+    password = activeUsers[userCount][2]
+    driver = Chrome()
+
+    #Login sequence
+    print('Opening the login page')
+    driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
+    element = driver.find_element_by_id('username')
+    element.send_keys(username)
+    elemental = driver.find_element_by_id('password')
+    elemental.send_keys(password)
+    elemental.send_keys(Keys.RETURN)
+    print('Logging in...')
+
+    #Home page - wait for the logout element to load before doing anything
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
+    print('Logged in. On Home Page')
+    # Click on 'Create Expense Report' from Home page
+    lb = driver.find_elements_by_class_name('launchButton')
+    lb[1].click()
+
+    # Click on Create expense report from Assignment page
+    bt = driver.find_elements_by_class_name('actionButtonLabel')
+    bt[0].click()
+
+    #Enter a title for the Expense Report
+    print('Creating a new expense report')
+    expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
+    expReportTile.send_keys('Expenses for this week')
+
+    #Add expense button
+    bt = driver.find_elements_by_class_name('actionButtonLabel')
+    bt[2].click()
     time.sleep(5)
-    #Save and Close
-    #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
-    #saveNclose.click()
-    j += 1
-#Close the Add Expense modal
-closeBtn = driver.find_element_by_class_name('container-close')
-closeBtn.click()
+    print('Adding Expenses...')
 
-time.sleep(2)
-#Save the draft
-print('Saving the draft of expense report')
-elts = driver.find_elements_by_class_name('actionButtonLabel')
-elts[1].click()
-time.sleep(4)
+    # ------------------------------------------------------------
 
-#Logout
-print('Logging out')
-logout = driver.find_element_by_id('logoutLink')
-logout.click()
 
-#Close Chrome
-driver.close()
+    # Add Expense form - start of the loop
+    j = 0
+    ## Enter date
+    for exp in expObjList:
 
-#Update the database: change the status of logged expenses
-print('Updating the database')
-upDb = DBHelper()
-upDb.updateStatus("pending","logged")
+        print('Adding expense {}'.format(j))
+        #Temporarily use an expense object stored in a file
+        #with open('fileExp','rb') as fichier:
+        #    mydepickler = pickle.Unpickler(fichier)
+        #    exp = mydepickler.load()
+
+        label = driver.find_element_by_name(fields['date'])
+        label.send_keys(exp.date)
+        time.sleep(2)
+
+        #Enter Amount
+        label = driver.find_element_by_name(fields['amount'])
+        label.send_keys(str(exp.amount))
+        time.sleep(2)
+
+        #Enter reason
+        label = driver.find_element_by_name(fields['reason'])
+        label.send_keys(exp.reason)
+        time.sleep(2)
+
+        #Upload receipt
+        #Create a path for the receipt and pass it to the exp.receipt attribute
+        #filepath = createImagePath(exp)
+
+        btn = driver.find_element_by_name(fields['receipt'])
+        btn.send_keys(exp.receipt)
+        time.sleep(2)
+        #Click on 'Attach' button
+        buttn = driver.find_element_by_name(fields['attachBtn'])
+        buttn.click()
+
+        time.sleep(5)  #Wait for receipt to load
+
+        #Enter type (html select)
+        select_element = driver.find_element_by_name(fields['type'])
+        select_object = Select(select_element)
+        select_object.select_by_visible_text(exp.type)
+        time.sleep(2)
+
+
+        #Enter WBS
+
+        # ------------
+        # Testing only
+#        exp.wbs = 'BLXPB001'
+        # -----------
+
+        select_element = driver.find_element_by_name(fields['wbs'])
+        select_element.send_keys(exp.wbs)
+
+        #Truc sioux pour activer le js dans le champ WBS
+        label = driver.find_element_by_name(fields['reason'])
+        time.sleep(2)
+
+        #Save and Add other expense
+        saveNadd= driver.find_element_by_name('saveAndAddButton:container:container_body:button')
+        saveNadd.click()
+        time.sleep(5)
+        #Save and Close
+        #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
+        #saveNclose.click()
+        j += 1
+    #Close the Add Expense modal
+    closeBtn = driver.find_element_by_class_name('container-close')
+    closeBtn.click()
+
+    time.sleep(2)
+    #Save the draft
+    print('Saving the draft of expense report')
+    elts = driver.find_elements_by_class_name('actionButtonLabel')
+    elts[1].click()
+    time.sleep(4)
+
+    #Logout
+    print('Logging out')
+    logout = driver.find_element_by_id('logoutLink')
+    logout.click()
+
+    #Close Chrome
+    driver.close()
+
+    #Update the database: change the status of logged expenses
+    print('Updating the database')
+    upDb = DBHelper()
+    upDb.updateStatus("pending","logged",activeUserTelegram)
+
+    userCount += 1
+
+#Printint number of logged expenses
+print("Number of expensed logged into IQN: {}/{}".format(j, nbExpensesDB))

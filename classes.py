@@ -18,20 +18,23 @@ class DBHelper:
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
-    def extract_pending(self):
-        '''Extracts all expenses with a 'pending' status. Returns a list of data tuple rows'''
-        status = ("pending",)
+    def extract_pending(self, activeUser):
+        '''Extracts all expenses with a 'pending' status. Returns a list of data tuple rows.
+        Input: an active user (telegram username)
+        Output: list of tuples, one tuple per pending expense'''
+
+        status = ("pending", activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=?''', status)
+        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=? AND user=?''', status)
 
         return c.fetchall()
 
-    def updateStatus(self, currentStatus, newStatus):
+    def updateStatus(self, currentStatus, newStatus, telegram_username):
         '''Modifies the status the expenses that have been logged into IQ Navigator. New status: logged'''
 
-        status = (newStatus, currentStatus)
+        data = (newStatus, currentStatus, telegram_username)
         c = self.conn.cursor()
-        c.execute('''UPDATE items SET status = ? WHERE status = ?''', status)
+        c.execute('''UPDATE items SET status = ? WHERE status = ? AND user = ?''', data)
         self.conn.commit()
 
 class Expense:
@@ -84,7 +87,12 @@ class userDB:
         self.conn.execute(stmt)
         self.conn.commit()
 
-    def add_user(self, data):
+    def add_user(self, telegram_username, iq_username, iq_password):
+        '''Adds a user to the users table.
+        Input:  telegram username, iq_username, iq_password
+        Output: new entry in the users table. By default, the user is set to "active"'''
+
+        data = (telegram_username, iq_username, ia_password, 'active')
         stmt = '''INSERT INTO users VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
@@ -92,6 +100,6 @@ class userDB:
     def get_users_by_status(self, status):
         data = (status,)
         c = self.conn.cursor()
-        c.execute('''SELECT iq_username, iq_password FROM users WHERE status = ?''', data)
+        c.execute('''SELECT telegram_username, iq_username, iq_password FROM users WHERE status = ?''', data)
 
         return c.fetchall()
