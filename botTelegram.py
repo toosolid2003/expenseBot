@@ -168,7 +168,8 @@ def start_bot():
     global updater
     global exp
     exp = Expense()
-    updater = Updater('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA', use_context=True)
+    TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
+    updater = Updater(TOKEN, use_context=True)
 
     dispatcher = updater.dispatcher
 
@@ -182,7 +183,11 @@ def start_bot():
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
     dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
-    updater.start_polling()
+    updater.start_webhook(listen='134.209.202.182',
+            key= '/etc/letsencrypt/live/expensebot.net/privkey.pem',
+            cert='/etc/letsencrypt/live/expensebot.net/fullchain.pem',
+            port=443)
+    #updater.start_polling()
 
     updater.idle()
 
