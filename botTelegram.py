@@ -1,25 +1,15 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher
-import telegram
+from telegram import Bot
 import logging
 import time
 from classes import *
 from functions import *
 from selfsubmit import *
 
-logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+#logger = logging.getLogger(__name__)
 
-#Initiating global variables
-updater = None
 WBS = 'BLXPB001'
-TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
-bot = telegram.Bot(TOKEN)
-#Initiating the classes
-db = DBHelper()
-#exp = Expense()
-#Setting up the database
-db.setup()
-
 
 # Database funcntions
 #################################################################
@@ -164,15 +154,18 @@ def textCapture(update, context):
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
 
-def start_bot():
-    global updater
+def setup(bot):
     global exp
     exp = Expense()
-    TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
-    updater = Updater(TOKEN, use_context=True)
+    #Initiating global variables
+    WBS = 'BLXPB001'
+    #Initiating the classes
+    db = DBHelper()
+    db.setup()
+    
+    dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
 
-    dispatcher = updater.dispatcher
-
+    #Registering handlers
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
@@ -183,12 +176,14 @@ def start_bot():
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
     dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
-    updater.start_webhook(listen='134.209.202.182',
-            key= '/etc/letsencrypt/live/expensebot.net/privkey.pem',
-            cert='/etc/letsencrypt/live/expensebot.net/fullchain.pem',
-            port=443)
-    #updater.start_polling()
+#    updater.start_webhook(listen='134.209.202.182',
+#            key= '/etc/letsencrypt/live/expensebot.net/privkey.pem',
+#            cert='/etc/letsencrypt/live/expensebot.net/fullchain.pem',
+#            port=443)
+#    #updater.start_polling()
+#
+#    updater.idle()
+    return dispatcher
 
-    updater.idle()
-
-start_bot()
+def webhook(update, dispatcher):
+    dispatcher.process_update(update)
