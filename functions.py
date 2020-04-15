@@ -114,9 +114,11 @@ def saveDocument(fileId, bot):
     Input: Telegram file_id and Telegram bot instance
     Output: absolute_path_to_file'''
 
+    #Change the current directory to one which www-data has access to
+    os.chdir('/var/www/expenseBot/receipts/')
     #Download the file
     filename = bot.get_file(fileId).download()
-    newFilepath = os.getcwd() + '/' + 'receipts/userId/' + filename
+    newFilepath = '/var/www/expenseBot/receipts/userId/' + filename
 
     #Move the document to a dedicated folder
     os.rename(filename, newFilepath)

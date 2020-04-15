@@ -5,11 +5,13 @@ import time
 from classes import *
 from functions import *
 from selfsubmit import *
-
-#logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
-#logger = logging.getLogger(__name__)
+logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 WBS = 'BLXPB001'
+TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
+bot = Bot(TOKEN)
+db = DBHelper()
 
 # Database funcntions
 #################################################################
@@ -150,9 +152,12 @@ def textCapture(update, context):
     exp.wbs = WBS
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
+    update.message.reply_text('You miss :{}'.format(rList))
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('I have recorded your data.')
+def echoText(update, message):
+    update.message.reply_text('You said {}'.format(update.message.text))
 
 def setup(bot):
     global exp
