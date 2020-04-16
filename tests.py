@@ -5,7 +5,7 @@ from functions import *
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
         exp = Expense()
-        exp.amount, exp.reason, exp.wbs, exp.receipt = 45, 'motel','BFG9000',b'testave'
+        exp.amount, exp.reason, exp.wbs, exp.receipt, exp.user = 45, 'motel','BFG9000','/var/www/receipt/','thedropper'
         testList = checkCompletion(exp)
         self.assertEqual(len(testList), 0)
 
@@ -78,31 +78,31 @@ class TestParsetext(unittest.TestCase):
 
     def testCurrencyConvert(self):
         raw = '45 eur, train'
-        expected = {'amount': 42.75,'reason':'train'}
+        expected = {'amount': 47.7,'reason':'train'}
         result = parseText(raw)
         self.assertEqual(result, expected)
 
     def testCurrencyConvertUnique(self):
         raw = '45 eur'
-        expected = {'amount':42.75,'reason':None}
+        expected = {'amount':47.7,'reason':None}
         result = parseText(raw)
         self.assertEqual(expected, result)
 
-class TestEmailParser(unittest.TestCase):
-    def testEasyjetParseAmount(self):
-        filePath = 'easyjet-2020-04-10.json'
-        result = parseFlightEmail(filePath)
-        expected = Expense()
-        expected.amount = '69.00'
-        self.assertEqual(result.amount, expected.amount)
-
-    def testEasyjetParseReason(self):
-        filePath = 'easyjet-2020-04-10.json'
-        result = parseFlightEmail(filePath)
-        expected = Expense()
-        expected.reason = 'flight Amsterdam to Basel-Mulhouse-Freiburg'
-        self.assertEqual(result.reason, expected.reason)
-
-
+#class TestEmailParser(unittest.TestCase):
+#    def testEasyjetParseAmount(self):
+#        filePath = 'easyjet-2020-04-10.json'
+#        result = parseFlightEmail(filePath)
+#        expected = Expense()
+#        expected.amount = '69.00'
+#        self.assertEqual(result.amount, expected.amount)
+#
+#    def testEasyjetParseReason(self):
+#        filePath = 'easyjet-2020-04-10.json'
+#        result = parseFlightEmail(filePath)
+#        expected = Expense()
+#        expected.reason = 'flight Amsterdam to Basel-Mulhouse-Freiburg'
+#        self.assertEqual(result.reason, expected.reason)
+#
+#
 if __name__ == '__main__':
     unittest.main()

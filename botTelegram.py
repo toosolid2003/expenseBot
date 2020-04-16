@@ -54,33 +54,23 @@ def submit(update, context):
     update.message.reply_text(response)
 
 def helpmsg(update, context):
-    text = '''Do you want to log an expense? Easy, I need 3 things from you:
-        - An amount
-        - A reason (hotel, restaurant, train ticker, flights)
-        - A receipt (a picture of your receipt or a any sort of document.
-You can give me these details in any way you want. Eg, "400 eur, hotel California" and then send a receipt.
-Or just share a picture of a receipt, with the amount and reason as comments.
-
-Beyond that, you can ask me to do specific things with commands. Type:
-   - /wbs XXXXX, where XXXXX is the WBS you want to charge your expenses on. Just type /wbs if you want to display the current wbs being used.
-   - /submit to ask me to log all your pending expenses into IQ Navigator.
-   - /setup to share with me your username and password for IQ Navigator. This way, I can log expenses on your behalf. You will still have to submit the expense report though.
-
-Alright, now enjoy!'''
+    text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
+I have other talents too, just type '/' to display my available commands. Enjoy!'''
     update.message.reply_text(text)
 
 def setup(update, context):
     '''Takes the username and password of a new user'''
 
-    if len(context.args) > 0:
-        username = context.args[0]
-        password = context.args[1]
-        dbuser = userDB()
-        dbuser.add_user(update.message.chat.username, username, password)
-        update.message.reply_text('Thanks, I have username: {} and password: {}'.format(username, password))
-    else:
-        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
-
+    update.message.reply_text('Coming soon...')
+#    if len(context.args) > 0:
+#        username = context.args[0]
+#        password = context.args[1]
+#        dbuser = userDB()
+#        dbuser.add_user(update.message.chat.username, username, password)
+#        update.message.reply_text('Thanks, I have username: {} and password: {}'.format(username, password))
+#    else:
+#        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
+#
 
 # Input handlers
 #################################################################
@@ -106,7 +96,7 @@ def photoCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks, I have recorded your expense.')
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -132,7 +122,7 @@ def captionCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks, I have recorded your expense.')
 
 def textCapture(update, context):
 
@@ -152,10 +142,10 @@ def textCapture(update, context):
     exp.wbs = WBS
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
-    update.message.reply_text('You miss :{}'.format(rList))
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks, got it.')
+
 def echoText(update, message):
     update.message.reply_text('You said {}'.format(update.message.text))
 
