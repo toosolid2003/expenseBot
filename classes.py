@@ -4,7 +4,7 @@ import sqlite3
 import time
 
 class DBHelper:
-    def __init__(self, dbname='expenses.sqlite'):
+    def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
@@ -78,7 +78,7 @@ def deductType(expense):
    return expense
 
 class userDB:
-    def __init__(self, dbname='users.sqlite'):
+    def __init__(self, dbname='/var/www/expenseBot/users.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 

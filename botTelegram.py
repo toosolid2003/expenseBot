@@ -5,12 +5,9 @@ import time
 from classes import *
 from functions import *
 from selfsubmit import *
-
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-#Initiating global variables
-updater = None
 WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = Bot(TOKEN)
@@ -19,6 +16,8 @@ db = DBHelper()
 db.setup()
 userdb = userDB()
 userdb.setup()
+=======
+db = DBHelper()
 
 # Database funcntions
 #################################################################
@@ -61,22 +60,28 @@ def submit(update, context):
     update.message.reply_text(response)
 
 def helpmsg(update, context):
+<<<<<<< HEAD
     text = '''To log an expense, send me its amount, reason and a picture of a receipt.  Eg:
         '''
+=======
+    text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
+I have other talents too, just type '/' to display my available commands. Enjoy!'''
+>>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
     update.message.reply_text(text)
 
 def setup(update, context):
     '''Takes the username and password of a new user'''
 
-    if len(context.args) > 0:
-        username = context.args[0]
-        password = context.args[1]
-        dbuser = userDB()
-        dbuser.add_user(update.message.chat.username, username, password)
-        update.message.reply_text('Thanks, I have username: {} and password: {}'.format(username, password))
-    else:
-        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
-
+    update.message.reply_text('Coming soon...')
+#    if len(context.args) > 0:
+#        username = context.args[0]
+#        password = context.args[1]
+#        dbuser = userDB()
+#        dbuser.add_user(update.message.chat.username, username, password)
+#        update.message.reply_text('Thanks, I have username: {} and password: {}'.format(username, password))
+#    else:
+#        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
+#
 
 # Input handlers
 #################################################################
@@ -102,7 +107,11 @@ def photoCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
+<<<<<<< HEAD
         update.message.reply_text('Thanks for this, I got your expense.')
+=======
+        update.message.reply_text('Thanks, I have recorded your expense.')
+>>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -128,7 +137,11 @@ def captionCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
+<<<<<<< HEAD
         update.message.reply_text('Thanks for this, I got your expense.')
+=======
+        update.message.reply_text('Thanks, I have recorded your expense.')
+>>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
 def textCapture(update, context):
 
@@ -150,16 +163,27 @@ def textCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
+<<<<<<< HEAD
         update.message.reply_text('Thanks for this, I got your expense.')
+=======
+        update.message.reply_text('Thanks, got it.')
+>>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
-def start_bot():
-    global updater
+def echoText(update, message):
+    update.message.reply_text('You said {}'.format(update.message.text))
+
+def setup(bot):
     global exp
     exp = Expense()
-    updater = Updater('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA', use_context=True)
+    #Initiating global variables
+    WBS = 'BLXPB001'
+    #Initiating the classes
+    db = DBHelper()
+    db.setup()
+    
+    dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
 
-    dispatcher = updater.dispatcher
-
+    #Registering handlers
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
@@ -170,8 +194,14 @@ def start_bot():
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
     dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
-    updater.start_polling()
+#    updater.start_webhook(listen='134.209.202.182',
+#            key= '/etc/letsencrypt/live/expensebot.net/privkey.pem',
+#            cert='/etc/letsencrypt/live/expensebot.net/fullchain.pem',
+#            port=443)
+#    #updater.start_polling()
+#
+#    updater.idle()
+    return dispatcher
 
-    updater.idle()
-
-start_bot()
+def webhook(update, dispatcher):
+    dispatcher.process_update(update)

@@ -1,5 +1,7 @@
 # coding: utf-8
 import selenium
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
@@ -68,6 +70,8 @@ for user in activeUsers:
     username = activeUsers[userCount][1]
     password = activeUsers[userCount][2]
 #Initiating the Chrome driver
+
+    #Initiating the Chrome driver
     print('Initialising Chrome driver')
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -92,13 +96,14 @@ for user in activeUsers:
     element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
     print('Logged in. On Home Page')
     # Click on 'Create Expense Report' from Home page
-    lb = driver.find_elements_by_class_name('launchButton')
-    lb[1].click()
+    bt = driver.find_element_by_link_text('Create Expense Report')
+    bt.click()
 
     # Click on Create expense report from Assignment page
     element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME,'actionButtonLabel')))
     bt = driver.find_elements_by_class_name('actionButtonLabel')
     bt[0].click()
+    time.sleep(3)
 
     #Enter a title for the Expense Report
     print('Creating a new expense report')
@@ -120,21 +125,25 @@ for user in activeUsers:
     for exp in expObjList:
 
         print('Adding expense {}'.format(j))
+        print('Adding date: {}'.format(exp.date))
         label = driver.find_element_by_name(fields['date'])
         label.send_keys(exp.date)
         time.sleep(2)
 
         #Enter Amount
+        print('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
         label.send_keys(str(exp.amount))
         time.sleep(2)
 
         #Enter reason
+        print('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
         label.send_keys(exp.reason)
         time.sleep(2)
 
         #Upload receipt
+        print('Uploading receipt: {}'.format(exp.receipt))
         btn = driver.find_element_by_name(fields['receipt'])
         btn.send_keys(exp.receipt)
         time.sleep(2)
@@ -145,6 +154,7 @@ for user in activeUsers:
         time.sleep(5)  #Wait for receipt to load
 
         #Enter type (html select)
+        print('Adding type: {}'.format(exp.type))
         select_element = driver.find_element_by_name(fields['type'])
         select_object = Select(select_element)
         select_object.select_by_visible_text(exp.type)
@@ -152,6 +162,7 @@ for user in activeUsers:
 
 
         #Enter WBS
+        print('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
 
@@ -160,7 +171,8 @@ for user in activeUsers:
         time.sleep(2)
 
         #Save and Add other expense
-        saveNadd= driver.find_element_by_name('saveAndAddButton:container:container_body:button')
+        print('Saving expense')
+        saveNadd= driver.find_element_by_id('idcd')
         saveNadd.click()
         time.sleep(5)
         #Save and Close
