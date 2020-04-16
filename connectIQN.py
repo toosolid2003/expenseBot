@@ -6,6 +6,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
 import logging
 from classes import *
@@ -66,7 +67,15 @@ for user in activeUsers:
     #Assign variables
     username = activeUsers[userCount][1]
     password = activeUsers[userCount][2]
-    driver = Chrome()
+#Initiating the Chrome driver
+    print('Initialising Chrome driver')
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument("--window-size=1920,1080");
+    chrome_options.add_argument("--start-maximized");
+    driver = Chrome(options=chrome_options)
+    #driver = Chrome()
     print('Logging expenses for {}'.format(activeUserTelegram))
 
     #Login sequence
@@ -87,6 +96,7 @@ for user in activeUsers:
     lb[1].click()
 
     # Click on Create expense report from Assignment page
+    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME,'actionButtonLabel')))
     bt = driver.find_elements_by_class_name('actionButtonLabel')
     bt[0].click()
 

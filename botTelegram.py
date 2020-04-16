@@ -1,5 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher
-import telegram
+from telegram import Bot
 import logging
 import time
 from classes import *
@@ -13,13 +13,12 @@ logger = logging.getLogger(__name__)
 updater = None
 WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
-bot = telegram.Bot(TOKEN)
+bot = Bot(TOKEN)
 #Initiating the classes
 db = DBHelper()
-#exp = Expense()
-#Setting up the database
 db.setup()
-
+userdb = userDB()
+userdb.setup()
 
 # Database funcntions
 #################################################################
@@ -40,7 +39,7 @@ def injectDATA(exp):
 #################################################################
 
 def start(update, context):
-    text = '''Hello there, I'm expenseBot. My sole purpose: making business expenses easy for you to log and track.
+    text = '''Hello there, I'm expenseBot. I'll try ma best to making the management of your business expenses way easier for you..
 No one wants to waste time doing that, so here I am. Type '/help' if you want to know what I can do for you.'''
     update.message.reply_text(text)
 
@@ -62,19 +61,8 @@ def submit(update, context):
     update.message.reply_text(response)
 
 def helpmsg(update, context):
-    text = '''Do you want to log an expense? Easy, I need 3 things from you:
-        - An amount
-        - A reason (hotel, restaurant, train ticker, flights)
-        - A receipt (a picture of your receipt or a any sort of document.
-You can give me these details in any way you want. Eg, "400 eur, hotel California" and then send a receipt.
-Or just share a picture of a receipt, with the amount and reason as comments.
-
-Beyond that, you can ask me to do specific things with commands. Type:
-   - /wbs XXXXX, where XXXXX is the WBS you want to charge your expenses on. Just type /wbs if you want to display the current wbs being used.
-   - /submit to ask me to log all your pending expenses into IQ Navigator.
-   - /setup to share with me your username and password for IQ Navigator. This way, I can log expenses on your behalf. You will still have to submit the expense report though.
-
-Alright, now enjoy!'''
+    text = '''To log an expense, send me its amount, reason and a picture of a receipt.  Eg:
+        '''
     update.message.reply_text(text)
 
 def setup(update, context):
@@ -114,7 +102,7 @@ def photoCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks for this, I got your expense.')
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -140,7 +128,7 @@ def captionCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks for this, I got your expense.')
 
 def textCapture(update, context):
 
@@ -162,7 +150,7 @@ def textCapture(update, context):
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-        update.message.reply_text('I have recorded your data.')
+        update.message.reply_text('Thanks for this, I got your expense.')
 
 def start_bot():
     global updater
