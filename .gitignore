@@ -11,3 +11,5 @@ expenseBot/
 .gitignore
 *.txt
 receipts/
+fixConnect.py 
+prettyprint.py

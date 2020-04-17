@@ -27,6 +27,7 @@ def injectDATA(exp):
     exp.amount = None
     exp.receipt = None
     exp.reason = None
+    exp.type = None
 
 # Commands
 #################################################################

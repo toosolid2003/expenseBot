@@ -8,6 +8,8 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import logging
 from classes import *
@@ -162,19 +164,30 @@ for user in activeUsers:
         print('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
-
         #Truc sioux pour activer le js dans le champ WBS
-        label = driver.find_element_by_name(fields['reason'])
-        time.sleep(2)
+        #label = driver.find_element_by_name(fields['reason'])
+        #time.sleep(5)
 
         #Save and Add other expense
         print('Saving expense')
-        saveNadd= driver.find_element_by_id('idcd')
-        saveNadd.click()
+        #Use TAB key to scroll down to have the Save and Add Button appear to the driver
+        select_element.send_keys(Keys.TAB)
+        time.sleep(2)
+        btn = driver.find_element_by_name('saveAndAddButton:container:container_body:button')
+        btn.click()
         time.sleep(5)
+#        #Take a screenshot here
+        driver.save_screenshot('diagnostic.png')
+#        try:
+#            feedback = driver.find_element_by_class_name('fbERROR')
+#            print('Error on the form')
+#        except NoSuchElementException:
+#            feedback = driver.find_element_by_class_name('fbINFO')
+#            print('Expense recorded, off to the next')
         #Save and Close
         #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
         #saveNclose.click()
+        time.sleep(2)
         j += 1
 
     #Close the Add Expense modal
@@ -202,6 +215,5 @@ for user in activeUsers:
     upDb.updateStatus("pending","logged",activeUserTelegram)
 
     userCount += 1
-
 #Printint number of logged expenses
 print("Number of expensed logged into IQN: {}/{}".format(j, nbExpensesDB))
