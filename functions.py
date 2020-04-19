@@ -1,7 +1,7 @@
 #coding: utf-8
 import os
 import json
-from classes import Expense
+from classes import Expense, DBHelper
 import time
 
 def checkCompletion(exp):
@@ -124,3 +124,33 @@ def saveDocument(fileId, bot):
     os.rename(filename, newFilepath)
 
     return newFilepath
+
+def toMarkdown(activeUser):
+    '''Gets all pending expenses from expenses db and format them into a markdown table.
+    Input: active Telegram user handle
+    Output: mardown data formatted as html
+    '''
+    db = DBHelper()
+    pd = db.extract_pending(activeUser)
+    output = ''
+    for expense in pd:
+
+        #Reformatting the time variable for legibility
+        totime = time.strptime(expense[1], "%d-%m-%Y")
+        expenseDate = time.strftime("%A %d %B", totime)
+        output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
+    
+    return output
+
+def totalPending(activeUser):
+    '''Calculates the total amount of current pending expenses.
+    Input: active telegram handle
+    Output: float'''
+
+    db = DBHelper()
+    pendingExpenses = db.extract_pending(activeUser)
+    total = 0
+    for expense in pendingExpenses:
+        total += expense[0]
+
+    return total

@@ -1,4 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher
+import telegram
 from telegram import Bot
 import logging
 import time
@@ -59,7 +60,7 @@ def helpmsg(update, context):
 I have other talents too, just type '/' to display my available commands. Enjoy!'''
     update.message.reply_text(text)
 
-def setup(update, context):
+def setUp(update, context):
     '''Takes the username and password of a new user'''
 
     update.message.reply_text('Coming soon...')
@@ -72,6 +73,15 @@ def setup(update, context):
 #    else:
 #        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
 #
+def status(update, context):
+    '''Returns a list of pending expenses for current Telegram user'''
+
+    text = 'Here are the expenses that you recorded:\n\n'
+    text += toMarkdown(update.message.chat.username)
+    total = totalPending(update.message.chat.username)
+    text += '\n\n Total: {} CHF'.format(total)
+    update.message.reply_text(text)
+
 
 # Input handlers
 #################################################################
@@ -166,7 +176,8 @@ def setup(bot):
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(CommandHandler('submit', submit))
-    dispatcher.add_handler(CommandHandler('setup', setup))
+    dispatcher.add_handler(CommandHandler('setup', setUp))
+    dispatcher.add_handler(CommandHandler('status', status))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
     dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))

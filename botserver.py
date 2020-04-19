@@ -29,10 +29,10 @@ def hello():
     #Convert the binary data coming from Telegram into a string
     #print(request.data)
     #Create an Update object to send to webhook() for processing
-
-    update = decodeUpdate(request.data, bot)
-    if update is not None:
-        webhook(update, dispatcher)
+    if request.data:
+        update = decodeUpdate(request.data, bot)
+        if update is not None:
+            webhook(update, dispatcher)
     return ''
 
 
