@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue
 import telegram
 from telegram import Bot
 import logging
@@ -6,6 +6,8 @@ import time
 from classes import *
 from functions import *
 from selfsubmit import *
+#from functions.telegramFunction import *
+
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -170,6 +172,9 @@ def setup(bot):
     db.setup()
     
     dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
+ #   jobQ = JobQueue()
+  #  jobQ.set_dispatcher(dispatcher)
+
 
     #Registering handlers
     dispatcher.add_handler(CommandHandler('start', start))
@@ -190,6 +195,10 @@ def setup(bot):
 #    #updater.start_polling()
 #
 #    updater.idle()
+    
+    #Running the job_queue
+#    job_minute = jobQ.run_repeating(jobMinute, interval=60, first=0)
+
     return dispatcher
 
 def webhook(update, dispatcher):
