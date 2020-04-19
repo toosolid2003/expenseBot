@@ -8,8 +8,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import logging
-from classes import *
-from functions import *
+from botClasses.classes import *
+from botFunctions.botLogic import *
 
 def submit_expenses(activeUserTelegram):
     '''Submit all pending expenses on IQN.

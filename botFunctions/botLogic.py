@@ -1,7 +1,7 @@
 #coding: utf-8
 import os
 import json
-from classes import Expense, DBHelper
+from botClasses.classes import Expense, DBHelper
 import time
 
 def checkCompletion(exp):
@@ -154,3 +154,24 @@ def totalPending(activeUser):
         total += expense[0]
 
     return total
+
+def deductType(expense):
+   '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
+
+   #We infer the expense type by confronting the value in exp.reason to a list of possible words.
+   #If none matches, the exp.type attribute is set to 'Misc. Expenses'
+
+   types = {'Lodging':['hotel','airbnb','pension','hostel'],
+           'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
+   'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   'Rental Car':['avis','entreprise','rental car','alamo'],
+   'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
+   'Misc. Travel':['highway','public','gas','petrol']}
+
+   #The magic loop, where the deduction happens
+   for accType, typeList in types.items():
+       for elt in typeList:
+           if elt in expense.reason.lower():
+               expense.type = accType
+
+   return expense

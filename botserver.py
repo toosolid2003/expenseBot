@@ -3,8 +3,8 @@ from flask import request
 from telegram import Update, Bot
 from telegram.ext import Dispatcher
 from botTelegram import *
-from classes import *
-from functions import *
+from botClasses.classes import DBHelper
+#from functions import *
 import json
 import os
 import logging
