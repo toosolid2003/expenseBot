@@ -12,8 +12,8 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import logging
-from classes import *
-from functions import *
+from botClasses.classes import *
+#from botFunctions.functions import *
 
 #Set up logging module
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)
@@ -127,19 +127,22 @@ for user in activeUsers:
         print('Adding date: {}'.format(exp.date))
         label = driver.find_element_by_name(fields['date'])
         label.send_keys(exp.date)
-        time.sleep(2)
+        label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Enter Amount
         print('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
         label.send_keys(str(exp.amount))
-        time.sleep(2)
+        label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Enter reason
         print('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
         label.send_keys(exp.reason)
-        time.sleep(2)
+        label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Upload receipt
         print('Uploading receipt: {}'.format(exp.receipt))
@@ -164,20 +167,17 @@ for user in activeUsers:
         print('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
-        #Truc sioux pour activer le js dans le champ WBS
-        #label = driver.find_element_by_name(fields['reason'])
-        #time.sleep(5)
+        select_element.send_keys(Keys.TAB)
 
         #Save and Add other expense
         print('Saving expense')
         #Use TAB key to scroll down to have the Save and Add Button appear to the driver
-        select_element.send_keys(Keys.TAB)
         time.sleep(2)
         btn = driver.find_element_by_name('saveAndAddButton:container:container_body:button')
         btn.click()
         time.sleep(5)
 #        #Take a screenshot here
-        driver.save_screenshot('diagnostic.png')
+#        driver.save_screenshot('diagnostic.png')
 #        try:
 #            feedback = driver.find_element_by_class_name('fbERROR')
 #            print('Error on the form')
