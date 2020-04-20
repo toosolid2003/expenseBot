@@ -50,6 +50,6 @@ def status(update, context):
     text = 'Here are the expenses that you recorded:\n\n'
     text += toMarkdown(update.message.chat.username)
     total = totalPending(update.message.chat.username)
-    text += '\n\n Total: {} CHF'.format(total)
+    text += '\n Total: {} CHF'.format(total)
     update.message.reply_text(text)
 

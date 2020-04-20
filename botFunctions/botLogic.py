@@ -126,9 +126,9 @@ def saveDocument(fileId, bot):
     return newFilepath
 
 def toMarkdown(activeUser):
-    '''Gets all pending expenses from expenses db and format them into a markdown table.
+    '''Gets all pending expenses from expenses db and format them into a string.
     Input: active Telegram user handle
-    Output: mardown data formatted as html
+    Output: string with all pending expenses
     '''
     db = DBHelper()
     pd = db.extract_pending(activeUser)
@@ -159,7 +159,6 @@ def deductType(expense):
    '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
 
    #We infer the expense type by confronting the value in exp.reason to a list of possible words.
-   #If none matches, the exp.type attribute is set to 'Misc. Expenses'
 
    types = {'Lodging':['hotel','airbnb','pension','hostel'],
            'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
