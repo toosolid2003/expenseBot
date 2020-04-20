@@ -124,24 +124,33 @@ for user in activeUsers:
     for exp in expObjList:
 
         print('Adding expense {}'.format(j))
+
+        #Enter type (html select)
+        print('Adding type: {}'.format(exp.type))
+        select_element = driver.find_element_by_name(fields['type'])
+        select_object = Select(select_element)
+        select_object.select_by_visible_text(exp.type)
+        time.sleep(2)
+
+        #Enter date of expense
         print('Adding date: {}'.format(exp.date))
         label = driver.find_element_by_name(fields['date'])
         label.send_keys(exp.date)
-        label.send_keys(Keys.TAB)
+        #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Enter Amount
         print('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
         label.send_keys(str(exp.amount))
-        label.send_keys(Keys.TAB)
+        #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Enter reason
         print('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
         label.send_keys(exp.reason)
-        label.send_keys(Keys.TAB)
+        #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Upload receipt
@@ -153,15 +162,7 @@ for user in activeUsers:
         #Click on 'Attach' button
         buttn = driver.find_element_by_name(fields['attachBtn'])
         buttn.click()
-        time.sleep(5)  #Wait for receipt to load
-
-        #Enter type (html select)
-        print('Adding type: {}'.format(exp.type))
-        select_element = driver.find_element_by_name(fields['type'])
-        select_object = Select(select_element)
-        select_object.select_by_visible_text(exp.type)
-        time.sleep(2)
-
+        time.sleep(4)  #Wait for receipt to load
 
         #Enter WBS
         print('Adding WBS: {}'.format(exp.wbs))
