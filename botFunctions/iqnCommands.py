@@ -1,5 +1,4 @@
 #coding: utf-8
-import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
@@ -71,7 +70,7 @@ def createExpenseReport(driver):
     return driver
 
 
-def addExpense(driver, expObkList):
+def addExpense(driver, expObjList):
     """
     Records a new expense in the Add Expense form.
     Input: browser (driver) with Add Expense form open, list of expense objets
@@ -160,6 +159,7 @@ def addExpense(driver, expObkList):
         time.sleep(2)
         j += 1
 
+    return driver
 
 def saveExpenseReport(driver):
     """
@@ -187,10 +187,40 @@ def saveExpenseReport(driver):
     #Close Chrome
     driver.close()
 
+    return driver
+
 def submitExpenseReport(driver):
     """
     Submits the expense report.
     Input: driver positionned on the Expense Report page.
     Output: driver after expense report has been submitted for approval.
     """
+    return driver
 
+def createExpensesList(activeUser):
+    """
+    Creates a list of Expense object for a single user.
+    Input: one active user
+    Output: list of Expense objects
+    """
+
+    #Getting a list of "pending expense" objects
+    #------------------------------------------------------------------------------------------
+    db = DBHelper()
+    pending = db.extract_pending(activeUser)
+
+    #Create a list of Expense objects to host the data
+    expObjList = [Expense() for i in range(len(pending))]
+
+    #Transferring the data from the pending tuples to the expense objects
+    i = 0
+    for exp in expObjList:
+        exp.amount = str(pending[i][0]).replace('.',',')        #All this jazz to convert the dot into a comma for IQ Navigator (otherwise, it logs a dot as a thousand separator).
+        exp.date = pending[i][1]
+        exp.reason = pending[i][2]
+        exp.wbs = pending[i][3]
+        exp.type = pending[i][4]
+        exp.receipt = pending[i][5]
+        i += 1
+    
+    return expObjList
