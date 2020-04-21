@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
+>>>>>>> 0d18ec8faea3f1a3073c234d17836206a3be76eb
 import time
 import logging
 from botClasses.classes import *
@@ -70,7 +71,8 @@ for user in activeUsers:
     #Assign variables
     username = activeUsers[userCount][1]
     password = activeUsers[userCount][2]
-    
+#Initiating the Chrome driver
+
     #Initiating the Chrome driver
     print('Initialising Chrome driver')
     chrome_options = Options()
@@ -79,6 +81,7 @@ for user in activeUsers:
     chrome_options.add_argument("--window-size=1920,1080");
     chrome_options.add_argument("--start-maximized");
     driver = Chrome(options=chrome_options)
+    #driver = Chrome()
     print('Logging expenses for {}'.format(activeUserTelegram))
 
     #Login sequence
