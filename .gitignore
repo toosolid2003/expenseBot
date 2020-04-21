@@ -2,7 +2,7 @@
 .DS_Store
 __pycache__/
 *.sqlite
-expenses.sqlite
+*.sqlite
 *.jpg
 *.png
 *.jpeg
@@ -11,3 +11,6 @@ expenseBot/
 .gitignore
 *.txt
 receipts/
+fixConnect.py 
+prettyprint.py
+*.token

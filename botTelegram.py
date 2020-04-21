@@ -1,14 +1,17 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue
+import telegram
 from telegram import Bot
 import logging
 import time
-from classes import *
-from functions import *
+from botClasses.classes import *
+from botFunctions.botCommands import *
+from botFunctions.botLogic import *
 from selfsubmit import *
+#from functions.telegramFunction import *
+
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-WBS = 'BLXPB001'
 TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = Bot(TOKEN)
 #Initiating the classes
@@ -33,6 +36,7 @@ def injectDATA(exp):
     exp.amount = None
     exp.receipt = None
     exp.reason = None
+<<<<<<< HEAD
 
 # Commands
 #################################################################
@@ -60,13 +64,8 @@ def submit(update, context):
     update.message.reply_text(response)
 
 def helpmsg(update, context):
-<<<<<<< HEAD
-    text = '''To log an expense, send me its amount, reason and a picture of a receipt.  Eg:
-        '''
-=======
     text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
 I have other talents too, just type '/' to display my available commands. Enjoy!'''
->>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
     update.message.reply_text(text)
 
 def setup(update, context):
@@ -82,6 +81,7 @@ def setup(update, context):
 #    else:
 #        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
 #
+#    exp.type = None
 
 # Input handlers
 #################################################################
@@ -103,15 +103,11 @@ def photoCapture(update, context):
         exp.receipt = saveDocument(fileId, bot)
     # Inject the DATA if expense object is complete
     exp.user = update.message.chat.username
-    exp.wbs = WBS
+    exp.wbs = context.user_data['wbs']
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-<<<<<<< HEAD
-        update.message.reply_text('Thanks for this, I got your expense.')
-=======
         update.message.reply_text('Thanks, I have recorded your expense.')
->>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -132,16 +128,12 @@ def captionCapture(update, context):
         exp = deductType(exp)
 
     # Inject the DATA
-    exp.wbs = WBS
+    exp.wbs = context.user_data['wbs']
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-<<<<<<< HEAD
-        update.message.reply_text('Thanks for this, I got your expense.')
-=======
         update.message.reply_text('Thanks, I have recorded your expense.')
->>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
 def textCapture(update, context):
 
@@ -158,16 +150,12 @@ def textCapture(update, context):
         exp = deductType(exp)
 
  # Inject the DATA
-    exp.wbs = WBS
+    exp.wbs = context.user_data['wbs']
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
-<<<<<<< HEAD
         update.message.reply_text('Thanks for this, I got your expense.')
-=======
-        update.message.reply_text('Thanks, got it.')
->>>>>>> 64684fc94d89bdaa9f287a01368ba8dd598c9eb0
 
 def echoText(update, message):
     update.message.reply_text('You said {}'.format(update.message.text))
@@ -176,19 +164,23 @@ def setup(bot):
     global exp
     exp = Expense()
     #Initiating global variables
-    WBS = 'BLXPB001'
+    #WBS = 'BLXPB001'
     #Initiating the classes
     db = DBHelper()
     db.setup()
     
     dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
+ #   jobQ = JobQueue()
+  #  jobQ.set_dispatcher(dispatcher)
+
 
     #Registering handlers
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(CommandHandler('submit', submit))
-    dispatcher.add_handler(CommandHandler('setup', setup))
+    dispatcher.add_handler(CommandHandler('setup', setUp))
+    dispatcher.add_handler(CommandHandler('status', status))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
     dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
@@ -201,6 +193,10 @@ def setup(bot):
 #    #updater.start_polling()
 #
 #    updater.idle()
+    
+    #Running the job_queue
+#    job_minute = jobQ.run_repeating(jobMinute, interval=60, first=0)
+
     return dispatcher
 
 def webhook(update, dispatcher):

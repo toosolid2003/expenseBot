@@ -1,7 +1,7 @@
 #coding: utf-8
 import os
 import json
-from classes import Expense
+from botClasses.classes import Expense, DBHelper
 import time
 
 def checkCompletion(exp):
@@ -124,3 +124,53 @@ def saveDocument(fileId, bot):
     os.rename(filename, newFilepath)
 
     return newFilepath
+
+def toMarkdown(activeUser):
+    '''Gets all pending expenses from expenses db and format them into a string.
+    Input: active Telegram user handle
+    Output: string with all pending expenses
+    '''
+    db = DBHelper()
+    pd = db.extract_pending(activeUser)
+    output = ''
+    for expense in pd:
+
+        #Reformatting the time variable for legibility
+        totime = time.strptime(expense[1], "%d-%m-%Y")
+        expenseDate = time.strftime("%A %d %B", totime)
+        output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
+    
+    return output
+
+def totalPending(activeUser):
+    '''Calculates the total amount of current pending expenses.
+    Input: active telegram handle
+    Output: float'''
+
+    db = DBHelper()
+    pendingExpenses = db.extract_pending(activeUser)
+    total = 0
+    for expense in pendingExpenses:
+        total += expense[0]
+
+    return total
+
+def deductType(expense):
+   '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
+
+   #We infer the expense type by confronting the value in exp.reason to a list of possible words.
+
+   types = {'Lodging':['hotel','airbnb','pension','hostel'],
+           'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
+   'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   'Rental Car':['avis','entreprise','rental car','alamo'],
+   'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
+   'Misc. Travel':['highway','public','gas','petrol']}
+
+   #The magic loop, where the deduction happens
+   for accType, typeList in types.items():
+       for elt in typeList:
+           if elt in expense.reason.lower():
+               expense.type = accType
+
+   return expense

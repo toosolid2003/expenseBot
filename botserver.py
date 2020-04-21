@@ -3,14 +3,17 @@ from flask import request
 from telegram import Update, Bot
 from telegram.ext import Dispatcher
 from botTelegram import *
-from classes import *
-from functions import *
+from botClasses.classes import DBHelper
+#from functions import *
 import json
 import os
 import logging
 
-TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
+#Get the TOKEN for the PRODUCTION bot
+with open('bot.token', 'r') as fichier:
+    TOKEN = fichier.read()
 bot = Bot(TOKEN)
+
 dispatcher = setup(bot)   
 
 
@@ -29,10 +32,10 @@ def hello():
     #Convert the binary data coming from Telegram into a string
     #print(request.data)
     #Create an Update object to send to webhook() for processing
-
-    update = decodeUpdate(request.data, bot)
-    if update is not None:
-        webhook(update, dispatcher)
+    if request.data:
+        update = decodeUpdate(request.data, bot)
+        if update is not None:
+            webhook(update, dispatcher)
     return ''
 
 

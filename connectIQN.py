@@ -8,11 +8,13 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
+>>>>>>> 0d18ec8faea3f1a3073c234d17836206a3be76eb
 import time
 import logging
-from classes import *
-from functions import *
+from botClasses.classes import *
+#from botFunctions.functions import *
 
 #Set up logging module
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.INFO)
@@ -125,22 +127,34 @@ for user in activeUsers:
     for exp in expObjList:
 
         print('Adding expense {}'.format(j))
+
+        #Enter type (html select)
+        print('Adding type: {}'.format(exp.type))
+        select_element = driver.find_element_by_name(fields['type'])
+        select_object = Select(select_element)
+        select_object.select_by_visible_text(exp.type)
+        time.sleep(2)
+
+        #Enter date of expense
         print('Adding date: {}'.format(exp.date))
         label = driver.find_element_by_name(fields['date'])
         label.send_keys(exp.date)
-        time.sleep(2)
+        #label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Enter Amount
         print('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
         label.send_keys(str(exp.amount))
-        time.sleep(2)
+        #label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Enter reason
         print('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
         label.send_keys(exp.reason)
-        time.sleep(2)
+        #label.send_keys(Keys.TAB)
+        #time.sleep(2)
 
         #Upload receipt
         print('Uploading receipt: {}'.format(exp.receipt))
@@ -151,33 +165,33 @@ for user in activeUsers:
         #Click on 'Attach' button
         buttn = driver.find_element_by_name(fields['attachBtn'])
         buttn.click()
-        time.sleep(5)  #Wait for receipt to load
-
-        #Enter type (html select)
-        print('Adding type: {}'.format(exp.type))
-        select_element = driver.find_element_by_name(fields['type'])
-        select_object = Select(select_element)
-        select_object.select_by_visible_text(exp.type)
-        time.sleep(2)
-
+        time.sleep(4)  #Wait for receipt to load
 
         #Enter WBS
         print('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
-
-        #Truc sioux pour activer le js dans le champ WBS
-        label = driver.find_element_by_name(fields['reason'])
-        time.sleep(2)
+        select_element.send_keys(Keys.TAB)
 
         #Save and Add other expense
         print('Saving expense')
-        saveNadd= driver.find_element_by_id('idcd')
-        saveNadd.click()
+        #Use TAB key to scroll down to have the Save and Add Button appear to the driver
+        time.sleep(2)
+        btn = driver.find_element_by_name('saveAndAddButton:container:container_body:button')
+        btn.click()
         time.sleep(5)
+#        #Take a screenshot here
+#        driver.save_screenshot('diagnostic.png')
+#        try:
+#            feedback = driver.find_element_by_class_name('fbERROR')
+#            print('Error on the form')
+#        except NoSuchElementException:
+#            feedback = driver.find_element_by_class_name('fbINFO')
+#            print('Expense recorded, off to the next')
         #Save and Close
         #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
         #saveNclose.click()
+        time.sleep(2)
         j += 1
 
     #Close the Add Expense modal
@@ -205,6 +219,5 @@ for user in activeUsers:
     upDb.updateStatus("pending","logged",activeUserTelegram)
 
     userCount += 1
-
 #Printint number of logged expenses
 print("Number of expensed logged into IQN: {}/{}".format(j, nbExpensesDB))
