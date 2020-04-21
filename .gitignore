@@ -13,3 +13,4 @@ expenseBot/
 receipts/
 fixConnect.py 
 prettyprint.py
+*.token

@@ -9,8 +9,11 @@ import json
 import os
 import logging
 
-TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
+#Get the TOKEN for the PRODUCTION bot
+with open('bot.token', 'r') as fichier:
+    TOKEN = fichier.read()
 bot = Bot(TOKEN)
+
 dispatcher = setup(bot)   
 
 
