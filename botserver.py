@@ -10,9 +10,9 @@ import os
 import logging
 
 #Get the TOKEN for the PRODUCTION bot
-with open('bot.token', 'r') as fichier:
+with open('/var/www/expenseBot/bot.token', 'r') as fichier:
     TOKEN = fichier.read()
-bot = Bot(TOKEN)
+bot = Bot('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA')
 
 dispatcher = setup(bot)   
 
