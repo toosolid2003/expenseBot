@@ -12,14 +12,17 @@ from selfsubmit import *
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
-bot = Bot(TOKEN)
+with open('bot.token','r') as fichier:
+    token = fichier.read()
+    token = token.replace('\n','')
+
+#TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
+bot = Bot(token)
 #Initiating the classes
 db = DBHelper()
 db.setup()
 userdb = userDB()
 userdb.setup()
-=======
 db = DBHelper()
 
 # Database funcntions
@@ -36,7 +39,6 @@ def injectDATA(exp):
     exp.amount = None
     exp.receipt = None
     exp.reason = None
-<<<<<<< HEAD
 
 # Commands
 #################################################################
