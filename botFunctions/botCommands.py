@@ -37,7 +37,7 @@ def status(update, context):
     text += '\n Total: {} CHF'.format(total)
     update.message.reply_text(text)
 
-#Conversation Handlers
+#Conversation commands
 #################################################################
 
 EMAIL, IQUSERNAME, IQPASSWORD, WBS = range(4)

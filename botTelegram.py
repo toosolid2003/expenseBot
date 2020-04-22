@@ -43,47 +43,10 @@ def injectDATA(exp):
 # Commands
 #################################################################
 
-def start(update, context):
-    text = '''Hello there, I'm expenseBot. I'll try ma best to making the management of your business expenses way easier for you..
-No one wants to waste time doing that, so here I am. Type '/help' if you want to know what I can do for you.'''
-    update.message.reply_text(text)
-
-def wbs(update, context):
-    '''Changes the wbs value if it is provided as a parameter
-    Otherwise, displays the current WBS against which expenses are logged'''
-
-    if len(context.args) > 0:
-        context.user_data['wbs'] = context.args[0]
-        update.message.reply_text('Your new wbs: {}'.format(context.user_data['wbs']))
-    else:
-        update.message.reply_text('Your current wbs is {}'.format(context.user_data['wbs']))
-
-def submit(update, context):
-    '''Submit into IQ Navigtor the expenses that are still in pending status'''
-
-    response = submit_expenses(update.message.chat.username)
-    update.message.reply_text(response)
-
-def helpmsg(update, context):
-    text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
-I have other talents too, just type '/' to display my available commands. Enjoy!'''
-    update.message.reply_text(text)
-
 def setup(update, context):
     '''Takes the username and password of a new user'''
 
     update.message.reply_text('Coming soon...')
-#    if len(context.args) > 0:
-#        username = context.args[0]
-#        password = context.args[1]
-#        dbuser = userDB()
-#        dbuser.add_user(update.message.chat.username, username, password)
-#        update.message.reply_text('Thanks, I have username: {} and password: {}'.format(username, password))
-#    else:
-#        update.message.reply_text('Sorry, I did not understand. Make sure you separate the command, the username and the password by a space for me to understand which is which. Eg: /setup myusername mypassword')
-#
-#    exp.type = None
-
 # Input handlers
 #################################################################
 
@@ -109,6 +72,9 @@ def photoCapture(update, context):
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('Thanks, I have recorded your expense.')
+
+    elif 'wbs' in rList:
+        update.message.reply_text("Thanks, but I need a wbs to record expenses. Please type '/wbs yourWbsHere' to fix it.")
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -174,9 +140,20 @@ def setup(bot):
  #   jobQ = JobQueue()
   #  jobQ.set_dispatcher(dispatcher)
 
+    #Initiate the "setup" conversation handler
+    conv_handler = ConversationHandler(
+        entry_points=[CommandHandler('start', start)],
+        states = {EMAIL: [MessageHandler(Filters.text, email)],
+            IQUSERNAME: [MessageHandler(Filters.text, iqusername)],
+            IQPASSWORD: [MessageHandler(Filters.text, iqpassword)],
+            WBS: [MessageHandler(Filters.text, wbsSetup)]
+            },
+        fallbacks=[CommandHandler('stopit', stopit)]
+        )
+
 
     #Registering handlers
-    dispatcher.add_handler(CommandHandler('start', start))
+    dispatcher.add_handler(conv_handler)
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(CommandHandler('submit', submit))
