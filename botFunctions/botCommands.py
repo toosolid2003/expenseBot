@@ -15,7 +15,10 @@ def wbs(update, context):
         context.user_data['wbs'] = context.args[0]
         update.message.reply_text('Your new WBS: {}'.format(context.user_data['wbs']))
     else:
-        update.message.reply_text('Your current WBS is {}'.format(context.user_data['wbs']))
+        if 'wbs' in context.user_data:
+            update.message.reply_text('Your current WBS is {}'.format(context.user_data['wbs']))
+        else:
+            update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs yourWbsHere' to be able to record your business expenses.")
 
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
@@ -44,8 +47,7 @@ EMAIL, IQUSERNAME, IQPASSWORD, WBS = range(4)
 
 def start(update, context):
     """Handles the setup process"""
-    update.message.reply_text("""Hey, welcome to the Expense Bot. Before you can start recoding business expenses with me,I will need to collect some information about you (email, iq navigator credentials, wbs).
-
+    update.message.reply_text("""Hey, welcome to the Expense Bot. Before you can start recoding business expenses with me, I will need to collect some information about you (email, iq navigator credentials, wbs).
 It will take 5 min at most, but you can stop at any point by typing '/stop'.""")
     update.message.reply_text("Let's start! What email address do you want to use?")
 
@@ -63,6 +65,8 @@ def email(update, context):
         context.user_data['email'] = email
         return IQUSERNAME
 
+
+
 def iqusername(update, context):
     """Gimme your IQ username"""
     username = update.message.text
@@ -71,9 +75,13 @@ def iqusername(update, context):
         update.message.reply_text("Let's stop then. Remember: I will still need at least a wbs to start recording your business expenses. \nYou can send it to me using the '/wbs' command. For instance, '/wbs yourWbsHere'.")
         return ConversationHandler.END
     else:
+        context.user_data['iq_username'] = username
         update.message.reply_text('Thanks for your username. What would your password be?')
 
     return IQPASSWORD
+
+
+
 def iqpassword(update, context):
     """Gimme your password"""
 
@@ -83,9 +91,22 @@ def iqpassword(update, context):
         return ConversationHandler.END
 
     else:
+        #Adding the new user to the users database now
+        db = userDB()
+        telegramUsername = update.message.chat.username
+        iq_username = context.user_data['iq_username']
+        iq_password = password
+        try:
+            db.add_user(telegramUsername, iq_username, iq_password)
+        except:
+            print('Adding user failed')
+
         update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what would this first WBS be?')
 
     return WBS
+
+
+
 
 def wbsSetup(update, context):
     """Gimme a wbs"""

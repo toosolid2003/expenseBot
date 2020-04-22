@@ -67,14 +67,15 @@ def photoCapture(update, context):
         exp.receipt = saveDocument(fileId, bot)
     # Inject the DATA if expense object is complete
     exp.user = update.message.chat.username
-    exp.wbs = context.user_data['wbs']
+    try: 
+        exp.wbs = context.user_data['wbs']
+    except KeyError:
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
         update.message.reply_text('Thanks, I have recorded your expense.')
-
-    elif 'wbs' in rList:
-        update.message.reply_text("Thanks, but I need a wbs to record expenses. Please type '/wbs yourWbsHere' to fix it.")
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
@@ -95,7 +96,11 @@ def captionCapture(update, context):
         exp = deductType(exp)
 
     # Inject the DATA
-    exp.wbs = context.user_data['wbs']
+    try: 
+        exp.wbs = context.user_data['wbs']
+    except KeyError:
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -117,7 +122,11 @@ def textCapture(update, context):
         exp = deductType(exp)
 
  # Inject the DATA
-    exp.wbs = context.user_data['wbs']
+    try: 
+        exp.wbs = context.user_data['wbs']
+    except KeyError:
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+
     exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -157,7 +166,6 @@ def setup(bot):
     dispatcher.add_handler(CommandHandler('help', helpmsg))
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(CommandHandler('submit', submit))
-    dispatcher.add_handler(CommandHandler('setup', setUp))
     dispatcher.add_handler(CommandHandler('status', status))
     dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
     dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
