@@ -51,13 +51,12 @@ No one wants to waste time doing that, so here I am. Type '/help' if you want to
 def wbs(update, context):
     '''Changes the wbs value if it is provided as a parameter
     Otherwise, displays the current WBS against which expenses are logged'''
-    global WBS
 
     if len(context.args) > 0:
-        WBS = context.args[0]
-        update.message.reply_text('Your new WBS: {}'.format(WBS))
+        context.user_data['wbs'] = context.args[0]
+        update.message.reply_text('Your new wbs: {}'.format(context.user_data['wbs']))
     else:
-        update.message.reply_text('Your current WBS is {}'.format(WBS))
+        update.message.reply_text('Your current wbs is {}'.format(context.user_data['wbs']))
 
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
