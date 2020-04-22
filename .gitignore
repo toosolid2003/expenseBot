@@ -14,3 +14,4 @@ receipts/
 fixConnect.py 
 prettyprint.py
 *.token
+botest.py
