@@ -1,4 +1,4 @@
-#coding: utf8
+#coding: utf-8
 from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
@@ -93,11 +93,13 @@ def iqpassword(update, context):
     else:
         #Adding the new user to the users database now
         db = userDB()
+        db.setup()
         telegramUsername = update.message.chat.username
         iq_username = context.user_data['iq_username']
         iq_password = password
+        email = context.user_data['email']
         try:
-            db.add_user(telegramUsername, iq_username, iq_password)
+            db.add_user(telegramUsername, iq_username, iq_password, email)
         except:
             print('Adding user failed')
 

@@ -83,17 +83,17 @@ class userDB:
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, date_created date)'''
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date)'''
         self.conn.execute(stmt)
         self.conn.commit()
 
-    def add_user(self, telegram_username, iq_username, iq_password):
+    def add_user(self, telegram_username, iq_username, iq_password, email):
         '''Adds a user to the users table.
-        Input:  telegram username, iq_username, iq_password
+        Input:  telegram username, iq_username, iq_password, user email
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, iq_username, iq_password, 'active', time.strftime('%d-%m-%Y'))
-        stmt = '''INSERT INTO users VALUES (?,?,?,?,?)'''
+        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'))
+        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 
