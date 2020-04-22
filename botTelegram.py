@@ -12,7 +12,7 @@ from selfsubmit import *
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-with open('bot.token','r') as fichier:
+with open('/var/www/expenseBot/bot.token','r') as fichier:
     token = fichier.read()
     token = token.replace('\n','')
 
