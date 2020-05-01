@@ -160,12 +160,16 @@ def deductType(expense):
 
    #We infer the expense type by confronting the value in exp.reason to a list of possible words.
 
-   types = {'Lodging':['hotel','airbnb','pension','hostel'],
-           'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
-   'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   types = {'Accomodation - Hotel':['hotel','airbnb','pension','hostel'],
+           'Accomodation - Apartment':['airbnb','apartment'],
+           'Travel - Public & Other':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
+           'Taxi':['taxi','uber','lyft'],
+   'Air Travel - Airfare & Others':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
    'Rental Car':['avis','entreprise','rental car','alamo'],
-   'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
-   'Misc. Travel':['highway','public','gas','petrol']}
+   'Meals & Entertainment':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+   'Car Expense (Parking, Toll, Fu':['toll','parking','fuel','highway','public','gas','petrol'],
+   'Per Diem - Domestic':['perdiem', 'per diem','per diems','perdiems']
+   }
 
    #The magic loop, where the deduction happens
    for accType, typeList in types.items():

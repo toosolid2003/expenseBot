@@ -1,6 +1,6 @@
 import unittest
-from classes import Expense
-from functions import *
+from botClasses.classes import Expense
+from botFunctions.botLogic import *
 
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
@@ -88,6 +88,33 @@ class TestParsetext(unittest.TestCase):
         result = parseText(raw)
         self.assertEqual(expected, result)
 
+class testDeductType(unittest.TestCase):
+
+    def testAccomodationApartment(self):
+        exp = Expense()
+        exp.reason = 'Airbnb'
+        exp = deductType(exp)
+        self.assertEqual(exp.type, 'Accomodation - Apartment')
+
+    def testAccomodationHotel(self):
+        exp = Expense()
+        exp.reason = 'Hotel Accapulco'
+        exp = deductType(exp)
+        self.assertEqual(exp.type, 'Accomodation - Hotel')
+
+    def testAirfare(self):
+        exp = Expense()
+        exp.reason = 'Flight Zurich'
+        exp = deductType(exp)
+        self.assertEqual(exp.type, 'Air Travel - Airfare & Others')
+
+    def testPerdiemsDomestic(self):
+        exp = Expense()
+        exp.reason = 'per diem welly'
+        exp = deductType(exp)
+        self.assertEqual(exp.type,'Per Diem - Domestic')
+ 
+ 
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):
 #        filePath = 'easyjet-2020-04-10.json'
