@@ -56,44 +56,23 @@ class Expense:
         data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt, self.user)
         return data_tuple
 
-#def deductType(expense):
-#   '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
-#
-#   #We infer the expense type by confronting the value in exp.reason to a list of possible words.
-#   #If none matches, the exp.type attribute is set to 'Misc. Expenses'
-#
-#   types = {'Lodging':['hotel','airbnb','pension','hostel'],
-#           'Transportation':['train','taxi','bus','ferry','sbb','eurostar','sncf','thalys'],
-#   'Airfare':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-#   'Rental Car':['avis','entreprise','rental car','alamo'],
-#   'Business Meals':['restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','brekfast'],
-#   'Misc. Travel':['highway','public','gas','petrol']}
-#
-#   #The magic loop, where the deduction happens
-#   for accType, typeList in types.items():
-#       for elt in typeList:
-#           if elt in expense.reason.lower():
-#               expense.type = accType
-#
-#   return expense
-
 class userDB:
     def __init__(self, dbname='/var/www/expenseBot/users.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date)'''
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar)'''
         self.conn.execute(stmt)
         self.conn.commit()
 
-    def add_user(self, telegram_username, iq_username, iq_password, email):
+    def add_user(self, telegram_username, iq_username, iq_password, email, wbs):
         '''Adds a user to the users table.
-        Input:  telegram username, iq_username, iq_password, user email
+        Input:  telegram username, iq_username, iq_password, user email, wbs
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'))
-        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?)'''
+        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'), wbs)
+        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 
@@ -115,6 +94,33 @@ class userDB:
         c.execute(stmt, data)
 
         return c.fetchone()
+
+    def get_wbs(self, activeUser):
+        """
+        Get the active wbs for a specific telegram user
+        Input: telegram handle
+        Output: wbs as a string object
+        """
+
+        data = (activeUser,)
+        stmt = '''SELECT wbs FROM users WHERE telegram_username = ?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()       #result is a tuple
+
+        return result[0]
+
+    def update_wbs(self, activeUser, wbs):
+        """
+        Add or changes the current wbs used by the activeUser
+        Input: active user telegram handle, wbs number
+        Output: None
+        """
+
+        data = (wbs, activeUser)
+        stmt = '''UPDATE users SET wbs = ? WHERE telegram_username = ?'''
+        self.conn.execute(stmt, data)
+        self.conn.commit()
 
     def del_user_by_iq_username(self,iq_username):
         stmt = '''DELETE FROM users WHERE iq_username = ?'''

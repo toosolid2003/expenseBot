@@ -40,13 +40,6 @@ def injectDATA(exp):
     exp.receipt = None
     exp.reason = None
 
-# Commands
-#################################################################
-
-def setup(update, context):
-    '''Takes the username and password of a new user'''
-
-    update.message.reply_text('Coming soon...')
 # Input handlers
 #################################################################
 
@@ -68,7 +61,7 @@ def photoCapture(update, context):
     # Inject the DATA if expense object is complete
     exp.user = update.message.chat.username
     try: 
-        exp.wbs = context.user_data['wbs']
+        exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
 
@@ -96,12 +89,13 @@ def captionCapture(update, context):
         exp = deductType(exp)
 
     # Inject the DATA
+    exp.user = update.message.chat.username
     try: 
-        exp.wbs = context.user_data['wbs']
+        exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
 
-    exp.user = update.message.chat.username
+
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)
@@ -112,7 +106,8 @@ def textCapture(update, context):
     global exp
 
     rawText = update.message.text
-
+    
+    # Parse the text
     parsedDict = parseText(rawText)
     if parsedDict['amount']:
         exp.amount = parsedDict['amount']
@@ -121,13 +116,13 @@ def textCapture(update, context):
     if exp.reason:
         exp = deductType(exp)
 
- # Inject the DATA
+     # Inject the DATA
+    exp.user = update.message.chat.username
     try: 
-        exp.wbs = context.user_data['wbs']
+       exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
 
-    exp.user = update.message.chat.username
     rList = checkCompletion(exp)
     if len(rList) == 0:
         injectDATA(exp)

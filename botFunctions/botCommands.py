@@ -3,22 +3,33 @@ from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 
+# Database helpers
+#################################################################
+
+userdb = userDB()
+
 # Commands
 #################################################################
 
 def wbs(update, context):
     '''Changes the wbs value if it is provided as a parameter
     Otherwise, displays the current WBS against which expenses are logged'''
-    #global WBS
 
+
+    
     if len(context.args) > 0:
-        context.user_data['wbs'] = context.args[0]
-        update.message.reply_text('Your new WBS: {}'.format(context.user_data['wbs']))
+        userdb.update_wbs(update.message.chat.username, context.args[0])
+
+        wbs = userdb.get_wbs(update.message.chat.username)
+        update.message.reply_text('Your new WBS: {}'.format(wbs))
     else:
-        if 'wbs' in context.user_data:
-            update.message.reply_text('Your current WBS is {}'.format(context.user_data['wbs']))
-        else:
-            update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs yourWbsHere' to be able to record your business expenses.")
+        try:
+            wbs = userdb.get_wbs(update.message.chat.username)
+            update.message.reply_text('Your current WBS is {}'.format(wbs))
+        except:
+            update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs xxxx' (xxxx being your wbs number) to be able to record your business expenses.")
+
+
 
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
@@ -85,29 +96,15 @@ def iqusername(update, context):
 def iqpassword(update, context):
     """Gimme your password"""
 
-    password = update.message.text
-    if '/stop' in password:
+    context.user_data['password'] = update.message.text
+    if '/stop' in context.user_data['password']:
         update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
         return ConversationHandler.END
 
     else:
-        #Adding the new user to the users database now
-        db = userDB()
-        db.setup()
-        telegramUsername = update.message.chat.username
-        iq_username = context.user_data['iq_username']
-        iq_password = password
-        email = context.user_data['email']
-        try:
-            db.add_user(telegramUsername, iq_username, iq_password, email)
-        except:
-            print('Adding user failed')
-
         update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what would this first WBS be?')
 
     return WBS
-
-
 
 
 def wbsSetup(update, context):
@@ -116,10 +113,21 @@ def wbsSetup(update, context):
     wbs = update.message.text
 
     if '/stop' in wbs:
-        update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs by typing:\n '/wbs yourNewWbsHere'.")
+        update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs by typing:\n '/wbs xxxxxx'.")
     else:
-        context.user_data['wbs'] = wbs
-        update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(context.user_data['wbs']))
+        #Adding the new user to the users database now
+        db = userDB()
+        db.setup()
+        telegramUsername = update.message.chat.username
+        iq_username = context.user_data['iq_username']
+        iq_password = context.user_data['password']
+        email = context.user_data['email']
+        try:
+            db.add_user(telegramUsername, iq_username, iq_password, email, wbs)
+            update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
+        except Exception as e:
+            print('Adding user failed')
+            print(e)
 
     return ConversationHandler.END
 
