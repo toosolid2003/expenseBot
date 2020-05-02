@@ -97,7 +97,8 @@ def addExpense(driver, expObjList):
         print('Adding type: {}'.format(exp.type))
         select_element = driver.find_element_by_name(fields['type'])
         select_object = Select(select_element)
-        select_object.select_by_visible_text(exp.type)
+#        select_object.select_by_visible_text(exp.type)
+        select_object.select_by_value(exp.type)
         time.sleep(2)
 
         #Enter date of expense

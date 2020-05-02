@@ -1,13 +1,15 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue
 import telegram
 from telegram import Bot
+import datetime
 import logging
 import time
 from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
-from selfsubmit import *
-#from functions.telegramFunction import *
+from botFunctions.botJobs import iqnExpensesLog, testJob
+
+#from selfsubmit import *
 
 logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -134,15 +136,12 @@ def echoText(update, message):
 def setup(bot):
     global exp
     exp = Expense()
-    #Initiating global variables
-    #WBS = 'BLXPB001'
+
     #Initiating the classes
     db = DBHelper()
     db.setup()
     
     dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
- #   jobQ = JobQueue()
-  #  jobQ.set_dispatcher(dispatcher)
 
     #Initiate the "setup" conversation handler
     conv_handler = ConversationHandler(
@@ -167,16 +166,13 @@ def setup(bot):
     dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
     dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
-#    updater.start_webhook(listen='134.209.202.182',
-#            key= '/etc/letsencrypt/live/expensebot.net/privkey.pem',
-#            cert='/etc/letsencrypt/live/expensebot.net/fullchain.pem',
-#            port=443)
-#    #updater.start_polling()
-#
-#    updater.idle()
-    
-    #Running the job_queue
-#    job_minute = jobQ.run_repeating(jobMinute, interval=60, first=0)
+    #Initiate the job_queue performed by the server
+#    jobs = dispatcher.job_queue
+    j = JobQueue()
+    j.set_dispatcher(dispatcher)
+    jobTime = datetime.time(22,00)
+    job_logExpenses = j.run_daily(iqnExpensesLog,jobTime)
+    j.start()
 
     return dispatcher
 

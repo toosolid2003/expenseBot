@@ -7,6 +7,7 @@ from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Fi
 #################################################################
 
 userdb = userDB()
+db = DBHelper()
 
 # Commands
 #################################################################
@@ -44,12 +45,17 @@ I have other talents too, just type '/' to display my available commands. Enjoy!
 
 def status(update, context):
     '''Returns a list of pending expenses for current Telegram user'''
+    
+    pendingExpenses = db.extract_pending(update.message.chat.username)
 
-    text = 'Here are the expenses that you recorded:\n\n'
-    text += toMarkdown(update.message.chat.username)
-    total = totalPending(update.message.chat.username)
-    text += '\n Total: {} CHF'.format(total)
-    update.message.reply_text(text)
+    if pendingExpenses:
+        text = 'Here are the expenses that you recorded:\n\n'
+        text += toMarkdown(update.message.chat.username)
+        text += '\n Total: {} CHF'.format(totalPending(update.message.chat.username))
+        update.message.reply_text(text)
+
+    else:
+        update.message.reply_text('You have no pending expenses :)')
 
 #Conversation commands
 #################################################################

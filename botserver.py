@@ -9,13 +9,10 @@ import json
 import os
 import logging
 
-#Get the TOKEN for the PRODUCTION bot
-with open('/var/www/expenseBot/bot.token', 'r') as fichier:
-    TOKEN = fichier.read()
 bot = Bot('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA')
 
+#Initiate the dispatcher
 dispatcher = setup(bot)   
-
 
 app = Flask(__name__)
 db = DBHelper()
@@ -38,7 +35,9 @@ def hello():
             webhook(update, dispatcher)
     return ''
 
+def main():
+    app.run(host='0.0.0.0')
 
 if __name__== '__main__':
+    main()
 
-    app.run(host='0.0.0.0')

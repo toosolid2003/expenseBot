@@ -94,25 +94,25 @@ class testDeductType(unittest.TestCase):
         exp = Expense()
         exp.reason = 'Airbnb'
         exp = deductType(exp)
-        self.assertEqual(exp.type, 'Accomodation - Apartment')
+        self.assertEqual(exp.type, '17819672005')
 
     def testAccomodationHotel(self):
         exp = Expense()
         exp.reason = 'Hotel Accapulco'
         exp = deductType(exp)
-        self.assertEqual(exp.type, 'Accomodation - Hotel')
+        self.assertEqual(exp.type, '17819670115')
 
     def testAirfare(self):
         exp = Expense()
         exp.reason = 'Flight Zurich'
         exp = deductType(exp)
-        self.assertEqual(exp.type, 'Air Travel - Airfare & Others')
+        self.assertEqual(exp.type, '17819684336')
 
     def testPerdiemsDomestic(self):
         exp = Expense()
         exp.reason = 'per diem welly'
         exp = deductType(exp)
-        self.assertEqual(exp.type,'Per Diem - Domestic')
+        self.assertEqual(exp.type,'17819687871')
  
  
 #class TestEmailParser(unittest.TestCase):

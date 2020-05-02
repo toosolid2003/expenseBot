@@ -1,4 +1,4 @@
-#coding: utf-8
+#-*- coding: utf-8 -*-
 import os
 import json
 from botClasses.classes import Expense, DBHelper
@@ -158,17 +158,22 @@ def totalPending(activeUser):
 def deductType(expense):
    '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
 
-   #We infer the expense type by confronting the value in exp.reason to a list of possible words.
+   #We infer the expense type by confronting the value in exp.reason to a list of possible words
+   
+   ### The Hotel accomodation entry has en em-dash the needs to be replicated in the types dictionnary
+   emDash = u'\u2014'
+   accomodationHotel = "Accomodation {} Hotal".format(emDash)
 
-   types = {'Accomodation - Hotel':['hotel','airbnb','pension','hostel'],
-           'Accomodation - Apartment':['airbnb','apartment'],
-           'Travel - Public & Other':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
-           'Taxi':['taxi','uber','lyft'],
-   'Air Travel - Airfare & Others':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-   'Rental Car':['avis','entreprise','rental car','alamo'],
-   'Meals & Entertainment':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
-   'Car Expense (Parking, Toll, Fu':['toll','parking','fuel','highway','public','gas','petrol'],
-   'Per Diem - Domestic':['perdiem', 'per diem','per diems','perdiems']
+   # Types dictionnary
+   types = {'17819670115' :['hotel','airbnb','pension','hostel'],
+           '17819672005':['airbnb','apartment'],
+           '17819688948':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
+           '17819688802':['taxi','uber','lyft'],
+   '17819684336':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   '107851819':['avis','entreprise','rental car','alamo'],
+   '17819687015':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+   '17819686820':['toll','parking','fuel','highway','public','gas','petrol'],
+   '17819687871':['perdiem', 'per diem','per diems','perdiems']
    }
 
    #The magic loop, where the deduction happens
