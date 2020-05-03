@@ -170,8 +170,8 @@ def setup(bot):
 #    jobs = dispatcher.job_queue
     j = JobQueue()
     j.set_dispatcher(dispatcher)
-    jobTime = datetime.time(22,00)
-    job_logExpenses = j.run_daily(iqnExpensesLog,jobTime)
+    jobTime = datetime.timedelta(minutes=30)
+    job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
     j.start()
 
     return dispatcher

@@ -13,8 +13,9 @@ import time
 import logging
 from botClasses.classes import *
 
-def login(username, password):
+def initiateDriver():
 
+    """Initiates the Chrome driver for the session"""
     print('Initialising Chrome driver')
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -23,7 +24,11 @@ def login(username, password):
     chrome_options.add_argument("--start-maximized");
     driver = Chrome(options=chrome_options)
     print('Logging expenses for {}'.format('Thibaut'))
-    
+
+    return driver
+
+def login(driver, username, password):
+
     #Login sequence
     print('Opening the login page')
     driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
@@ -33,11 +38,40 @@ def login(username, password):
     elemental.send_keys(password)
     elemental.send_keys(Keys.RETURN)
     print('Logging in...')
-    
     #Home page - wait for the logout element to load before doing anything
     element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
    
     return driver
+
+def checkExpenseReport(driver):
+    """
+    Checks for an existing expense report
+
+    If expense report is found, clicks on 'Edit Expense Report' and returns the driver.
+    If not, driver goes back to home page.
+    
+    Returns a tuple with the driver and a boolean
+    """
+
+    bt = driver.find_element_by_link_text('Expense Reports')
+    bt.click()
+    try:
+        #Select the first exepense report available
+        editReport = driver.find_element_by_link_text('Edit Expense Report')
+        editReport.click()
+        exists = True
+        #Click on Add expense button
+        bt = driver.find_elements_by_class_name('actionButtonLabel')
+        bt[2].click()
+        time.sleep(5)
+
+    except:
+        #If driver cannot find an expense report, goes back to home page
+        home = driver.find_element_by_link_text('Home')
+        home.click()
+        exists = False
+
+    return driver, exists
 
 def createExpenseReport(driver):
     """
@@ -184,9 +218,6 @@ def saveExpenseReport(driver):
     print('Logging out')
     logout = driver.find_element_by_id('logoutLink')
     logout.click()
-
-    #Close Chrome
-    driver.close()
 
     return driver
 
