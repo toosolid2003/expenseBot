@@ -52,16 +52,17 @@ def photoCapture(update, context):
 
     global exp
 
+    exp.user = update.message.chat.username
+
     #Is is a photo?
     try:
         photoId = update.message.photo[-1]['file_id']
-        exp.receipt = saveDocument(photoId, bot)
+        exp.receipt = saveDocument(photoId, exp.user, bot)
     #or a document (pdf, etc.)?
     except IndexError:
         fileId = update.message.document['file_id']
-        exp.receipt = saveDocument(fileId, bot)
+        exp.receipt = saveDocument(fileId, exp.user, bot)
     # Inject the DATA if expense object is complete
-    exp.user = update.message.chat.username
     try: 
         exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:

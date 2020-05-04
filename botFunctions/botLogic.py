@@ -109,16 +109,16 @@ def parseFlightEmail(jsonFile):
     #We miss the exp.receipt...
     return exp
 
-def saveDocument(fileId, bot):
+def saveDocument(fileId, telegram_username, bot):
     '''Saves a document on the local disk and returns a filepath to be stored in the database.
-    Input: Telegram file_id and Telegram bot instance
+    Input: Telegram file_id, telegram_username and Telegram bot instance
     Output: absolute_path_to_file'''
 
     #Change the current directory to one which www-data has access to
     os.chdir('/var/www/expenseBot/receipts/')
     #Download the file
     filename = bot.get_file(fileId).download()
-    newFilepath = '/var/www/expenseBot/receipts/userId/' + filename
+    newFilepath = '/var/www/expenseBot/receipts/' + telegram_username +'/' + filename
 
     #Move the document to a dedicated folder
     os.rename(filename, newFilepath)

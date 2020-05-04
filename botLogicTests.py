@@ -113,7 +113,8 @@ class testDeductType(unittest.TestCase):
         exp.reason = 'per diem welly'
         exp = deductType(exp)
         self.assertEqual(exp.type,'17819687871')
- 
+
+
  
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):

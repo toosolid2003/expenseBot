@@ -44,7 +44,7 @@ class Expense:
         self.wbs = None
         self.receipt = None
         self.reason = None
-        self.type = 'Other expenses'
+        self.type = '17819687102'
         self.status = 'pending'
         self.user = None
 

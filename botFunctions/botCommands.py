@@ -2,6 +2,7 @@
 from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
+import os
 
 # Database helpers
 #################################################################
@@ -55,7 +56,7 @@ def status(update, context):
         update.message.reply_text(text)
 
     else:
-        update.message.reply_text('You have no pending expenses :)')
+        update.message.reply_text('All your expenses have been logged into IQ Navigator. Or you haven\'nt recorded any expense yet.')
 
 #Conversation commands
 #################################################################
@@ -134,6 +135,14 @@ def wbsSetup(update, context):
         except Exception as e:
             print('Adding user failed')
             print(e)
+
+
+        #Creating a specific folder to save user's receipts
+        try:
+            path = '/var/www/expenseBot/receipts/' + telegramUsername
+            os.mkdir(path)
+        except:
+            print('Error when creating user\'s folder')
 
     return ConversationHandler.END
 
