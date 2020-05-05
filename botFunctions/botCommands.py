@@ -50,13 +50,13 @@ def status(update, context):
     pendingExpenses = db.extract_pending(update.message.chat.username)
 
     if pendingExpenses:
-        text = 'Here are the expenses that you recorded:\n\n'
+        text = 'Here are the expenses that I have recorded for you:\n\n'
         text += toMarkdown(update.message.chat.username)
         text += '\n Total: {} CHF'.format(totalPending(update.message.chat.username))
         update.message.reply_text(text)
 
     else:
-        update.message.reply_text('All your expenses have been logged into IQ Navigator. Or you haven\'nt recorded any expense yet.')
+        update.message.reply_text('All your expenses have been logged into IQ Navigator. Or you haven\'t recorded any expense yet.')
 
 #Conversation commands
 #################################################################

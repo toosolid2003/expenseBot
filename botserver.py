@@ -9,6 +9,8 @@ import json
 import os
 import logging
 
+#Initiate the logger
+
 bot = Bot('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA')
 
 #Initiate the dispatcher
@@ -36,6 +38,8 @@ def hello():
     return ''
 
 def main():
+
+    logging.basicConfig(filename='/var/www/expenseBot/log/botserver.log',format='%(asctime)s - %(message)s', level=logging.DEBUG)
     app.run(host='0.0.0.0')
 
 if __name__== '__main__':

@@ -10,8 +10,9 @@ from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, testJob
 
 #from selfsubmit import *
+#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(message)s', level=logging.DEBUG)
 
-logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:
@@ -35,7 +36,11 @@ def injectDATA(exp):
 
     #Convert to a tuple for SQL injection
     data_tuple = exp.to_tuple()
-    db.add_item(data_tuple)
+    try:
+        db.add_item(data_tuple)
+        logging.info('Expense properly injected for %s', exp.user)
+    except Exception as e:
+        logging.info('Error while injecting expense into database: %s', e)
 
     #Resetting the expense object
     exp.amount = None
@@ -66,7 +71,7 @@ def photoCapture(update, context):
     try: 
         exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
 
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -96,7 +101,7 @@ def captionCapture(update, context):
     try: 
         exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+       update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
 
 
     rList = checkCompletion(exp)
@@ -124,7 +129,7 @@ def textCapture(update, context):
     try: 
        exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses.")
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
 
     rList = checkCompletion(exp)
     if len(rList) == 0:
