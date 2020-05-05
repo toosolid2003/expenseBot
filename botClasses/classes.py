@@ -18,19 +18,22 @@ class DBHelper:
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
-    def extract_pending(self, activeUser):
-        '''Extracts all expenses with a 'pending' status. Returns a list of data tuple rows.
-        Input: an active user (telegram username)
+    def extract_expenses(self, activeUser, status):
+        '''Extracts all expenses with a specific status. Returns a list of data tuple rows.
+        Input: an active user (telegram username) and a status.
         Output: list of tuples, one tuple per pending expense'''
 
-        status = ("pending", activeUser)
+        data = (status, activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=? AND user=?''', status)
+        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=? AND user=?''', data)
 
         return c.fetchall()
 
     def updateStatus(self, currentStatus, newStatus, telegram_username):
-        '''Modifies the status the expenses that have been logged into IQ Navigator. New status: logged'''
+        '''
+        Updates the status of all expenses matching a current status, per user.
+        Returns nothing. Just updated the db.
+        '''
 
         data = (newStatus, currentStatus, telegram_username)
         c = self.conn.cursor()

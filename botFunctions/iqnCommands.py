@@ -230,14 +230,14 @@ def submitExpenseReport(driver):
 def createExpensesList(activeUser):
     """
     Creates a list of Expense object for a single user.
-    Input: one active user
+    Input: one active user and the status ('pending')
     Output: list of Expense objects
     """
 
     #Getting a list of "pending expense" objects
     #------------------------------------------------------------------------------------------
     db = DBHelper()
-    pending = db.extract_pending(activeUser)
+    pending = db.extract_expenses(activeUser, 'pending')
 
     #Create a list of Expense objects to host the data
     expObjList = [Expense() for i in range(len(pending))]

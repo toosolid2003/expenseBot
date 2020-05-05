@@ -9,10 +9,9 @@ from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, testJob
 
-#from selfsubmit import *
-#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
 
-logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
+#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:

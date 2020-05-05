@@ -125,15 +125,16 @@ def saveDocument(fileId, telegram_username, bot):
 
     return newFilepath
 
-def toMarkdown(activeUser):
-    '''Gets all pending expenses from expenses db and format them into a string.
-    Input: active Telegram user handle
-    Output: string with all pending expenses
+def toMarkdown(expenses):
     '''
-    db = DBHelper()
-    pd = db.extract_pending(activeUser)
+    Formats all expenses provided in parameters to be displayed to user.
+
+    Input: list of expenses as tuples, extracted from db
+    Output: string with all expenses formatted
+
+    '''
     output = ''
-    for expense in pd:
+    for expense in expenses:
 
         #Reformatting the time variable for legibility
         totime = time.strptime(expense[1], "%d-%m-%Y")
@@ -142,15 +143,13 @@ def toMarkdown(activeUser):
     
     return output
 
-def totalPending(activeUser):
+def totalPending(expenses):
     '''Calculates the total amount of current pending expenses.
-    Input: active telegram handle
+    Input: list of expenses as tuples
     Output: float'''
 
-    db = DBHelper()
-    pendingExpenses = db.extract_pending(activeUser)
     total = 0
-    for expense in pendingExpenses:
+    for expense in expenses:
         total += expense[0]
 
     return total

@@ -47,16 +47,17 @@ I have other talents too, just type '/' to display my available commands. Enjoy!
 def status(update, context):
     '''Returns a list of pending expenses for current Telegram user'''
     
-    pendingExpenses = db.extract_pending(update.message.chat.username)
+    currentExpenses = db.extract_expenses(update.message.chat.username, 'logged')
+    currentExpenses += db.extract_expenses(update.message.chat.username, 'pending')
 
-    if pendingExpenses:
+    if currentExpenses:
         text = 'Here are the expenses that I have recorded for you:\n\n'
-        text += toMarkdown(update.message.chat.username)
-        text += '\n Total: {} CHF'.format(totalPending(update.message.chat.username))
+        text += toMarkdown(currentExpenses)
+        text += '\n Total: {} CHF'.format(totalPending(currentExpenses))
         update.message.reply_text(text)
 
     else:
-        update.message.reply_text('All your expenses have been logged into IQ Navigator. Or you haven\'t recorded any expense yet.')
+        update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
 
 #Conversation commands
 #################################################################
