@@ -25,7 +25,6 @@ db = DBHelper()
 db.setup()
 userdb = userDB()
 userdb.setup()
-db = DBHelper()
 
 # Database funcntions
 #################################################################
@@ -87,7 +86,7 @@ def captionCapture(update, context):
     # Get the amount, reason and deduct type
     rawText = update.message.caption
 
-    parsedDict = parseText(rawText)
+    parsedDict = parseText(rawText, update.message.chat.username)
     if parsedDict['amount']:
         exp.amount = parsedDict['amount']
     if parsedDict['reason']:
@@ -115,7 +114,7 @@ def textCapture(update, context):
     rawText = update.message.text
     
     # Parse the text
-    parsedDict = parseText(rawText)
+    parsedDict = parseText(rawText, update.message.chat.username)
     if parsedDict['amount']:
         exp.amount = parsedDict['amount']
     if parsedDict['reason']:
@@ -154,6 +153,7 @@ def setup(bot):
         states = {EMAIL: [MessageHandler(Filters.text, email)],
             IQUSERNAME: [MessageHandler(Filters.text, iqusername)],
             IQPASSWORD: [MessageHandler(Filters.text, iqpassword)],
+            CURRENCY: [MessageHandler(Filters.text, currency)],
             WBS: [MessageHandler(Filters.text, wbsSetup)]
             },
         fallbacks=[CommandHandler('stopit', stopit)]

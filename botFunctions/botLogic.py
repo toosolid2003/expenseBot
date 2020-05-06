@@ -1,8 +1,10 @@
 #-*- coding: utf-8 -*-
 import os
 import json
-from botClasses.classes import Expense, DBHelper
+from botClasses.classes import Expense, DBHelper, userDB
 import time
+
+userdb = userDB()
 
 def checkCompletion(exp):
     '''Checks if the Expense object has all the data to log the expense into the DB.
@@ -14,13 +16,16 @@ def checkCompletion(exp):
             rest.append(key)
     return rest
 
-def parseText(rawText):
+def parseText(rawText, activeUser):
     '''Parses the raw text data captured by the bot. Turns it into an amount (float) and a reason (string).
-    Input: rawText
+    Input: rawText, active user (telegram handle)
     Output: dict of values (amount and reason)'''
 
     #Initiate the dictionnary that will be returned
     values = {'amount':None, 'reason':None}
+
+    #Initiate the base currency variable
+    baseCcy = userdb.get_ccy(activeUser)
 
     #Split the text according to a pre-determined list of separators
     sepList = [',','-',':',';']
@@ -35,8 +40,8 @@ def parseText(rawText):
     if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
         for elt in parsedText:
             #Detecte a potential currency in the parsedText and update conversionFactor
-            if conversionRate(elt):
-                conversionFactor = conversionRate(elt)
+            if conversionRate(elt,'CHF'):
+                conversionFactor = conversionRate(elt,'CHF')
 
             #Remove the ccy from the elt to prepare for float assignment
             elt = convertUpdateElement(elt)
@@ -47,8 +52,8 @@ def parseText(rawText):
                 values['reason'] = elt.strip()
 
     else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
-        if conversionRate(rawText):
-            conversionFactor = conversionRate(rawText)
+        if conversionRate(rawText,'CHF'):
+            conversionFactor = conversionRate(rawText,'CHF')
         rawText = convertUpdateElement(rawText)
 
         try:
@@ -62,13 +67,22 @@ def parseText(rawText):
 
     return values
 
-def conversionRate(parsingElt):
+def conversionRate(parsingElt, baseCcy):
 
     '''Converts an amount from CHF to a target ccy.
+    Input: parsing element, base currency (strings)
+    Output: conversion rate as float
+
     Returns None if no currency has been found in the parsed element'''
 
-    ccyDict = {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2}
 
+    #Identify the dict corresponding to the base currency
+    allCcy = {'CHF': {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2},
+            'EUR': {'chf':0.95, 'usd':0.92, 'nzd':0.56, 'aud':0.6, 'cad':0.66, 'gbp':1.15}
+            }
+    ccyDict = allCcy[baseCcy]
+
+    #Identify the  conversion rate
     for ccy in ccyDict.keys():
         if ccy in parsingElt.lower():
             return ccyDict[ccy]
@@ -138,7 +152,7 @@ def toMarkdown(expenses):
 
         #Reformatting the time variable for legibility
         totime = time.strptime(expense[1], "%d-%m-%Y")
-        expenseDate = time.strftime("%A %d %B", totime)
+        expenseDate = time.strftime("%a %d %B", totime)
         output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
     
     return output

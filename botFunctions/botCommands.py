@@ -1,7 +1,9 @@
 #coding: utf-8
 from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
+from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
+import telegram
 import os
 
 # Database helpers
@@ -62,7 +64,7 @@ def status(update, context):
 #Conversation commands
 #################################################################
 
-EMAIL, IQUSERNAME, IQPASSWORD, WBS = range(4)
+EMAIL, IQUSERNAME, IQPASSWORD, CURRENCY, WBS = range(5)
 
 def start(update, context):
     """Handles the setup process"""
@@ -82,6 +84,7 @@ def email(update, context):
     else:
         update.message.reply_text('Thanks for your email ({}). Now, can you give me the username you use with IQ Navigator?'.format(email))
         context.user_data['email'] = email
+
         return IQUSERNAME
 
 
@@ -110,10 +113,28 @@ def iqpassword(update, context):
         return ConversationHandler.END
 
     else:
+        update.message.reply_text('Thanks. Now, what would be your preferred currency for me to use?')
+        keyboard = [['EUR','CHF','USD'],
+                ['NZD','AUD','CAD']]
+        reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
+        bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose your currency:')
+
+    return CURRENCY
+
+def currency(update, context):
+    """
+    Captures the preferred currency of the user.
+    """
+
+    if '/stop' in update.message.text:
+        update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
+        return ConversationHandler.END
+
+    else:
+        context.user_data['currency'] = update.message.text
         update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what would this first WBS be?')
 
     return WBS
-
 
 def wbsSetup(update, context):
     """Gimme a wbs"""
@@ -130,8 +151,9 @@ def wbsSetup(update, context):
         iq_username = context.user_data['iq_username']
         iq_password = context.user_data['password']
         email = context.user_data['email']
+        currency = context.user_data['currency']
         try:
-            db.add_user(telegramUsername, iq_username, iq_password, email, wbs)
+            db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
             update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
         except Exception as e:
             print('Adding user failed')

@@ -65,17 +65,17 @@ class userDB:
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar)'''
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
         self.conn.execute(stmt)
         self.conn.commit()
 
-    def add_user(self, telegram_username, iq_username, iq_password, email, wbs):
+    def add_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):
         '''Adds a user to the users table.
-        Input:  telegram username, iq_username, iq_password, user email, wbs
+        Input:  telegram username, iq_username, iq_password, user email, wbs, base currency
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'), wbs)
-        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?,?)'''
+        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'), wbs, ccy)
+        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 
@@ -85,18 +85,6 @@ class userDB:
         c.execute('''SELECT telegram_username, iq_username, iq_password FROM users WHERE status = ?''', data)
 
         return c.fetchall()
-
-    def get_iqn_credentials(self, activeUserTelegram):
-        '''Gets a username and password from the users database.
-        Input: telegram username
-        Output: tuple containing username and password'''
-
-        data = (activeUserTelegram,)
-        stmt = '''SELECT iq_username, iq_password FROM users WHERE telegram_username = ?'''
-        c = self.conn.cursor()
-        c.execute(stmt, data)
-
-        return c.fetchone()
 
     def get_wbs(self, activeUser):
         """
@@ -124,6 +112,23 @@ class userDB:
         stmt = '''UPDATE users SET wbs = ? WHERE telegram_username = ?'''
         self.conn.execute(stmt, data)
         self.conn.commit()
+
+
+    def get_ccy(self, activeUser):
+        """
+        Gets the preferred currency of the activeUser.
+
+        Input: telegram handle of the user
+        Output: currency trigram
+        """
+        
+        data = (activeUser,)
+        stmt = '''SELECT currency FROM users WHERE telegram_username = ?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()
+
+        return result[0]
 
     def del_user_by_iq_username(self,iq_username):
         stmt = '''DELETE FROM users WHERE iq_username = ?'''

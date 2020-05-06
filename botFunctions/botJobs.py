@@ -46,8 +46,8 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
                 print('Something went wrong: \n')
                 print(e)
 
-    driver.close()
-
+    driver.quit()
+    
     #Clean the system of the chromedriver processes
     os.system('pkill -f chrome')
 

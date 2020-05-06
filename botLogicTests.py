@@ -19,73 +19,73 @@ class TestParsetext(unittest.TestCase):
 
     def testOrder1(self):
         raw = '667,Restau'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testOrder2(self):
         raw = 'Restau,667'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator1(self):
         raw = '667-Restau'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator2(self):
         raw = '667;Restau'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testSeparator3(self):
         raw = '667:Restau'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':667.0,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testUniqueFloat(self):
         raw = '55'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':55.0,'reason':None}
         self.assertEqual(expected, result)
     def testUniqueReason(self):
         raw = 'hotel beach'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':None,'reason':'hotel beach'}
         self.assertEqual(expected, result)
 
     def testCents(self):
         raw = '45.76,Restau'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':45.76,'reason':'Restau'}
         self.assertEqual(expected, result)
 
     def testExpenseFeedingAmount(self):
         raw = 'Hotel, 490'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':490.0,'reason':'Hotel'}
         self.assertEqual(expected, result)
 
     def testExpenseFeedingReason(self):
         raw = 'Hotel, 490'
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         expected = {'amount':490.0,'reason':'Hotel'}
         self.assertEqual(expected, result)
 
     def testCurrencyConvert(self):
         raw = '45 eur, train'
         expected = {'amount': 47.7,'reason':'train'}
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         self.assertEqual(result, expected)
 
     def testCurrencyConvertUnique(self):
         raw = '45 eur'
         expected = {'amount':47.7,'reason':None}
-        result = parseText(raw)
+        result = parseText(raw,'thedropper')
         self.assertEqual(expected, result)
 
 class testDeductType(unittest.TestCase):
