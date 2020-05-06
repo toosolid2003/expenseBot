@@ -1,17 +1,18 @@
 import telegram
 from telegram.ext import CallbackContext
 from botFunctions.iqnCommands import *
-from botClasses.classes import DBHelper, userDB
+from botClasses.classes import *
 import os
 
+db = DBHelper()
+userdb = userDB()
+ 
 def iqnExpensesLog(context: telegram.ext.CallbackContext):
     """
     Logs all pending expenses into IQ Navigator.
 
     """
 
-    db = DBHelper()
-    userdb = userDB()
     activeUsers = userdb.get_users_by_status('active')
     
     driver = initiateDriver()
@@ -50,6 +51,5 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
     
     #Clean the system of the chromedriver processes
     os.system('pkill -f chrome')
-
 def testJob(context: telegram.ext.CallbackContext):
     context.bot.send_message(chat_id='467786379', text='Checking in')

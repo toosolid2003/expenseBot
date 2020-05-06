@@ -48,6 +48,7 @@ class Expense:
         self.receipt = None
         self.reason = None
         self.type = '17819687102'
+        self.receipt = ''
         self.status = 'pending'
         self.user = None
 
@@ -129,6 +130,16 @@ class userDB:
         result = c.fetchone()
 
         return result[0]
+
+    def get_credentials(self, telegram_username):
+
+        stmt = '''SELECT iq_username, iq_password FROM users WHERE telegram_username=?'''
+        data = (telegram_username,)
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()
+
+        return result
 
     def del_user_by_iq_username(self,iq_username):
         stmt = '''DELETE FROM users WHERE iq_username = ?'''

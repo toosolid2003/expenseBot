@@ -254,3 +254,55 @@ def createExpensesList(activeUser):
         i += 1
     
     return expObjList
+
+def wbsCheck(activeUser, wbs):
+    """
+    Checks if the WBS given by the user is usable. The job creatas a $1 expense and tries to
+    save it. If there is an error message, then it infers that the WBS is not valid.
+
+    """
+    userdb = userDB()
+    userCreds = userdb.get_credentials(activeUser)
+    
+    #Initiate expense object for test
+    expTest = Expense()
+    expTest.amount = 1.0
+    expTest.reason = 'test wbs'
+    expTest.wbs = wbs
+    expTest.receipt = '/var/www/expenseBot/receipts/thedropper/file_156.jpg'
+    expTest.user = ''
+    expList = [expTest]
+    #Login sequence
+    driver = initiateDriver()
+    driver = login(driver, userCreds[0], userCreds[1])
+    driver = createExpenseReport(driver)
+    driver = addExpense(driver, expList)
+
+    #Close the Add Expense form
+    closeBtn = driver.find_element_by_class_name('container-close')
+    closeBtn.click()
+
+    #Check if the expense has been saved - which proves that the WBS works
+    #We get the confirmation by checking if the dataTable element displays 'No items found'
+
+    elt = driver.find_element_by_class_name('dataTable')
+    print('Testing the wbs')
+    if 'No items found' not in elt.text:
+        wbsValid = True
+    elif 'No items found' in elt.text:
+        wbsValid = False
+
+    #End of test
+    #Try to leave gracefully
+    try:
+        print('Logging out')
+        logout = driver.find_element_by_id('logoutLink')
+        logout.click()
+    except:
+        pass
+
+    driver.quit()
+    
+    return wbsValid
+
+
