@@ -1,6 +1,7 @@
 #coding: utf-8
 from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
+from botFunctions.iqnCommands import wbsCheck
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -166,6 +167,13 @@ def wbsSetup(update, context):
             os.mkdir(path)
         except:
             print('Error when creating user\'s folder')
+        
+        #Checking the validity of the WBS
+        isWbsValid = wbsCheck(update.message.chat.username, wbs)
+
+        if not isWbsValid:
+            update.message.reply_text('Your WBS does not seem to be working for you. Make sure it is activated before I can record any expense for you! Check this with your manager, maybe? \nPlease use the /wbs command if you need to change your wbs.')
+
 
     return ConversationHandler.END
 
