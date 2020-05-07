@@ -3,6 +3,7 @@ from telegram.ext import CallbackContext
 from botFunctions.iqnCommands import *
 from botClasses.classes import *
 import os
+import logging
 
 db = DBHelper()
 userdb = userDB()
@@ -51,5 +52,40 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
     
     #Clean the system of the chromedriver processes
     os.system('pkill -f chrome')
+
+
+
+
+def submitJob(activeUser):
+    """
+    Submits the latest expense report for approval.
+    """
+    
+    #Get the credentials for current user
+    user = db.get_credentials(activeUser)
+
+    #Start the navigation on Chrome
+    driver = initiateDriver()
+
+    try:
+        driver = login(driver, user[0], user[1])
+    except Exception as e:
+        logging.error('Cannot login to IQ Navigator. User: %s. Error: %s', activeUser, e)
+
+
+    result = checkExpenseReport(driver)
+    driver = result[0]
+
+
+    try:
+        driver = submitExpenseReport(driver) 
+        successSubmit = True
+    except Exception as e:
+        logging.error('Could not submit the current time report for user %s. Error: %s', activeUser, e)
+        successSubmit = False
+    driver.quit()
+
+    return successSubmit
+
 def testJob(context: telegram.ext.CallbackContext):
     context.bot.send_message(chat_id='467786379', text='Checking in')

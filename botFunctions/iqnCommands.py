@@ -229,7 +229,15 @@ def submitExpenseReport(driver):
     Input: driver positionned on the Expense Report page.
     Output: driver after expense report has been submitted for approval.
     """
-    return driver
+    elts = driver.find_elements_by_class_name('actionButtonLabel')
+    elts[0].click()
+    time.sleep(2)
+
+    #Logout
+    logout = driver.find_element_by_id('logoutLink')
+    logout.click()
+
+   return driver
 
 def createExpensesList(activeUser):
     """

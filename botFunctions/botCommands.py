@@ -2,6 +2,7 @@
 from botClasses.classes import *
 from botFunctions.botLogic import toMarkdown, totalPending
 from botFunctions.iqnCommands import wbsCheck
+from botFunctions.botJobs import submitJob
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -44,8 +45,12 @@ def wbs(update, context):
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
 
-    response = submit_expenses(update.message.chat.username)
-    update.message.reply_text(response)
+    result = submitJob(update.message.chat.username)
+    if result:
+        update.message.reply_text('Alright, your expenses have been submitted for approval')
+        db.updateStatus('logged','submitted', update.message.chat.username)
+    else:
+        update.message.reply_text('The submission seems to have failed. I won\'t be able to help from here, so I suggest you have a look on IQ Navigator to sort it out.')
 
 def helpmsg(update, context):
     text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
