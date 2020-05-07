@@ -67,7 +67,7 @@ class DBHelper:
 
 class Expense:
     def __init__(self, amount=None, wbs=None, receipt=None, reason=None, user=None):
-        self.uid = str(uuid.uuid1().int)
+        self.uid = str(uuid.uuid4())
         self.amount = amount
         self.date = time.strftime("%d-%-m-%Y")
         self.wbs = wbs
