@@ -2,6 +2,7 @@
 
 import sqlite3
 import time
+import uuid
 
 class DBHelper:
     def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
@@ -9,13 +10,37 @@ class DBHelper:
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = "CREATE TABLE IF NOT EXISTS items (amount float (2), date_expense date, reason text, status text, wbs text, type text, receipt varchar, user varchar)"
+        stmt = "CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), date_expense date, reason text, status text, wbs text, type text, receipt varchar, user varchar)"
         self.conn.execute(stmt)
         self.conn.commit()
 
     def add_item(self, data_tuple):
-        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?)"
+        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
+        self.conn.commit()
+
+    def get_item(self, uid):
+        """
+        Gets a single expense with its unique identifier
+        """
+
+        data = (uid,)
+        stmt = '''SELECT * FROM items WHERE uid=?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()
+
+        return result
+
+    def del_item(self, uid):
+        """
+        Deletes an expense with a uid.
+        """
+        
+        data = (uid,)
+        stmt = '''DELETE FROM items WHERE uid=?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
         self.conn.commit()
 
     def extract_expenses(self, activeUser, status):
@@ -41,23 +66,23 @@ class DBHelper:
         self.conn.commit()
 
 class Expense:
-    def __init__(self):
-        self.amount = None
+    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, user=None):
+        self.uid = str(uuid.uuid1().int)
+        self.amount = amount
         self.date = time.strftime("%d-%-m-%Y")
-        self.wbs = None
-        self.receipt = None
-        self.reason = None
+        self.wbs = wbs
+        self.receipt = receipt
+        self.reason = reason
         self.type = '17819687102'
-        self.receipt = ''
         self.status = 'pending'
-        self.user = None
+        self.user = user
 
     def to_tuple(self):
         '''Converts the data in the expense class into a tuple.
         Input: expense class with all data
         Output: a data tuple, ready for injection in the db'''
 
-        data_tuple = (self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt, self.user)
+        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt, self.user)
         return data_tuple
 
 class userDB:

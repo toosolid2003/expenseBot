@@ -1,6 +1,8 @@
 import unittest
-from botClasses.classes import Expense
+from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
+from botTelegram import injectDATA
+import random
 
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
@@ -114,8 +116,21 @@ class testDeductType(unittest.TestCase):
         exp = deductType(exp)
         self.assertEqual(exp.type,'17819687871')
 
+class testInjectData(unittest.TestCase):
+    def setUp(self):
+        self.db = DBHelper()
+        randomReason = random.randint(1,1000)
+        self.exp = Expense(amount=1.0, reason=randomReason, receipt='/var/www/receipts',user='test', wbs='00000')
 
+    def testInject(self):
+        tupleOne = self.exp.to_tuple()
+        self.db.add_item(tupleOne)
+        tupleTwo = self.db.get_item(self.exp.uid)
+        self.assertEqual(self.exp.reason, int(tupleTwo[3]))
  
+    def tearDown(self):
+        self.db.del_item(self.exp.uid)
+
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):
 #        filePath = 'easyjet-2020-04-10.json'

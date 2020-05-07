@@ -137,6 +137,9 @@ def currency(update, context):
     Captures the preferred currency of the user.
     """
 
+    #Remove the custome keyboard used in password state
+    telegram.ReplyKeyboardRemove()
+
     if '/stop' in update.message.text:
         update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
         return ConversationHandler.END

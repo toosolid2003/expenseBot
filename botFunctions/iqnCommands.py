@@ -237,7 +237,7 @@ def submitExpenseReport(driver):
     logout = driver.find_element_by_id('logoutLink')
     logout.click()
 
-   return driver
+    return driver
 
 def createExpensesList(activeUser):
     """
