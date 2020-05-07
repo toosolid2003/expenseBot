@@ -27,6 +27,11 @@ def wbs(update, context):
 
         wbs = userdb.get_wbs(update.message.chat.username)
         update.message.reply_text('Your new WBS: {}'.format(wbs))
+
+        #Check if the wbs is valid
+        isWbsValid = wbsCheck(update.message.chat.username, wbs)
+        if not isWbsValid:
+            update.message.reply_text('There is a little problem with this wbs. Whether you are not allowed to use it or maybe the code is invalid, but it does not seem to be working for you. Try to update it again or just reach out to your manager to make sure you can use it.')
     else:
         try:
             wbs = userdb.get_wbs(update.message.chat.username)

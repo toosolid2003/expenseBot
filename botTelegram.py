@@ -9,9 +9,9 @@ from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, testJob
 
-logging.basicConfig(format='%(levelname)s - %(message)s', level=logging.DEBUG)
+#logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
 
-#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
+logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:
@@ -36,9 +36,8 @@ def injectDATA(exp):
     data_tuple = exp.to_tuple()
     try:
         db.add_item(data_tuple)
-        logging.info('Expense properly injected for %s', exp.user)
     except Exception as e:
-        logging.info('Error while injecting expense into database: %s', e)
+        logging.error('Error while injecting expense into database (%s) for %s', e, exp.user)
 
     #Resetting the expense object
     exp.amount = None
@@ -91,7 +90,6 @@ def captionCapture(update, context):
         exp.amount = parsedDict['amount']
     if parsedDict['reason']:
         exp.reason = parsedDict['reason']
-    if exp.reason:
         exp = deductType(exp)
 
     # Inject the DATA
@@ -119,7 +117,6 @@ def textCapture(update, context):
         exp.amount = parsedDict['amount']
     if parsedDict['reason']:
         exp.reason = parsedDict['reason']
-    if exp.reason:
         exp = deductType(exp)
 
      # Inject the DATA

@@ -29,15 +29,19 @@ def login(driver, username, password):
 
     #Login sequence
     print('Opening the login page')
-    driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
-    element = driver.find_element_by_id('username')
-    element.send_keys(username)
-    elemental = driver.find_element_by_id('password')
-    elemental.send_keys(password)
-    elemental.send_keys(Keys.RETURN)
-    print('Logging in...')
-    #Home page - wait for the logout element to load before doing anything
-    element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
+    try:    
+        driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
+        element = driver.find_element_by_id('username')
+        element.send_keys(username)
+        elemental = driver.find_element_by_id('password')
+        elemental.send_keys(password)
+        elemental.send_keys(Keys.RETURN)
+        print('Logging in...')
+        #Home page - wait for the logout element to load before doing anything
+        element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
+
+    except Exception as e:
+        logging.error('Driver could not log into IQ Navigator. Error: %s',e)
    
     return driver
 

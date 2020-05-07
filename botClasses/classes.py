@@ -94,11 +94,15 @@ class userDB:
         Output: wbs as a string object
         """
 
-        data = (activeUser,)
-        stmt = '''SELECT wbs FROM users WHERE telegram_username = ?'''
-        c = self.conn.cursor()
-        c.execute(stmt, data)
-        result = c.fetchone()       #result is a tuple
+        try:
+            data = (activeUser,)
+            stmt = '''SELECT wbs FROM users WHERE telegram_username = ?'''
+            c = self.conn.cursor()
+            c.execute(stmt, data)
+            result = c.fetchone()       #result is a tuple
+
+        except Exception as e:
+            logging.error('Could not retrive wbs from database: %s',e)
 
         return result[0]
 

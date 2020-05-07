@@ -3,6 +3,7 @@ import os
 import json
 from botClasses.classes import Expense, DBHelper, userDB
 import time
+import logging
 
 userdb = userDB()
 
@@ -11,9 +12,13 @@ def checkCompletion(exp):
     Returns a list of missing values for the db.'''
 
     rest = []
-    for key, value in exp.__dict__.items():
-        if value == None:
-            rest.append(key)
+    try:
+        for key, value in exp.__dict__.items():
+            if value == None:
+                rest.append(key)
+    except Exception as e:
+        logging.error('Could not perform checkCompletion. Error: %s',e)
+
     return rest
 
 def parseText(rawText, activeUser):
@@ -131,7 +136,11 @@ def saveDocument(fileId, telegram_username, bot):
     #Change the current directory to one which www-data has access to
     os.chdir('/var/www/expenseBot/receipts/')
     #Download the file
-    filename = bot.get_file(fileId).download()
+    try:
+        filename = bot.get_file(fileId).download()
+    except Exception as e:
+        logging.error('Could not download file %s. Error: %s', fileId, e)
+
     newFilepath = '/var/www/expenseBot/receipts/' + telegram_username +'/' + filename
 
     #Move the document to a dedicated folder
