@@ -2,17 +2,17 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispa
 import telegram
 from telegram import Bot
 import datetime
-import logging
 import time
 from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, testJob
+from logger.logger import logger
+import uuid
 
 #logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
-
-logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
+#logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:
     token = fichier.read()
@@ -36,13 +36,15 @@ def injectDATA(exp):
     data_tuple = exp.to_tuple()
     try:
         db.add_item(data_tuple)
+        logger.info('Expense %s added to the databse for user %s', exp.uid, exp.user)
     except Exception as e:
-        logging.error('Error while injecting expense into database (%s) for %s', e, exp.user)
+        logger.error('Error while injecting expense into database (%s) for %s', e, exp.user)
 
     #Resetting the expense object
     exp.amount = None
     exp.receipt = None
     exp.reason = None
+    exp.uid = str(uuid.uuid4())
 
 # Input handlers
 #################################################################
@@ -64,11 +66,17 @@ def photoCapture(update, context):
     except IndexError:
         fileId = update.message.document['file_id']
         exp.receipt = saveDocument(fileId, exp.user, bot)
+    #Logging and error for all other kinds of exceptions
+    except Exception as e:
+        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
+
     # Inject the DATA if expense object is complete
     try: 
         exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
+    except Exception as e:
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -98,7 +106,8 @@ def captionCapture(update, context):
         exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
-
+    except Exception as e:
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     rList = checkCompletion(exp)
     if len(rList) == 0:
@@ -125,6 +134,8 @@ def textCapture(update, context):
        exp.wbs = userdb.get_wbs(exp.user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
+    except Exception as e:
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     rList = checkCompletion(exp)
     if len(rList) == 0:

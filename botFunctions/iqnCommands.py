@@ -10,25 +10,31 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-import logging
 from botClasses.classes import *
+from logger.logger import logger
+
+db = DBHelper()
 
 def initiateDriver():
 
     """Initiates the Chrome driver for the session"""
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument("--window-size=1920,1080");
-    chrome_options.add_argument("--start-maximized");
-    driver = Chrome(options=chrome_options)
+    try:
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument("--window-size=1920,1080");
+        chrome_options.add_argument("--start-maximized");
+        driver = Chrome(options=chrome_options)
+
+    except Exception as e:
+        logger.error('Could not initiate Chrome driver. Error: %s', e)
 
     return driver
 
 def login(driver, username, password):
 
     #Login sequence
-    print('Opening the login page')
+    #logger.info('Opening the login page')
     try:    
         driver.get('https://augustus.iqnavigator.com/wicket/wicket/page?x=s89lP8StUfw')
         element = driver.find_element_by_id('username')
@@ -36,12 +42,12 @@ def login(driver, username, password):
         elemental = driver.find_element_by_id('password')
         elemental.send_keys(password)
         elemental.send_keys(Keys.RETURN)
-        print('Logging in...')
+        logger.info('Logging in...')
         #Home page - wait for the logout element to load before doing anything
         element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,'logoutLink')))
 
     except Exception as e:
-        logging.error('Driver could not log into IQ Navigator. Error: %s',e)
+        logger.error('Driver could not log into IQ Navigator. Error: %s',e)
    
     return driver
 
@@ -55,23 +61,27 @@ def checkExpenseReport(driver):
     Returns a tuple with the driver and a boolean
     """
 
-    bt = driver.find_element_by_link_text('Expense Reports')
-    bt.click()
     try:
-        #Select the first exepense report available
-        editReport = driver.find_element_by_link_text('Edit Expense Report')
-        editReport.click()
-        exists = True
-        #Click on Add expense button
-        bt = driver.find_elements_by_class_name('actionButtonLabel')
-        bt[2].click()
-        time.sleep(5)
+        bt = driver.find_element_by_link_text('Expense Reports')
+        bt.click()
+        try:
+            #Select the first exepense report available
+            editReport = driver.find_element_by_link_text('Edit Expense Report')
+            editReport.click()
+            exists = True
+            #Click on Add expense button
+            bt = driver.find_elements_by_class_name('actionButtonLabel')
+            bt[2].click()
+            time.sleep(3)
+    
+        except:
+            #If driver cannot find an expense report, goes back to home page
+            home = driver.find_element_by_link_text('Home')
+            home.click()
+            exists = False
 
-    except:
-        #If driver cannot find an expense report, goes back to home page
-        home = driver.find_element_by_link_text('Home')
-        home.click()
-        exists = False
+    except Exception as e:
+        logger.error('Could not perform checkExpenseReport. Error: %s', e)
 
     return driver, exists
 
@@ -94,9 +104,9 @@ def createExpenseReport(driver):
     time.sleep(3)
 
     #Enter a title for the Expense Report
-    print('Creating a new expense report')
+    logger.info('Creating a new expense report')
     expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
-    expReportTile.send_keys('Expenses for this week')
+    expReportTile.send_keys('Expenses starting from {}'.format(time.strftime('%x')))
 
     #Add expense button
     bt = driver.find_elements_by_class_name('actionButtonLabel')
@@ -121,16 +131,21 @@ def addExpense(driver, expObjList):
             'attachBtn':'entryFieldsContainer:fieldGroup:fields:5:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:container:attachmentPanel:feedback:border:feedback_body:fileSubmit:container:container_body:button',
             'wbs':'entryFieldsContainer:fieldGroup:fields:7:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:sizingWrapper:textField:autocompleteField',
             'type':'entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select'}
+    
+    #Creating a list of expenses in error, for later verification
+    expensesInError = []
+    expensesSaved = []
 
     # Add Expense form - start of the loop
     j = 0
+
     ## Enter date
     for exp in expObjList:
 
-        print('Adding expense {}'.format(j))
+#        logger.info('Adding expense {}'.format(j))
 
         #Enter type (html select)
-        print('Adding type: {}'.format(exp.type))
+#        logger.info('Adding type: {}'.format(exp.type))
         select_element = driver.find_element_by_name(fields['type'])
         select_object = Select(select_element)
 #        select_object.select_by_visible_text(exp.type)
@@ -138,28 +153,31 @@ def addExpense(driver, expObjList):
         time.sleep(2)
 
         #Enter date of expense
-        print('Adding date: {}'.format(exp.date))
+#        logger.info('Adding date: {}'.format(exp.date))
         label = driver.find_element_by_name(fields['date'])
+        label.clear()
         label.send_keys(exp.date)
         #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Enter Amount
-        print('Adding amount: {}'.format(exp.amount))
+#        logger.info('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
+        label.clear()
         label.send_keys(str(exp.amount))
         #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Enter reason
-        print('Adding reason: {}'.format(exp.reason))
+#        logger.info('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
+        label.clear()
         label.send_keys(exp.reason)
         #label.send_keys(Keys.TAB)
         #time.sleep(2)
 
         #Upload receipt
-        print('Uploading receipt: {}'.format(exp.receipt))
+#        logger.info('Uploading receipt: {}'.format(exp.receipt))
         btn = driver.find_element_by_name(fields['receipt'])
         btn.send_keys(exp.receipt)
         time.sleep(2)
@@ -170,30 +188,31 @@ def addExpense(driver, expObjList):
         time.sleep(4)  #Wait for receipt to load
 
         #Enter WBS
-        print('Adding WBS: {}'.format(exp.wbs))
+#        logger.info('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
         select_element.send_keys(Keys.TAB)
 
         #Save and Add other expense
-        print('Saving expense')
+#        logger.info('Saving expense')
         #Use TAB key to scroll down to have the Save and Add Button appear to the driver
         time.sleep(2)
         btn = driver.find_element_by_name('saveAndAddButton:container:container_body:button')
         btn.click()
         time.sleep(5)
-#        #Take a screenshot here
-#        driver.save_screenshot('diagnostic.png')
-#        try:
-#            feedback = driver.find_element_by_class_name('fbERROR')
-#            print('Error on the form')
-#        except NoSuchElementException:
-#            feedback = driver.find_element_by_class_name('fbINFO')
-#            print('Expense recorded, off to the next')
-        #Save and Close
-        #saveNclose = driver.find_element_by_name('saveAndCloseButton:container:container_body:button')
-        #saveNclose.click()
-        time.sleep(2)
+        
+        #Check if expense has been saved without error
+        try:
+            confirm = driver.find_element_by_css_selector('li.fbINFO')
+            if 'Expense Added' in confirm.text:
+                db.update_item_status(exp.uid, 'logged')
+                logger.info('Expense correctly logger: %s', exp.uid)
+        except:
+            db.update_item_status(exp.uid, 'error')
+            logger.error('Expense %s could not be saved', exp.uid)
+            # Take a screenshot here
+            #filename = 'log/screenshots/' + exp.uid + '.png'
+            #driver.save_screenshot(filename)
         j += 1
 
     return driver
@@ -211,13 +230,13 @@ def saveExpenseReport(driver):
 
     time.sleep(2)
     #Save the draft
-    print('Saving the draft of expense report')
+    logger.info('Saving the draft of expense report')
     elts = driver.find_elements_by_class_name('actionButtonLabel')
     elts[1].click()
     time.sleep(4)
 
     #Logout
-    print('Logging out')
+    logger.info('Logging out')
     logout = driver.find_element_by_id('logoutLink')
     logout.click()
 
@@ -263,6 +282,7 @@ def createExpensesList(activeUser):
         exp.wbs = pending[i][3]
         exp.type = pending[i][4]
         exp.receipt = pending[i][5]
+        exp.uid = pending[i][6]
         i += 1
     
     return expObjList
@@ -298,7 +318,7 @@ def wbsCheck(activeUser, wbs):
     #We get the confirmation by checking if the dataTable element displays 'No items found'
 
     elt = driver.find_element_by_class_name('dataTable')
-    print('Testing the wbs')
+    logger.info('Testing the wbs')
     if 'No items found' not in elt.text:
         wbsValid = True
     elif 'No items found' in elt.text:
@@ -307,7 +327,7 @@ def wbsCheck(activeUser, wbs):
     #End of test
     #Try to leave gracefully
     try:
-        print('Logging out')
+        logger.info('Logging out')
         logout = driver.find_element_by_id('logoutLink')
         logout.click()
     except:

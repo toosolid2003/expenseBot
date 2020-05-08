@@ -1,3 +1,6 @@
 INFO - 2020-05-04 20:27:27,031 - Expense properly injected for thedropper
 INFO - 2020-05-07 08:15:29,520 - Check completed
 INFO - 2020-05-07 08:15:29,521 - Check completed
+ERROR - 2020-05-07 20:11:49,915 - Error while injecting expense into database (attempt to write a readonly database) for thedropper
+ERROR - 2020-05-08 07:24:54,378 - Error while injecting expense into database (attempt to write a readonly database) for thedropper
+ERROR - 2020-05-08 07:31:12,161 - No error handlers are registered, logging exception.

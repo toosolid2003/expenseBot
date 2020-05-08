@@ -43,6 +43,15 @@ class DBHelper:
         c.execute(stmt, data)
         self.conn.commit()
 
+    def update_item_status(self, uid, status):
+        """Updates a field of an expense"""
+
+        data = (status, uid)
+        stmt = '''UPDATE items SET status = ? WHERE uid = ?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        self.conn.commit()
+
     def extract_expenses(self, activeUser, status):
         '''Extracts all expenses with a specific status. Returns a list of data tuple rows.
         Input: an active user (telegram username) and a status.
@@ -50,7 +59,7 @@ class DBHelper:
 
         data = (status, activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt FROM items WHERE status=? AND user=?''', data)
+        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
 
         return c.fetchall()
 

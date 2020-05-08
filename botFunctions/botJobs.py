@@ -41,12 +41,11 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
 
                 driver = addExpense(driver, pd)
                 driver = saveExpenseReport(driver)
-                db.updateStatus('pending','logged',user[0])
-                print('Expenses successfully logged')
+                #db.updateStatus('pending','logged',user[0])
+                #print('Expenses successfully logged')
         
             except Exception as e:
-                print('Something went wrong: \n')
-                print(e)
+                logging.error('Could not perform iqnExpenseLog job. Error: %s', e) 
 
     driver.quit()
     

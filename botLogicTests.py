@@ -3,6 +3,7 @@ from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
 from botTelegram import injectDATA
 import random
+import time
 
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
@@ -116,20 +117,45 @@ class testDeductType(unittest.TestCase):
         exp = deductType(exp)
         self.assertEqual(exp.type,'17819687871')
 
-class testInjectData(unittest.TestCase):
+class testExpenseDBHelper(unittest.TestCase):
     def setUp(self):
         self.db = DBHelper()
         randomReason = random.randint(1,1000)
         self.exp = Expense(amount=1.0, reason=randomReason, receipt='/var/www/receipts',user='test', wbs='00000')
+        self.tupleOne = self.exp.to_tuple()
 
     def testInject(self):
-        tupleOne = self.exp.to_tuple()
-        self.db.add_item(tupleOne)
+        self.db.add_item(self.tupleOne)
         tupleTwo = self.db.get_item(self.exp.uid)
         self.assertEqual(self.exp.reason, int(tupleTwo[3]))
- 
+    
+    def testUpdateItem(self):
+        self.db.update_item_status(self.exp.uid, 'testStatus')
+        test = self.db.get_item(self.exp.uid)
+        self.assertEqual(self.exp.status, test[3])
+
     def tearDown(self):
         self.db.del_item(self.exp.uid)
+
+class testUsersDBHelper(unittest.TestCase):
+
+    def setUp(self):
+        self.db = userDB()
+        self.username = random.randint(1,10000)
+        self.iq_username ='tsegura2'
+        self.iq_password = 'Brutasse1-'
+        self.email = 't.segura@accenture.com'
+        self.wbs = '00000'
+        self.ccy = 'EUR'
+
+    def testAddUser(self):
+        self.db.add_user(self.username, self.iq_username, self.iq_password, 'test', self.email, time.strftime('%d-%m-%Y'), self.wbs. self.ccy)
+        testUser = self.db.get_users_by_status('test')
+        testUsername = testUser[0][0]
+        self.assertEqual(self.username, testUsername)
+
+    def tearDown(self):
+        self.db.del_user_by_iq_username(self.username)
 
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):

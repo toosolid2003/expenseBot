@@ -7,6 +7,7 @@ from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
 import os
+import logging
 
 # Database helpers
 #################################################################
@@ -170,8 +171,7 @@ def wbsSetup(update, context):
             db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
             update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
         except Exception as e:
-            print('Adding user failed')
-            print(e)
+            logging.error('User %s could not be added to the user base. Error: %s', telegramUsername, e)
 
 
         #Creating a specific folder to save user's receipts
