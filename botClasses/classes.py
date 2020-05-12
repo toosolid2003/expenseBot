@@ -75,14 +75,14 @@ class DBHelper:
         self.conn.commit()
 
 class Expense:
-    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, user=None):
+    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, typex='17819687102', user=None):
         self.uid = str(uuid.uuid4())
         self.amount = amount
         self.date = time.strftime("%d-%-m-%Y")
         self.wbs = wbs
         self.receipt = receipt
         self.reason = reason
-        self.type = '17819687102'
+        self.typex = typex
         self.status = 'pending'
         self.user = user
 
@@ -91,7 +91,7 @@ class Expense:
         Input: expense class with all data
         Output: a data tuple, ready for injection in the db'''
 
-        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.type, self.receipt, self.user)
+        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.typex, self.receipt, self.user)
         return data_tuple
 
 class userDB:

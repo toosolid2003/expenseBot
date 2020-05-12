@@ -45,7 +45,8 @@ def wbs(update, context):
 
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
-
+    
+    result = True
     result = submitJob(update.message.chat.username)
     if result:
         update.message.reply_text('Alright, your expenses have been submitted for approval')
@@ -94,7 +95,7 @@ def email(update, context):
         update.message.reply_text('OK then. Feel free to resume the sign up by typing "/start" when you are ready')
         return ConversationHandler.END
     else:
-        update.message.reply_text('Thanks for your email ({}). Now, can you give me the username you use with IQ Navigator?'.format(email))
+        update.message.reply_text('Thanks for your email ({}). Now, can you send me the username you use to log into IQ Navigator?'.format(email))
         context.user_data['email'] = email
 
         return IQUSERNAME
@@ -125,11 +126,11 @@ def iqpassword(update, context):
         return ConversationHandler.END
 
     else:
-        update.message.reply_text('Thanks. Now, what would be your preferred currency for me to use?')
+        update.message.reply_text('Thanks. Now, what currency should I use to record your expenses?')
         keyboard = [['EUR','CHF','USD'],
                 ['NZD','AUD','CAD']]
         reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-        bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose your currency:')
+        bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
 
     return CURRENCY
 

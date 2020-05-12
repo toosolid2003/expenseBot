@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue, CallbackContext
 import telegram
 from telegram import Bot
 import datetime
@@ -6,12 +6,11 @@ import time
 from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
-from botFunctions.botJobs import iqnExpensesLog, testJob
+from botFunctions.botJobs import iqnExpensesLog, submitJob 
 from logger.logger import logger
 import uuid
 
-#logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.INFO)
-#logging.basicConfig(filename='/var/www/expenseBot/log/bot.log', format='%(levelname)s - %(asctime)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
+#logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.DEBUG)
 #logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:
@@ -26,128 +25,132 @@ db.setup()
 userdb = userDB()
 userdb.setup()
 
-# Database funcntions
-#################################################################
-
-def injectDATA(exp):
-    '''inject the data contained in the Expense object (exp) into the sqlite db'''
-
-    #Convert to a tuple for SQL injection
-    data_tuple = exp.to_tuple()
-    try:
-        db.add_item(data_tuple)
-        logger.info('Expense %s added to the databse for user %s', exp.uid, exp.user)
-    except Exception as e:
-        logger.error('Error while injecting expense into database (%s) for %s', e, exp.user)
-
-    #Resetting the expense object
-    exp.amount = None
-    exp.receipt = None
-    exp.reason = None
-    exp.uid = str(uuid.uuid4())
-
 # Input handlers
 #################################################################
 
 # Downloads the receipt picture as a byte array to be stored in the DB
 def photoCapture(update, context):
-    '''Capture only the picture into Expense object, as an absolute path to the
-    downloaded file.'''
+    '''
+    Downloads the picture and saves the path to file in context.user_data
+    '''
 
-    global exp
+    #global exp
 
-    exp.user = update.message.chat.username
+    user = update.message.chat.username
 
     #Is is a photo?
     try:
         photoId = update.message.photo[-1]['file_id']
-        exp.receipt = saveDocument(photoId, exp.user, bot)
+        context.user_data['receipt'] = saveDocument(photoId, user, bot)
+
     #or a document (pdf, etc.)?
     except IndexError:
         fileId = update.message.document['file_id']
-        exp.receipt = saveDocument(fileId, exp.user, bot)
+        context.user_data['receipt'] = saveDocument(fileId, user, bot)
+
     #Logging and error for all other kinds of exceptions
     except Exception as e:
         logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
 
     # Inject the DATA if expense object is complete
+    #First the user
+    context.user_data['user'] = user
+
+    #Second the wbs
     try: 
-        exp.wbs = userdb.get_wbs(exp.user)
+        context.user_data['wbs'] = userdb.get_wbs(user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
         logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
-    rList = checkCompletion(exp)
-    if len(rList) == 0:
-        injectDATA(exp)
+    #Third check for completion
+    isComplete = checkCompletion(context.user_data)
+    if isComplete:
+        logger.info('Expense data is complete. Ready for database injection.')
+        injectData(context.user_data)
+        resetDic(context.user_data)
         update.message.reply_text('Thanks, I have recorded your expense.')
+
+
 
 def captionCapture(update, context):
     '''Captures the data contained in the caption'''
 
-    global exp
+    #global exp
+
     # Capture the photo
     photoCapture(update, context)
 
-    # Get the amount, reason and deduct type
-    rawText = update.message.caption
+    # Parse the text: adds amount + reason and type if amount and reason in the raw text
+    tempDict = parseText(update.message.caption, update.message.chat.username)
 
-    parsedDict = parseText(rawText, update.message.chat.username)
-    if parsedDict['amount']:
-        exp.amount = parsedDict['amount']
-    if parsedDict['reason']:
-        exp.reason = parsedDict['reason']
-        exp = deductType(exp)
+    # Feeding the missing element in context.user_data
+    if tempDict['amount'] != None:
+        context.user_data['amount'] = tempDict['amount']
 
-    # Inject the DATA
-    exp.user = update.message.chat.username
+    if tempDict['reason'] != None:
+        context.user_data['reason'] = tempDict['reason']
+        context.user_data['typex'] = tempDict['typex']
+
+    # Add the telegram handle to context.user_data
+    context.user_data['user'] = update.message.chat.username
+
+    # Add the wbs to context.user_data
     try: 
-        exp.wbs = userdb.get_wbs(exp.user)
-    except KeyError:
-       update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
-    except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
-
-    rList = checkCompletion(exp)
-    if len(rList) == 0:
-        injectDATA(exp)
-        update.message.reply_text('Thanks, I have recorded your expense.')
-
-def textCapture(update, context):
-
-    global exp
-
-    rawText = update.message.text
-    
-    # Parse the text
-    parsedDict = parseText(rawText, update.message.chat.username)
-    if parsedDict['amount']:
-        exp.amount = parsedDict['amount']
-    if parsedDict['reason']:
-        exp.reason = parsedDict['reason']
-        exp = deductType(exp)
-
-     # Inject the DATA
-    exp.user = update.message.chat.username
-    try: 
-       exp.wbs = userdb.get_wbs(exp.user)
+       context.user_data['wbs'] = userdb.get_wbs(context.user_data['user'])
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
         logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
-    rList = checkCompletion(exp)
-    if len(rList) == 0:
-        injectDATA(exp)
+    #Check for completion and inject data if positive
+    isComplete = checkCompletion(context.user_data)
+    if isComplete:
+        logger.info('Expense data is complete. Ready for database injection.')
+        injectData(context.user_data)
+        resetDic(context.user_data)
         update.message.reply_text('Thanks for this, I got your expense.')
 
-def echoText(update, message):
-    update.message.reply_text('You said {}'.format(update.message.text))
+def textCapture(update, context):
+
+    #global exp
+
+    rawText = update.message.text
+    
+    # Parse the text: adds amount + reason and type if amount and reason in the raw text
+    tempDict = parseText(rawText, update.message.chat.username)
+
+    # Feeding the missing element in context.user_data
+    if tempDict['amount'] != None:
+        context.user_data['amount'] = tempDict['amount']
+
+    if tempDict['reason'] != None:
+        context.user_data['reason'] = tempDict['reason']
+        context.user_data['typex'] = tempDict['typex']
+
+    # Add the telegram handle to context.user_dat
+    context.user_data['user'] = update.message.chat.username
+
+    # Add the wbs to context.user_data
+    try: 
+       context.user_data['wbs'] = userdb.get_wbs(context.user_data['user'])
+    except KeyError:
+        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
+    except Exception as e:
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+
+    isComplete = checkCompletion(context.user_data)
+    if isComplete:
+        logger.info('Expense data is complete. Ready for database injection.')
+        injectData(context.user_data)
+        resetDic(context.user_data)
+        update.message.reply_text('Thanks for this, I got your expense.')
+
 
 def setup(bot):
-    global exp
-    exp = Expense()
+    #global exp
+    #exp = Expense()
 
     #Initiating the classes
     db = DBHelper()
@@ -180,12 +183,13 @@ def setup(bot):
     dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
 
     #Initiate the job_queue performed by the server
-#    jobs = dispatcher.job_queue
     j = JobQueue()
     j.set_dispatcher(dispatcher)
     jobTime = datetime.timedelta(minutes=30)
     job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
     j.start()
+
+
 
     return dispatcher
 

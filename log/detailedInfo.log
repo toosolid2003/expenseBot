@@ -1,1 +1,405 @@
 2020-05-08 12:53:03,936 - INFO - Expense 7142f3ac-3ed2-43e4-9a97-ac235beadf8d added to the databse for user thedropper
+2020-05-08 17:25:00,330 - INFO - Logging in...
+2020-05-08 17:25:08,122 - INFO - Creating a new expense report
+2020-05-08 17:55:00,062 - INFO - Logging in...
+2020-05-08 17:55:07,180 - INFO - Creating a new expense report
+2020-05-08 18:25:00,402 - INFO - Logging in...
+2020-05-08 18:25:09,091 - INFO - Creating a new expense report
+2020-05-08 18:55:00,417 - INFO - Logging in...
+2020-05-08 18:55:08,527 - INFO - Creating a new expense report
+2020-05-08 19:16:56,981 - ERROR - Error while injecting expense into database (name 'db' is not defined) for thedropper
+2020-05-08 19:38:06,112 - INFO - Expense 6ca4587c-751b-4e5e-8cf6-71d2c433f92a added to the databse for user userTest
+2020-05-08 19:41:57,730 - INFO - Logging in...
+2020-05-08 19:42:03,128 - INFO - Creating a new expense report
+2020-05-08 19:42:30,184 - INFO - Logging in...
+2020-05-08 19:42:36,209 - INFO - Creating a new expense report
+2020-05-09 06:51:03,471 - INFO - Expense 25a21ec5-2502-4f3d-8379-476417a7d1cd added to the databse for user thedropper
+2020-05-09 06:52:50,607 - INFO - Expense c002c711-ba31-4b7f-a0ee-70b639af3f55 added to the databse for user thedropper
+2020-05-09 06:53:25,999 - INFO - Expense ba1254af-e73f-407a-9d23-c406522ec9ba added to the databse for user thedropper
+2020-05-09 06:54:09,584 - INFO - Expense 59bca9cb-3ec2-4c21-925c-1a1d8d09b286 added to the databse for user thedropper
+2020-05-09 07:22:48,121 - INFO - Logging in...
+2020-05-09 07:22:56,095 - INFO - Creating a new expense report
+2020-05-09 07:23:17,628 - INFO - Expense correctly logger: 25a21ec5-2502-4f3d-8379-476417a7d1cd
+2020-05-09 07:23:33,806 - INFO - Expense correctly logger: c002c711-ba31-4b7f-a0ee-70b639af3f55
+2020-05-09 07:23:49,974 - INFO - Expense correctly logger: ba1254af-e73f-407a-9d23-c406522ec9ba
+2020-05-09 07:24:06,067 - INFO - Expense correctly logger: 59bca9cb-3ec2-4c21-925c-1a1d8d09b286
+2020-05-09 07:24:08,138 - INFO - Saving the draft of expense report
+2020-05-09 07:24:12,802 - INFO - Logging out
+2020-05-09 11:08:06,447 - INFO - Expense data is complete. Ready for database injection.
+2020-05-09 11:08:06,452 - INFO - Expense 2f8559a7-19aa-466d-ab83-81d919cbae6f added to the databse for user thedropper
+2020-05-09 11:49:01,706 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 11:49:03,950 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 11:49:07,637 - INFO - Logging in...
+2020-05-09 12:19:01,701 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 12:19:03,971 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 12:19:08,155 - INFO - Logging in...
+2020-05-09 12:39:33,011 - INFO - Logging in...
+2020-05-09 12:39:38,534 - INFO - Creating a new expense report
+2020-05-09 12:40:00,100 - INFO - Expense correctly logged: 82dfd61c-d106-4972-8f4c-90c5f3991a3d
+2020-05-09 12:40:00,179 - INFO - Testing the wbs
+2020-05-09 12:40:00,242 - INFO - Logging out
+2020-05-09 12:49:01,702 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 12:49:03,954 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 12:49:08,792 - INFO - Logging in...
+2020-05-09 13:19:01,701 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 13:19:03,938 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 13:19:11,682 - INFO - Logging in...
+2020-05-09 13:49:01,702 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 13:49:04,002 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 13:49:07,925 - INFO - Logging in...
+2020-05-09 14:19:01,701 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 14:19:04,049 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 14:19:07,425 - INFO - Logging in...
+2020-05-09 14:49:01,701 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 14:49:04,001 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 14:49:07,433 - INFO - Logging in...
+2020-05-09 15:02:19,435 - INFO - Logging in...
+2020-05-09 15:07:45,394 - INFO - Logging in...
+2020-05-09 15:19:01,701 - INFO - Start logging pending expenses into IQ Navigator
+2020-05-09 15:19:04,010 - INFO - Expenses for ('thedropper', 'tsegura2', 'Brutasse1-')
+2020-05-09 15:19:08,190 - INFO - Logging in...
+2020-05-09 15:19:32,214 - INFO - Expense correctly logged: 2f8559a7-19aa-466d-ab83-81d919cbae6f
+2020-05-09 15:19:34,286 - INFO - Saving the draft of expense report
+2020-05-09 15:19:39,728 - INFO - Logging out
+2020-05-09 16:48:39,348 - INFO - Expense data is complete. Ready for database injection.
+2020-05-09 16:48:39,354 - INFO - Expense e2ad5d8a-8629-4277-b308-ae8fefbd8c3d added to the databse for user thedropper
+2020-05-09 17:01:11,875 - INFO - Driver initiated
+2020-05-09 17:01:11,876 - INFO - Expenses for thedropper
+2020-05-09 17:01:11,877 - INFO - Extracting all pending expenses from expenses db
+2020-05-09 17:01:11,877 - INFO - Creating a list of expense objects
+2020-05-09 17:01:11,877 - INFO - Logging in...
+2020-05-09 17:01:16,600 - INFO - Logged in
+2020-05-09 17:01:16,600 - INFO - Checking if an expense report exists
+2020-05-09 17:01:17,290 - INFO - Expense Report not found. Back to Home.
+2020-05-09 17:01:17,916 - INFO - Creating a new expense report
+2020-05-09 17:01:22,640 - INFO - Opening the Add Expense form
+2020-05-09 17:01:27,684 - INFO - Adding type: 17819686820
+2020-05-09 17:31:11,818 - INFO - Driver initiated
+2020-05-09 17:31:11,818 - INFO - Expenses for thedropper
+2020-05-09 17:31:11,819 - INFO - Extracting all pending expenses from expenses db
+2020-05-09 17:31:11,819 - INFO - Creating a list of expense objects
+2020-05-09 17:31:11,819 - INFO - Logging in...
+2020-05-09 17:31:16,113 - INFO - Logged in
+2020-05-09 17:31:16,113 - INFO - Checking if an expense report exists
+2020-05-09 17:31:16,701 - INFO - Expense Report not found. Back to Home.
+2020-05-09 17:31:17,392 - INFO - Creating a new expense report
+2020-05-09 17:31:21,648 - INFO - Opening the Add Expense form
+2020-05-09 17:31:26,703 - INFO - Adding type: 17819686820
+2020-05-09 18:01:11,825 - INFO - Driver initiated
+2020-05-09 18:01:11,826 - INFO - Expenses for thedropper
+2020-05-09 18:01:11,826 - INFO - Extracting all pending expenses from expenses db
+2020-05-09 18:01:11,826 - INFO - Creating a list of expense objects
+2020-05-09 18:01:11,827 - INFO - Logging in...
+2020-05-09 18:01:17,019 - INFO - Logged in
+2020-05-09 18:01:17,019 - INFO - Checking if an expense report exists
+2020-05-09 18:01:17,660 - INFO - Expense Report not found. Back to Home.
+2020-05-09 18:01:18,297 - INFO - Creating a new expense report
+2020-05-09 18:01:22,441 - INFO - Opening the Add Expense form
+2020-05-09 18:01:27,494 - INFO - Adding type: 17858921758
+2020-05-09 18:01:29,578 - INFO - Adding date: 09-5-2020
+2020-05-09 18:01:29,658 - INFO - Adding amount: 2,0
+2020-05-09 18:01:29,723 - INFO - Adding reason: test gas 2
+2020-05-09 18:01:29,795 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_183.jpg
+2020-05-09 18:01:36,258 - INFO - Adding WBS: BMWD4001
+2020-05-09 18:01:36,374 - INFO - Saving expense
+2020-05-09 18:01:43,692 - INFO - Expense correctly logged: e2ad5d8a-8629-4277-b308-ae8fefbd8c3d
+2020-05-09 18:01:43,693 - INFO - Closing the Add Expense form
+2020-05-09 18:01:45,746 - INFO - Saving the draft of expense report
+2020-05-09 18:01:50,276 - INFO - Logging out
+2020-05-09 18:15:53,953 - INFO - Expense data is complete. Ready for database injection.
+2020-05-09 18:15:53,958 - INFO - Expense e83628a1-9b24-488c-9fd5-909c108ac45c added to the databse for user thedropper
+2020-05-09 18:45:55,565 - INFO - Driver initiated
+2020-05-09 18:45:55,565 - INFO - Expenses for thedropper
+2020-05-09 18:45:55,566 - INFO - Extracting all pending expenses from expenses db
+2020-05-09 18:45:55,567 - INFO - Creating a list of expense objects
+2020-05-09 18:45:55,567 - INFO - Logging in...
+2020-05-09 18:46:00,144 - INFO - Logged in
+2020-05-09 18:46:00,144 - INFO - Checking if an expense report exists
+2020-05-09 18:46:02,786 - INFO - Expense Report not found. Back to Home.
+2020-05-09 18:46:03,328 - INFO - Creating a new expense report
+2020-05-09 18:46:09,486 - INFO - Expense Report title added
+2020-05-09 18:46:09,486 - INFO - Opening the Add Expense form
+2020-05-09 18:46:14,537 - INFO - Adding type: 17858921758
+2020-05-09 18:46:16,628 - INFO - Adding date: 09-5-2020
+2020-05-09 18:46:16,731 - INFO - Adding amount: 1,0
+2020-05-09 18:46:16,813 - INFO - Adding reason: gas
+2020-05-09 18:46:16,888 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_184.jpg
+2020-05-09 18:46:23,353 - INFO - Adding WBS: BMWD4001
+2020-05-09 18:46:23,487 - INFO - Saving expense
+2020-05-09 18:46:30,813 - INFO - Expense correctly logged: e83628a1-9b24-488c-9fd5-909c108ac45c
+2020-05-09 18:46:30,813 - INFO - Closing the Add Expense form
+2020-05-09 18:46:32,883 - INFO - Saving the draft of expense report
+2020-05-09 18:46:37,439 - INFO - Logging out
+2020-05-09 19:15:55,574 - INFO - Driver initiated
+2020-05-09 19:45:55,558 - INFO - Driver initiated
+2020-05-09 20:15:55,604 - INFO - Driver initiated
+2020-05-10 12:26:21,468 - INFO - Expense data is complete. Ready for database injection.
+2020-05-10 12:26:21,476 - INFO - Expense 5f7b44ac-401b-49c1-9247-77cec7c0f5d3 added to the databse for user thedropper
+2020-05-10 12:37:30,573 - INFO - Expenses for thedropper
+2020-05-10 12:37:30,574 - INFO - Extracting all pending expenses from expenses db
+2020-05-10 12:37:30,575 - INFO - Creating a list of expense objects
+2020-05-10 12:37:30,575 - INFO - Logging in...
+2020-05-10 12:37:35,728 - INFO - Logged in
+2020-05-10 12:37:35,728 - INFO - Checking if an expense report exists
+2020-05-10 12:37:38,352 - INFO - Expense Report not found. Back to Home.
+2020-05-10 12:37:38,888 - INFO - Creating a new expense report
+2020-05-10 12:37:45,743 - INFO - Expense Report title added
+2020-05-10 12:37:45,744 - INFO - Opening the Add Expense form
+2020-05-10 12:37:50,801 - INFO - Adding type: 17858921758
+2020-05-10 12:37:52,879 - INFO - Adding date: 10-5-2020
+2020-05-10 12:37:52,969 - INFO - Adding amount: 4,0
+2020-05-10 12:37:53,042 - INFO - Adding reason: test gas
+2020-05-10 12:37:53,125 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_185.jpg
+2020-05-10 12:37:59,488 - INFO - Adding WBS: BMWD4001
+2020-05-10 12:37:59,584 - INFO - Saving expense
+2020-05-10 12:38:06,904 - INFO - Expense correctly logged: 5f7b44ac-401b-49c1-9247-77cec7c0f5d3
+2020-05-10 12:38:06,904 - INFO - Closing the Add Expense form
+2020-05-10 12:38:08,975 - INFO - Saving the draft of expense report
+2020-05-10 12:38:13,550 - INFO - Logging out
+2020-05-10 14:41:21,682 - INFO - Expense data is complete. Ready for database injection.
+2020-05-10 14:41:21,689 - INFO - Expense e48684fa-0ecc-4d56-97ac-a7121abc6afd added to the databse for user thedropper
+2020-05-10 15:07:30,558 - INFO - Expenses for thedropper
+2020-05-10 15:07:30,558 - INFO - Extracting all pending expenses from expenses db
+2020-05-10 15:07:30,559 - INFO - Creating a list of expense objects
+2020-05-10 15:07:30,559 - INFO - Logging in...
+2020-05-10 15:07:35,395 - INFO - Logged in
+2020-05-10 15:07:35,395 - INFO - Checking if an expense report exists
+2020-05-10 15:07:40,164 - INFO - Expense Report found
+2020-05-10 15:07:43,235 - INFO - Adding type: 17819687015
+2020-05-10 15:07:45,305 - INFO - Adding date: 10-5-2020
+2020-05-10 15:07:45,389 - INFO - Adding amount: 23,0
+2020-05-10 15:07:45,456 - INFO - Adding reason: drinks with colleagues
+2020-05-10 15:07:45,569 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_186.jpg
+2020-05-10 15:07:51,673 - INFO - Adding WBS: BMWD4001
+2020-05-10 15:07:51,767 - INFO - Saving expense
+2020-05-10 15:07:59,934 - INFO - Expense correctly logged: e48684fa-0ecc-4d56-97ac-a7121abc6afd
+2020-05-10 15:07:59,934 - INFO - Closing the Add Expense form
+2020-05-10 15:08:02,003 - INFO - Saving the draft of expense report
+2020-05-10 15:08:07,560 - INFO - Logging out
+2020-05-10 18:12:44,014 - INFO - Expense data is complete. Ready for database injection.
+2020-05-10 18:12:44,021 - INFO - Expense 230ae8e5-b582-48bc-961a-59171eed8545 added to the databse for user thedropper
+2020-05-10 20:14:00,417 - INFO - Expense data is complete. Ready for database injection.
+2020-05-10 20:14:00,419 - INFO - Expense f1018d9b-e4b5-47f2-99c9-543f051ec745 added to the databse for user thedropper
+2020-05-10 20:43:57,226 - INFO - Expenses for thedropper
+2020-05-10 20:43:57,227 - INFO - Extracting all pending expenses from expenses db
+2020-05-10 20:43:57,228 - INFO - Creating a list of expense objects
+2020-05-10 20:43:57,228 - INFO - Logging in...
+2020-05-10 20:44:05,963 - INFO - Logged in
+2020-05-10 20:44:05,964 - INFO - Checking if an expense report exists
+2020-05-10 20:44:11,554 - INFO - Expense Report found
+2020-05-10 20:44:14,639 - INFO - Adding type: 17819670115
+2020-05-10 20:44:14,662 - ERROR - Could not perform iqnExpenseLog job. Error: Message: no such element: Unable to locate element: {"method":"name","selector":"entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select"}
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 01:01:36,075 - INFO - Expenses for thedropper
+2020-05-11 01:01:36,076 - INFO - Extracting all pending expenses from expenses db
+2020-05-11 01:01:36,076 - INFO - Creating a list of expense objects
+2020-05-11 01:01:36,076 - INFO - Logging in...
+2020-05-11 01:01:40,868 - INFO - Logged in
+2020-05-11 01:01:40,868 - INFO - Checking if an expense report exists
+2020-05-11 01:01:45,228 - INFO - Expense Report found
+2020-05-11 01:01:45,228 - INFO - Expense Report not found. Back to Home.
+2020-05-11 01:01:46,952 - INFO - Creating a new expense report
+2020-05-11 01:01:53,059 - INFO - Expense Report title added
+2020-05-11 01:01:53,059 - INFO - Opening the Add Expense form
+2020-05-11 01:01:58,110 - INFO - Adding type: 17819670115
+2020-05-11 01:02:00,186 - INFO - Adding date: 10-5-2020
+2020-05-11 01:02:00,284 - INFO - Adding amount: 2,0
+2020-05-11 01:02:00,350 - INFO - Adding reason: hotel
+2020-05-11 01:02:00,424 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_187.jpg
+2020-05-11 01:02:06,851 - INFO - Adding WBS: BMWD4001
+2020-05-11 01:02:06,951 - INFO - Saving expense
+2020-05-11 01:02:14,743 - INFO - Expense correctly logged: 230ae8e5-b582-48bc-961a-59171eed8545
+2020-05-11 01:02:14,743 - INFO - Adding type: 17819687102
+2020-05-11 01:02:16,830 - INFO - Adding date: 10-5-2020
+2020-05-11 01:02:16,907 - INFO - Adding amount: 1,0
+2020-05-11 01:02:16,966 - INFO - Adding reason: timechange
+2020-05-11 01:02:17,034 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_187.jpg
+2020-05-11 01:02:23,476 - INFO - Adding WBS: BMWD4001
+2020-05-11 01:02:23,560 - INFO - Saving expense
+2020-05-11 01:02:30,868 - INFO - Expense correctly logged: f1018d9b-e4b5-47f2-99c9-543f051ec745
+2020-05-11 01:02:30,868 - INFO - Closing the Add Expense form
+2020-05-11 01:02:32,920 - INFO - Saving the draft of expense report
+2020-05-11 01:02:37,478 - INFO - Logging out
+2020-05-11 09:26:47,542 - INFO - Expense data is complete. Ready for database injection.
+2020-05-11 09:26:47,544 - INFO - Expense 9cd89fef-31a6-4cb8-ad0d-f99ebbc92fed added to the databse for user thedropper
+2020-05-11 09:27:33,842 - INFO - Logging in...
+2020-05-11 09:27:38,927 - INFO - Logged in
+2020-05-11 09:27:49,646 - INFO - Checking if an expense report exists
+2020-05-11 09:27:52,239 - INFO - Message: no such element: Unable to locate element: {"method":"link text","selector":"Edit Expense Report"}
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 09:27:52,240 - INFO - Expense Report not found. Back to Home.
+2020-05-11 09:31:17,307 - INFO - Logging in...
+2020-05-11 09:31:21,637 - INFO - Logged in
+2020-05-11 09:31:28,710 - INFO - Checking if an expense report exists
+2020-05-11 09:31:31,334 - INFO - Expense Report not found. Back to Home.
+2020-05-11 09:32:32,966 - INFO - Creating a new expense report
+2020-05-11 09:32:39,042 - INFO - Expense Report title added
+2020-05-11 09:32:39,042 - INFO - Opening the Add Expense form
+2020-05-11 09:40:49,085 - INFO - Expenses for thedropper
+2020-05-11 09:40:49,086 - INFO - Extracting all pending expenses from expenses db
+2020-05-11 09:40:49,086 - INFO - Creating a list of expense objects
+2020-05-11 09:40:49,087 - INFO - Logging in...
+2020-05-11 09:40:55,600 - INFO - Logged in
+2020-05-11 09:40:55,600 - INFO - Checking if an expense report exists
+2020-05-11 09:40:58,108 - INFO - Message: no such element: Unable to locate element: {"method":"link text","selector":"Edit Expense Report"}
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 09:40:58,108 - INFO - Expense Report not found. Back to Home.
+2020-05-11 09:40:59,076 - INFO - Creating a new expense report
+2020-05-11 09:41:05,075 - INFO - Expense Report title added
+2020-05-11 09:41:05,075 - INFO - Opening the Add Expense form
+2020-05-11 09:41:10,130 - INFO - Adding type: 17819687102
+2020-05-11 09:41:12,227 - INFO - Adding date: 11-5-2020
+2020-05-11 09:41:12,310 - INFO - Adding amount: 1,0
+2020-05-11 09:41:12,372 - INFO - Adding reason: iqn test
+2020-05-11 09:41:12,444 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_188.jpg
+2020-05-11 09:41:18,979 - INFO - Adding WBS: BMWD4001
+2020-05-11 09:41:19,069 - INFO - Saving expense
+2020-05-11 09:41:26,407 - INFO - Expense correctly logged: 9cd89fef-31a6-4cb8-ad0d-f99ebbc92fed
+2020-05-11 09:41:26,407 - INFO - Closing the Add Expense form
+2020-05-11 09:41:28,462 - INFO - Saving the draft of expense report
+2020-05-11 09:41:33,002 - INFO - Logging out
+2020-05-11 09:59:53,242 - INFO - Logging in...
+2020-05-11 09:59:59,357 - INFO - Logged in
+2020-05-11 09:59:59,357 - INFO - Creating a new expense report
+2020-05-11 10:00:05,449 - INFO - Expense Report title added
+2020-05-11 10:00:05,449 - INFO - Opening the Add Expense form
+2020-05-11 10:00:10,522 - INFO - Adding type: 17819687102
+2020-05-11 10:00:12,594 - INFO - Adding date: 11-5-2020
+2020-05-11 10:00:12,676 - INFO - Adding amount: 1.0
+2020-05-11 10:00:12,759 - INFO - Adding reason: test wbs
+2020-05-11 10:00:12,826 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_156.jpg
+2020-05-11 10:37:58,843 - INFO - Logging in...
+2020-05-11 10:38:05,240 - INFO - Logged in
+2020-05-11 10:38:05,240 - INFO - Creating a new expense report
+2020-05-11 10:38:11,640 - INFO - Expense Report title added
+2020-05-11 10:38:11,640 - INFO - Opening the Add Expense form
+2020-05-11 10:38:16,693 - INFO - Adding type: 17819687102
+2020-05-11 10:38:18,766 - INFO - Adding date: 11-5-2020
+2020-05-11 10:38:18,866 - INFO - Adding amount: 1.0
+2020-05-11 10:38:18,935 - INFO - Adding reason: test wbs
+2020-05-11 10:38:19,014 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_156.jpg
+2020-05-11 10:38:21,438 - INFO - Logging in...
+2020-05-11 10:38:26,474 - INFO - Logged in
+2020-05-11 10:38:26,474 - INFO - Creating a new expense report
+2020-05-11 10:38:27,747 - INFO - Logging in...
+2020-05-11 10:38:32,719 - INFO - Expense Report title added
+2020-05-11 10:38:32,719 - INFO - Opening the Add Expense form
+2020-05-11 10:38:32,954 - INFO - Logged in
+2020-05-11 10:38:32,954 - INFO - Creating a new expense report
+2020-05-11 10:38:37,866 - INFO - Adding type: 17819687102
+2020-05-11 10:38:39,188 - INFO - Expense Report title added
+2020-05-11 10:38:39,188 - INFO - Opening the Add Expense form
+2020-05-11 10:38:39,935 - INFO - Adding date: 11-5-2020
+2020-05-11 10:38:40,065 - INFO - Adding amount: 1.0
+2020-05-11 10:38:40,184 - INFO - Adding reason: test wbs
+2020-05-11 10:38:40,373 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_156.jpg
+2020-05-11 10:38:42,879 - INFO - Logging in...
+2020-05-11 10:38:44,243 - INFO - Adding type: 17819687102
+2020-05-11 10:38:46,369 - INFO - Adding date: 11-5-2020
+2020-05-11 10:38:46,472 - INFO - Adding amount: 1.0
+2020-05-11 10:38:46,549 - INFO - Adding reason: test wbs
+2020-05-11 10:38:46,625 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_156.jpg
+2020-05-11 10:38:47,481 - INFO - Logged in
+2020-05-11 10:38:47,481 - INFO - Creating a new expense report
+2020-05-11 10:38:53,539 - INFO - Expense Report title added
+2020-05-11 10:38:53,539 - INFO - Opening the Add Expense form
+2020-05-11 10:38:58,589 - INFO - Adding type: 17819687102
+2020-05-11 10:39:00,671 - INFO - Adding date: 11-5-2020
+2020-05-11 10:39:00,758 - INFO - Adding amount: 1.0
+2020-05-11 10:39:00,843 - INFO - Adding reason: test wbs
+2020-05-11 10:39:00,924 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_156.jpg
+2020-05-11 11:11:24,006 - INFO - Logging in...
+2020-05-11 11:11:28,841 - INFO - Logged in
+2020-05-11 11:11:28,841 - INFO - Creating a new expense report
+2020-05-11 11:11:34,911 - INFO - Expense Report title added
+2020-05-11 11:11:34,911 - INFO - Opening the Add Expense form
+2020-05-11 11:11:39,985 - INFO - Adding the test expense to check wbs validity
+2020-05-11 11:11:39,986 - INFO - Adding type: 17819687102
+2020-05-11 11:11:42,062 - INFO - Adding date: 11-5-2020
+2020-05-11 11:11:42,149 - INFO - Adding amount: 1.0
+2020-05-11 11:11:42,210 - INFO - Adding reason: test wbs
+2020-05-11 11:11:42,309 - INFO - Uploading receipt: /var/www/expenseBot/receipts/common/fileTest.jpg
+2020-05-11 11:11:42,328 - ERROR - Unable to add the expense for wbs checking. Message: invalid argument: File not found : /var/www/expenseBot/receipts/common/fileTest.jpg
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 11:11:42,431 - INFO - Testing the wbs
+2020-05-11 11:11:42,476 - INFO - Logging out
+2020-05-11 11:18:32,259 - INFO - Expense data is complete. Ready for database injection.
+2020-05-11 11:18:32,264 - INFO - Expense e5f428c5-d420-4095-bcdd-746af5082441 added to the databse for user thedropper
+2020-05-11 11:19:25,026 - INFO - Expense data is complete. Ready for database injection.
+2020-05-11 11:19:25,030 - INFO - Expense 54c2be85-47d5-4bf9-a0da-a899511dbc02 added to the databse for user thedropper
+2020-05-11 11:20:06,033 - INFO - Expense data is complete. Ready for database injection.
+2020-05-11 11:20:06,038 - INFO - Expense 719d7df1-51ea-4032-8240-b19ad75d129d added to the databse for user thedropper
+2020-05-11 11:39:15,485 - INFO - Expenses for thedropper
+2020-05-11 11:39:15,486 - INFO - Extracting all pending expenses from expenses db
+2020-05-11 11:39:15,486 - INFO - Creating a list of expense objects
+2020-05-11 11:39:15,486 - INFO - Logging in...
+2020-05-11 11:39:20,189 - INFO - Logged in
+2020-05-11 11:39:20,189 - INFO - Checking if an expense report exists
+2020-05-11 11:39:24,793 - INFO - Expense Report found
+2020-05-11 11:39:24,793 - INFO - Opening the Add Expense Form
+2020-05-11 11:39:24,865 - ERROR - Could not perform checkExpenseReport. Error: name 'fields' is not defined
+2020-05-11 11:39:24,866 - INFO - Adding type: 17819687015
+2020-05-11 11:39:24,893 - ERROR - Could not perform iqnExpenseLog job. Error: Message: no such element: Unable to locate element: {"method":"name","selector":"entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select"}
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 12:09:15,507 - INFO - Expenses for thedropper
+2020-05-11 12:09:15,507 - INFO - Extracting all pending expenses from expenses db
+2020-05-11 12:09:15,508 - INFO - Creating a list of expense objects
+2020-05-11 12:09:15,508 - INFO - Logging in...
+2020-05-11 12:09:20,657 - INFO - Logged in
+2020-05-11 12:09:20,657 - INFO - Checking if an expense report exists
+2020-05-11 12:09:25,544 - INFO - Expense Report found
+2020-05-11 12:09:25,544 - INFO - Opening the Add Expense Form
+2020-05-11 12:09:25,609 - ERROR - Could not perform checkExpenseReport. Error: name 'fields' is not defined
+2020-05-11 12:09:25,610 - INFO - Adding type: 17819687015
+2020-05-11 12:09:25,626 - ERROR - Could not perform iqnExpenseLog job. Error: Message: no such element: Unable to locate element: {"method":"name","selector":"entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select"}
+  (Session info: headless chrome=81.0.4044.92)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-99-generic x86_64)
+
+2020-05-11 12:53:33,008 - INFO - Expenses for thedropper
+2020-05-11 12:53:33,009 - INFO - Extracting all pending expenses from expenses db
+2020-05-11 12:53:33,009 - INFO - Creating a list of expense objects
+2020-05-11 12:53:33,010 - INFO - Logging in...
+2020-05-11 12:53:37,729 - INFO - Logged in
+2020-05-11 12:53:37,729 - INFO - Checking if an expense report exists
+2020-05-11 12:53:42,297 - INFO - Expense Report found
+2020-05-11 12:53:42,297 - INFO - Opening the Add Expense Form
+2020-05-11 12:53:45,449 - INFO - Adding type: 17819687015
+2020-05-11 12:53:47,515 - INFO - Adding date: 11-5-2020
+2020-05-11 12:53:47,622 - INFO - Adding amount: 22,16
+2020-05-11 12:53:47,717 - INFO - Adding reason: praxis restaurant
+2020-05-11 12:53:47,810 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_189.jpg
+2020-05-11 12:53:53,891 - INFO - Adding WBS: BMWD4001
+2020-05-11 12:53:54,018 - INFO - Saving expense
+2020-05-11 12:54:02,206 - INFO - Expense correctly logged: e5f428c5-d420-4095-bcdd-746af5082441
+2020-05-11 12:54:02,206 - INFO - Adding type: 17819687015
+2020-05-11 12:54:04,275 - INFO - Adding date: 11-5-2020
+2020-05-11 12:54:04,368 - INFO - Adding amount: 22,16
+2020-05-11 12:54:04,432 - INFO - Adding reason: Praxis restaurant
+2020-05-11 12:54:04,524 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_190.jpg
+2020-05-11 12:54:10,598 - INFO - Adding WBS: BMWD4001
+2020-05-11 12:54:10,684 - INFO - Saving expense
+2020-05-11 12:54:17,762 - INFO - Expense correctly logged: 54c2be85-47d5-4bf9-a0da-a899511dbc02
+2020-05-11 12:54:17,763 - INFO - Adding type: 17819687015
+2020-05-11 12:54:19,835 - INFO - Adding date: 11-5-2020
+2020-05-11 12:54:19,918 - INFO - Adding amount: 22,16
+2020-05-11 12:54:19,981 - INFO - Adding reason: Praxis restaurant
+2020-05-11 12:54:20,067 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_191.jpg
+2020-05-11 12:54:26,147 - INFO - Adding WBS: BMWD4001
+2020-05-11 12:54:26,230 - INFO - Saving expense
+2020-05-11 12:54:34,482 - INFO - Expense correctly logged: 719d7df1-51ea-4032-8240-b19ad75d129d
+2020-05-11 12:54:34,483 - INFO - Closing the Add Expense form
+2020-05-11 12:54:36,551 - INFO - Saving the draft of expense report
+2020-05-11 12:54:42,257 - INFO - Logging out
+2020-05-11 15:31:23,033 - INFO - Fake submit ok
+2020-05-11 15:34:42,532 - INFO - Fake submit ok
+2020-05-11 17:32:44,980 - INFO - Fake submit ok

@@ -12,7 +12,7 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 #This is the most detailed log
 
 infoLog = logging.FileHandler('/var/www/expenseBot/log/detailedInfo.log')
-infoLog.setLevel(logging.INFO)
+infoLog.setLevel(logging.DEBUG)
 infoLog.setFormatter(formatter)
 
 

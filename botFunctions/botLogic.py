@@ -3,23 +3,44 @@ import os
 import json
 from botClasses.classes import Expense, DBHelper, userDB
 import time
-import logging
+from logger.logger import logger
+import uuid
 
 userdb = userDB()
+db = DBHelper()
 
-def checkCompletion(exp):
-    '''Checks if the Expense object has all the data to log the expense into the DB.
-    Returns a list of missing values for the db.'''
+def checkCompletion(dic):
+    """
+    Checks if the context.user_data dictionnary has all the data necessary to record the expense in the database.
 
-    rest = []
-    try:
-        for key, value in exp.__dict__.items():
-            if value == None:
-                rest.append(key)
-    except Exception as e:
-        logging.error('Could not perform checkCompletion. Error: %s',e)
+    Input: context.user_data (dictionnary)
+    Output: Boolean
+    """
+    expectedKeys = ['wbs','amount','reason','typex','receipt','user']
+    missingData = []
 
-    return rest
+    for elt in expectedKeys:
+        try:
+            if not dic[elt]:
+                missingData.append(elt)
+        except KeyError:                # in case context.user_data has not create the key yet (new user)
+            missingData.append(elt)
+
+    if missingData:
+        return False
+    else:
+        return True
+
+def resetDic(dico):
+    """
+    Resets the context.user_data dictionnary.
+    """
+
+    elts = ['uid','amount','typex','reason','receipt','wbs']
+    for elt in elts:
+        dico.pop(elt)
+
+    return dico
 
 def parseText(rawText, activeUser):
     '''Parses the raw text data captured by the bot. Turns it into an amount (float) and a reason (string).
@@ -27,7 +48,7 @@ def parseText(rawText, activeUser):
     Output: dict of values (amount and reason)'''
 
     #Initiate the dictionnary that will be returned
-    values = {'amount':None, 'reason':None}
+    values = {'amount':None, 'reason':None, 'typex':None}
 
     #Initiate the base currency variable
     baseCcy = userdb.get_ccy(activeUser)
@@ -55,6 +76,7 @@ def parseText(rawText, activeUser):
                 values['amount'] = float(elt)
             except ValueError:
                 values['reason'] = elt.strip()
+                values['typex'] = deductType(values['reason'])
 
     else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
         if conversionRate(rawText,'CHF'):
@@ -65,6 +87,7 @@ def parseText(rawText, activeUser):
             values['amount'] = float(rawText)
         except ValueError:
             values['reason'] = rawText.strip()
+            values['typex'] = deductType(values['reason'])
 
     #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
     if values['amount']:
@@ -177,31 +200,56 @@ def totalPending(expenses):
 
     return total
 
-def deductType(expense):
-   '''Deducts the expense type (IQ Navigator categories) based on what has been given to the exp.reason attribute'''
+def deductType(reason):
+   '''
+   Deducts the expense type (IQ Navigator categories) based on what has been given as a reason.
+   
+   Input: context.user_data['reason'] (string)
+   Output: expense type (string)
+   '''
 
    #We infer the expense type by confronting the value in exp.reason to a list of possible words
    
-   ### The Hotel accomodation entry has en em-dash the needs to be replicated in the types dictionnary
-   emDash = u'\u2014'
-   accomodationHotel = "Accomodation {} Hotal".format(emDash)
 
    # Types dictionnary
-   types = {'17819670115' :['hotel','airbnb','pension','hostel'],
+   types = {'17819670115' :['hotel','pension','hostel'],
            '17819672005':['airbnb','apartment'],
            '17819688948':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
            '17819688802':['taxi','uber','lyft'],
    '17819684336':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
    '107851819':['avis','entreprise','rental car','alamo'],
    '17819687015':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
-   '17819686820':['toll','parking','fuel','highway','public','gas','petrol'],
+   '17858921758':['toll','parking','fuel','highway','public','gas','petrol'],
    '17819687871':['perdiem', 'per diem','per diems','perdiems']
    }
+
+   typex = '17819687102'
 
    #The magic loop, where the deduction happens
    for accType, typeList in types.items():
        for elt in typeList:
-           if elt in expense.reason.lower():
-               expense.type = accType
+           if elt in reason.lower():
+               typex = accType
 
-   return expense
+
+   return typex
+
+def injectData(dico):
+    """
+    Inject the expense data contained in the dictionnary into the database.
+
+    Input: dictionnary with the data (context.user_data)
+    Output: uid of the expense
+    """
+    dico['uid'] = str(uuid.uuid4())
+    dico['date'] = time.strftime("%d-%-m-%Y")
+    dico['status'] = 'pending'
+
+    data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['wbs'], dico['typex'], dico['receipt'], dico['user'])
+
+    try:
+        db.add_item(data_tuple)
+        logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
+
+    except Exception as e:
+        logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
