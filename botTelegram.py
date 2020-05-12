@@ -12,7 +12,7 @@ import logging
 import uuid
 
 #logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+#logger = logging.getLogger(__name__)
 
 with open('/var/www/expenseBot/bot.token','r') as fichier:
     token = fichier.read()
