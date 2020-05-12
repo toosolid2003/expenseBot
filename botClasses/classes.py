@@ -114,6 +114,34 @@ class userDB:
         self.conn.execute(stmt, data)
         self.conn.commit()
 
+    def checkExistingUser(self, telegram_username):
+        """
+        Checks if a user already exists in the database. Takes the telegram handle as input (it's unique).
+        Returns:
+         - True if the user exists
+         - False if she does not.
+         """
+
+        data = (telegram_username,)
+        stmt = '''SELECT * FROM users WHERE telegram_username=?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()
+        
+        if result:
+            return True
+        else:
+            return False
+
+    def update_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):
+        """
+        Updates the user data.
+        """
+        data = (iq_username, iq_password, email, wbs, ccy, telegram_username)
+        stmt = '''UPDATE users SET iq_username=?, iq_password=?, email=?, wbs=?, currency=? WHERE telegram_username=?''' 
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
     def get_users_by_status(self, status):
         data = (status,)
         c = self.conn.cursor()

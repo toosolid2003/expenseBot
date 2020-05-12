@@ -7,7 +7,7 @@ from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
 import os
-import logging
+from logger.logger import logger
 
 # Database helpers
 #################################################################
@@ -168,20 +168,31 @@ def wbsSetup(update, context):
         iq_password = context.user_data['password']
         email = context.user_data['email']
         currency = context.user_data['currency']
+
         try:
-            db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
-            update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
+            userExists = db.checkExistingUser(telegramUsername)
+
+            if userExists:
+                logger.info('Updating the data for %s', telegramUsername)
+                db.update_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
+                update.message.reply_text('Thanks about the data. I\'m updating my database as we speak.')
+
+            else:
+                logger.info('Adding user %s to the users database', telegramUsername)
+                db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
+                update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
+                #Creating a specific folder to save user's receipts
+                try:
+                    path = '/var/www/expenseBot/receipts/' + telegramUsername
+                    os.mkdir(path)
+                except:
+                    logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
+ 
         except Exception as e:
             logging.error('User %s could not be added to the user base. Error: %s', telegramUsername, e)
 
 
-        #Creating a specific folder to save user's receipts
-        try:
-            path = '/var/www/expenseBot/receipts/' + telegramUsername
-            os.mkdir(path)
-        except:
-            print('Error when creating user\'s folder')
-        
+       
         #Checking the validity of the WBS
         isWbsValid = wbsCheck(update.message.chat.username, wbs)
 

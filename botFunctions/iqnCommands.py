@@ -320,6 +320,8 @@ def wbsCheck(activeUser, wbs):
     expTest.receipt = '/var/www/expenseBot/receipts/common/fileTest.jpg'
     expTest.user = ''
     expList = [expTest]
+
+    logger.info('Testing the validity of the wbs')
     #Login sequence
     driver = initiateDriver()
     driver = login(driver, userCreds[0], userCreds[1])
@@ -339,16 +341,19 @@ def wbsCheck(activeUser, wbs):
     #We get the confirmation by checking if the dataTable element displays 'No items found'
 
     elt = driver.find_element_by_class_name('dataTable')
-    logger.info('Testing the wbs')
+
     if 'No items found' not in elt.text:
+        logger.info('WBS valid')
         wbsValid = True
+
     elif 'No items found' in elt.text:
+        logger.info('WBS not valid')
         wbsValid = False
 
     #End of test
     #Try to leave gracefully
     try:
-        logger.info('Logging out')
+        logger.info('Logging out, testing complete')
         logout = driver.find_element_by_id('logoutLink')
         logout.click()
     except:
