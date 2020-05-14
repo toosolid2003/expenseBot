@@ -70,8 +70,8 @@ def photoCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         injectData(context.user_data)
+        update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
         resetDic(context.user_data)
-        update.message.reply_text('Thanks, I have recorded your expense.')
 
 
 
@@ -110,8 +110,8 @@ def captionCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         injectData(context.user_data)
+        update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         resetDic(context.user_data)
-        update.message.reply_text('Thanks for this, I got your expense.')
 
 def textCapture(update, context):
 
@@ -145,8 +145,8 @@ def textCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         injectData(context.user_data)
+        update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         resetDic(context.user_data)
-        update.message.reply_text('Thanks for this, I got your expense.')
 
 
 def setup(bot):

@@ -23,10 +23,11 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
 
         #Extract all pending expenses 
         expenses = db.extract_expenses(user[0], 'pending')
-        
+
         #If the current user has pending expenses, then proceed. If not, close driver.
         if expenses:
-
+        
+            logger.info('Number of pending expenses found: %s', len(expenses))
             logger.info('Expenses for %s', user[0])
             #Create the expense objects list
             pd = createExpensesList(user[0])
