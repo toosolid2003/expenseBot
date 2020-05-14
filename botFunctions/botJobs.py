@@ -6,7 +6,6 @@ import os
 from logger.logger import logger
 
 db = DBHelper()
-userdb = userDB()
  
 def iqnExpensesLog(context: telegram.ext.CallbackContext):
     """
@@ -14,7 +13,7 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
 
     """
 
-    activeUsers = userdb.get_users_by_status('active')
+    activeUsers = db.get_users_by_status('active')
     
     driver = initiateDriver()
 
@@ -60,7 +59,7 @@ def submitJob(activeUser):
     """
     
     #Get the credentials for current user
-    user = userdb.get_credentials(activeUser)
+    user = db.get_credentials(activeUser)
 
     #Start the navigation on Chrome
 #    driver = initiateDriver()

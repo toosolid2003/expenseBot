@@ -15,4 +15,5 @@ fixConnect.py
 prettyprint.py
 *.token
 botest.py
-log/
+log/detailedInfo.log
+log/errorLog.log

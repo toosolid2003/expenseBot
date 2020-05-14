@@ -309,8 +309,7 @@ def wbsCheck(activeUser, wbs):
     save it. If there is an error message, then it infers that the WBS is not valid.
 
     """
-    userdb = userDB()
-    userCreds = userdb.get_credentials(activeUser)
+    userCreds = db.get_credentials(activeUser)
     
     #Initiate expense object for test
     expTest = Expense()

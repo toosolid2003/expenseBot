@@ -1,12 +1,11 @@
 #-*- coding: utf-8 -*-
 import os
 import json
-from botClasses.classes import Expense, DBHelper, userDB
 import time
 from logger.logger import logger
+from botClasses.classes import DBHelper
 import uuid
 
-userdb = userDB()
 db = DBHelper()
 
 def checkCompletion(dic):
@@ -51,7 +50,7 @@ def parseText(rawText, activeUser):
     values = {'amount':None, 'reason':None, 'typex':None}
 
     #Initiate the base currency variable
-    baseCcy = userdb.get_ccy(activeUser)
+    baseCcy = db.get_ccy(activeUser)
 
     #Split the text according to a pre-determined list of separators
     sepList = [',','-',':',';']

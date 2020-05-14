@@ -14,6 +14,11 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit()
 
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
+        self.conn.execute(stmt)
+        self.conn.commit()
+
+
     def add_item(self, data_tuple):
         stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
@@ -73,36 +78,7 @@ class DBHelper:
         c = self.conn.cursor()
         c.execute('''UPDATE items SET status = ? WHERE status = ? AND user = ?''', data)
         self.conn.commit()
-
-class Expense:
-    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, typex='17819687102', user=None):
-        self.uid = str(uuid.uuid4())
-        self.amount = amount
-        self.date = time.strftime("%d-%-m-%Y")
-        self.wbs = wbs
-        self.receipt = receipt
-        self.reason = reason
-        self.typex = typex
-        self.status = 'pending'
-        self.user = user
-
-    def to_tuple(self):
-        '''Converts the data in the expense class into a tuple.
-        Input: expense class with all data
-        Output: a data tuple, ready for injection in the db'''
-
-        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.typex, self.receipt, self.user)
-        return data_tuple
-
-class userDB:
-    def __init__(self, dbname='/var/www/expenseBot/users.sqlite'):
-        self.dbname = dbname
-        self.conn = sqlite3.connect(dbname, check_same_thread=False)
-
-    def setup(self):
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
-        self.conn.execute(stmt)
-        self.conn.commit()
+################# User Table Helpers #################################
 
     def add_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):
         '''Adds a user to the users table.
@@ -198,7 +174,6 @@ class userDB:
         return result[0]
 
     def get_credentials(self, telegram_username):
-
         stmt = '''SELECT iq_username, iq_password FROM users WHERE telegram_username=?'''
         data = (telegram_username,)
         c = self.conn.cursor()
@@ -212,3 +187,24 @@ class userDB:
         data = (iq_username,)
         self.conn.execute(stmt, data)
         self.conn.commit()
+
+class Expense:
+    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, typex='17819687102', user=None):
+        self.uid = str(uuid.uuid4())
+        self.amount = amount
+        self.date = time.strftime("%d-%-m-%Y")
+        self.wbs = wbs
+        self.receipt = receipt
+        self.reason = reason
+        self.typex = typex
+        self.status = 'pending'
+        self.user = user
+
+    def to_tuple(self):
+        '''Converts the data in the expense class into a tuple.
+        Input: expense class with all data
+        Output: a data tuple, ready for injection in the db'''
+
+        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.typex, self.receipt, self.user)
+        return data_tuple
+

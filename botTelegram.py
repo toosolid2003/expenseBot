@@ -23,8 +23,6 @@ bot = Bot(token)
 #Initiating the classes
 db = DBHelper()
 db.setup()
-userdb = userDB()
-userdb.setup()
 
 # Input handlers
 #################################################################
@@ -59,7 +57,7 @@ def photoCapture(update, context):
 
     #Second the wbs
     try: 
-        context.user_data['wbs'] = userdb.get_wbs(user)
+        context.user_data['wbs'] = db.get_wbs(user)
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
@@ -99,7 +97,7 @@ def captionCapture(update, context):
 
     # Add the wbs to context.user_data
     try: 
-       context.user_data['wbs'] = userdb.get_wbs(context.user_data['user'])
+       context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
@@ -135,7 +133,7 @@ def textCapture(update, context):
 
     # Add the wbs to context.user_data
     try: 
-       context.user_data['wbs'] = userdb.get_wbs(context.user_data['user'])
+       context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:

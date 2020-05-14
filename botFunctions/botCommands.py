@@ -12,7 +12,6 @@ from logger.logger import logger
 # Database helpers
 #################################################################
 
-userdb = userDB()
 db = DBHelper()
 
 # Commands
@@ -25,9 +24,9 @@ def wbs(update, context):
 
     
     if len(context.args) > 0:
-        userdb.update_wbs(update.message.chat.username, context.args[0])
+        db.update_wbs(update.message.chat.username, context.args[0])
 
-        wbs = userdb.get_wbs(update.message.chat.username)
+        wbs = db.get_wbs(update.message.chat.username)
         update.message.reply_text('Your new WBS: {}'.format(wbs))
 
         #Check if the wbs is valid
@@ -36,7 +35,7 @@ def wbs(update, context):
             update.message.reply_text('There is a little problem with this wbs. Whether you are not allowed to use it or maybe the code is invalid, but it does not seem to be working for you. Try to update it again or just reach out to your manager to make sure you can use it.')
     else:
         try:
-            wbs = userdb.get_wbs(update.message.chat.username)
+            wbs = db.get_wbs(update.message.chat.username)
             update.message.reply_text('Your current WBS is {}'.format(wbs))
         except:
             update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs xxxx' (xxxx being your wbs number) to be able to record your business expenses.")
@@ -161,8 +160,6 @@ def wbsSetup(update, context):
         update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs by typing:\n '/wbs xxxxxx'.")
     else:
         #Adding the new user to the users database now
-        db = userDB()
-        db.setup()
         telegramUsername = update.message.chat.username
         iq_username = context.user_data['iq_username']
         iq_password = context.user_data['password']

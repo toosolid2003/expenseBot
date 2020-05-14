@@ -1,5 +1,5 @@
 import unittest
-from botClasses.classes import Expense, DBHelper, userDB
+from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
 import random
 import time
@@ -134,7 +134,7 @@ class testExpenseDBHelper(unittest.TestCase):
 class testUsersDBHelper(unittest.TestCase):
 
     def setUp(self):
-        self.db = userDB()
+        self.db = d()
         self.username = 'test123'
         self.iq_username ='tsegura2'
         self.iq_password = random.randint(1,1000)
