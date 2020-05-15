@@ -15,5 +15,5 @@ fixConnect.py
 prettyprint.py
 *.token
 botest.py
-log/detailedInfo.log
-log/errorLog.log
+/var/www/expenseBot/log/detailedInfo.log
+/var/www/expenseBot/log/errorLog.log
