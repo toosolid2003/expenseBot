@@ -36,8 +36,12 @@ def resetDic(dico):
     """
 
     elts = ['uid','amount','typex','reason','receipt','wbs']
-    for elt in elts:
-        dico.pop(elt)
+    try:
+        for elt in elts:
+            dico.pop(elt)
+
+    except:
+        logger.error('Could not reset the context.user_data dictionnary')
 
     return dico
 
@@ -249,6 +253,8 @@ def injectData(dico):
     try:
         db.add_item(data_tuple)
         logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
+        return dico['uid']
 
     except Exception as e:
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
+

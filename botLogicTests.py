@@ -111,46 +111,6 @@ class testDeductType(unittest.TestCase):
         expectedType = deductType(reason)
         self.assertEqual(expectedType,'17819687871')
 
-class testExpenseDBHelper(unittest.TestCase):
-    def setUp(self):
-        self.db = DBHelper()
-        randomReason = random.randint(1,1000)
-        self.exp = Expense(amount=1.0, reason=randomReason, receipt='/var/www/receipts',user='test', wbs='00000')
-        self.tupleOne = self.exp.to_tuple()
-
-    def testInject(self):
-        self.db.add_item(self.tupleOne)
-        tupleTwo = self.db.get_item(self.exp.uid)
-        self.assertEqual(self.exp.reason, int(tupleTwo[3]))
-    
-    def testUpdateItem(self):
-        self.db.update_item_status(self.exp.uid, 'testStatus')
-        test = self.db.get_item(self.exp.uid)
-        self.assertEqual(self.exp.status, test[3])
-
-    def tearDown(self):
-        self.db.del_item(self.exp.uid)
-
-class testUsersDBHelper(unittest.TestCase):
-
-    def setUp(self):
-        self.db = d()
-        self.username = 'test123'
-        self.iq_username ='tsegura2'
-        self.iq_password = random.randint(1,1000)
-        self.email = 't.segura@accenture.com'
-        self.wbs = '00000'
-        self.ccy = 'EUR'
-
-    def testAddUser(self):
-        self.db.add_user(self.username, self.iq_username, self.iq_password, self.email, self.wbs. self.ccy)
-        testUser = self.db.get_credentials(self.username)
-        retrievedPassword = testUser[1]
-        self.assertEqual(self.iq_password, retrievedPassword)
-
-    def tearDown(self):
-        self.db.del_user_by_iq_username(self.username)
-
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):
 #        filePath = 'easyjet-2020-04-10.json'

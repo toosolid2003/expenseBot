@@ -67,10 +67,10 @@ def photoCapture(update, context):
     isComplete = checkCompletion(context.user_data)
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
-        injectData(context.user_data)
+        expId = injectData(context.user_data)
         update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
-        resetDic(context.user_data)
-
+        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
+        context.user_data.clear()
 
 
 def captionCapture(update, context):
@@ -107,14 +107,15 @@ def captionCapture(update, context):
     isComplete = checkCompletion(context.user_data)
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
-        injectData(context.user_data)
+        expId = injectData(context.user_data)
+        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
-        resetDic(context.user_data)
+        context.user_data.clear()
+
 
 def textCapture(update, context):
 
     #global exp
-
     rawText = update.message.text
     
     # Parse the text: adds amount + reason and type if amount and reason in the raw text
@@ -127,7 +128,8 @@ def textCapture(update, context):
     if tempDict['reason'] != None:
         context.user_data['reason'] = tempDict['reason']
         context.user_data['typex'] = tempDict['typex']
-
+    
+    logger.info(tempDict)
     # Add the telegram handle to context.user_dat
     context.user_data['user'] = update.message.chat.username
 
@@ -138,14 +140,15 @@ def textCapture(update, context):
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
         logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+    
 
     isComplete = checkCompletion(context.user_data)
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
-        injectData(context.user_data)
+        expId = injectData(context.user_data)
+        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
-        resetDic(context.user_data)
-
+        context.user_data.clear()
 
 def setup(bot):
     #global exp
