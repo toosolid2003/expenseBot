@@ -3,7 +3,7 @@ from telegram.ext import CallbackContext
 from botFunctions.iqnCommands import *
 from botClasses.classes import *
 import os
-from logger.logger import logger
+#from logger.logger import logger
 
 db = DBHelper()
  

@@ -7,7 +7,7 @@ from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
 import os
-from logger.logger import logger
+#from logger.logger import logger
 
 # Database helpers
 #################################################################

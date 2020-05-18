@@ -2,7 +2,7 @@
 import os
 import json
 import time
-from logger.logger import logger
+#from logger.logger import logger
 from botClasses.classes import DBHelper
 import uuid
 

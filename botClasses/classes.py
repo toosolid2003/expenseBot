@@ -199,6 +199,9 @@ class DBHelper:
         stmt = '''INSERT INTO analytics (user, time, action, value) VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
+
+
+
 class Expense:
     def __init__(self, amount=None, wbs=None, receipt=None, reason=None, typex='17819687102', user=None):
         self.uid = str(uuid.uuid4())
