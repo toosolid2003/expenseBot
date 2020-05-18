@@ -71,7 +71,6 @@ def photoCapture(update, context):
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
         update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
-        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
         context.user_data.clear()
 
 
@@ -110,7 +109,6 @@ def captionCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
-        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
 
@@ -148,7 +146,6 @@ def textCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
-        db.add_datapoint(update.message.chat.username, 'expense recorded', expId)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
 

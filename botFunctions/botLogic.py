@@ -254,6 +254,7 @@ def injectData(dico):
     try:
         db.add_item(data_tuple)
         #logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
+        db.add_datapoint(dico['user'], 'Expense added', dico['uid'])
         return dico['uid']
 
     except Exception as e:
