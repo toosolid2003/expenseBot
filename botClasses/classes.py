@@ -195,8 +195,8 @@ class DBHelper:
         Records a new data point for an action performed by a user
         """
 
-        data = (user, time.ctime(), action, value)
-        stmt = '''INSERT INTO analytics (user, time, action, value) VALUES (?,?,?,?)'''
+        data = (time.ctime(),user, action, value)
+        stmt = '''INSERT INTO analytics (time, user, action, value) VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 

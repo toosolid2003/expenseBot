@@ -2,7 +2,7 @@
 import os
 import json
 import time
-#from logger.logger import logger
+#from #logger.#logger import #logger
 from botClasses.classes import DBHelper
 import uuid
 
@@ -41,7 +41,8 @@ def resetDic(dico):
             dico.pop(elt)
 
     except:
-        logger.error('Could not reset the context.user_data dictionnary')
+        #logger.error('Could not reset the context.user_data dictionnary')
+        pass
 
     return dico
 
@@ -252,9 +253,10 @@ def injectData(dico):
 
     try:
         db.add_item(data_tuple)
-        logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
+        #logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
         return dico['uid']
 
     except Exception as e:
-        logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
+        #logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
+        pass
 

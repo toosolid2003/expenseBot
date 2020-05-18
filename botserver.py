@@ -4,10 +4,11 @@ from telegram import Update, Bot
 from telegram.ext import Dispatcher
 from botTelegram import *
 from botClasses.classes import DBHelper
-#from functions import *
 import json
 import os
 import logging
+from logging.handlers import RotatingFileHandler
+
 
 #Initiate the logger
 
@@ -39,9 +40,21 @@ def hello():
 
 def main():
 
-    logging.basicConfig(filename='/var/www/expenseBot/log/botserver.log',format='%(asctime)s - %(message)s', level=logging.DEBUG)
     app.run(host='0.0.0.0')
 
 if __name__== '__main__':
+
+    # initialize the log handler
+    logHandler = RotatingFileHandler('/var/www/expenseBot/log/info.log', maxBytes=1000, backupCount=1)
+
+    # set the log handler level
+    logHandler.setLevel(logging.DEBUG)
+
+    # set the app logger level
+    app.logger.setLevel(logging.DEBUG)
+
+    app.logger.addHandler(logHandler)
+    app.run()
+
     main()
 

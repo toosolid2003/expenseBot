@@ -7,16 +7,35 @@ from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
 import os
-#from logger.logger import logger
 
 # Database helpers
 #################################################################
 
 db = DBHelper()
 
-# Commands
+
+#################################################################
+# Decorators
 #################################################################
 
+def commandTrack(func):
+    def wrapper(update, context):
+       
+        try:
+            value = context.args[0]
+        except:
+            value = 'No argument provided to command'
+
+        db.add_datapoint(update.message.chat.username, func.__name__, value)
+        return func(update, context)
+    return wrapper
+
+
+
+#################################################################
+# Commands
+#################################################################
+@commandTrack
 def wbs(update, context):
     '''Changes the wbs value if it is provided as a parameter
     Otherwise, displays the current WBS against which expenses are logged'''
@@ -29,8 +48,8 @@ def wbs(update, context):
         wbs = db.get_wbs(update.message.chat.username)
         update.message.reply_text('Your new WBS: {}'.format(wbs))
 
-        #Add data point for analytics
-        db.add_datapoint(update.message.chat.username, 'New WBS', wbs)
+        #Add data point for commandTrack
+        ##db.add_datapoint(update.message.chat.username, 'New WBS', wbs)
 
         #Check if the wbs is valid
         isWbsValid = wbsCheck(update.message.chat.username, wbs)
@@ -40,12 +59,12 @@ def wbs(update, context):
         try:
             wbs = db.get_wbs(update.message.chat.username)
             update.message.reply_text('Your current WBS is {}'.format(wbs))
-            db.add_datapoint(update.message.chat.username, 'WBS check', wbs)
+            ##db.add_datapoint(update.message.chat.username, 'WBS check', wbs)
         except:
             update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs xxxx' (xxxx being your wbs number) to be able to record your business expenses.")
 
 
-
+@commandTrack
 def submit(update, context):
     '''Submit into IQ Navigtor the expenses that are still in pending status'''
     
@@ -54,17 +73,19 @@ def submit(update, context):
     if result:
         update.message.reply_text('Alright, your expenses have been submitted for approval')
         db.updateStatus('logged','submitted', update.message.chat.username)
-        db.add_datapoint(update.message.chat.username, '/submit', 'Expenses submitted')
+        #db.add_datapoint(update.message.chat.username, '/submit', 'Expenses submitted')
     else:
         update.message.reply_text('The submission seems to have failed. I won\'t be able to help from here, so I suggest you have a look on IQ Navigator to sort it out.')
-        db.add_datapoint(update.message.chat.username, '/submit','Failed')
+        #db.add_datapoint(update.message.chat.username, '/submit','Failed')
 
+@commandTrack
 def helpmsg(update, context):
     text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
 I have other talents too, just type '/' to display my available commands. Enjoy!'''
     update.message.reply_text(text)
-    db.add_datapoint(update.message.chat.username, '/help','')
+    #db.add_datapoint(update.message.chat.username, '/help','')
 
+@commandTrack
 def status(update, context):
     '''Returns a list of pending expenses for current Telegram user'''
     
@@ -77,12 +98,12 @@ def status(update, context):
         text += '\n Total: {} CHF'.format(totalPending(currentExpenses))
         update.message.reply_text(text)
 
-        db.add_datapoint(update.message.chat.username, '/status','Number of expenses: {}'.format(len(currentExpenses)))
+        #db.add_datapoint(update.message.chat.username, '/status','Number of expenses: {}'.format(len(currentExpenses)))
 
     else:
         update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
 
-        db.add_datapoint(update.message.chat.username, '/status','No expense')
+        #db.add_datapoint(update.message.chat.username, '/status','No expense')
        
 
 #Conversation commands
@@ -90,6 +111,7 @@ def status(update, context):
 
 EMAIL, IQUSERNAME, IQPASSWORD, CURRENCY, WBS = range(5)
 
+@commandTrack
 def start(update, context):
     """Handles the setup process"""
     update.message.reply_text("""Hey, welcome to the Expense Bot. Before you can start recoding business expenses with me, I will need to collect some information about you (email, iq navigator credentials, wbs).
@@ -98,6 +120,7 @@ It will take 5 min at most, but you can stop at any point by typing '/stop'.""")
 
     return EMAIL
 
+@commandTrack
 def email(update, context):
     """Gimme your email"""
 
@@ -112,7 +135,7 @@ def email(update, context):
         return IQUSERNAME
 
 
-
+@commandTrack
 def iqusername(update, context):
     """Gimme your IQ username"""
     username = update.message.text
@@ -127,7 +150,7 @@ def iqusername(update, context):
     return IQPASSWORD
 
 
-
+@commandTrack
 def iqpassword(update, context):
     """Gimme your password"""
 
@@ -145,6 +168,7 @@ def iqpassword(update, context):
 
     return CURRENCY
 
+@commandTrack
 def currency(update, context):
     """
     Captures the preferred currency of the user.
@@ -163,6 +187,7 @@ def currency(update, context):
 
     return WBS
 
+@commandTrack
 def wbsSetup(update, context):
     """Gimme a wbs"""
 
@@ -211,6 +236,7 @@ def wbsSetup(update, context):
 
     return ConversationHandler.END
 
+@commandTrack
 def stopit(update, context):
     update.message.reply_text('Ok, I stop now')
 
