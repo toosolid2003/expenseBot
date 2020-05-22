@@ -26,8 +26,8 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
         #If the current user has pending expenses, then proceed. If not, close driver.
         if expenses:
         
-            logger.info('Number of pending expenses found: %s', len(expenses))
-            logger.info('Expenses for %s', user[0])
+            #logger.info('Number of pending expenses found: %s', len(expenses))
+            #logger.info('Expenses for %s', user[0])
             #Create the expense objects list
             pd = createExpensesList(user[0])
             
@@ -46,12 +46,9 @@ def iqnExpensesLog(context: telegram.ext.CallbackContext):
                 #print('Expenses successfully logged')
         
             except Exception as e:
-                logger.error('Could not perform iqnExpenseLog job. Error: %s', e) 
+                pass
 
     driver.quit()
-    
-
-
 
 def submitJob(activeUser):
     """
@@ -88,6 +85,3 @@ def submitJob(activeUser):
     #logger.info('Fake submit ok')
 
     return successSubmit
-
-def testJob(context: telegram.ext.CallbackContext):
-    context.bot.send_message(chat_id='467786379', text='Checking in')

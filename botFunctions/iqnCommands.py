@@ -11,7 +11,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 from botClasses.classes import *
-#from #logger.#logger import #logger
+#from logger.logger import logger
 
 db = DBHelper()
 

@@ -24,7 +24,7 @@ def commandTrack(func):
         try:
             value = context.args[0]
         except:
-            value = 'No argument provided to command'
+            value = ''
 
         db.add_datapoint(update.message.chat.username, func.__name__, value)
         return func(update, context)
