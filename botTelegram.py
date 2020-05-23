@@ -28,13 +28,12 @@ db.setup()
 # Input handlers
 #################################################################
 
-# Downloads the receipt picture as a byte array to be stored in the DB
+# Downloads the receipt picture or documents and stores the filepath to document in the db
 def photoCapture(update, context):
     '''
     Downloads the picture and saves the path to file in context.user_data
     '''
 
-    #global exp
 
     user = update.message.chat.username
 
@@ -50,9 +49,10 @@ def photoCapture(update, context):
 
     #Logging and error for all other kinds of exceptions
     except Exception as e:
-        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
+        pass
+#        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
 
-    # Inject the DATA if expense object is complete
+    # Inject the DATA if expense is complete
     #First the user
     context.user_data['user'] = user
 
@@ -62,7 +62,8 @@ def photoCapture(update, context):
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+        pass
+#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     #Third check for completion
     isComplete = checkCompletion(context.user_data)
@@ -73,54 +74,20 @@ def photoCapture(update, context):
         context.user_data.clear()
 
 
-def captionCapture(update, context):
-    '''Captures the data contained in the caption'''
-
-    #global exp
-
-    # Capture the photo
-    photoCapture(update, context)
-
-    # Parse the text: adds amount + reason and type if amount and reason in the raw text
-    tempDict = parseText(update.message.caption, update.message.chat.username)
-
-    # Feeding the missing element in context.user_data
-    if tempDict['amount'] != None:
-        context.user_data['amount'] = tempDict['amount']
-
-    if tempDict['reason'] != None:
-        context.user_data['reason'] = tempDict['reason']
-        context.user_data['typex'] = tempDict['typex']
-
-    # Add the telegram handle to context.user_data
-    context.user_data['user'] = update.message.chat.username
-
-    # Add the wbs to context.user_data
-    try: 
-       context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
-    except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
-    except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
-
-    #Check for completion and inject data if positive
-    isComplete = checkCompletion(context.user_data)
-    if isComplete:
-        logger.info('Expense data is complete. Ready for database injection.')
-        expId = injectData(context.user_data)
-        update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
-        context.user_data.clear()
-
 
 def textCapture(update, context):
 
-    #global exp
-    rawText = update.message.text
-    
+    #Check where the text to parse comes from, text or caption.
+    if update.message.text != None:
+        rawText = update.message.text
+    elif update.message.caption:
+        rawText = update.message.caption
+        photoCapture(update, context)
+
     # Parse the text: adds amount + reason and type if amount and reason in the raw text
     tempDict = parseText(rawText, update.message.chat.username)
 
-    # Feeding the missing element in context.user_data
+    # Feeding the missing elements in context.user_data
     if tempDict['amount'] != None:
         context.user_data['amount'] = tempDict['amount']
 
@@ -128,7 +95,6 @@ def textCapture(update, context):
         context.user_data['reason'] = tempDict['reason']
         context.user_data['typex'] = tempDict['typex']
     
-    logger.info(tempDict)
     # Add the telegram handle to context.user_dat
     context.user_data['user'] = update.message.chat.username
 
@@ -149,8 +115,6 @@ def textCapture(update, context):
         context.user_data.clear()
 
 def setup(bot):
-    #global exp
-    #exp = Expense()
 
     #Initiating the classes
     db = DBHelper()
@@ -177,10 +141,8 @@ def setup(bot):
     dispatcher.add_handler(CommandHandler('wbs', wbs))
     dispatcher.add_handler(CommandHandler('submit', submit))
     dispatcher.add_handler(CommandHandler('status', status))
-    dispatcher.add_handler(MessageHandler(Filters.caption, captionCapture))
-    dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
-    dispatcher.add_handler(MessageHandler(Filters.photo, photoCapture))
-    dispatcher.add_handler(MessageHandler(Filters.document, photoCapture))
+    dispatcher.add_handler(MessageHandler(Filters.text | Filters.caption, textCapture))
+    dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 
     #Initiate the job_queue performed by the server
     j = JobQueue()

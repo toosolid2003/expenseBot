@@ -1,6 +1,7 @@
 import unittest
 from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
+from telegram.ext import Update, CallbackContext
 import random
 import time
 
@@ -110,6 +111,7 @@ class testDeductType(unittest.TestCase):
         reason = 'per diem welly'
         expectedType = deductType(reason)
         self.assertEqual(expectedType,'17819687871')
+
 
 #class TestEmailParser(unittest.TestCase):
 #    def testEasyjetParseAmount(self):

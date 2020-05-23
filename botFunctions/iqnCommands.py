@@ -146,10 +146,6 @@ def addExpense(driver, expObjList):
             'wbs':'entryFieldsContainer:fieldGroup:fields:7:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:sizingWrapper:textField:autocompleteField',
             'type':'entryFieldsContainer:fieldGroup:fields:2:feedbackReportingBorder:border:feedbackReportingBorder_body:fieldWrapper:field:select'}
     
-    #Creating a list of expenses in error, for later verification
-    expensesInError = []
-    expensesSaved = []
-
     # Add Expense form - start of the loop
     j = 0
 
@@ -162,7 +158,6 @@ def addExpense(driver, expObjList):
         #logger.info('Adding type: {}'.format(exp.typex))
         select_element = driver.find_element_by_name(fields['type'])
         select_object = Select(select_element)
-#        select_object.select_by_visible_text(exp.typex)
         select_object.select_by_value(exp.typex)
         time.sleep(2)
 
@@ -171,24 +166,18 @@ def addExpense(driver, expObjList):
         label = driver.find_element_by_name(fields['date'])
         label.clear()
         label.send_keys(exp.date)
-        #label.send_keys(Keys.TAB)
-        #time.sleep(2)
 
         #Enter Amount
         #logger.info('Adding amount: {}'.format(exp.amount))
         label = driver.find_element_by_name(fields['amount'])
         label.clear()
         label.send_keys(str(exp.amount))
-        #label.send_keys(Keys.TAB)
-        #time.sleep(2)
 
         #Enter reason
         #logger.info('Adding reason: {}'.format(exp.reason))
         label = driver.find_element_by_name(fields['reason'])
         label.clear()
         label.send_keys(exp.reason)
-        #label.send_keys(Keys.TAB)
-        #time.sleep(2)
 
         #Upload receipt
         #logger.info('Uploading receipt: {}'.format(exp.receipt))
@@ -205,11 +194,11 @@ def addExpense(driver, expObjList):
         #logger.info('Adding WBS: {}'.format(exp.wbs))
         select_element = driver.find_element_by_name(fields['wbs'])
         select_element.send_keys(exp.wbs)
+        #Use TAB key to scroll down to have the Save and Add Button appear to the driver
         select_element.send_keys(Keys.TAB)
 
         #Save and Add other expense
         #logger.info('Saving expense')
-        #Use TAB key to scroll down to have the Save and Add Button appear to the driver
         time.sleep(2)
         btn = driver.find_element_by_name('saveAndAddButton:container:container_body:button')
         btn.click()
