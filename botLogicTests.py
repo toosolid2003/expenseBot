@@ -1,7 +1,6 @@
 import unittest
 from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
-from telegram.ext import Update, CallbackContext
 import random
 import time
 
