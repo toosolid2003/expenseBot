@@ -46,10 +46,8 @@ def wbs(update, context):
         db.update_wbs(update.message.chat.username, context.args[0])
 
         wbs = db.get_wbs(update.message.chat.username)
-        update.message.reply_text('Your new WBS: {}'.format(wbs))
+        update.message.reply_text('Your new WBS for expenses: {}'.format(wbs))
 
-        #Add data point for commandTrack
-        ##db.add_datapoint(update.message.chat.username, 'New WBS', wbs)
 
         #Check if the wbs is valid
         isWbsValid = wbsCheck(update.message.chat.username, wbs)
@@ -58,8 +56,7 @@ def wbs(update, context):
     else:
         try:
             wbs = db.get_wbs(update.message.chat.username)
-            update.message.reply_text('Your current WBS is {}'.format(wbs))
-            ##db.add_datapoint(update.message.chat.username, 'WBS check', wbs)
+            update.message.reply_text('Your current WBS for expenses is {}'.format(wbs))
         except:
             update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs xxxx' (xxxx being your wbs number) to be able to record your business expenses.")
 
@@ -73,10 +70,8 @@ def submit(update, context):
     if result:
         update.message.reply_text('Alright, your expenses have been submitted for approval')
         db.updateStatus('logged','submitted', update.message.chat.username)
-        #db.add_datapoint(update.message.chat.username, '/submit', 'Expenses submitted')
     else:
         update.message.reply_text('The submission seems to have failed. I won\'t be able to help from here, so I suggest you have a look on IQ Navigator to sort it out.')
-        #db.add_datapoint(update.message.chat.username, '/submit','Failed')
 
 @commandTrack
 def helpmsg(update, context):
@@ -103,7 +98,6 @@ def status(update, context):
     else:
         update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
 
-        #db.add_datapoint(update.message.chat.username, '/status','No expense')
        
 
 #Conversation commands

@@ -1,14 +1,11 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue, CallbackContext
-import telegram
 from telegram import Bot
 import datetime
-import time
 from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, submitJob 
 import logging
-import uuid
 
 #logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.DEBUG)
 #logger = logging.getLogger(__name__)
@@ -17,7 +14,6 @@ with open('/var/www/expenseBot/bot.token','r') as fichier:
     token = fichier.read()
     token = token.replace('\n','')
 
-#TOKEN = '994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA'
 bot = Bot(token)
 #Initiating the classes
 db = DBHelper()
@@ -68,7 +64,7 @@ def photoCapture(update, context):
     #Third check for completion
     isComplete = checkCompletion(context.user_data)
     if isComplete:
-        logger.info('Expense data is complete. Ready for database injection.')
+#        logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
         update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
@@ -104,12 +100,13 @@ def textCapture(update, context):
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+        pass
+#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
     
 
     isComplete = checkCompletion(context.user_data)
     if isComplete:
-        logger.info('Expense data is complete. Ready for database injection.')
+#        logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()

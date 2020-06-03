@@ -49,7 +49,7 @@ def resetDic(dico):
 def parseText(rawText, activeUser):
     '''Parses the raw text data captured by the bot. Turns it into an amount (float) and a reason (string).
     Input: rawText, active user (telegram handle)
-    Output: dict of values (amount and reason)'''
+    Output: dict of values (amount, reason and type)'''
 
     #Initiate the dictionnary that will be returned
     values = {'amount':None, 'reason':None, 'typex':None}
