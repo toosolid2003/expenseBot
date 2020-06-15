@@ -7,18 +7,8 @@ from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, submitJob 
 import logging
 
-#logging.basicConfig(format='%(levelname)s - %(asctime)s - %(message)s', level=logging.DEBUG)
-#logger = logging.getLogger(__name__)
-
-with open('/var/www/expenseBot/bot.token','r') as fichier:
-    token = fichier.read()
-    token = token.replace('\n','')
-
-bot = Bot(token)
-#Initiating the classes
-db = DBHelper()
-db.setup()
-
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                     level=logging.INFO)
 
 #################################################################
 # Input handlers
@@ -111,46 +101,55 @@ def textCapture(update, context):
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
 
-def setup(bot):
+##########################################################################################################
+# Starting the bot
+##########################################################################################################
 
-    #Initiating the classes
-    db = DBHelper()
-    db.setup()
-    
-    dispatcher = Dispatcher(bot, None, workers=0, use_context=True)
+#Initiating the classes
+db = DBHelper()
+db.setup()
 
-    #Initiate the "setup" conversation handler
-    conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('start', start)],
-        states = {EMAIL: [MessageHandler(Filters.text, email)],
-            IQUSERNAME: [MessageHandler(Filters.text, iqusername)],
-            IQPASSWORD: [MessageHandler(Filters.text, iqpassword)],
-            CURRENCY: [MessageHandler(Filters.text, currency)],
-            WBS: [MessageHandler(Filters.text, wbsSetup)]
-            },
-        fallbacks=[CommandHandler('stopit', stopit)]
-        )
+#Starting the bot
+with open('/var/www/expenseBot/bot.token','r') as fichier:
+    token = fichier.read()
+    TOKEN = token.replace('\n','')
 
+updater = Updater(token=TOKEN, use_context=True)
+dispatcher = updater.dispatcher
 
-    #Registering handlers
-    dispatcher.add_handler(conv_handler)
-    dispatcher.add_handler(CommandHandler('help', helpmsg))
-    dispatcher.add_handler(CommandHandler('wbs', wbs))
-    dispatcher.add_handler(CommandHandler('submit', submit))
-    dispatcher.add_handler(CommandHandler('status', status))
-    dispatcher.add_handler(MessageHandler(Filters.text | Filters.caption, textCapture))
-    dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
-
-    #Initiate the job_queue performed by the server
-    j = JobQueue()
-    j.set_dispatcher(dispatcher)
-    jobTime = datetime.timedelta(minutes=30)
-    job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
-    j.start()
+#Initiate the "setup" conversation handler
+conv_handler = ConversationHandler(
+    entry_points=[CommandHandler('start', start)],
+    states = {EMAIL: [MessageHandler(Filters.text, email)],
+        IQUSERNAME: [MessageHandler(Filters.text, iqusername)],
+        IQPASSWORD: [MessageHandler(Filters.text, iqpassword)],
+        CURRENCY: [MessageHandler(Filters.text, currency)],
+        WBS: [MessageHandler(Filters.text, wbsSetup)]
+        },
+    fallbacks=[CommandHandler('stopit', stopit)]
+    )
 
 
+#Registering handlers
+dispatcher.add_handler(conv_handler)
+dispatcher.add_handler(CommandHandler('help', helpmsg))
+dispatcher.add_handler(CommandHandler('wbs', wbs))
+dispatcher.add_handler(CommandHandler('submit', submit))
+dispatcher.add_handler(CommandHandler('status', status))
+dispatcher.add_handler(MessageHandler(Filters.text | Filters.caption, textCapture))
+dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 
-    return dispatcher
+#Initiate the job_queue performed by the server
+j = JobQueue()
+j.set_dispatcher(dispatcher)
+jobTime = datetime.timedelta(minutes=30)
+job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
+j.start()
 
-def webhook(update, dispatcher):
-    dispatcher.process_update(update)
+#Starting the server
+updater.start_webhook(listen='0.0.0.0',
+                      port=443,
+                      key='/var/www/expenseBot/ssl/private.key',
+                      cert='/var/www/expenseBot/ssl/cert.pem',
+                      webhook_url='https://expensebot.design/',
+                      )

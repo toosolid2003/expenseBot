@@ -43,7 +43,8 @@ def wbs(update, context):
 
     
     if len(context.args) > 0:
-        db.update_wbs(update.message.chat.username, context.args[0])
+        newWBS = context.args[0].upper()
+        db.update_wbs(update.message.chat.username, newWBS)
 
         wbs = db.get_wbs(update.message.chat.username)
         update.message.reply_text('Your new WBS for expenses: {}'.format(wbs))
@@ -78,7 +79,6 @@ def helpmsg(update, context):
     text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
 I have other talents too, just type '/' to display my available commands. Enjoy!'''
     update.message.reply_text(text)
-    #db.add_datapoint(update.message.chat.username, '/help','')
 
 @commandTrack
 def status(update, context):
@@ -92,8 +92,6 @@ def status(update, context):
         text += toMarkdown(currentExpenses)
         text += '\n Total: {} CHF'.format(totalPending(currentExpenses))
         update.message.reply_text(text)
-
-        #db.add_datapoint(update.message.chat.username, '/status','Number of expenses: {}'.format(len(currentExpenses)))
 
     else:
         update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
