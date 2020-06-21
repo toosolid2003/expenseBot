@@ -5,10 +5,7 @@ from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, submitJob 
-import logging
-
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                     level=logging.INFO)
+from logger.logger import logger
 
 #################################################################
 # Input handlers
@@ -35,8 +32,7 @@ def photoCapture(update, context):
 
     #Logging and error for all other kinds of exceptions
     except Exception as e:
-        pass
-#        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
+        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
 
     # Inject the DATA if expense is complete
     #First the user
@@ -48,13 +44,12 @@ def photoCapture(update, context):
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
-        pass
-#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     #Third check for completion
     isComplete = checkCompletion(context.user_data)
     if isComplete:
-#        logger.info('Expense data is complete. Ready for database injection.')
+        logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
         update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
@@ -90,13 +85,12 @@ def textCapture(update, context):
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
-        pass
-#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
     
 
     isComplete = checkCompletion(context.user_data)
     if isComplete:
-#        logger.info('Expense data is complete. Ready for database injection.')
+        logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
         update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
         context.user_data.clear()
@@ -106,10 +100,14 @@ def textCapture(update, context):
 ##########################################################################################################
 
 #Initiating the classes
+logger.info('Initialising the classes')
+
 db = DBHelper()
 db.setup()
 
 #Starting the bot
+logger.info('Starting the bot')
+
 with open('/var/www/expenseBot/bot.token','r') as fichier:
     token = fichier.read()
     TOKEN = token.replace('\n','')
@@ -136,7 +134,7 @@ dispatcher.add_handler(CommandHandler('help', helpmsg))
 dispatcher.add_handler(CommandHandler('wbs', wbs))
 dispatcher.add_handler(CommandHandler('submit', submit))
 dispatcher.add_handler(CommandHandler('status', status))
-dispatcher.add_handler(MessageHandler(Filters.text | Filters.caption, textCapture))
+dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
 dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 
 #Initiate the job_queue performed by the server
@@ -147,9 +145,12 @@ job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
 j.start()
 
 #Starting the server
+logger.info('Starting the server')
 updater.start_webhook(listen='0.0.0.0',
                       port=443,
                       key='/var/www/expenseBot/ssl/private.key',
                       cert='/var/www/expenseBot/ssl/cert.pem',
                       webhook_url='https://expensebot.design/',
                       )
+logger.info('Server started')
+

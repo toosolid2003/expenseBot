@@ -2,12 +2,26 @@
 import os
 import json
 import time
-#from #logger.#logger import #logger
+from logger.logger import logger
 from botClasses.classes import DBHelper
 import uuid
 
 db = DBHelper()
 
+
+#######Decorator for logging ########
+#####################################
+
+def decoLog(func):
+    def wrapper(*args, **kwargs):
+        logger.debug('Using function ' + func.__name__)
+
+        return func(*args, **kwargs)
+    return wrapper
+
+
+####################################
+@decoLog
 def checkCompletion(dic):
     """
     Checks if the context.user_data dictionnary has all the data necessary to record the expense in the database.
@@ -30,22 +44,7 @@ def checkCompletion(dic):
     else:
         return True
 
-def resetDic(dico):
-    """
-    Resets the context.user_data dictionnary.
-    """
-
-    elts = ['uid','amount','typex','reason','receipt','wbs']
-    try:
-        for elt in elts:
-            dico.pop(elt)
-
-    except:
-        #logger.error('Could not reset the context.user_data dictionnary')
-        pass
-
-    return dico
-
+@decoLog
 def parseText(rawText, activeUser):
     '''Parses the raw text data captured by the bot. Turns it into an amount (float) and a reason (string).
     Input: rawText, active user (telegram handle)
@@ -99,6 +98,7 @@ def parseText(rawText, activeUser):
 
     return values
 
+@decoLog
 def conversionRate(parsingElt, baseCcy):
 
     '''Converts an amount from CHF to a target ccy.
@@ -119,6 +119,7 @@ def conversionRate(parsingElt, baseCcy):
         if ccy in parsingElt.lower():
             return ccyDict[ccy]
 
+@decoLog
 def convertUpdateElement(parsingElt):
     '''Substract the currency denominator from the parsed element to prepare it for
     type change withe float'''
@@ -155,6 +156,7 @@ def parseFlightEmail(jsonFile):
     #We miss the exp.receipt...
     return exp
 
+@decoLog
 def saveDocument(fileId, telegram_username, bot):
     '''Saves a document on the local disk and returns a filepath to be stored in the database.
     Input: Telegram file_id, telegram_username and Telegram bot instance
@@ -175,6 +177,7 @@ def saveDocument(fileId, telegram_username, bot):
 
     return newFilepath
 
+@decoLog
 def toMarkdown(expenses):
     '''
     Formats all expenses provided in parameters to be displayed to user.
@@ -193,6 +196,7 @@ def toMarkdown(expenses):
     
     return output
 
+@decoLog
 def totalPending(expenses):
     '''Calculates the total amount of current pending expenses.
     Input: list of expenses as tuples
@@ -204,6 +208,7 @@ def totalPending(expenses):
 
     return total
 
+@decoLog
 def deductType(reason):
    '''
    Deducts the expense type (IQ Navigator categories) based on what has been given as a reason.
@@ -238,6 +243,7 @@ def deductType(reason):
 
    return typex
 
+@decoLog
 def injectData(dico):
     """
     Inject the expense data contained in the dictionnary into the database.
@@ -253,11 +259,11 @@ def injectData(dico):
 
     try:
         db.add_item(data_tuple)
-        #logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
+        logger.info('Expense %s added to the databse for user %s', dico['uid'], dico['user'])
         db.add_datapoint(dico['user'], 'Expense added', dico['uid'])
         return dico['uid']
 
     except Exception as e:
-        #logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
+        logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
 
