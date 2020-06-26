@@ -222,3 +222,4 @@ class Expense:
         data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.typex, self.receipt, self.user)
         return data_tuple
 
+

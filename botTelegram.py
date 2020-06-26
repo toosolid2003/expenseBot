@@ -119,10 +119,8 @@ dispatcher = updater.dispatcher
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler('start', start)],
     states = {EMAIL: [MessageHandler(Filters.text, email)],
-        IQUSERNAME: [MessageHandler(Filters.text, iqusername)],
-        IQPASSWORD: [MessageHandler(Filters.text, iqpassword)],
         CURRENCY: [MessageHandler(Filters.text, currency)],
-        WBS: [MessageHandler(Filters.text, wbsSetup)]
+        WBS: [MessageHandler(Filters.text, wbsSetup)],
         },
     fallbacks=[CommandHandler('stopit', stopit)]
     )

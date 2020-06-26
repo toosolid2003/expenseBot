@@ -7,6 +7,7 @@ from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
 import os
+from logger.logger import logger
 
 # Database helpers
 #################################################################
@@ -35,6 +36,7 @@ def commandTrack(func):
 #################################################################
 # Commands
 #################################################################
+
 @commandTrack
 def wbs(update, context):
     '''Changes the wbs value if it is provided as a parameter
@@ -74,11 +76,13 @@ def submit(update, context):
     else:
         update.message.reply_text('The submission seems to have failed. I won\'t be able to help from here, so I suggest you have a look on IQ Navigator to sort it out.')
 
+
 @commandTrack
 def helpmsg(update, context):
     text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
 I have other talents too, just type '/' to display my available commands. Enjoy!'''
     update.message.reply_text(text)
+
 
 @commandTrack
 def status(update, context):
@@ -101,64 +105,80 @@ def status(update, context):
 #Conversation commands
 #################################################################
 
-EMAIL, IQUSERNAME, IQPASSWORD, CURRENCY, WBS = range(5)
+# First Sign up process
+
+#EMAIL, IQUSERNAME, IQPASSWORD, CURRENCY, WBS = range(5)
+EMAIL, CURRENCY, WBS = range(3)
+
 
 @commandTrack
 def start(update, context):
     """Handles the setup process"""
-    update.message.reply_text("""Hey, welcome to the Expense Bot. Before you can start recoding business expenses with me, I will need to collect some information about you (email, iq navigator credentials, wbs).
-It will take 5 min at most, but you can stop at any point by typing '/stop'.""")
-    update.message.reply_text("Let's start! What email address do you want to use?")
+    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recoding business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
+    update.message.reply_text("It will take 1 min, but you can stop at any point by typing '/stop'. Let's start! Can you confirm the email address you want to use?")
 
     return EMAIL
 
+
 @commandTrack
 def email(update, context):
-    """Gimme your email"""
+    """Verifying the email given to the bot with a list of registered emails in the web"""
 
     email = update.message.text
     if '/stop' in email:
         update.message.reply_text('OK then. Feel free to resume the sign up by typing "/start" when you are ready')
         return ConversationHandler.END
     else:
-        update.message.reply_text('Thanks for your email ({}). Now, can you send me the username you use to log into IQ Navigator?'.format(email))
+        #Check with web database if the email is registered
+        update.message.reply_text('Thanks for your email, {}, and welcome back.'.format(email))
         context.user_data['email'] = email
-
-        return IQUSERNAME
-
-
-@commandTrack
-def iqusername(update, context):
-    """Gimme your IQ username"""
-    username = update.message.text
-
-    if '/stop' in username:
-        update.message.reply_text("Let's stop then. Remember: I will still need at least a wbs to start recording your business expenses. \nYou can send it to me using the '/wbs' command. For instance, '/wbs yourWbsHere'.")
-        return ConversationHandler.END
-    else:
-        context.user_data['iq_username'] = username
-        update.message.reply_text('Thanks for your username. What would your password be?')
-
-    return IQPASSWORD
-
-
-@commandTrack
-def iqpassword(update, context):
-    """Gimme your password"""
-
-    context.user_data['password'] = update.message.text
-    if '/stop' in context.user_data['password']:
-        update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
-        return ConversationHandler.END
-
-    else:
-        update.message.reply_text('Thanks. Now, what currency should I use to record your expenses?')
+        update.message.reply_text('Now, what currency should I use to record your expenses?')
         keyboard = [['EUR','CHF','USD'],
                 ['NZD','AUD','CAD']]
         reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
         bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
+        #Remove the custome keyboard used in password state
+        telegram.ReplyKeyboardRemove()
 
     return CURRENCY
+
+
+
+
+#@commandTrack
+#def iqusername(update, context):
+#    """Gimme your IQ username"""
+#    username = update.message.text
+#
+#    if '/stop' in username:
+#        update.message.reply_text("Let's stop then. Remember: I will still need at least a wbs to start recording your business expenses. \nYou can send it to me using the '/wbs' command. For instance, '/wbs yourWbsHere'.")
+#        return ConversationHandler.END
+#    else:
+#        context.user_data['iq_username'] = username
+#        update.message.reply_text('Thanks for your username. What would your password be?')
+#
+#    return IQPASSWORD
+#
+#
+#
+#@commandTrack
+#def iqpassword(update, context):
+#    """Gimme your password"""
+#
+#    context.user_data['password'] = update.message.text
+#    if '/stop' in context.user_data['password']:
+#        update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
+#        return ConversationHandler.END
+#
+#    else:
+#        update.message.reply_text('Thanks. Now, what currency should I use to record your expenses?')
+#        keyboard = [['EUR','CHF','USD'],
+#                ['NZD','AUD','CAD']]
+#        reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
+#        bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
+#
+#    return CURRENCY
+#
 
 @commandTrack
 def currency(update, context):
@@ -166,9 +186,7 @@ def currency(update, context):
     Captures the preferred currency of the user.
     """
 
-    #Remove the custome keyboard used in password state
-    telegram.ReplyKeyboardRemove()
-
+    
     if '/stop' in update.message.text:
         update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
         return ConversationHandler.END
@@ -179,9 +197,10 @@ def currency(update, context):
 
     return WBS
 
+
 @commandTrack
 def wbsSetup(update, context):
-    """Gimme a wbs"""
+    """Captures a WBS code and records the data in the users table"""
 
     wbs = update.message.text
 
@@ -190,33 +209,22 @@ def wbsSetup(update, context):
     else:
         #Adding the new user to the users database now
         telegramUsername = update.message.chat.username
-        iq_username = context.user_data['iq_username']
-        iq_password = context.user_data['password']
+        #iq_username = context.user_data['iq_username']
+        #iq_password = context.user_data['password']
         email = context.user_data['email']
         currency = context.user_data['currency']
 
+        
+        logger.info('Adding user %s to the users database', telegramUsername)
+       # db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
+        update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
+        #Creating a specific folder to save user's receipts
         try:
-            userExists = db.checkExistingUser(telegramUsername)
-
-            if userExists:
-                logger.info('Updating the data for %s', telegramUsername)
-                db.update_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
-                update.message.reply_text('Thanks about the data. I\'m updating my database as we speak.')
-
-            else:
-                logger.info('Adding user %s to the users database', telegramUsername)
-                db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
-                update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
-                #Creating a specific folder to save user's receipts
-                try:
-                    path = '/var/www/expenseBot/receipts/' + telegramUsername
-                    os.mkdir(path)
-                except:
-                    logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
+            path = '/var/www/expenseBot/receipts/' + telegramUsername
+            os.mkdir(path)
+        except:
+            logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
  
-        except Exception as e:
-            logging.error('User %s could not be added to the user base. Error: %s', telegramUsername, e)
-
 
        
         #Checking the validity of the WBS
@@ -227,6 +235,7 @@ def wbsSetup(update, context):
 
 
     return ConversationHandler.END
+
 
 @commandTrack
 def stopit(update, context):
