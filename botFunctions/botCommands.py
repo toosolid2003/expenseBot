@@ -100,7 +100,13 @@ def status(update, context):
     else:
         update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
 
-       
+def iqn(update, context):
+    '''Update IQ Navigator credentials'''
+    iq_username = context.args[0]
+    iq_password = context.args[1]
+
+    db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
+    update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
 
 #Conversation commands
 #################################################################
@@ -116,7 +122,7 @@ def start(update, context):
     """Handles the setup process"""
     update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recoding business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
     update.message.reply_text("It will take 1 min, but you can stop at any point by typing '/stop'. Let's start! Can you confirm the email address you want to use?")
-
+    update.message.reply_text(f'Chat id: {update.message.chat.id}')
     return EMAIL
 
 
@@ -193,7 +199,7 @@ def currency(update, context):
 
     else:
         context.user_data['currency'] = update.message.text
-        update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what would this first WBS be?')
+        update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what is your current WBS?')
 
     return WBS
 
@@ -205,7 +211,7 @@ def wbsSetup(update, context):
     wbs = update.message.text
 
     if '/stop' in wbs:
-        update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs by typing:\n '/wbs xxxxxx'.")
+        update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs using the /wbs command.")
     else:
         #Adding the new user to the users database now
         telegramUsername = update.message.chat.username

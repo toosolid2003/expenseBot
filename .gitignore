@@ -6,3 +6,5 @@
 receipts/
 log/
 *.token
+tutorial/
+log/detailedInfo.log

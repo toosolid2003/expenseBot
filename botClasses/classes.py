@@ -118,6 +118,15 @@ class DBHelper:
         self.conn.execute(stmt, data)
         self.conn.commit()
 
+    def update_iq_creds(self, telegram_username, iq_username, iq_password):
+        '''Updates only the IQ credentials for a telegram user'''
+
+        data = (iq_username, iq_password, telegram_username)
+        stmt = '''UPDATE users SET iq_username=?, iq_password=? WHERE telegram_username=?'''
+        
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
     def get_users_by_status(self, status):
         data = (status,)
         c = self.conn.cursor()

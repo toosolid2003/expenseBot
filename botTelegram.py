@@ -132,6 +132,7 @@ dispatcher.add_handler(CommandHandler('help', helpmsg))
 dispatcher.add_handler(CommandHandler('wbs', wbs))
 dispatcher.add_handler(CommandHandler('submit', submit))
 dispatcher.add_handler(CommandHandler('status', status))
+dispatcher.add_handler(CommandHandler('iqn', iqn))
 dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
 dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 
