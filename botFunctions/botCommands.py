@@ -94,19 +94,26 @@ def status(update, context):
     if currentExpenses:
         text = 'Here are the expenses that I have recorded for you:\n\n'
         text += toMarkdown(currentExpenses)
-        text += '\n Total: {} CHF'.format(totalPending(currentExpenses))
+        text += '\n Total: {} CHF'.format(round(totalPending(currentExpenses),2))
         update.message.reply_text(text)
 
     else:
         update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
 
+@commandTrack
 def iqn(update, context):
     '''Update IQ Navigator credentials'''
-    iq_username = context.args[0]
-    iq_password = context.args[1]
 
-    db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
-    update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
+    if len(context.args) > 0:
+        iq_username = context.args[0]
+        iq_password = context.args[1]
+
+        db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
+        logger.info('IQ Credentials update for %s', update.message.chat.username)
+        update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
+
+    else:
+        update.message.reply_text('type "/iqn username password" to update your IQ credentials')
 
 #Conversation commands
 #################################################################

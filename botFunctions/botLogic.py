@@ -69,8 +69,8 @@ def parseText(rawText, activeUser):
     if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
         for elt in parsedText:
             #Detecte a potential currency in the parsedText and update conversionFactor
-            if conversionRate(elt,'CHF'):
-                conversionFactor = conversionRate(elt,'CHF')
+            if conversionRate(elt, baseCcy):
+                conversionFactor = conversionRate(elt, baseCcy)
 
             #Remove the ccy from the elt to prepare for float assignment
             elt = convertUpdateElement(elt)
@@ -82,8 +82,8 @@ def parseText(rawText, activeUser):
                 values['typex'] = deductType(values['reason'])
 
     else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
-        if conversionRate(rawText,'CHF'):
-            conversionFactor = conversionRate(rawText,'CHF')
+        if conversionRate(rawText, baseCcy):
+            conversionFactor = conversionRate(rawText, baseCcy)
         rawText = convertUpdateElement(rawText)
 
         try:
@@ -94,7 +94,7 @@ def parseText(rawText, activeUser):
 
     #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
     if values['amount']:
-        values['amount'] = values['amount'] * conversionFactor
+        values['amount'] = round(values['amount'] * conversionFactor, 2)    #Roudning the amount to 2 decimal to support injection in IQ Navigator
 
     return values
 

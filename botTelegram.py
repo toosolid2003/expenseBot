@@ -135,11 +135,12 @@ dispatcher.add_handler(CommandHandler('status', status))
 dispatcher.add_handler(CommandHandler('iqn', iqn))
 dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
 dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
+dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 
 #Initiate the job_queue performed by the server
 j = JobQueue()
 j.set_dispatcher(dispatcher)
-jobTime = datetime.timedelta(minutes=30)
+jobTime = datetime.timedelta(minutes=1)
 job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
 j.start()
 

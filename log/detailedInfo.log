@@ -286,3 +286,586 @@
 2020-06-29 09:55:43,527 - INFO - Starting the bot
 2020-06-29 09:55:43,678 - INFO - Starting the server
 2020-06-29 09:55:43,680 - INFO - Server started
+2020-06-29 09:57:30,641 - INFO - Initialising the classes
+2020-06-29 09:57:30,646 - INFO - Starting the bot
+2020-06-29 09:57:30,796 - INFO - Starting the server
+2020-06-29 09:57:30,797 - INFO - Server started
+2020-06-29 14:24:32,763 - INFO - Initialising the classes
+2020-06-29 14:24:32,765 - INFO - Starting the bot
+2020-06-29 14:24:32,961 - INFO - Starting the server
+2020-06-29 14:24:32,961 - INFO - Server started
+2020-06-29 15:13:21,240 - INFO - Initialising the classes
+2020-06-29 15:13:21,241 - INFO - Starting the bot
+2020-06-29 15:13:21,391 - INFO - Starting the server
+2020-06-29 15:13:21,392 - INFO - Server started
+2020-06-29 15:16:42,797 - INFO - Initialising the classes
+2020-06-29 15:16:42,797 - INFO - Starting the bot
+2020-06-29 15:16:42,944 - INFO - Starting the server
+2020-06-29 15:16:42,944 - INFO - Server started
+2020-06-29 15:19:55,312 - INFO - Initialising the classes
+2020-06-29 15:19:55,312 - INFO - Starting the bot
+2020-06-29 15:19:55,459 - INFO - Starting the server
+2020-06-29 15:19:55,460 - INFO - Server started
+2020-06-29 15:40:26,967 - INFO - Initialising the classes
+2020-06-29 15:40:26,968 - INFO - Starting the bot
+2020-06-29 15:40:27,150 - INFO - Starting the server
+2020-06-29 15:40:27,151 - INFO - Server started
+2020-06-29 18:46:50,258 - DEBUG - Using function checkCompletion
+2020-06-29 18:46:50,261 - DEBUG - Using function checkCompletion
+2020-06-29 18:46:50,262 - DEBUG - Using function parseText
+2020-06-29 18:46:50,262 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,263 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,263 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,264 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,264 - DEBUG - Using function deductType
+2020-06-29 18:46:50,265 - DEBUG - Using function parseText
+2020-06-29 18:46:50,265 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,265 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,265 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,265 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,265 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,265 - DEBUG - Using function deductType
+2020-06-29 18:46:50,266 - DEBUG - Using function parseText
+2020-06-29 18:46:50,266 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,266 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,266 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,267 - DEBUG - Using function parseText
+2020-06-29 18:46:50,267 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,267 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,267 - DEBUG - Using function deductType
+2020-06-29 18:46:50,267 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,267 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,268 - DEBUG - Using function parseText
+2020-06-29 18:46:50,268 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,268 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,268 - DEBUG - Using function deductType
+2020-06-29 18:46:50,268 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,268 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,270 - DEBUG - Using function parseText
+2020-06-29 18:46:50,270 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,270 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,270 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,270 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,270 - DEBUG - Using function deductType
+2020-06-29 18:46:50,271 - DEBUG - Using function parseText
+2020-06-29 18:46:50,271 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,271 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,271 - DEBUG - Using function deductType
+2020-06-29 18:46:50,271 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,271 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,272 - DEBUG - Using function parseText
+2020-06-29 18:46:50,272 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,272 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,272 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,272 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,272 - DEBUG - Using function deductType
+2020-06-29 18:46:50,272 - DEBUG - Using function parseText
+2020-06-29 18:46:50,273 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,273 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,273 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,273 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,273 - DEBUG - Using function deductType
+2020-06-29 18:46:50,273 - DEBUG - Using function parseText
+2020-06-29 18:46:50,273 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,274 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,274 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,274 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,274 - DEBUG - Using function deductType
+2020-06-29 18:46:50,274 - DEBUG - Using function parseText
+2020-06-29 18:46:50,275 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,275 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,275 - DEBUG - Using function parseText
+2020-06-29 18:46:50,275 - DEBUG - Using function conversionRate
+2020-06-29 18:46:50,275 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:46:50,275 - DEBUG - Using function deductType
+2020-06-29 18:46:50,276 - DEBUG - Using function deductType
+2020-06-29 18:46:50,277 - DEBUG - Using function deductType
+2020-06-29 18:46:50,277 - DEBUG - Using function deductType
+2020-06-29 18:46:50,278 - DEBUG - Using function deductType
+2020-06-29 18:50:26,420 - DEBUG - Using function checkCompletion
+2020-06-29 18:50:26,421 - DEBUG - Using function checkCompletion
+2020-06-29 18:50:26,422 - DEBUG - Using function parseText
+2020-06-29 18:50:26,422 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,423 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,423 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,424 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,424 - DEBUG - Using function deductType
+2020-06-29 18:50:26,425 - DEBUG - Using function parseText
+2020-06-29 18:50:26,425 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,426 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,426 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,426 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,427 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,427 - DEBUG - Using function deductType
+2020-06-29 18:50:26,428 - DEBUG - Using function parseText
+2020-06-29 18:50:26,428 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,428 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,428 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,429 - DEBUG - Using function parseText
+2020-06-29 18:50:26,429 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,429 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,429 - DEBUG - Using function deductType
+2020-06-29 18:50:26,429 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,429 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,431 - DEBUG - Using function parseText
+2020-06-29 18:50:26,431 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,431 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,431 - DEBUG - Using function deductType
+2020-06-29 18:50:26,431 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,431 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,432 - DEBUG - Using function parseText
+2020-06-29 18:50:26,432 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,432 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,432 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,432 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,432 - DEBUG - Using function deductType
+2020-06-29 18:50:26,433 - DEBUG - Using function parseText
+2020-06-29 18:50:26,433 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,433 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,433 - DEBUG - Using function deductType
+2020-06-29 18:50:26,433 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,433 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,437 - DEBUG - Using function parseText
+2020-06-29 18:50:26,437 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,437 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,437 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,438 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,438 - DEBUG - Using function deductType
+2020-06-29 18:50:26,438 - DEBUG - Using function parseText
+2020-06-29 18:50:26,438 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,438 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,438 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,438 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,438 - DEBUG - Using function deductType
+2020-06-29 18:50:26,439 - DEBUG - Using function parseText
+2020-06-29 18:50:26,439 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,439 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,439 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,440 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,440 - DEBUG - Using function deductType
+2020-06-29 18:50:26,440 - DEBUG - Using function parseText
+2020-06-29 18:50:26,440 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,440 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,441 - DEBUG - Using function parseText
+2020-06-29 18:50:26,441 - DEBUG - Using function conversionRate
+2020-06-29 18:50:26,441 - DEBUG - Using function convertUpdateElement
+2020-06-29 18:50:26,441 - DEBUG - Using function deductType
+2020-06-29 18:50:26,442 - DEBUG - Using function deductType
+2020-06-29 18:50:26,442 - DEBUG - Using function deductType
+2020-06-29 18:50:26,443 - DEBUG - Using function deductType
+2020-06-29 18:50:26,444 - DEBUG - Using function deductType
+2020-06-29 19:43:52,279 - INFO - Initialising the classes
+2020-06-29 19:43:52,280 - INFO - Starting the bot
+2020-06-29 19:43:52,529 - INFO - Starting the server
+2020-06-29 19:43:52,531 - INFO - Server started
+2020-06-29 19:44:28,425 - INFO - IQ Credentials update for thedropper
+2020-06-29 19:57:06,151 - INFO - Initialising the classes
+2020-06-29 19:57:06,151 - INFO - Starting the bot
+2020-06-29 19:57:06,350 - INFO - Starting the server
+2020-06-29 19:57:06,350 - INFO - Server started
+2020-06-29 19:57:09,815 - DEBUG - Using function saveDocument
+2020-06-29 19:57:10,406 - DEBUG - Using function checkCompletion
+2020-06-29 19:57:10,407 - DEBUG - Using function parseText
+2020-06-29 19:57:10,407 - DEBUG - Using function conversionRate
+2020-06-29 19:57:10,407 - DEBUG - Using function convertUpdateElement
+2020-06-29 19:57:10,407 - DEBUG - Using function conversionRate
+2020-06-29 19:57:10,408 - DEBUG - Using function convertUpdateElement
+2020-06-29 19:57:10,408 - DEBUG - Using function deductType
+2020-06-29 19:57:10,408 - DEBUG - Using function checkCompletion
+2020-06-29 19:57:10,408 - INFO - Expense data is complete. Ready for database injection.
+2020-06-29 19:57:10,408 - DEBUG - Using function injectData
+2020-06-29 19:57:10,413 - INFO - Expense 9151c1ce-3349-4f87-875a-d0e4af443e0e added to the databse for user thedropper
+2020-06-29 19:57:45,650 - INFO - Initialising the classes
+2020-06-29 19:57:45,650 - INFO - Starting the bot
+2020-06-29 19:57:45,671 - INFO - Starting the server
+2020-06-29 19:57:45,672 - INFO - Server started
+2020-06-29 20:27:47,872 - INFO - Extracting all pending expenses from expenses db
+2020-06-29 20:27:47,872 - INFO - Creating a list of expense objects
+2020-06-29 20:27:47,873 - INFO - Opening the login page
+2020-06-29 20:27:47,873 - INFO - Logging in...
+2020-06-29 20:27:52,777 - INFO - Logged in
+2020-06-29 20:27:52,777 - INFO - Checking if an expense report exists
+2020-06-29 20:27:55,704 - INFO - Expense Report not found. Back to Home.
+2020-06-29 20:27:56,243 - INFO - Creating a new expense report
+2020-06-29 20:28:02,740 - INFO - Expense Report title added
+2020-06-29 20:28:02,740 - INFO - Opening the Add Expense form
+2020-06-29 20:28:07,794 - INFO - Adding expense 0
+2020-06-29 20:28:07,795 - INFO - Adding type: 17819687015
+2020-06-29 20:28:09,877 - INFO - Adding date: 29-6-2020
+2020-06-29 20:28:09,967 - INFO - Adding amount: 1,0
+2020-06-29 20:28:10,035 - INFO - Adding reason: restau
+2020-06-29 20:28:10,135 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_236.jpg
+2020-06-29 20:28:16,528 - INFO - Adding WBS: APO2E300
+2020-06-29 20:28:16,621 - INFO - Saving expense
+2020-06-29 20:28:23,944 - INFO - Expense correctly logged: 9151c1ce-3349-4f87-875a-d0e4af443e0e
+2020-06-29 20:28:23,945 - INFO - Closing the Add Expense form
+2020-06-29 20:28:26,020 - INFO - Saving the draft of expense report
+2020-06-29 20:28:30,927 - INFO - Logging out
+2020-06-29 22:54:15,541 - DEBUG - Using function toMarkdown
+2020-06-29 22:54:15,543 - DEBUG - Using function totalPending
+2020-06-30 10:14:28,539 - DEBUG - Using function toMarkdown
+2020-06-30 10:14:28,540 - DEBUG - Using function totalPending
+2020-07-01 11:02:57,691 - DEBUG - Using function toMarkdown
+2020-07-01 11:02:57,691 - DEBUG - Using function totalPending
+2020-07-12 18:27:27,359 - DEBUG - Using function saveDocument
+2020-07-12 18:27:27,825 - DEBUG - Using function checkCompletion
+2020-07-12 18:42:36,710 - DEBUG - Using function checkCompletion
+2020-07-12 18:42:36,713 - DEBUG - Using function checkCompletion
+2020-07-12 18:42:36,714 - DEBUG - Using function parseText
+2020-07-12 18:42:36,714 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,715 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,715 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,715 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,715 - DEBUG - Using function deductType
+2020-07-12 18:42:36,716 - DEBUG - Using function parseText
+2020-07-12 18:42:36,716 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,716 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,716 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,716 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,716 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,716 - DEBUG - Using function deductType
+2020-07-12 18:42:36,718 - DEBUG - Using function parseText
+2020-07-12 18:42:36,718 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,718 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,718 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,719 - DEBUG - Using function parseText
+2020-07-12 18:42:36,719 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,719 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,719 - DEBUG - Using function deductType
+2020-07-12 18:42:36,719 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,719 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,720 - DEBUG - Using function parseText
+2020-07-12 18:42:36,720 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,720 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,720 - DEBUG - Using function deductType
+2020-07-12 18:42:36,720 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,720 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,721 - DEBUG - Using function parseText
+2020-07-12 18:42:36,721 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,721 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,721 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,721 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,721 - DEBUG - Using function deductType
+2020-07-12 18:42:36,722 - DEBUG - Using function parseText
+2020-07-12 18:42:36,722 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,722 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,722 - DEBUG - Using function deductType
+2020-07-12 18:42:36,722 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,722 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,723 - DEBUG - Using function parseText
+2020-07-12 18:42:36,723 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,723 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,723 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,724 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,724 - DEBUG - Using function deductType
+2020-07-12 18:42:36,724 - DEBUG - Using function parseText
+2020-07-12 18:42:36,724 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,724 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,724 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,724 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,724 - DEBUG - Using function deductType
+2020-07-12 18:42:36,725 - DEBUG - Using function parseText
+2020-07-12 18:42:36,725 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,725 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,725 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,725 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,725 - DEBUG - Using function deductType
+2020-07-12 18:42:36,726 - DEBUG - Using function parseText
+2020-07-12 18:42:36,726 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,726 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,727 - DEBUG - Using function parseText
+2020-07-12 18:42:36,727 - DEBUG - Using function conversionRate
+2020-07-12 18:42:36,727 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:42:36,727 - DEBUG - Using function deductType
+2020-07-12 18:42:36,728 - DEBUG - Using function deductType
+2020-07-12 18:42:36,729 - DEBUG - Using function deductType
+2020-07-12 18:42:36,729 - DEBUG - Using function deductType
+2020-07-12 18:42:36,730 - DEBUG - Using function deductType
+2020-07-12 18:45:25,054 - INFO - Initialising the classes
+2020-07-12 18:45:25,055 - INFO - Starting the bot
+2020-07-12 18:45:25,197 - INFO - Starting the server
+2020-07-12 18:45:25,198 - INFO - Server started
+2020-07-12 18:46:02,251 - DEBUG - Using function parseText
+2020-07-12 18:46:02,252 - DEBUG - Using function conversionRate
+2020-07-12 18:46:02,253 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:46:02,253 - DEBUG - Using function conversionRate
+2020-07-12 18:46:02,254 - DEBUG - Using function convertUpdateElement
+2020-07-12 18:46:02,254 - DEBUG - Using function deductType
+2020-07-12 18:46:02,254 - DEBUG - Using function checkCompletion
+2020-07-12 18:46:02,352 - DEBUG - Using function saveDocument
+2020-07-12 18:46:02,832 - DEBUG - Using function checkCompletion
+2020-07-12 18:46:02,834 - INFO - Expense data is complete. Ready for database injection.
+2020-07-12 18:46:02,834 - DEBUG - Using function injectData
+2020-07-12 18:46:02,836 - INFO - Expense 4ced580c-e9f3-4f99-b460-f2d605fc3dd0 added to the databse for user thedropper
+2020-07-12 18:46:20,898 - INFO - Initialising the classes
+2020-07-12 18:46:20,899 - INFO - Starting the bot
+2020-07-12 18:46:20,919 - INFO - Starting the server
+2020-07-12 18:46:20,920 - INFO - Server started
+2020-07-12 19:16:23,131 - INFO - Extracting all pending expenses from expenses db
+2020-07-12 19:16:23,131 - INFO - Creating a list of expense objects
+2020-07-12 19:16:23,132 - INFO - Opening the login page
+2020-07-12 19:16:23,132 - INFO - Logging in...
+2020-07-12 19:16:30,740 - INFO - Logged in
+2020-07-12 19:16:30,740 - INFO - Checking if an expense report exists
+2020-07-12 19:16:34,732 - INFO - Expense Report not found. Back to Home.
+2020-07-12 19:16:35,837 - INFO - Creating a new expense report
+2020-07-12 19:16:42,042 - INFO - Expense Report title added
+2020-07-12 19:16:42,042 - INFO - Opening the Add Expense form
+2020-07-12 19:16:47,100 - INFO - Adding expense 0
+2020-07-12 19:16:47,100 - INFO - Adding type: 17819684336
+2020-07-12 19:16:49,172 - INFO - Adding date: 12-7-2020
+2020-07-12 19:16:49,258 - INFO - Adding amount: 344,11
+2020-07-12 19:16:49,341 - INFO - Adding reason: flight Zürich
+2020-07-12 19:16:49,434 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_238.pdf
+2020-07-12 19:16:56,865 - INFO - Adding WBS: APO2E300
+2020-07-12 19:16:56,953 - INFO - Saving expense
+2020-07-12 19:17:04,273 - INFO - Expense correctly logged: 4ced580c-e9f3-4f99-b460-f2d605fc3dd0
+2020-07-12 19:17:04,273 - INFO - Closing the Add Expense form
+2020-07-12 19:17:06,334 - INFO - Saving the draft of expense report
+2020-07-12 19:17:10,907 - INFO - Logging out
+2020-07-12 23:55:29,501 - DEBUG - Using function toMarkdown
+2020-07-12 23:55:29,504 - DEBUG - Using function totalPending
+2020-07-13 10:58:38,770 - DEBUG - Using function parseText
+2020-07-13 10:58:38,770 - DEBUG - Using function conversionRate
+2020-07-13 10:58:38,770 - DEBUG - Using function convertUpdateElement
+2020-07-13 10:58:38,770 - DEBUG - Using function conversionRate
+2020-07-13 10:58:38,770 - DEBUG - Using function convertUpdateElement
+2020-07-13 10:58:38,771 - DEBUG - Using function deductType
+2020-07-13 10:58:38,771 - DEBUG - Using function checkCompletion
+2020-07-13 10:58:38,996 - DEBUG - Using function saveDocument
+2020-07-13 10:58:40,024 - DEBUG - Using function checkCompletion
+2020-07-13 10:58:40,024 - INFO - Expense data is complete. Ready for database injection.
+2020-07-13 10:58:40,024 - DEBUG - Using function injectData
+2020-07-13 10:58:40,031 - INFO - Expense 7388b760-d3ec-4c2d-b387-41815a4d66d2 added to the databse for user thedropper
+2020-07-13 11:16:23,160 - INFO - Extracting all pending expenses from expenses db
+2020-07-13 11:16:23,160 - INFO - Creating a list of expense objects
+2020-07-13 11:16:23,160 - INFO - Opening the login page
+2020-07-13 11:16:23,160 - INFO - Logging in...
+2020-07-13 11:16:28,361 - INFO - Logged in
+2020-07-13 11:16:28,361 - INFO - Checking if an expense report exists
+2020-07-13 11:16:33,765 - INFO - Expense Report found
+2020-07-13 11:16:33,765 - INFO - Opening the Add Expense Form
+2020-07-13 11:16:35,882 - INFO - Adding expense 0
+2020-07-13 11:16:35,882 - INFO - Adding type: 17819687102
+2020-07-13 11:16:37,956 - INFO - Adding date: 13-7-2020
+2020-07-13 11:16:38,047 - INFO - Adding amount: 136,6
+2020-07-13 11:16:38,114 - INFO - Adding reason: Hôtel Zurich 15/07
+2020-07-13 11:16:38,238 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_239.pdf
+2020-07-13 11:16:45,466 - INFO - Adding WBS: APO2E300
+2020-07-13 11:16:45,563 - INFO - Saving expense
+2020-07-13 11:16:52,655 - INFO - Expense correctly logged: 7388b760-d3ec-4c2d-b387-41815a4d66d2
+2020-07-13 11:16:52,655 - INFO - Closing the Add Expense form
+2020-07-13 11:16:54,707 - INFO - Saving the draft of expense report
+2020-07-13 11:17:00,241 - INFO - Logging out
+2020-07-13 15:32:50,162 - DEBUG - Using function toMarkdown
+2020-07-13 15:32:50,162 - DEBUG - Using function totalPending
+2020-07-14 10:11:15,150 - INFO - Initialising the classes
+2020-07-14 10:11:15,151 - INFO - Starting the bot
+2020-07-14 10:11:15,291 - INFO - Starting the server
+2020-07-14 10:11:15,292 - INFO - Server started
+2020-07-14 10:11:17,312 - DEBUG - Using function toMarkdown
+2020-07-14 10:11:17,314 - DEBUG - Using function totalPending
+2020-07-14 10:12:06,895 - INFO - Initialising the classes
+2020-07-14 10:12:06,896 - INFO - Starting the bot
+2020-07-14 10:12:06,915 - INFO - Starting the server
+2020-07-14 10:12:06,916 - INFO - Server started
+2020-07-14 10:12:08,932 - DEBUG - Using function toMarkdown
+2020-07-14 10:12:08,934 - DEBUG - Using function totalPending
+2020-07-14 10:12:24,521 - DEBUG - Using function toMarkdown
+2020-07-14 10:12:24,522 - DEBUG - Using function totalPending
+2020-07-14 17:21:21,646 - INFO - Initialising the classes
+2020-07-14 17:21:21,648 - INFO - Starting the bot
+2020-07-14 17:21:21,797 - INFO - Starting the server
+2020-07-14 17:21:21,798 - INFO - Server started
+2020-07-19 17:26:05,487 - INFO - Initialising the classes
+2020-07-19 17:26:05,488 - INFO - Starting the bot
+2020-07-19 17:26:05,672 - INFO - Starting the server
+2020-07-19 17:26:05,674 - INFO - Server started
+2020-07-19 17:27:30,387 - DEBUG - Using function toMarkdown
+2020-07-19 17:27:30,390 - DEBUG - Using function totalPending
+2020-07-19 17:28:02,600 - DEBUG - Using function toMarkdown
+2020-07-19 17:28:02,600 - DEBUG - Using function totalPending
+2020-07-20 10:04:51,898 - DEBUG - Using function toMarkdown
+2020-07-20 10:04:51,898 - DEBUG - Using function totalPending
+2020-07-21 13:13:01,547 - DEBUG - Using function toMarkdown
+2020-07-21 13:13:01,547 - DEBUG - Using function totalPending
+2020-07-22 16:07:32,970 - INFO - Initialising the classes
+2020-07-22 16:07:32,971 - INFO - Starting the bot
+2020-07-22 16:07:33,255 - INFO - Starting the server
+2020-07-22 16:07:33,256 - INFO - Server started
+2020-07-22 16:11:17,235 - DEBUG - Using function toMarkdown
+2020-07-22 16:11:17,237 - DEBUG - Using function totalPending
+2020-07-23 14:02:10,702 - INFO - Initialising the classes
+2020-07-23 14:02:10,703 - INFO - Starting the bot
+2020-07-23 14:02:10,914 - INFO - Starting the server
+2020-07-23 14:02:10,915 - INFO - Server started
+2020-07-23 14:02:13,721 - DEBUG - Using function toMarkdown
+2020-07-23 14:02:13,724 - DEBUG - Using function totalPending
+2020-07-23 17:53:28,274 - DEBUG - Using function parseText
+2020-07-23 17:53:28,275 - DEBUG - Using function conversionRate
+2020-07-23 17:53:28,275 - DEBUG - Using function conversionRate
+2020-07-23 17:53:28,275 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:53:28,275 - DEBUG - Using function conversionRate
+2020-07-23 17:53:28,275 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:53:28,275 - DEBUG - Using function deductType
+2020-07-23 17:53:28,275 - DEBUG - Using function checkCompletion
+2020-07-23 17:53:28,482 - DEBUG - Using function parseText
+2020-07-23 17:53:28,482 - DEBUG - Using function conversionRate
+2020-07-23 17:53:28,482 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:53:28,482 - DEBUG - Using function deductType
+2020-07-23 17:53:28,482 - DEBUG - Using function conversionRate
+2020-07-23 17:53:28,482 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:53:28,482 - DEBUG - Using function deductType
+2020-07-23 17:53:28,482 - DEBUG - Using function checkCompletion
+2020-07-23 17:54:18,200 - DEBUG - Using function parseText
+2020-07-23 17:54:18,200 - DEBUG - Using function conversionRate
+2020-07-23 17:54:18,200 - DEBUG - Using function conversionRate
+2020-07-23 17:54:18,200 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:54:18,201 - DEBUG - Using function conversionRate
+2020-07-23 17:54:18,201 - DEBUG - Using function convertUpdateElement
+2020-07-23 17:54:18,201 - DEBUG - Using function deductType
+2020-07-23 17:54:18,201 - DEBUG - Using function checkCompletion
+2020-07-23 17:54:18,341 - DEBUG - Using function saveDocument
+2020-07-23 17:54:18,806 - DEBUG - Using function checkCompletion
+2020-07-23 17:54:18,806 - INFO - Expense data is complete. Ready for database injection.
+2020-07-23 17:54:18,806 - DEBUG - Using function injectData
+2020-07-23 17:54:18,812 - INFO - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b added to the databse for user thedropper
+2020-07-23 18:02:12,934 - INFO - Extracting all pending expenses from expenses db
+2020-07-23 18:02:12,934 - INFO - Creating a list of expense objects
+2020-07-23 18:02:12,934 - INFO - Opening the login page
+2020-07-23 18:02:12,934 - INFO - Logging in...
+2020-07-23 18:02:18,058 - INFO - Logged in
+2020-07-23 18:02:18,058 - INFO - Checking if an expense report exists
+2020-07-23 18:02:22,443 - INFO - Expense Report found
+2020-07-23 18:02:22,444 - INFO - Opening the Add Expense Form
+2020-07-23 18:02:26,107 - INFO - Adding expense 0
+2020-07-23 18:02:26,107 - INFO - Adding type: 17819687102
+2020-07-23 18:02:28,173 - INFO - Adding date: 23-7-2020
+2020-07-23 18:02:28,251 - INFO - Adding amount: 19,390299999999996
+2020-07-23 18:02:28,339 - INFO - Adding reason: omniplan license
+2020-07-23 18:02:28,419 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-23 18:02:35,635 - INFO - Adding WBS: APO2E300
+2020-07-23 18:02:35,736 - INFO - Saving expense
+2020-07-23 18:02:43,755 - ERROR - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b could not be saved
+2020-07-23 18:02:43,756 - INFO - Closing the Add Expense form
+2020-07-23 18:02:45,803 - INFO - Saving the draft of expense report
+2020-07-23 18:02:51,289 - INFO - Logging out
+2020-07-25 19:50:56,468 - INFO - Initialising the classes
+2020-07-25 19:50:56,469 - INFO - Starting the bot
+2020-07-25 19:50:56,672 - INFO - Starting the server
+2020-07-25 19:50:56,674 - INFO - Server started
+2020-07-25 20:20:58,710 - INFO - Extracting all pending expenses from expenses db
+2020-07-25 20:20:58,711 - INFO - Creating a list of expense objects
+2020-07-25 20:20:58,711 - INFO - Opening the login page
+2020-07-25 20:20:58,712 - INFO - Logging in...
+2020-07-25 20:21:04,452 - INFO - Logged in
+2020-07-25 20:21:04,452 - INFO - Checking if an expense report exists
+2020-07-25 20:21:08,590 - INFO - Expense Report found
+2020-07-25 20:21:08,590 - INFO - Opening the Add Expense Form
+2020-07-25 20:21:10,723 - INFO - Adding expense 0
+2020-07-25 20:21:10,723 - INFO - Adding type: 17819687102
+2020-07-25 20:21:12,791 - INFO - Adding date: 23-7-2020
+2020-07-25 20:21:12,876 - INFO - Adding amount: 19,39000007
+2020-07-25 20:21:12,958 - INFO - Adding reason: omniplan license
+2020-07-25 20:21:13,047 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-25 20:21:19,977 - INFO - Adding WBS: APO2E300
+2020-07-25 20:21:20,076 - INFO - Saving expense
+2020-07-25 20:21:28,275 - ERROR - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b could not be saved
+2020-07-25 20:21:28,501 - INFO - Closing the Add Expense form
+2020-07-25 20:21:30,557 - INFO - Saving the draft of expense report
+2020-07-25 20:21:36,072 - INFO - Logging out
+2020-07-25 22:27:20,526 - INFO - Initialising the classes
+2020-07-25 22:27:20,527 - INFO - Starting the bot
+2020-07-25 22:27:20,679 - INFO - Starting the server
+2020-07-25 22:27:20,681 - INFO - Server started
+2020-07-25 22:28:22,751 - INFO - Extracting all pending expenses from expenses db
+2020-07-25 22:28:22,753 - INFO - Creating a list of expense objects
+2020-07-25 22:28:22,754 - INFO - Opening the login page
+2020-07-25 22:28:22,755 - INFO - Logging in...
+2020-07-25 22:28:32,718 - INFO - Logged in
+2020-07-25 22:28:32,719 - INFO - Checking if an expense report exists
+2020-07-25 22:28:37,612 - INFO - Expense Report found
+2020-07-25 22:28:37,613 - INFO - Opening the Add Expense Form
+2020-07-25 22:28:41,313 - INFO - Adding expense 0
+2020-07-25 22:28:41,315 - INFO - Adding type: 17819687102
+2020-07-25 22:28:43,381 - INFO - Adding date: 23-7-2020
+2020-07-25 22:28:43,469 - INFO - Adding amount: 19,39000007
+2020-07-25 22:28:43,548 - INFO - Adding reason: omniplan license
+2020-07-25 22:28:43,635 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-25 22:28:51,065 - INFO - Adding WBS: APO2E300
+2020-07-25 22:28:51,206 - INFO - Saving expense
+2020-07-25 22:28:58,282 - ERROR - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b could not be saved
+2020-07-25 22:28:58,496 - INFO - Closing the Add Expense form
+2020-07-25 22:29:00,582 - INFO - Saving the draft of expense report
+2020-07-25 22:29:06,087 - INFO - Logging out
+2020-07-25 22:39:12,244 - INFO - Initialising the classes
+2020-07-25 22:39:12,245 - INFO - Starting the bot
+2020-07-25 22:39:12,404 - INFO - Starting the server
+2020-07-25 22:39:12,406 - INFO - Server started
+2020-07-25 22:40:14,485 - INFO - Extracting all pending expenses from expenses db
+2020-07-25 22:40:14,486 - INFO - Creating a list of expense objects
+2020-07-25 22:40:14,487 - INFO - Opening the login page
+2020-07-25 22:40:14,488 - INFO - Logging in...
+2020-07-25 22:40:19,959 - INFO - Logged in
+2020-07-25 22:40:19,960 - INFO - Checking if an expense report exists
+2020-07-25 22:40:25,485 - INFO - Expense Report found
+2020-07-25 22:40:25,486 - INFO - Opening the Add Expense Form
+2020-07-25 22:40:28,126 - INFO - Adding expense 0
+2020-07-25 22:40:28,127 - INFO - Adding type: 17819687102
+2020-07-25 22:40:30,193 - INFO - Adding date: 23-7-2020
+2020-07-25 22:40:30,281 - INFO - Adding amount: 19,39000007
+2020-07-25 22:40:30,362 - INFO - Adding reason: omniplan license
+2020-07-25 22:40:30,468 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-25 22:40:37,644 - INFO - Adding WBS: APO2E300
+2020-07-25 22:40:37,752 - INFO - Saving expense
+2020-07-25 22:40:45,785 - ERROR - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b could not be saved
+2020-07-25 22:40:46,006 - INFO - Closing the Add Expense form
+2020-07-25 22:40:48,066 - INFO - Saving the draft of expense report
+2020-07-25 22:40:54,407 - INFO - Logging out
+2020-07-25 22:42:57,952 - INFO - Initialising the classes
+2020-07-25 22:42:57,953 - INFO - Starting the bot
+2020-07-25 22:42:58,416 - INFO - Starting the server
+2020-07-25 22:42:58,418 - INFO - Server started
+2020-07-25 22:44:00,189 - INFO - Extracting all pending expenses from expenses db
+2020-07-25 22:44:00,191 - INFO - Creating a list of expense objects
+2020-07-25 22:44:00,191 - INFO - Opening the login page
+2020-07-25 22:44:00,192 - INFO - Logging in...
+2020-07-25 22:44:05,984 - INFO - Logged in
+2020-07-25 22:44:05,985 - INFO - Checking if an expense report exists
+2020-07-25 22:44:10,755 - INFO - Expense Report found
+2020-07-25 22:44:10,756 - INFO - Opening the Add Expense Form
+2020-07-25 22:44:14,419 - INFO - Adding expense 0
+2020-07-25 22:44:14,420 - INFO - Adding type: 17819687102
+2020-07-25 22:44:16,491 - INFO - Adding date: 23-7-2020
+2020-07-25 22:44:16,577 - INFO - Adding amount: 19,39000007
+2020-07-25 22:44:16,662 - INFO - Adding reason: omniplan license
+2020-07-25 22:44:16,749 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-25 22:44:24,350 - INFO - Adding WBS: APO2E300
+2020-07-25 22:44:24,450 - INFO - Saving expense
+2020-07-25 22:44:32,450 - ERROR - Expense 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b could not be saved
+2020-07-25 22:44:32,664 - INFO - Closing the Add Expense form
+2020-07-25 22:44:34,727 - INFO - Saving the draft of expense report
+2020-07-25 22:52:31,867 - INFO - Initialising the classes
+2020-07-25 22:52:31,868 - INFO - Starting the bot
+2020-07-25 22:52:32,016 - INFO - Starting the server
+2020-07-25 22:52:32,018 - INFO - Server started
+2020-07-25 22:53:34,103 - INFO - Extracting all pending expenses from expenses db
+2020-07-25 22:53:34,104 - INFO - Creating a list of expense objects
+2020-07-25 22:53:34,105 - INFO - Opening the login page
+2020-07-25 22:53:34,106 - INFO - Logging in...
+2020-07-25 22:53:39,148 - INFO - Logged in
+2020-07-25 22:53:39,149 - INFO - Checking if an expense report exists
+2020-07-25 22:53:43,294 - INFO - Expense Report found
+2020-07-25 22:53:43,295 - INFO - Opening the Add Expense Form
+2020-07-25 22:53:45,426 - INFO - Adding expense 0
+2020-07-25 22:53:45,427 - INFO - Adding type: 17819687102
+2020-07-25 22:53:47,500 - INFO - Adding date: 23-7-2020
+2020-07-25 22:53:47,586 - INFO - Adding amount: 19,39
+2020-07-25 22:53:47,659 - INFO - Adding reason: omniplan license
+2020-07-25 22:53:47,743 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_240.pdf
+2020-07-25 22:53:54,997 - INFO - Adding WBS: APO2E300
+2020-07-25 22:53:55,095 - INFO - Saving expense
+2020-07-25 22:54:03,465 - INFO - Expense correctly logged: 713f96e3-c39a-4c97-8cb6-fcc42db0bb1b
+2020-07-25 22:54:03,466 - INFO - Closing the Add Expense form
+2020-07-25 22:54:05,521 - INFO - Saving the draft of expense report
+2020-07-25 22:54:11,064 - INFO - Logging out

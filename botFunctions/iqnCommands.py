@@ -211,8 +211,8 @@ def addExpense(driver, expObjList):
             db.update_item_status(exp.uid, 'error')
             logger.error('Expense %s could not be saved', exp.uid)
             # Take a screenshot here
-            #filename = 'log/screenshots/' + exp.uid + '.png'
-            #driver.save_screenshot(filename)
+            filename = '/var/www/expenseBot/log/screenshots/error.png'
+            driver.save_screenshot(filename)
         j += 1
 
     return driver
