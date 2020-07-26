@@ -140,7 +140,7 @@ dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 #Initiate the job_queue performed by the server
 j = JobQueue()
 j.set_dispatcher(dispatcher)
-jobTime = datetime.timedelta(minutes=1)
+jobTime = datetime.timedelta(minutes=30)
 job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
 j.start()
 

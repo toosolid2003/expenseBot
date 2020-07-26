@@ -226,7 +226,7 @@ def deductType(reason):
            '17819688948':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
            '17819688802':['taxi','uber','lyft'],
    '17819684336':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-   '107851819':['avis','entreprise','rental car','alamo'],
+   '107851819':['avis','entreprise','rental car','alamo', 'car rental','car'],
    '17819687015':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
    '17858921758':['toll','parking','fuel','highway','public','gas','petrol'],
    '17819687871':['perdiem', 'per diem','per diems','perdiems']

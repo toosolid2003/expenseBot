@@ -869,3 +869,102 @@
 2020-07-25 22:54:03,466 - INFO - Closing the Add Expense form
 2020-07-25 22:54:05,521 - INFO - Saving the draft of expense report
 2020-07-25 22:54:11,064 - INFO - Logging out
+2020-07-25 23:23:20,738 - INFO - Initialising the classes
+2020-07-25 23:23:20,738 - INFO - Starting the bot
+2020-07-25 23:23:20,874 - INFO - Starting the server
+2020-07-25 23:23:20,875 - INFO - Server started
+2020-07-26 13:58:03,146 - DEBUG - Using function parseText
+2020-07-26 13:58:03,147 - DEBUG - Using function conversionRate
+2020-07-26 13:58:03,147 - DEBUG - Using function conversionRate
+2020-07-26 13:58:03,147 - DEBUG - Using function convertUpdateElement
+2020-07-26 13:58:03,147 - DEBUG - Using function conversionRate
+2020-07-26 13:58:03,147 - DEBUG - Using function convertUpdateElement
+2020-07-26 13:58:03,147 - DEBUG - Using function deductType
+2020-07-26 13:58:03,147 - DEBUG - Using function checkCompletion
+2020-07-26 13:58:03,285 - DEBUG - Using function saveDocument
+2020-07-26 13:58:03,747 - DEBUG - Using function checkCompletion
+2020-07-26 13:58:03,747 - INFO - Expense data is complete. Ready for database injection.
+2020-07-26 13:58:03,747 - DEBUG - Using function injectData
+2020-07-26 13:58:03,755 - INFO - Expense 0d426b30-f7b5-41a4-acb1-db858b0bb2f5 added to the databse for user thedropper
+2020-07-26 14:23:22,974 - INFO - Extracting all pending expenses from expenses db
+2020-07-26 14:23:22,974 - INFO - Creating a list of expense objects
+2020-07-26 14:23:22,975 - INFO - Opening the login page
+2020-07-26 14:23:22,975 - INFO - Logging in...
+2020-07-26 14:23:28,373 - INFO - Logged in
+2020-07-26 14:23:28,373 - INFO - Checking if an expense report exists
+2020-07-26 14:23:32,773 - INFO - Expense Report found
+2020-07-26 14:23:32,773 - INFO - Opening the Add Expense Form
+2020-07-26 14:23:35,451 - INFO - Adding expense 0
+2020-07-26 14:23:35,452 - INFO - Adding type: 17819687102
+2020-07-26 14:23:37,521 - INFO - Adding date: 26-7-2020
+2020-07-26 14:23:37,608 - INFO - Adding amount: 86,57
+2020-07-26 14:23:37,680 - INFO - Adding reason: car rental
+2020-07-26 14:23:37,761 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_241.pdf
+2020-07-26 14:23:45,003 - INFO - Adding WBS: APO2E300
+2020-07-26 14:23:45,101 - INFO - Saving expense
+2020-07-26 14:23:53,239 - INFO - Expense correctly logged: 0d426b30-f7b5-41a4-acb1-db858b0bb2f5
+2020-07-26 14:23:53,240 - INFO - Closing the Add Expense form
+2020-07-26 14:23:55,291 - INFO - Saving the draft of expense report
+2020-07-26 14:24:01,386 - INFO - Logging out
+2020-07-26 15:40:52,580 - DEBUG - Using function saveDocument
+2020-07-26 15:40:53,300 - DEBUG - Using function checkCompletion
+2020-07-26 15:41:03,049 - DEBUG - Using function parseText
+2020-07-26 15:41:03,049 - DEBUG - Using function conversionRate
+2020-07-26 15:41:03,050 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:41:03,050 - DEBUG - Using function conversionRate
+2020-07-26 15:41:03,050 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:41:03,050 - DEBUG - Using function deductType
+2020-07-26 15:41:03,050 - DEBUG - Using function checkCompletion
+2020-07-26 15:41:03,050 - INFO - Expense data is complete. Ready for database injection.
+2020-07-26 15:41:03,050 - DEBUG - Using function injectData
+2020-07-26 15:41:03,054 - INFO - Expense 9e4c325b-b453-4949-b0f3-f7b9ffc7d8fe added to the databse for user thedropper
+2020-07-26 15:43:54,500 - DEBUG - Using function parseText
+2020-07-26 15:43:54,501 - DEBUG - Using function conversionRate
+2020-07-26 15:43:54,501 - DEBUG - Using function conversionRate
+2020-07-26 15:43:54,501 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:43:54,501 - DEBUG - Using function conversionRate
+2020-07-26 15:43:54,501 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:43:54,501 - DEBUG - Using function deductType
+2020-07-26 15:43:54,501 - DEBUG - Using function checkCompletion
+2020-07-26 15:43:54,649 - DEBUG - Using function saveDocument
+2020-07-26 15:43:54,991 - DEBUG - Using function checkCompletion
+2020-07-26 15:43:54,991 - INFO - Expense data is complete. Ready for database injection.
+2020-07-26 15:43:54,991 - DEBUG - Using function injectData
+2020-07-26 15:43:54,995 - INFO - Expense 8aa9437a-99a5-45c8-a3b8-b7f6872c6a99 added to the databse for user thedropper
+2020-07-26 15:46:33,620 - INFO - Initialising the classes
+2020-07-26 15:46:33,622 - INFO - Starting the bot
+2020-07-26 15:46:33,791 - INFO - Starting the server
+2020-07-26 15:46:33,793 - INFO - Server started
+2020-07-26 15:47:13,126 - DEBUG - Using function parseText
+2020-07-26 15:47:13,127 - DEBUG - Using function conversionRate
+2020-07-26 15:47:13,127 - DEBUG - Using function conversionRate
+2020-07-26 15:47:13,127 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:47:13,127 - DEBUG - Using function conversionRate
+2020-07-26 15:47:13,127 - DEBUG - Using function convertUpdateElement
+2020-07-26 15:47:13,127 - DEBUG - Using function deductType
+2020-07-26 15:47:13,127 - DEBUG - Using function checkCompletion
+2020-07-26 15:47:13,309 - DEBUG - Using function saveDocument
+2020-07-26 15:47:13,685 - DEBUG - Using function checkCompletion
+2020-07-26 15:47:13,686 - INFO - Expense data is complete. Ready for database injection.
+2020-07-26 15:47:13,686 - DEBUG - Using function injectData
+2020-07-26 15:47:13,688 - INFO - Expense afa35c88-2051-452d-86ea-f7286de94fd9 added to the databse for user thedropper
+2020-07-26 16:16:35,867 - INFO - Extracting all pending expenses from expenses db
+2020-07-26 16:16:35,867 - INFO - Creating a list of expense objects
+2020-07-26 16:16:35,867 - INFO - Opening the login page
+2020-07-26 16:16:35,867 - INFO - Logging in...
+2020-07-26 16:16:42,469 - INFO - Logged in
+2020-07-26 16:16:42,469 - INFO - Checking if an expense report exists
+2020-07-26 16:16:46,736 - INFO - Expense Report found
+2020-07-26 16:16:46,737 - INFO - Opening the Add Expense Form
+2020-07-26 16:16:48,877 - INFO - Adding expense 0
+2020-07-26 16:16:48,877 - INFO - Adding type: 107851819
+2020-07-26 16:16:50,972 - INFO - Adding date: 26-7-2020
+2020-07-26 16:16:51,057 - INFO - Adding amount: 86,26
+2020-07-26 16:16:51,127 - INFO - Adding reason: rental car
+2020-07-26 16:16:51,202 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_244.pdf
+2020-07-26 16:16:58,341 - INFO - Adding WBS: APO2E300
+2020-07-26 16:16:58,442 - INFO - Saving expense
+2020-07-26 16:17:06,476 - INFO - Expense correctly logged: afa35c88-2051-452d-86ea-f7286de94fd9
+2020-07-26 16:17:06,477 - INFO - Closing the Add Expense form
+2020-07-26 16:17:08,529 - INFO - Saving the draft of expense report
+2020-07-26 16:17:14,149 - INFO - Logging out

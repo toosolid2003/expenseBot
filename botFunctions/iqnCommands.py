@@ -12,6 +12,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 from botClasses.classes import *
 from logger.logger import logger
+import uuid
 
 db = DBHelper()
 
@@ -115,7 +116,7 @@ def createExpenseReport(driver):
 
     #Enter a title for the Expense Report
     expReportTile = driver.find_element_by_name('expenseReportEditPanel:border:border:content:border_body:fieldGroup:repeater:1:fieldWLOT:textField')
-    expReportTile.send_keys('Expenses starting from {}'.format(time.strftime('%x')))
+    expReportTile.send_keys('Expenses starting from {}'.format(time.strftime('%d-%m-%Y')))
     logger.info('Expense Report title added')
 
     #Add expense button
@@ -211,7 +212,8 @@ def addExpense(driver, expObjList):
             db.update_item_status(exp.uid, 'error')
             logger.error('Expense %s could not be saved', exp.uid)
             # Take a screenshot here
-            filename = '/var/www/expenseBot/log/screenshots/error.png'
+            tempUID = uuid.UUID(exp.uid) #generate an hex unique id for the filename
+            filename = '/var/www/expenseBot/log/screenshots/'+tempUID.hex+'png'
             driver.save_screenshot(filename)
         j += 1
 
