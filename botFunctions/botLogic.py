@@ -57,7 +57,7 @@ def parseText(rawText, activeUser):
     baseCcy = db.get_ccy(activeUser)
 
     #Split the text according to a pre-determined list of separators
-    sepList = [',','-',':',';']
+    sepList = [',',':',';']
     parsedText = []
     conversionFactor = 1
     #Step 1 - Split the raw text into a list of elements

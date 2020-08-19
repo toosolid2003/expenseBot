@@ -1342,3 +1342,7 @@
 2020-08-18 14:15:23,124 - INFO - Closing the Add Expense form
 2020-08-18 14:15:25,187 - INFO - Saving the draft of expense report
 2020-08-18 14:15:30,903 - INFO - Logging out
+2020-08-19 15:10:15,762 - INFO - Initialising the classes
+2020-08-19 15:10:15,764 - INFO - Starting the bot
+2020-08-19 15:10:15,911 - INFO - Starting the server
+2020-08-19 15:10:15,914 - INFO - Server started
