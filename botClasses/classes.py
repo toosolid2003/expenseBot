@@ -57,6 +57,15 @@ class DBHelper:
         c.execute(stmt, data)
         self.conn.commit()
 
+    def update_item_wbs(self, wbs, uid):
+        """Reallocate an expense to another wbs"""
+
+        data = (wbs, uid)
+        stmt = '''UPDATE items SET wbs = ? WHERE uid = ?'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        self.conn.commit()
+
     def extract_expenses(self, activeUser, status):
         '''Extracts all expenses with a specific status. Returns a list of data tuple rows.
         Input: an active user (telegram username) and a status.
@@ -134,38 +143,6 @@ class DBHelper:
 
         return c.fetchall()
 
-    def get_wbs(self, activeUser):
-        """
-        Get the active wbs for a specific telegram user
-        Input: telegram handle
-        Output: wbs as a string object
-        """
-
-        try:
-            data = (activeUser,)
-            stmt = '''SELECT wbs FROM users WHERE telegram_username = ?'''
-            c = self.conn.cursor()
-            c.execute(stmt, data)
-            result = c.fetchone()       #result is a tuple
-
-        except Exception as e:
-            logging.error('Could not retrive wbs from database: %s',e)
-
-        return result[0]
-
-    def update_wbs(self, activeUser, wbs):
-        """
-        Add or changes the current wbs used by the activeUser
-        Input: active user telegram handle, wbs number
-        Output: None
-        """
-
-        data = (wbs, activeUser)
-        stmt = '''UPDATE users SET wbs = ? WHERE telegram_username = ?'''
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
-
     def get_ccy(self, activeUser):
         """
         Gets the preferred currency of the activeUser.
@@ -197,7 +174,82 @@ class DBHelper:
         self.conn.execute(stmt, data)
         self.conn.commit()
 
-################### Analytics helpers #####################################
+
+################# WBS table helpers    ##############################################
+### wbs status can take 3 values: active, inactive, primary. Primary gets called by default
+
+    def get_wbs(self, activeUser):
+        """
+        Get the primary wbs for a specific telegram user
+        Input: telegram handle
+        Output: wbs as a string object
+        """
+
+        try:
+            data = (activeUser,)
+            stmt = '''SELECT wbs FROM wbs WHERE telegram_username = ? AND status="primary"'''
+            c = self.conn.cursor()
+            c.execute(stmt, data)
+            result = c.fetchone()       #result is a tuple
+
+        except Exception as e:
+            logging.error('Could not retrive wbs from database: %s',e)
+
+        return result[0]
+
+    def update_wbs(self, activeUser, wbs, status):
+        """
+        Updates the status of a wbs used by the activeUser
+        Input: active user telegram handle, wbs number, new status
+        Output: None
+        """
+
+        #DO NOT forget to also change the status of the former primary wbs to "active"
+        data = (wbs, status, activeUser)
+        stmt = '''UPDATE wbs SET wbs = ?, status=? WHERE telegram_username = ?'''
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
+    def add_wbs(self, activeUser, wbs, status):
+        """
+        Adds a new default wbs to the wbs table for the active user
+        """
+
+        today = time.strftime('%d-%m-%Y')
+        data = (wbs, activeUser, today, status)
+        stmt = '''INSERT INTO wbs (wbs, telegram_username, date_creation, status)
+        VALUES (?, ?, ?, ?)'''
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
+    def get_active_wbs(self, activeUser):
+        """
+        Gets all active wbs for the telegram user
+        """
+        data = (activeUser,)
+        stmt = '''SELECT wbs from wbs WHERE telegram_username = ? AND status="active"'''
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        query_result = c.fetchall()
+
+        #Creating a list to return only the wbs strings, without the tuples
+        result = []
+        for wbs in query_result:
+            result.append(wbs[0])
+        
+        return result           # Returns a list of tuples. One tuple per wbs?
+    
+    def update_last_used(self, wbs, activeUser):
+        """
+        Update the date of the last use of the given wbs for a user
+        """
+        today = time.strftime('%d-%m-%Y')
+        data = (today, wbs, activeUser)
+        stmt = '''UPDATE wbs SET date_last_used = ? WHERE wbs = ? AND telegram_username = ?'''
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
+    ################### Analytics helpers #####################################
 
     def add_datapoint(self, user, action, value):
         """

@@ -968,3 +968,377 @@
 2020-07-26 16:17:06,477 - INFO - Closing the Add Expense form
 2020-07-26 16:17:08,529 - INFO - Saving the draft of expense report
 2020-07-26 16:17:14,149 - INFO - Logging out
+2020-07-26 23:05:53,948 - DEBUG - Using function toMarkdown
+2020-07-26 23:05:53,952 - DEBUG - Using function totalPending
+2020-08-12 11:32:58,696 - DEBUG - Using function toMarkdown
+2020-08-12 11:32:58,696 - DEBUG - Using function totalPending
+2020-08-12 20:01:52,099 - INFO - Initialising the classes
+2020-08-12 20:01:52,100 - INFO - Starting the bot
+2020-08-12 20:01:52,302 - INFO - Starting the server
+2020-08-12 20:01:52,304 - INFO - Server started
+2020-08-12 20:02:23,593 - DEBUG - Using function saveDocument
+2020-08-12 20:02:24,064 - DEBUG - Using function checkCompletion
+2020-08-12 20:02:24,064 - DEBUG - Using function parseText
+2020-08-12 20:02:24,065 - DEBUG - Using function conversionRate
+2020-08-12 20:02:24,065 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:02:24,065 - DEBUG - Using function conversionRate
+2020-08-12 20:02:24,065 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:02:24,065 - DEBUG - Using function deductType
+2020-08-12 20:02:24,066 - DEBUG - Using function checkCompletion
+2020-08-12 20:02:24,066 - INFO - Expense data is complete. Ready for database injection.
+2020-08-12 20:02:24,066 - DEBUG - Using function injectData
+2020-08-12 20:02:24,085 - INFO - Expense 8cef0b11-a7ce-42b0-9e1e-7bc6c96bfc1a added to the databse for user thedropper
+2020-08-12 20:03:01,545 - INFO - Initialising the classes
+2020-08-12 20:03:01,546 - INFO - Starting the bot
+2020-08-12 20:03:02,014 - INFO - Starting the server
+2020-08-12 20:03:02,015 - INFO - Server started
+2020-08-12 20:03:19,791 - DEBUG - Using function saveDocument
+2020-08-12 20:03:20,618 - DEBUG - Using function checkCompletion
+2020-08-12 20:03:20,618 - DEBUG - Using function parseText
+2020-08-12 20:03:20,619 - DEBUG - Using function conversionRate
+2020-08-12 20:03:20,620 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:03:20,620 - DEBUG - Using function conversionRate
+2020-08-12 20:03:20,620 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:03:20,620 - DEBUG - Using function deductType
+2020-08-12 20:03:20,620 - DEBUG - Using function checkCompletion
+2020-08-12 20:03:20,621 - INFO - Expense data is complete. Ready for database injection.
+2020-08-12 20:03:20,621 - DEBUG - Using function injectData
+2020-08-12 20:03:20,625 - INFO - Expense 74e93d8f-2752-4d4f-96c9-43c5158ac472 added to the databse for user thedropper
+2020-08-12 20:03:44,654 - INFO - Initialising the classes
+2020-08-12 20:03:44,655 - INFO - Starting the bot
+2020-08-12 20:03:44,678 - INFO - Starting the server
+2020-08-12 20:03:44,679 - INFO - Server started
+2020-08-12 20:04:00,858 - DEBUG - Using function saveDocument
+2020-08-12 20:04:01,949 - DEBUG - Using function checkCompletion
+2020-08-12 20:04:01,949 - DEBUG - Using function parseText
+2020-08-12 20:04:01,950 - DEBUG - Using function conversionRate
+2020-08-12 20:04:01,950 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:04:01,950 - DEBUG - Using function conversionRate
+2020-08-12 20:04:01,950 - DEBUG - Using function convertUpdateElement
+2020-08-12 20:04:01,951 - DEBUG - Using function deductType
+2020-08-12 20:04:01,951 - DEBUG - Using function checkCompletion
+2020-08-12 20:04:01,951 - INFO - Expense data is complete. Ready for database injection.
+2020-08-12 20:04:01,951 - DEBUG - Using function injectData
+2020-08-12 20:04:01,958 - INFO - Expense 8306e3b0-2f6e-474a-a29f-23f2e7d055b0 added to the databse for user thedropper
+2020-08-12 20:04:32,778 - DEBUG - Using function toMarkdown
+2020-08-12 20:04:32,780 - DEBUG - Using function totalPending
+2020-08-12 20:04:46,487 - INFO - Initialising the classes
+2020-08-12 20:04:46,488 - INFO - Starting the bot
+2020-08-12 20:04:46,779 - INFO - Starting the server
+2020-08-12 20:04:46,780 - INFO - Server started
+2020-08-12 20:05:26,888 - DEBUG - Using function toMarkdown
+2020-08-12 20:05:26,889 - DEBUG - Using function totalPending
+2020-08-12 20:34:48,746 - INFO - Extracting all pending expenses from expenses db
+2020-08-12 20:34:48,747 - INFO - Creating a list of expense objects
+2020-08-12 20:34:48,747 - INFO - Opening the login page
+2020-08-12 20:34:48,747 - INFO - Logging in...
+2020-08-12 20:34:53,990 - INFO - Logged in
+2020-08-12 20:34:53,990 - INFO - Checking if an expense report exists
+2020-08-12 20:34:58,787 - INFO - Expense Report found
+2020-08-12 20:34:58,787 - INFO - Opening the Add Expense Form
+2020-08-12 20:35:00,904 - INFO - Adding expense 0
+2020-08-12 20:35:00,905 - INFO - Adding type: 107851819
+2020-08-12 20:35:02,981 - INFO - Adding date: 12-8-2020
+2020-08-12 20:35:03,074 - INFO - Adding amount: 1,0
+2020-08-12 20:35:03,145 - INFO - Adding reason: car rental
+2020-08-12 20:35:03,238 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_245.jpg
+2020-08-12 20:35:10,297 - INFO - Adding WBS: APO2E300
+2020-08-12 20:35:10,433 - INFO - Saving expense
+2020-08-12 20:35:18,333 - ERROR - Expense 8cef0b11-a7ce-42b0-9e1e-7bc6c96bfc1a could not be saved
+2020-08-12 20:35:18,535 - INFO - Adding expense 1
+2020-08-12 20:35:18,536 - INFO - Adding type: 17819670115
+2020-08-12 20:35:20,606 - INFO - Adding date: 12-8-2020
+2020-08-12 20:35:20,693 - INFO - Adding amount: 2,0
+2020-08-12 20:35:20,755 - INFO - Adding reason: hotel
+2020-08-12 20:35:20,821 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_246.jpg
+2020-08-12 20:35:26,898 - INFO - Adding WBS: APO2E300
+2020-08-12 20:35:26,986 - INFO - Saving expense
+2020-08-12 20:35:34,084 - ERROR - Expense 74e93d8f-2752-4d4f-96c9-43c5158ac472 could not be saved
+2020-08-12 20:35:34,294 - INFO - Adding expense 2
+2020-08-12 20:35:34,294 - INFO - Adding type: 17819687015
+2020-08-12 20:35:36,357 - INFO - Adding date: 12-8-2020
+2020-08-12 20:35:36,453 - INFO - Adding amount: 3,0
+2020-08-12 20:35:36,531 - INFO - Adding reason: restau
+2020-08-12 20:35:36,597 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_247.jpg
+2020-08-12 20:35:42,671 - INFO - Adding WBS: APO2E300
+2020-08-12 20:35:42,756 - INFO - Saving expense
+2020-08-12 20:35:50,665 - ERROR - Expense 8306e3b0-2f6e-474a-a29f-23f2e7d055b0 could not be saved
+2020-08-12 20:35:50,877 - INFO - Closing the Add Expense form
+2020-08-12 20:35:52,927 - INFO - Saving the draft of expense report
+2020-08-12 20:36:00,240 - INFO - Logging out
+2020-08-13 14:28:45,773 - INFO - Testing the validity of the wbs
+2020-08-13 14:28:47,997 - INFO - Opening the login page
+2020-08-13 14:28:47,998 - INFO - Logging in...
+2020-08-13 14:28:52,431 - INFO - Logged in
+2020-08-13 14:28:52,431 - INFO - Creating a new expense report
+2020-08-13 14:28:58,986 - INFO - Expense Report title added
+2020-08-13 14:28:58,987 - INFO - Opening the Add Expense form
+2020-08-13 14:29:04,034 - INFO - Adding the test expense to check wbs validity
+2020-08-13 14:29:04,035 - INFO - Adding expense 0
+2020-08-13 14:29:04,035 - INFO - Adding type: 17819687102
+2020-08-13 14:29:06,106 - INFO - Adding date: 13-8-2020
+2020-08-13 14:29:06,185 - INFO - Adding amount: 1.0
+2020-08-13 14:29:06,245 - INFO - Adding reason: test wbs
+2020-08-13 14:29:06,317 - INFO - Uploading receipt: /var/www/expenseBot/receipts/common/fileTest.jpg
+2020-08-13 14:29:12,685 - INFO - Adding WBS: GA309011
+2020-08-13 14:29:12,774 - INFO - Saving expense
+2020-08-13 14:29:20,079 - INFO - Expense correctly logged: a3ccffba-1cb0-4f2a-a98c-6b1c06b30fc6
+2020-08-13 14:29:20,207 - INFO - WBS valid
+2020-08-13 14:29:20,207 - INFO - Logging out, testing complete
+2020-08-14 11:31:49,395 - DEBUG - Using function parseText
+2020-08-14 11:31:49,396 - DEBUG - Using function conversionRate
+2020-08-14 11:31:49,396 - DEBUG - Using function convertUpdateElement
+2020-08-14 11:31:49,396 - DEBUG - Using function conversionRate
+2020-08-14 11:31:49,396 - DEBUG - Using function convertUpdateElement
+2020-08-14 11:31:49,396 - DEBUG - Using function deductType
+2020-08-14 11:31:49,396 - DEBUG - Using function checkCompletion
+2020-08-14 11:31:49,525 - DEBUG - Using function saveDocument
+2020-08-14 11:31:50,142 - DEBUG - Using function checkCompletion
+2020-08-14 11:31:50,143 - INFO - Expense data is complete. Ready for database injection.
+2020-08-14 11:31:50,143 - DEBUG - Using function injectData
+2020-08-14 11:31:50,149 - INFO - Expense 263b580c-ff3e-4a2a-901c-86764a2d46cd added to the databse for user thedropper
+2020-08-14 11:34:48,730 - INFO - Extracting all pending expenses from expenses db
+2020-08-14 11:34:48,731 - INFO - Creating a list of expense objects
+2020-08-14 11:34:48,731 - INFO - Opening the login page
+2020-08-14 11:34:48,731 - INFO - Logging in...
+2020-08-14 11:34:53,761 - INFO - Logged in
+2020-08-14 11:34:53,761 - INFO - Checking if an expense report exists
+2020-08-14 11:34:58,452 - INFO - Expense Report found
+2020-08-14 11:34:58,452 - INFO - Opening the Add Expense Form
+2020-08-14 11:35:01,076 - INFO - Adding expense 0
+2020-08-14 11:35:01,076 - INFO - Adding type: 17819684336
+2020-08-14 11:35:03,141 - INFO - Adding date: 14-8-2020
+2020-08-14 11:35:03,225 - INFO - Adding amount: 178,41
+2020-08-14 11:35:03,309 - INFO - Adding reason: flight Basel and back
+2020-08-14 11:35:03,405 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_248.pdf
+2020-08-14 11:35:10,849 - INFO - Adding WBS: GA309011
+2020-08-14 11:35:10,946 - INFO - Saving expense
+2020-08-14 11:35:18,935 - INFO - Expense correctly logged: 263b580c-ff3e-4a2a-901c-86764a2d46cd
+2020-08-14 11:35:18,935 - INFO - Closing the Add Expense form
+2020-08-14 11:35:20,994 - INFO - Saving the draft of expense report
+2020-08-14 11:35:26,909 - INFO - Logging out
+2020-08-15 16:41:14,210 - DEBUG - Using function toMarkdown
+2020-08-15 16:41:14,210 - DEBUG - Using function totalPending
+2020-08-16 20:28:53,547 - INFO - Initialising the classes
+2020-08-16 20:28:53,548 - INFO - Starting the bot
+2020-08-16 20:28:54,344 - INFO - Starting the server
+2020-08-16 20:28:54,346 - INFO - Server started
+2020-08-16 20:47:05,943 - INFO - Initialising the classes
+2020-08-16 20:47:05,944 - INFO - Starting the bot
+2020-08-16 20:47:06,297 - INFO - Starting the server
+2020-08-16 20:47:06,297 - INFO - Server started
+2020-08-17 16:37:18,059 - INFO - Initialising the classes
+2020-08-17 16:37:18,061 - INFO - Starting the bot
+2020-08-17 16:37:18,266 - INFO - Starting the server
+2020-08-17 16:37:18,268 - INFO - Server started
+2020-08-17 16:37:46,201 - DEBUG - Using function saveDocument
+2020-08-17 16:37:46,580 - DEBUG - Using function checkCompletion
+2020-08-17 16:37:46,582 - DEBUG - Using function parseText
+2020-08-17 16:37:46,582 - DEBUG - Using function conversionRate
+2020-08-17 16:37:46,584 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:37:46,584 - DEBUG - Using function conversionRate
+2020-08-17 16:37:46,584 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:37:46,584 - DEBUG - Using function deductType
+2020-08-17 16:37:46,584 - DEBUG - Using function checkCompletion
+2020-08-17 16:37:46,584 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 16:37:46,584 - DEBUG - Using function injectData
+2020-08-17 16:37:46,594 - INFO - Expense f71589f9-9a25-4d91-826c-f9d38b60f052 added to the databse for user thedropper
+2020-08-17 16:41:58,171 - INFO - Initialising the classes
+2020-08-17 16:41:58,172 - INFO - Starting the bot
+2020-08-17 16:41:58,349 - INFO - Starting the server
+2020-08-17 16:41:58,351 - INFO - Server started
+2020-08-17 16:43:58,503 - INFO - Initialising the classes
+2020-08-17 16:43:58,504 - INFO - Starting the bot
+2020-08-17 16:43:58,659 - INFO - Starting the server
+2020-08-17 16:43:58,661 - INFO - Server started
+2020-08-17 16:44:11,676 - DEBUG - Using function saveDocument
+2020-08-17 16:44:12,038 - DEBUG - Using function checkCompletion
+2020-08-17 16:44:12,041 - DEBUG - Using function parseText
+2020-08-17 16:44:12,042 - DEBUG - Using function conversionRate
+2020-08-17 16:44:12,042 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:44:12,043 - DEBUG - Using function conversionRate
+2020-08-17 16:44:12,043 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:44:12,043 - DEBUG - Using function deductType
+2020-08-17 16:44:12,043 - DEBUG - Using function checkCompletion
+2020-08-17 16:44:12,043 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 16:44:12,043 - DEBUG - Using function injectData
+2020-08-17 16:44:12,050 - INFO - Expense ce0c663a-2470-4c06-801c-fd82c8be457b added to the databse for user thedropper
+2020-08-17 16:46:04,550 - INFO - Initialising the classes
+2020-08-17 16:46:04,551 - INFO - Starting the bot
+2020-08-17 16:46:04,757 - INFO - Starting the server
+2020-08-17 16:46:04,758 - INFO - Server started
+2020-08-17 16:46:15,025 - DEBUG - Using function saveDocument
+2020-08-17 16:46:15,058 - DEBUG - Using function checkCompletion
+2020-08-17 16:46:15,060 - DEBUG - Using function parseText
+2020-08-17 16:46:15,061 - DEBUG - Using function conversionRate
+2020-08-17 16:46:15,061 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:46:15,061 - DEBUG - Using function conversionRate
+2020-08-17 16:46:15,061 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:46:15,062 - DEBUG - Using function deductType
+2020-08-17 16:46:15,062 - DEBUG - Using function checkCompletion
+2020-08-17 16:46:15,062 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 16:46:15,062 - DEBUG - Using function injectData
+2020-08-17 16:46:15,070 - INFO - Expense e69287e2-17bf-4afb-aab3-2ab90eeaa946 added to the databse for user thedropper
+2020-08-17 16:52:06,864 - INFO - Initialising the classes
+2020-08-17 16:52:06,865 - INFO - Starting the bot
+2020-08-17 16:52:07,098 - INFO - Starting the server
+2020-08-17 16:52:07,099 - INFO - Server started
+2020-08-17 16:52:14,855 - DEBUG - Using function saveDocument
+2020-08-17 16:52:14,886 - DEBUG - Using function checkCompletion
+2020-08-17 16:52:14,886 - DEBUG - Using function parseText
+2020-08-17 16:52:14,887 - DEBUG - Using function conversionRate
+2020-08-17 16:52:14,887 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:52:14,887 - DEBUG - Using function conversionRate
+2020-08-17 16:52:14,887 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:52:14,887 - DEBUG - Using function deductType
+2020-08-17 16:52:14,887 - DEBUG - Using function checkCompletion
+2020-08-17 16:52:14,887 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 16:52:14,888 - DEBUG - Using function injectData
+2020-08-17 16:52:14,891 - INFO - Expense 227c408a-0740-4ad5-932f-264ba4d2660c added to the databse for user thedropper
+2020-08-17 16:53:15,954 - INFO - Initialising the classes
+2020-08-17 16:53:15,955 - INFO - Starting the bot
+2020-08-17 16:53:16,101 - INFO - Starting the server
+2020-08-17 16:53:16,103 - INFO - Server started
+2020-08-17 16:53:25,923 - DEBUG - Using function saveDocument
+2020-08-17 16:53:25,951 - DEBUG - Using function checkCompletion
+2020-08-17 16:53:25,951 - DEBUG - Using function parseText
+2020-08-17 16:53:25,952 - DEBUG - Using function conversionRate
+2020-08-17 16:53:25,952 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:53:25,952 - DEBUG - Using function conversionRate
+2020-08-17 16:53:25,952 - DEBUG - Using function convertUpdateElement
+2020-08-17 16:53:25,952 - DEBUG - Using function deductType
+2020-08-17 16:53:25,953 - DEBUG - Using function checkCompletion
+2020-08-17 16:53:25,953 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 16:53:25,953 - DEBUG - Using function injectData
+2020-08-17 16:53:25,957 - INFO - Expense 1e4095d4-a272-496b-bc93-6b71f7821463 added to the databse for user thedropper
+2020-08-17 17:06:12,135 - INFO - Initialising the classes
+2020-08-17 17:06:12,136 - INFO - Starting the bot
+2020-08-17 17:06:12,342 - INFO - Starting the server
+2020-08-17 17:06:12,345 - INFO - Server started
+2020-08-17 17:06:27,000 - DEBUG - Using function saveDocument
+2020-08-17 17:06:27,296 - DEBUG - Using function checkCompletion
+2020-08-17 17:06:27,296 - DEBUG - Using function parseText
+2020-08-17 17:06:27,297 - DEBUG - Using function conversionRate
+2020-08-17 17:06:27,297 - DEBUG - Using function convertUpdateElement
+2020-08-17 17:06:27,297 - DEBUG - Using function conversionRate
+2020-08-17 17:06:27,298 - DEBUG - Using function convertUpdateElement
+2020-08-17 17:06:27,298 - DEBUG - Using function deductType
+2020-08-17 17:06:27,298 - DEBUG - Using function checkCompletion
+2020-08-17 17:06:27,298 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 17:06:27,299 - DEBUG - Using function injectData
+2020-08-17 17:06:27,300 - INFO - Expense 88f494b1-e037-4ba5-bd93-33f9efb79983 added to the databse for user thedropper
+2020-08-17 17:10:20,065 - INFO - Initialising the classes
+2020-08-17 17:10:20,066 - INFO - Starting the bot
+2020-08-17 17:10:20,233 - INFO - Starting the server
+2020-08-17 17:10:20,235 - INFO - Server started
+2020-08-17 17:10:30,876 - DEBUG - Using function saveDocument
+2020-08-17 17:10:31,057 - DEBUG - Using function checkCompletion
+2020-08-17 17:10:31,060 - DEBUG - Using function parseText
+2020-08-17 17:10:31,061 - DEBUG - Using function conversionRate
+2020-08-17 17:10:31,061 - DEBUG - Using function convertUpdateElement
+2020-08-17 17:10:31,061 - DEBUG - Using function conversionRate
+2020-08-17 17:10:31,061 - DEBUG - Using function convertUpdateElement
+2020-08-17 17:10:31,061 - DEBUG - Using function deductType
+2020-08-17 17:10:31,062 - DEBUG - Using function checkCompletion
+2020-08-17 17:10:31,062 - INFO - Expense data is complete. Ready for database injection.
+2020-08-17 17:10:31,062 - DEBUG - Using function injectData
+2020-08-17 17:10:31,064 - INFO - Expense cfe6739e-ef29-468a-8d19-8942c6d5a75b added to the databse for user thedropper
+2020-08-17 17:13:49,124 - INFO - Initialising the classes
+2020-08-17 17:13:49,125 - INFO - Starting the bot
+2020-08-17 17:13:49,323 - INFO - Starting the server
+2020-08-17 17:13:49,326 - INFO - Server started
+2020-08-17 17:32:53,965 - DEBUG - Using function toMarkdown
+2020-08-17 17:32:53,967 - DEBUG - Using function totalPending
+2020-08-17 22:14:29,409 - INFO - Initialising the classes
+2020-08-17 22:14:29,409 - INFO - Starting the bot
+2020-08-17 22:14:29,559 - INFO - Starting the server
+2020-08-17 22:14:29,560 - INFO - Server started
+2020-08-17 22:14:38,595 - DEBUG - Using function toMarkdown
+2020-08-17 22:14:38,598 - DEBUG - Using function totalPending
+2020-08-17 22:14:52,755 - DEBUG - Using function toMarkdown
+2020-08-17 22:14:52,756 - DEBUG - Using function totalPending
+2020-08-18 14:02:56,512 - DEBUG - Using function saveDocument
+2020-08-18 14:02:57,039 - DEBUG - Using function checkCompletion
+2020-08-18 14:02:57,039 - DEBUG - Using function parseText
+2020-08-18 14:02:57,039 - DEBUG - Using function conversionRate
+2020-08-18 14:02:57,039 - DEBUG - Using function conversionRate
+2020-08-18 14:02:57,039 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:02:57,039 - DEBUG - Using function deductType
+2020-08-18 14:02:57,039 - DEBUG - Using function conversionRate
+2020-08-18 14:02:57,039 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:02:57,039 - DEBUG - Using function checkCompletion
+2020-08-18 14:02:57,040 - INFO - Expense data is complete. Ready for database injection.
+2020-08-18 14:02:57,040 - DEBUG - Using function injectData
+2020-08-18 14:02:57,047 - INFO - Expense 6f42b440-0aa2-4dff-a14f-fb57848df337 added to the databse for user thedropper
+2020-08-18 14:08:34,694 - DEBUG - Using function parseText
+2020-08-18 14:08:34,694 - DEBUG - Using function conversionRate
+2020-08-18 14:08:34,695 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:08:34,695 - DEBUG - Using function deductType
+2020-08-18 14:08:34,695 - DEBUG - Using function conversionRate
+2020-08-18 14:08:34,695 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:08:34,695 - DEBUG - Using function checkCompletion
+2020-08-18 14:08:34,720 - DEBUG - Using function saveDocument
+2020-08-18 14:08:35,371 - DEBUG - Using function checkCompletion
+2020-08-18 14:08:35,371 - INFO - Expense data is complete. Ready for database injection.
+2020-08-18 14:08:35,371 - DEBUG - Using function injectData
+2020-08-18 14:08:35,379 - INFO - Expense f1a2ce57-aa14-4d4a-b147-891f92dd077e added to the databse for user thedropper
+2020-08-18 14:09:00,258 - DEBUG - Using function toMarkdown
+2020-08-18 14:09:00,259 - DEBUG - Using function totalPending
+2020-08-18 14:10:44,956 - DEBUG - Using function toMarkdown
+2020-08-18 14:10:44,957 - DEBUG - Using function totalPending
+2020-08-18 14:11:11,594 - DEBUG - Using function saveDocument
+2020-08-18 14:11:11,941 - DEBUG - Using function checkCompletion
+2020-08-18 14:11:11,941 - DEBUG - Using function parseText
+2020-08-18 14:11:11,941 - DEBUG - Using function conversionRate
+2020-08-18 14:11:11,941 - DEBUG - Using function conversionRate
+2020-08-18 14:11:11,941 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:11:11,942 - DEBUG - Using function conversionRate
+2020-08-18 14:11:11,942 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:11:11,942 - DEBUG - Using function deductType
+2020-08-18 14:11:11,942 - DEBUG - Using function checkCompletion
+2020-08-18 14:11:11,942 - INFO - Expense data is complete. Ready for database injection.
+2020-08-18 14:11:11,942 - DEBUG - Using function injectData
+2020-08-18 14:11:11,945 - INFO - Expense d05cfd27-2c8a-4c8b-86c6-dd911fad7d42 added to the databse for user thedropper
+2020-08-18 14:11:51,190 - DEBUG - Using function parseText
+2020-08-18 14:11:51,190 - DEBUG - Using function conversionRate
+2020-08-18 14:11:51,191 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:11:51,191 - DEBUG - Using function conversionRate
+2020-08-18 14:11:51,191 - DEBUG - Using function convertUpdateElement
+2020-08-18 14:11:51,191 - DEBUG - Using function deductType
+2020-08-18 14:11:51,191 - DEBUG - Using function checkCompletion
+2020-08-18 14:11:51,323 - DEBUG - Using function saveDocument
+2020-08-18 14:11:51,883 - DEBUG - Using function checkCompletion
+2020-08-18 14:11:51,883 - INFO - Expense data is complete. Ready for database injection.
+2020-08-18 14:11:51,884 - DEBUG - Using function injectData
+2020-08-18 14:11:51,887 - INFO - Expense f8664d37-e21e-424b-9ee2-d3666284e374 added to the databse for user thedropper
+2020-08-18 14:12:06,806 - DEBUG - Using function toMarkdown
+2020-08-18 14:12:06,807 - DEBUG - Using function totalPending
+2020-08-18 14:14:31,711 - INFO - Extracting all pending expenses from expenses db
+2020-08-18 14:14:31,712 - INFO - Creating a list of expense objects
+2020-08-18 14:14:31,712 - INFO - Opening the login page
+2020-08-18 14:14:31,712 - INFO - Logging in...
+2020-08-18 14:14:37,398 - INFO - Logged in
+2020-08-18 14:14:37,398 - INFO - Checking if an expense report exists
+2020-08-18 14:14:42,947 - INFO - Expense Report found
+2020-08-18 14:14:42,947 - INFO - Opening the Add Expense Form
+2020-08-18 14:14:46,694 - INFO - Adding expense 0
+2020-08-18 14:14:46,694 - INFO - Adding type: 17819670115
+2020-08-18 14:14:48,766 - INFO - Adding date: 18-8-2020
+2020-08-18 14:14:48,864 - INFO - Adding amount: 132,82
+2020-08-18 14:14:48,970 - INFO - Adding reason: hotel Basel
+2020-08-18 14:14:49,082 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_255.pdf
+2020-08-18 14:14:56,650 - INFO - Adding WBS: GA309011
+2020-08-18 14:14:56,764 - INFO - Saving expense
+2020-08-18 14:15:04,960 - INFO - Expense correctly logged: d05cfd27-2c8a-4c8b-86c6-dd911fad7d42
+2020-08-18 14:15:04,961 - INFO - Adding expense 1
+2020-08-18 14:15:04,961 - INFO - Adding type: 17819670115
+2020-08-18 14:15:07,041 - INFO - Adding date: 18-8-2020
+2020-08-18 14:15:07,146 - INFO - Adding amount: 154,6
+2020-08-18 14:15:07,216 - INFO - Adding reason: hotel Zurich
+2020-08-18 14:15:07,310 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_256.pdf
+2020-08-18 14:15:14,911 - INFO - Adding WBS: GA309011
+2020-08-18 14:15:15,027 - INFO - Saving expense
+2020-08-18 14:15:23,124 - INFO - Expense correctly logged: f8664d37-e21e-424b-9ee2-d3666284e374
+2020-08-18 14:15:23,124 - INFO - Closing the Add Expense form
+2020-08-18 14:15:25,187 - INFO - Saving the draft of expense report
+2020-08-18 14:15:30,903 - INFO - Logging out

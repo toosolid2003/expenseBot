@@ -50,8 +50,9 @@ def photoCapture(update, context):
     isComplete = checkCompletion(context.user_data)
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
-        expId = injectData(context.user_data)
-        update.message.reply_text('Thanks, I have recorded your expense on wbs {}'.format(context.user_data['wbs']))
+        expId = injectData(context.user_data)     
+        update.message.reply_text('''Thanks, I have recorded your expense on wbs {}
+If you need to change the wbs allocation, just type /reallocate now'''.format(context.user_data['wbs']))
         context.user_data.clear()
 
 
@@ -92,7 +93,8 @@ def textCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
-        update.message.reply_text('Thanks for this, I recorded your expense on wbs {}'.format(context.user_data['wbs']))
+        update.message.reply_text("""Thanks for this, I recorded your expense on wbs {}.
+Type /reallocate to assign this expense to another wbs.""".format(context.user_data['wbs']))
         context.user_data.clear()
 
 ##########################################################################################################
@@ -115,7 +117,7 @@ with open('/var/www/expenseBot/bot.token','r') as fichier:
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
-#Initiate the "setup" conversation handler
+#Initiate the "start" conversation handler
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler('start', start)],
     states = {EMAIL: [MessageHandler(Filters.text, email)],
@@ -125,9 +127,17 @@ conv_handler = ConversationHandler(
     fallbacks=[CommandHandler('stopit', stopit)]
     )
 
+#Initiate the "reallocate" conversation handler
+reallocate_conv = ConversationHandler(
+    entry_points=[CommandHandler('reallocate', reallocate)],
+    states = {CONCLUSION: [MessageHandler(Filters.text, convConclusion)]},
+    fallbacks=[CommandHandler('stopit', stopit)],
+    conversation_timeout=20
+)
 
 #Registering handlers
 dispatcher.add_handler(conv_handler)
+dispatcher.add_handler(reallocate_conv)
 dispatcher.add_handler(CommandHandler('help', helpmsg))
 dispatcher.add_handler(CommandHandler('wbs', wbs))
 dispatcher.add_handler(CommandHandler('submit', submit))

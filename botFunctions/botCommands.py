@@ -39,17 +39,25 @@ def commandTrack(func):
 
 @commandTrack
 def wbs(update, context):
-    '''Changes the wbs value if it is provided as a parameter
-    Otherwise, displays the current WBS against which expenses are logged'''
+    '''Adds a new wbs to the wbs table.
+    Changes the older wbs status to "active". If no wbs is provided as input,
+    the command displays the current primary WBS against which expenses are logged'''
 
 
     
     if len(context.args) > 0:
         newWBS = context.args[0].upper()
-        db.update_wbs(update.message.chat.username, newWBS)
 
+        #Changing the status of the former primary wbs to "active"
+        old_primary_wbs = db.get_wbs(update.message.chat.username)
+        db.update_wbs(update.message.chat.username, old_primary_wbs, "active")
+
+        #Creating a new wbs in the wbs table with primary status
+        db.add_wbs(update.message.chat.username, newWBS, "primary")
+
+        #Communicating the changes to the user.
         wbs = db.get_wbs(update.message.chat.username)
-        update.message.reply_text('Your new WBS for expenses: {}'.format(wbs))
+        update.message.reply_text('Your new default WBS for expenses: {}'.format(wbs))
 
 
         #Check if the wbs is valid
@@ -129,7 +137,6 @@ def start(update, context):
     """Handles the setup process"""
     update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recoding business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
     update.message.reply_text("It will take 1 min, but you can stop at any point by typing '/stop'. Let's start! Can you confirm the email address you want to use?")
-    update.message.reply_text(f'Chat id: {update.message.chat.id}')
     return EMAIL
 
 
@@ -256,4 +263,37 @@ def stopit(update, context):
 
     return ConversationHandler.END
 
+####### Conversation to reallocate an expense to another wbs.
+CONCLUSION = range(1)
 
+def reallocate(update, context):
+    """Conversation to reallocate an expense to another wbs"""
+
+    #Preparing the keyboard
+    update.message.reply_text("OK, let's reassign this expense.")
+    activeWbs = db.get_active_wbs(update.message.chat.username)
+    keyboard = [activeWbs]
+    choice = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
+    
+    #Send reply with keyboard
+    bot.send_message(chat_id=update.message.chat.id, reply_markup=choice, text='Choose the wbs below')
+
+    return CONCLUSION
+
+def convConclusion(update, context):
+    
+    # Removing the custom keyboard
+    telegram.ReplyKeyboardRemove() 
+
+    # Storing the wbs to reallocate the expense to
+    context.user_data["reallocatedWbs"] = update.message.text
+
+    # Extracting all pending expenses for the user and selecting the uid of the last expense
+    pendingExpenses = db.extract_expenses(update.message.chat.username, 'pending')
+    lastExpenseId = pendingExpenses[-1][-1]
+
+    # Updating the last expense with a new wbs
+    db.update_item_wbs(context.user_data["reallocatedWbs"], lastExpenseId)
+    update.message.reply_text("Alright, I have reallocated your expense successfuly.")
+
+    return ConversationHandler.END
