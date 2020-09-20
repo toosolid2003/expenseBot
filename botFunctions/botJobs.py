@@ -54,30 +54,33 @@ def submitJob(activeUser):
     """
     Submits the latest expense report for approval.
     """
-    
+    #Correction to bring
+    # Add logging info
+    # Go full screen or allow driver to scroll down to click on submit
+
     #Get the credentials for current user
     user = db.get_credentials(activeUser)
 
     #Start the navigation on Chrome
-#    driver = initiateDriver()
-#
-#    try:
-#        driver = login(driver, user[0], user[1])
-#    except Exception as e:
-#        logger.error('Cannot login to IQ Navigator. User: %s. Error: %s', activeUser, e)
-#
-#
-#    result = checkExpenseReport(driver)
-#    driver = result[0]
-#
-#
-#    try:
-#        driver = submitExpenseReport(driver) 
-#        successSubmit = True
-#    except Exception as e:
-#        logger.error('Could not submit the current time report for user %s. Error: %s', activeUser, e)
-#        successSubmit = False
-#    driver.quit()
+    driver = initiateDriver()
+
+    try:
+        driver = login(driver, user[0], user[1])
+    except Exception as e:
+        logger.error('Cannot login to IQ Navigator. User: %s. Error: %s', activeUser, e)
+
+
+    result = checkExpenseReport(driver)
+    driver = result[0]
+
+
+    try:
+        driver = submitExpenseReport(driver) 
+        successSubmit = True
+    except Exception as e:
+        logger.error('Could not submit the current time report for user %s. Error: %s', activeUser, e)
+        successSubmit = False
+    driver.quit()
 
     #Update all logged expenses' status to "submitted"
     db.updateStatus('logged','submitted',user[0])

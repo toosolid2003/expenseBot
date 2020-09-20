@@ -9,6 +9,7 @@ import telegram
 import os
 from logger.logger import logger
 
+
 # Database helpers
 #################################################################
 
@@ -135,7 +136,7 @@ EMAIL, CURRENCY, WBS = range(3)
 @commandTrack
 def start(update, context):
     """Handles the setup process"""
-    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recoding business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
+    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recording business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
     update.message.reply_text("It will take 1 min, but you can stop at any point by typing '/stop'. Let's start! Can you confirm the email address you want to use?")
     return EMAIL
 
@@ -264,7 +265,7 @@ def stopit(update, context):
     return ConversationHandler.END
 
 ####### Conversation to reallocate an expense to another wbs.
-CONCLUSION = range(1)
+CHOSENWBS, DEFAULTWBS, CHANGEWBS = range(3)
 
 def reallocate(update, context):
     """Conversation to reallocate an expense to another wbs"""
@@ -278,9 +279,9 @@ def reallocate(update, context):
     #Send reply with keyboard
     bot.send_message(chat_id=update.message.chat.id, reply_markup=choice, text='Choose the wbs below')
 
-    return CONCLUSION
+    return CHOSENWBS
 
-def convConclusion(update, context):
+def chosenWbs(update, context):
     
     # Removing the custom keyboard
     telegram.ReplyKeyboardRemove() 
@@ -295,5 +296,40 @@ def convConclusion(update, context):
     # Updating the last expense with a new wbs
     db.update_item_wbs(context.user_data["reallocatedWbs"], lastExpenseId)
     update.message.reply_text("Alright, I have reallocated your expense successfuly.")
+
+    return DEFAULTWBS
+
+def defaultWbs(update, context):
+    """Asking user to change the default/primary wbs"""
+
+    #Preparing the keyboard
+    keyboard = ['Yes','No']
+    choice = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
+
+    #Asking the question with keyboard as possible answers
+    bot.send_message(chat_id=update.message.chat.id, reply_markup=choice, text='Do you want to make this wbs your default one?')
+
+    return CHANGEWBS
+
+def changeWbs(update, context):
+    """Change the default/primary wbs if the user reponded yes on the DEFAULTwbs step"""
+
+    #Capturing the user's response
+    response = update.message.text
+    
+    if response == 'Yes':
+        #Demote the current default/primary wbs to active
+        activeWbs = db.get_wbs(update.message.chat.username)
+        db.update_wbs(update.message.chat.username, activeWbs,"active")
+
+        #Assign reallocated wbs as default/primary wbs for the user
+        db.update_wbs(update.message.chat.username, context.user_data["reallocatedWbs"],"primary")
+        
+        #Respond to user
+        update.message.reply_text('{} is now your default wbs.'.format(context.user_data["reallocatedWbs"]))
+
+    #Do nothing if "no"
+    else:
+        update.message.reply_text("Ok, I won't change your default wbs.")
 
     return ConversationHandler.END

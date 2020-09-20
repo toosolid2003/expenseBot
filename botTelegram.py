@@ -7,6 +7,7 @@ from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, submitJob 
 from logger.logger import logger
 
+
 #################################################################
 # Input handlers
 #################################################################
@@ -130,7 +131,10 @@ conv_handler = ConversationHandler(
 #Initiate the "reallocate" conversation handler
 reallocate_conv = ConversationHandler(
     entry_points=[CommandHandler('reallocate', reallocate)],
-    states = {CONCLUSION: [MessageHandler(Filters.text, convConclusion)]},
+    states = {CHOSENWBS: [MessageHandler(Filters.text, chosenWbs)],
+    DEFAULTWBS: [MessageHandler(Filters.text, defaultWbs)],
+    CHANGEWBS: [MessageHandler(Filters.text, changeWbs)],
+    },
     fallbacks=[CommandHandler('stopit', stopit)],
     conversation_timeout=20
 )
