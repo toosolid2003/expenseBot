@@ -253,7 +253,7 @@ def submitExpenseReport(driver):
     """
     logger.info('Submitting the expense report')
     elts = driver.find_elements_by_class_name('actionButtonLabel')
-    elts[0].click()
+    elts[3].click()
     time.sleep(2)
 
     #Logout

@@ -84,7 +84,5 @@ def submitJob(activeUser):
 
     #Update all logged expenses' status to "submitted"
     db.updateStatus('logged','submitted',user[0])
-    successSubmit = True        #This line for testing purposes only
-    #logger.info('Fake submit ok')
 
     return successSubmit
