@@ -186,7 +186,7 @@ def addExpense(driver, expObjList):
         #Click on 'Attach' button
         buttn = driver.find_element_by_name(fields['attachBtn'])
         buttn.click()
-        time.sleep(4)  #Wait for receipt to load
+        time.sleep(9)  #Wait for receipt to load
 
         #Enter WBS
         logger.info('Adding WBS: {}'.format(exp.wbs))
@@ -213,7 +213,7 @@ def addExpense(driver, expObjList):
             logger.error('Expense %s could not be saved', exp.uid)
             # Take a screenshot here
             tempUID = uuid.UUID(exp.uid) #generate an hex unique id for the filename
-            filename = '/var/www/expenseBot/log/screenshots/'+tempUID.hex+'png'
+            filename = '/var/www/expenseBot/log/screenshots/'+tempUID.hex+'.png'
             driver.save_screenshot(filename)
         j += 1
 

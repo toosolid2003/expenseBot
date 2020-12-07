@@ -1644,3 +1644,132 @@
 2020-09-17 12:01:04,085 - INFO - Starting the bot
 2020-09-17 12:01:04,268 - INFO - Starting the server
 2020-09-17 12:01:04,269 - INFO - Server started
+2020-11-13 15:49:21,087 - INFO - Initialising the classes
+2020-11-13 15:49:21,089 - INFO - Starting the bot
+2020-11-13 15:49:21,248 - INFO - Starting the server
+2020-11-13 15:49:21,249 - INFO - Server started
+2020-11-23 19:05:26,027 - DEBUG - Using function parseText
+2020-11-23 19:05:26,034 - DEBUG - Using function conversionRate
+2020-11-23 19:05:26,035 - DEBUG - Using function conversionRate
+2020-11-23 19:05:26,035 - DEBUG - Using function convertUpdateElement
+2020-11-23 19:05:26,035 - DEBUG - Using function conversionRate
+2020-11-23 19:05:26,035 - DEBUG - Using function convertUpdateElement
+2020-11-23 19:05:26,035 - DEBUG - Using function deductType
+2020-11-23 19:05:26,035 - DEBUG - Using function checkCompletion
+2020-11-23 19:05:26,036 - DEBUG - Using function saveDocument
+2020-11-23 19:05:26,556 - DEBUG - Using function checkCompletion
+2020-11-23 19:05:26,556 - INFO - Expense data is complete. Ready for database injection.
+2020-11-23 19:05:26,556 - DEBUG - Using function injectData
+2020-11-23 19:05:26,559 - INFO - Expense 335b788e-42fd-4a9d-9538-4494d9e9169d added to the databse for user thedropper
+2020-11-23 19:19:23,309 - INFO - Extracting all pending expenses from expenses db
+2020-11-23 19:19:23,309 - INFO - Creating a list of expense objects
+2020-11-23 19:19:23,310 - INFO - Opening the login page
+2020-11-23 19:19:23,310 - INFO - Logging in...
+2020-11-23 19:19:28,914 - INFO - Logged in
+2020-11-23 19:19:28,914 - INFO - Checking if an expense report exists
+2020-11-23 19:19:31,551 - INFO - Expense Report not found. Back to Home.
+2020-11-23 19:19:32,135 - INFO - Creating a new expense report
+2020-11-23 19:19:38,480 - INFO - Expense Report title added
+2020-11-23 19:19:38,480 - INFO - Opening the Add Expense form
+2020-11-23 19:19:43,529 - INFO - Adding expense 0
+2020-11-23 19:19:43,529 - INFO - Adding type: 17819687102
+2020-11-23 19:19:45,595 - INFO - Adding date: 23-11-2020
+2020-11-23 19:19:45,710 - INFO - Adding amount: 19,39
+2020-11-23 19:19:45,811 - INFO - Adding reason: omniplan subscription
+2020-11-23 19:19:45,895 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_272.pdf
+2020-11-23 19:19:52,424 - INFO - Adding WBS: BOPD4001
+2020-11-23 19:19:52,508 - INFO - Saving expense
+2020-11-23 19:19:59,822 - INFO - Expense correctly logged: 335b788e-42fd-4a9d-9538-4494d9e9169d
+2020-11-23 19:19:59,824 - INFO - Closing the Add Expense form
+2020-11-23 19:20:01,886 - INFO - Saving the draft of expense report
+2020-11-23 19:20:06,888 - INFO - Logging out
+2020-11-25 11:29:34,579 - INFO - Initialising the classes
+2020-11-25 11:29:34,579 - INFO - Starting the bot
+2020-11-25 11:29:34,715 - INFO - Starting the server
+2020-11-25 11:29:34,715 - INFO - Server started
+2020-11-25 11:29:44,609 - DEBUG - Using function toMarkdown
+2020-11-25 11:29:44,612 - DEBUG - Using function totalPending
+2020-11-25 11:29:52,283 - INFO - Testing the validity of the wbs
+2020-11-25 11:29:54,503 - INFO - Opening the login page
+2020-11-25 11:29:54,503 - INFO - Logging in...
+2020-11-25 11:30:49,791 - ERROR - Driver could not log into IQ Navigator. Error: Message: 
+
+2020-11-25 11:30:49,792 - INFO - Creating a new expense report
+2020-11-27 09:52:28,327 - DEBUG - Using function saveDocument
+2020-11-27 09:52:28,819 - DEBUG - Using function checkCompletion
+2020-11-27 09:52:28,819 - DEBUG - Using function parseText
+2020-11-27 09:52:28,820 - DEBUG - Using function conversionRate
+2020-11-27 09:52:28,820 - DEBUG - Using function conversionRate
+2020-11-27 09:52:28,820 - DEBUG - Using function convertUpdateElement
+2020-11-27 09:52:28,820 - DEBUG - Using function conversionRate
+2020-11-27 09:52:28,820 - DEBUG - Using function convertUpdateElement
+2020-11-27 09:52:28,820 - DEBUG - Using function deductType
+2020-11-27 09:52:28,820 - DEBUG - Using function checkCompletion
+2020-11-27 09:52:28,820 - INFO - Expense data is complete. Ready for database injection.
+2020-11-27 09:52:28,820 - DEBUG - Using function injectData
+2020-11-27 09:52:28,823 - INFO - Expense c6f8bacf-2406-47f0-bc90-6897156661d5 added to the databse for user thedropper
+2020-11-27 09:59:36,809 - INFO - Extracting all pending expenses from expenses db
+2020-11-27 09:59:36,809 - INFO - Creating a list of expense objects
+2020-11-27 09:59:36,809 - INFO - Opening the login page
+2020-11-27 09:59:36,809 - INFO - Logging in...
+2020-11-27 09:59:41,847 - INFO - Logged in
+2020-11-27 09:59:41,847 - INFO - Checking if an expense report exists
+2020-11-27 09:59:46,226 - INFO - Expense Report found
+2020-11-27 09:59:46,226 - INFO - Opening the Add Expense Form
+2020-11-27 09:59:49,362 - INFO - Adding expense 0
+2020-11-27 09:59:49,362 - INFO - Adding type: 17819687102
+2020-11-27 09:59:51,420 - INFO - Adding date: 27-11-2020
+2020-11-27 09:59:51,506 - INFO - Adding amount: 14,55
+2020-11-27 09:59:51,572 - INFO - Adding reason: Figma subscription
+2020-11-27 09:59:51,668 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_273.pdf
+2020-11-27 09:59:57,749 - INFO - Adding WBS: BRCFR001
+2020-11-27 09:59:57,831 - INFO - Saving expense
+2020-11-27 10:00:04,905 - ERROR - Expense c6f8bacf-2406-47f0-bc90-6897156661d5 could not be saved
+2020-11-27 10:00:05,109 - INFO - Closing the Add Expense form
+2020-11-27 10:00:07,164 - INFO - Saving the draft of expense report
+2020-11-27 20:55:52,005 - INFO - Initialising the classes
+2020-11-27 20:55:52,006 - INFO - Starting the bot
+2020-11-27 20:55:52,565 - INFO - Starting the server
+2020-11-27 20:55:52,566 - INFO - Server started
+2020-12-07 11:19:23,419 - INFO - Initialising the classes
+2020-12-07 11:19:23,421 - INFO - Starting the bot
+2020-12-07 11:19:23,561 - INFO - Starting the server
+2020-12-07 11:19:23,561 - INFO - Server started
+2020-12-07 11:19:25,572 - DEBUG - Using function saveDocument
+2020-12-07 11:19:26,077 - DEBUG - Using function checkCompletion
+2020-12-07 11:19:26,077 - DEBUG - Using function parseText
+2020-12-07 11:19:26,078 - DEBUG - Using function conversionRate
+2020-12-07 11:19:26,078 - DEBUG - Using function conversionRate
+2020-12-07 11:19:26,078 - DEBUG - Using function convertUpdateElement
+2020-12-07 11:19:26,078 - DEBUG - Using function conversionRate
+2020-12-07 11:19:26,078 - DEBUG - Using function convertUpdateElement
+2020-12-07 11:19:26,078 - DEBUG - Using function deductType
+2020-12-07 11:19:26,078 - DEBUG - Using function checkCompletion
+2020-12-07 11:19:26,078 - INFO - Expense data is complete. Ready for database injection.
+2020-12-07 11:19:26,078 - DEBUG - Using function injectData
+2020-12-07 11:19:26,081 - INFO - Expense 896a8178-55c9-456e-b3ae-36a50cabcc8b added to the databse for user thedropper
+2020-12-07 11:49:26,187 - INFO - Extracting all pending expenses from expenses db
+2020-12-07 11:49:26,188 - INFO - Creating a list of expense objects
+2020-12-07 11:49:26,189 - INFO - Opening the login page
+2020-12-07 11:49:26,189 - INFO - Logging in...
+2020-12-07 11:49:31,404 - INFO - Logged in
+2020-12-07 11:49:31,405 - INFO - Checking if an expense report exists
+2020-12-07 11:49:35,819 - INFO - Expense Report found
+2020-12-07 11:49:35,819 - INFO - Opening the Add Expense Form
+2020-12-07 11:49:39,971 - INFO - Adding expense 0
+2020-12-07 11:49:39,971 - INFO - Adding type: 17819687102
+2020-12-07 11:49:42,034 - INFO - Adding date: 07-12-2020
+2020-12-07 11:49:42,110 - INFO - Adding amount: 698,4
+2020-12-07 11:49:42,169 - INFO - Adding reason: figma yearly subscription
+2020-12-07 11:49:42,274 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_274.pdf
+2020-12-07 11:49:54,458 - INFO - Adding WBS: BRCFR001
+2020-12-07 11:49:54,542 - INFO - Saving expense
+2020-12-07 11:50:01,627 - INFO - Expense correctly logged: 896a8178-55c9-456e-b3ae-36a50cabcc8b
+2020-12-07 11:50:01,628 - INFO - Closing the Add Expense form
+2020-12-07 11:50:03,701 - INFO - Saving the draft of expense report
+2020-12-07 11:50:09,265 - INFO - Logging out
+2020-12-07 13:37:12,184 - INFO - Initialising the classes
+2020-12-07 13:37:12,185 - INFO - Starting the bot
+2020-12-07 13:37:12,322 - INFO - Starting the server
+2020-12-07 13:37:12,323 - INFO - Server started
+2020-12-07 13:37:22,429 - INFO - thedropper is checking for existing wbs

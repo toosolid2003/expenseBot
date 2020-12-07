@@ -47,6 +47,10 @@ def wbs(update, context):
 
     
     if len(context.args) > 0:
+        #Adding a new wbs
+        logger.info('Adding new wbs')
+
+
         newWBS = context.args[0].upper()
 
         #Changing the status of the former primary wbs to "active"
@@ -67,6 +71,7 @@ def wbs(update, context):
             update.message.reply_text('There is a little problem with this wbs. Whether you are not allowed to use it or maybe the code is invalid, but it does not seem to be working for you. Try to update it again or just reach out to your manager to make sure you can use it.')
     else:
         try:
+            logger.info('{} is checking for existing wbs'.format(update.message.chat.username))
             wbs = db.get_wbs(update.message.chat.username)
             update.message.reply_text('Your current WBS for expenses is {}'.format(wbs))
         except:
