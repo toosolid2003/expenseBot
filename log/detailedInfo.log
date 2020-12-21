@@ -1773,3 +1773,97 @@
 2020-12-07 13:37:12,322 - INFO - Starting the server
 2020-12-07 13:37:12,323 - INFO - Server started
 2020-12-07 13:37:22,429 - INFO - thedropper is checking for existing wbs
+2020-12-07 15:38:14,905 - INFO - Initialising the classes
+2020-12-07 15:38:14,907 - INFO - Starting the bot
+2020-12-07 15:38:15,046 - INFO - Starting the server
+2020-12-07 15:38:15,047 - INFO - Server started
+2020-12-07 17:13:22,237 - DEBUG - Using function toMarkdown
+2020-12-07 17:13:22,240 - DEBUG - Using function totalPending
+2020-12-08 13:55:30,523 - INFO - thedropper is checking for existing wbs
+2020-12-09 10:14:04,160 - INFO - Initialising the classes
+2020-12-09 10:14:04,162 - INFO - Starting the bot
+2020-12-09 10:14:04,340 - INFO - Starting the server
+2020-12-09 10:14:04,341 - INFO - Server started
+2020-12-10 09:31:04,250 - INFO - thedropper is checking for existing wbs
+2020-12-10 13:53:51,085 - INFO - thedropper is checking for existing wbs
+2020-12-11 19:09:39,062 - INFO - thedropper is checking for existing wbs
+2020-12-12 11:35:33,191 - INFO - thedropper is checking for existing wbs
+2020-12-12 16:44:25,304 - INFO - thedropper is checking for existing wbs
+2020-12-12 16:47:39,634 - INFO - thedropper is checking for existing wbs
+2020-12-12 16:49:34,586 - INFO - thedropper is checking for existing wbs
+2020-12-17 10:40:21,243 - INFO - Initialising the classes
+2020-12-17 10:40:21,245 - INFO - Starting the bot
+2020-12-17 10:40:21,386 - INFO - Starting the server
+2020-12-17 10:40:21,386 - INFO - Server started
+2020-12-17 13:57:31,954 - INFO - thedropper is checking for existing wbs
+2020-12-18 12:02:47,440 - DEBUG - Using function saveDocument
+2020-12-18 12:02:47,802 - DEBUG - Using function checkCompletion
+2020-12-18 12:02:47,802 - DEBUG - Using function parseText
+2020-12-18 12:02:47,802 - DEBUG - Using function conversionRate
+2020-12-18 12:02:47,802 - DEBUG - Using function conversionRate
+2020-12-18 12:02:47,802 - DEBUG - Using function convertUpdateElement
+2020-12-18 12:02:47,802 - DEBUG - Using function conversionRate
+2020-12-18 12:02:47,802 - DEBUG - Using function convertUpdateElement
+2020-12-18 12:02:47,802 - DEBUG - Using function deductType
+2020-12-18 12:02:47,803 - DEBUG - Using function checkCompletion
+2020-12-18 12:02:47,803 - INFO - Expense data is complete. Ready for database injection.
+2020-12-18 12:02:47,803 - DEBUG - Using function injectData
+2020-12-18 12:02:47,805 - INFO - Expense 51eb2c01-7bf2-492f-a3db-a57fabb12eaa added to the databse for user thedropper
+2020-12-18 12:10:23,453 - INFO - Extracting all pending expenses from expenses db
+2020-12-18 12:10:23,454 - INFO - Creating a list of expense objects
+2020-12-18 12:10:23,454 - INFO - Opening the login page
+2020-12-18 12:10:23,454 - INFO - Logging in...
+2020-12-18 12:10:28,302 - INFO - Logged in
+2020-12-18 12:10:28,302 - INFO - Checking if an expense report exists
+2020-12-18 12:10:33,540 - INFO - Expense Report found
+2020-12-18 12:10:33,540 - INFO - Opening the Add Expense Form
+2020-12-18 12:10:37,683 - INFO - Adding expense 0
+2020-12-18 12:10:37,683 - INFO - Adding type: 17819687102
+2020-12-18 12:10:39,741 - INFO - Adding date: 18-12-2020
+2020-12-18 12:10:39,821 - INFO - Adding amount: 2095,2
+2020-12-18 12:10:39,880 - INFO - Adding reason: Figma upgrade to organization
+2020-12-18 12:10:39,975 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_275.pdf
+2020-12-18 12:10:51,053 - INFO - Adding WBS: BRCFR001
+2020-12-18 12:10:51,141 - INFO - Saving expense
+2020-12-18 12:10:58,247 - INFO - Expense correctly logged: 51eb2c01-7bf2-492f-a3db-a57fabb12eaa
+2020-12-18 12:10:58,248 - INFO - Closing the Add Expense form
+2020-12-18 12:11:00,306 - INFO - Saving the draft of expense report
+2020-12-18 12:11:05,937 - INFO - Logging out
+2020-12-19 17:42:18,484 - DEBUG - Using function saveDocument
+2020-12-19 17:42:19,050 - DEBUG - Using function checkCompletion
+2020-12-19 17:42:19,050 - DEBUG - Using function parseText
+2020-12-19 17:42:19,050 - DEBUG - Using function conversionRate
+2020-12-19 17:42:19,050 - DEBUG - Using function conversionRate
+2020-12-19 17:42:19,050 - DEBUG - Using function convertUpdateElement
+2020-12-19 17:42:19,050 - DEBUG - Using function conversionRate
+2020-12-19 17:42:19,050 - DEBUG - Using function convertUpdateElement
+2020-12-19 17:42:19,050 - DEBUG - Using function deductType
+2020-12-19 17:42:19,051 - DEBUG - Using function checkCompletion
+2020-12-19 17:42:19,051 - INFO - Expense data is complete. Ready for database injection.
+2020-12-19 17:42:19,051 - DEBUG - Using function injectData
+2020-12-19 17:42:19,054 - INFO - Expense 2c8e7615-f0c1-40c0-b1b6-493a15f50b89 added to the databse for user thedropper
+2020-12-19 17:43:55,759 - INFO - thedropper is checking for existing wbs
+2020-12-19 17:44:46,109 - DEBUG - Using function toMarkdown
+2020-12-19 17:44:46,112 - DEBUG - Using function totalPending
+2020-12-19 18:10:23,459 - INFO - Extracting all pending expenses from expenses db
+2020-12-19 18:10:23,459 - INFO - Creating a list of expense objects
+2020-12-19 18:10:23,460 - INFO - Opening the login page
+2020-12-19 18:10:23,460 - INFO - Logging in...
+2020-12-19 18:10:28,637 - INFO - Logged in
+2020-12-19 18:10:28,637 - INFO - Checking if an expense report exists
+2020-12-19 18:10:31,258 - INFO - Expense Report not found. Back to Home.
+2020-12-19 18:10:31,919 - INFO - Creating a new expense report
+2020-12-19 18:10:38,055 - INFO - Expense Report title added
+2020-12-19 18:10:38,055 - INFO - Opening the Add Expense form
+2020-12-19 18:10:43,104 - INFO - Adding expense 0
+2020-12-19 18:10:43,104 - INFO - Adding type: 17819670115
+2020-12-19 18:10:45,168 - INFO - Adding date: 19-12-2020
+2020-12-19 18:10:45,241 - INFO - Adding amount: 11,64
+2020-12-19 18:10:45,299 - INFO - Adding reason: hotel geneve
+2020-12-19 18:10:45,367 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_276.png
+2020-12-19 18:10:56,966 - INFO - Adding WBS: BRCFR001
+2020-12-19 18:10:57,050 - INFO - Saving expense
+2020-12-19 18:11:04,353 - INFO - Expense correctly logged: 2c8e7615-f0c1-40c0-b1b6-493a15f50b89
+2020-12-19 18:11:04,353 - INFO - Closing the Add Expense form
+2020-12-19 18:11:06,399 - INFO - Saving the draft of expense report
+2020-12-19 18:11:11,016 - INFO - Logging out
