@@ -1867,3 +1867,26 @@
 2020-12-19 18:11:04,353 - INFO - Closing the Add Expense form
 2020-12-19 18:11:06,399 - INFO - Saving the draft of expense report
 2020-12-19 18:11:11,016 - INFO - Logging out
+2020-12-21 15:39:29,724 - INFO - Initialising the classes
+2020-12-21 15:39:29,725 - INFO - Starting the bot
+2020-12-21 15:39:29,878 - INFO - Starting the server
+2020-12-21 15:39:29,880 - INFO - Server started
+2020-12-21 15:40:13,415 - INFO - The IQ username jumbo does not belong to the user or could not be found.
+2020-12-21 15:45:27,244 - INFO - Initialising the classes
+2020-12-21 15:45:27,245 - INFO - Starting the bot
+2020-12-21 15:45:27,386 - INFO - Starting the server
+2020-12-21 15:45:27,388 - INFO - Server started
+2020-12-21 15:45:56,142 - INFO - The IQ username "username" does not belong to the user or could not be found.
+2020-12-21 15:47:29,189 - INFO - Initialising the classes
+2020-12-21 15:47:29,190 - INFO - Starting the bot
+2020-12-21 15:47:29,361 - INFO - Starting the server
+2020-12-21 15:47:29,363 - INFO - Server started
+2020-12-21 15:47:44,998 - INFO - The IQ username "username" does not belong to the user or could not be found.
+2020-12-21 15:48:58,752 - INFO - Initialising the classes
+2020-12-21 15:48:58,754 - INFO - Starting the bot
+2020-12-21 15:48:58,921 - INFO - Starting the server
+2020-12-21 15:48:58,922 - INFO - Server started
+2020-12-21 15:49:00,942 - INFO - The IQ username provided, "tsegura2", belongs to the user: confirmed.
+2020-12-21 15:49:00,943 - INFO - IQ Credentials update for thedropper
+2020-12-21 15:49:33,456 - INFO - The IQ username provided, "tsegura2", belongs to the user: confirmed.
+2020-12-21 15:49:33,461 - INFO - IQ Credentials update for thedropper

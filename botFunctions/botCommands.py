@@ -122,9 +122,20 @@ def iqn(update, context):
         iq_username = context.args[0]
         iq_password = context.args[1]
 
-        db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
-        logger.info('IQ Credentials update for %s', update.message.chat.username)
-        update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
+        #Pull the iqn username corresponding to the username
+        creds = db.get_credentials(update.message.chat.username)
+
+        #Username is in first position in the result lists (creds)
+        if creds[0] == iq_username:
+            logger.info(f'The IQ username provided, "{iq_username}", belongs to the user: confirmed.')
+            db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
+            logger.info('IQ Credentials update for %s', update.message.chat.username)
+            update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
+        
+        else:
+            logger.info(f'The IQ username "{iq_username}" does not belong to the user or could not be found.')
+            update.message.reply_text(f'I am sorry, The username you provided does not appear to exist '
+            f'or does not belong to you. Double check your IQ username and try again :).')
 
     else:
         update.message.reply_text('type "/iqn username password" to update your IQ credentials')
