@@ -1890,3 +1890,171 @@
 2020-12-21 15:49:00,943 - INFO - IQ Credentials update for thedropper
 2020-12-21 15:49:33,456 - INFO - The IQ username provided, "tsegura2", belongs to the user: confirmed.
 2020-12-21 15:49:33,461 - INFO - IQ Credentials update for thedropper
+2020-12-21 15:53:47,931 - INFO - Initialising the classes
+2020-12-21 15:53:47,932 - INFO - Starting the bot
+2020-12-21 15:53:48,094 - INFO - Starting the server
+2020-12-21 15:53:48,095 - INFO - Server started
+2020-12-23 19:07:59,934 - DEBUG - Using function parseText
+2020-12-23 19:07:59,935 - DEBUG - Using function conversionRate
+2020-12-23 19:07:59,935 - DEBUG - Using function conversionRate
+2020-12-23 19:07:59,935 - DEBUG - Using function convertUpdateElement
+2020-12-23 19:07:59,935 - DEBUG - Using function conversionRate
+2020-12-23 19:07:59,935 - DEBUG - Using function convertUpdateElement
+2020-12-23 19:07:59,935 - DEBUG - Using function deductType
+2020-12-23 19:07:59,935 - DEBUG - Using function checkCompletion
+2020-12-23 19:08:00,332 - DEBUG - Using function parseText
+2020-12-23 19:08:00,332 - DEBUG - Using function conversionRate
+2020-12-23 19:08:00,332 - DEBUG - Using function convertUpdateElement
+2020-12-23 19:08:00,332 - DEBUG - Using function deductType
+2020-12-23 19:08:00,332 - DEBUG - Using function conversionRate
+2020-12-23 19:08:00,332 - DEBUG - Using function convertUpdateElement
+2020-12-23 19:08:00,332 - DEBUG - Using function deductType
+2020-12-23 19:08:00,332 - DEBUG - Using function checkCompletion
+2020-12-23 19:08:28,938 - INFO - thedropper is checking for existing wbs
+2021-01-02 12:36:42,580 - INFO - The IQ username provided, "tsegura2", belongs to the user: confirmed.
+2021-01-02 12:36:42,582 - INFO - IQ Credentials update for thedropper
+2021-01-11 17:29:59,207 - INFO - Initialising the classes
+2021-01-11 17:29:59,209 - INFO - Starting the bot
+2021-01-11 17:29:59,362 - INFO - Starting the server
+2021-01-11 17:29:59,363 - INFO - Server started
+2021-01-11 17:30:01,378 - INFO - thedropper is checking for existing wbs
+2021-01-12 09:45:31,127 - DEBUG - Using function toMarkdown
+2021-01-12 09:45:31,130 - DEBUG - Using function totalPending
+2021-01-15 13:27:52,596 - INFO - Initialising the classes
+2021-01-15 13:27:52,598 - INFO - Starting the bot
+2021-01-15 13:27:52,734 - INFO - Starting the server
+2021-01-15 13:27:52,735 - INFO - Server started
+2021-01-16 15:02:39,664 - INFO - thedropper is checking for existing wbs
+2021-01-16 15:02:42,682 - DEBUG - Using function toMarkdown
+2021-01-16 15:02:42,684 - DEBUG - Using function totalPending
+2021-01-16 15:03:33,521 - DEBUG - Using function saveDocument
+2021-01-16 15:03:33,785 - DEBUG - Using function checkCompletion
+2021-01-16 15:03:33,785 - DEBUG - Using function parseText
+2021-01-16 15:03:33,785 - DEBUG - Using function conversionRate
+2021-01-16 15:03:33,785 - DEBUG - Using function conversionRate
+2021-01-16 15:03:33,785 - DEBUG - Using function convertUpdateElement
+2021-01-16 15:03:33,785 - DEBUG - Using function conversionRate
+2021-01-16 15:03:33,785 - DEBUG - Using function convertUpdateElement
+2021-01-16 15:03:33,785 - DEBUG - Using function deductType
+2021-01-16 15:03:33,785 - DEBUG - Using function checkCompletion
+2021-01-16 15:03:33,785 - INFO - Expense data is complete. Ready for database injection.
+2021-01-16 15:03:33,785 - DEBUG - Using function injectData
+2021-01-16 15:03:33,788 - INFO - Expense 0ea376c1-e8d6-4d5c-aebc-3aa6b5b5d518 added to the databse for user thedropper
+2021-01-16 15:27:54,805 - INFO - Extracting all pending expenses from expenses db
+2021-01-16 15:27:54,806 - INFO - Creating a list of expense objects
+2021-01-16 15:27:54,806 - INFO - Opening the login page
+2021-01-16 15:27:54,806 - INFO - Logging in...
+2021-01-16 15:28:01,105 - INFO - Logged in
+2021-01-16 15:28:01,106 - INFO - Checking if an expense report exists
+2021-01-16 15:28:04,290 - INFO - Expense Report not found. Back to Home.
+2021-01-16 15:28:04,947 - INFO - Creating a new expense report
+2021-01-16 15:28:12,108 - INFO - Expense Report title added
+2021-01-16 15:28:12,108 - INFO - Opening the Add Expense form
+2021-01-16 15:28:17,171 - INFO - Adding expense 0
+2021-01-16 15:28:17,172 - INFO - Adding type: 17819687102
+2021-01-16 15:28:19,254 - INFO - Adding date: 16-1-2021
+2021-01-16 15:28:19,338 - INFO - Adding amount: 0,97
+2021-01-16 15:28:19,401 - INFO - Adding reason: test
+2021-01-16 15:28:19,461 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_277.jpg
+2021-01-16 15:28:30,759 - INFO - Adding WBS: BRCFR001
+2021-01-16 15:28:30,848 - INFO - Saving expense
+2021-01-16 15:28:38,211 - INFO - Expense correctly logged: 0ea376c1-e8d6-4d5c-aebc-3aa6b5b5d518
+2021-01-16 15:28:38,212 - INFO - Closing the Add Expense form
+2021-01-16 15:28:40,272 - INFO - Saving the draft of expense report
+2021-01-16 15:28:44,823 - INFO - Logging out
+2021-01-17 17:42:05,028 - DEBUG - Using function toMarkdown
+2021-01-17 17:42:05,029 - DEBUG - Using function totalPending
+2021-01-23 19:46:50,280 - DEBUG - Using function parseText
+2021-01-23 19:46:50,282 - DEBUG - Using function conversionRate
+2021-01-23 19:46:50,283 - DEBUG - Using function conversionRate
+2021-01-23 19:46:50,283 - DEBUG - Using function convertUpdateElement
+2021-01-23 19:46:50,283 - DEBUG - Using function conversionRate
+2021-01-23 19:46:50,283 - DEBUG - Using function convertUpdateElement
+2021-01-23 19:46:50,283 - DEBUG - Using function deductType
+2021-01-23 19:46:50,283 - DEBUG - Using function checkCompletion
+2021-01-23 19:46:50,435 - DEBUG - Using function parseText
+2021-01-23 19:46:50,435 - DEBUG - Using function conversionRate
+2021-01-23 19:46:50,435 - DEBUG - Using function convertUpdateElement
+2021-01-23 19:46:50,435 - DEBUG - Using function deductType
+2021-01-23 19:46:50,435 - DEBUG - Using function conversionRate
+2021-01-23 19:46:50,435 - DEBUG - Using function convertUpdateElement
+2021-01-23 19:46:50,435 - DEBUG - Using function deductType
+2021-01-23 19:46:50,435 - DEBUG - Using function checkCompletion
+2021-01-29 15:37:05,968 - DEBUG - Using function saveDocument
+2021-01-29 15:37:06,532 - DEBUG - Using function checkCompletion
+2021-01-29 15:37:06,533 - INFO - Expense data is complete. Ready for database injection.
+2021-01-29 15:37:06,533 - DEBUG - Using function injectData
+2021-01-29 15:37:06,541 - INFO - Expense 4519e219-fc4e-4eff-8685-06736981920a added to the databse for user thedropper
+2021-01-29 15:52:16,394 - DEBUG - Using function toMarkdown
+2021-01-29 15:52:16,394 - DEBUG - Using function totalPending
+2021-01-29 15:57:55,396 - INFO - Extracting all pending expenses from expenses db
+2021-01-29 15:57:55,399 - INFO - Creating a list of expense objects
+2021-01-29 15:57:55,400 - INFO - Opening the login page
+2021-01-29 15:57:55,400 - INFO - Logging in...
+2021-01-29 15:58:01,418 - INFO - Logged in
+2021-01-29 15:58:01,419 - INFO - Checking if an expense report exists
+2021-01-29 15:58:04,409 - INFO - Expense Report not found. Back to Home.
+2021-01-29 15:58:05,573 - INFO - Creating a new expense report
+2021-01-29 15:58:11,844 - INFO - Expense Report title added
+2021-01-29 15:58:11,845 - INFO - Opening the Add Expense form
+2021-01-29 15:58:16,897 - INFO - Adding expense 0
+2021-01-29 15:58:16,897 - INFO - Adding type: 17819687102
+2021-01-29 15:58:18,965 - INFO - Adding date: 29-1-2021
+2021-01-29 15:58:19,045 - INFO - Adding amount: 19,3
+2021-01-29 15:58:19,104 - INFO - Adding reason: //files.stripe.com/files/MDB8YWNjdF8xRTYza3JIUFhySWV1WENifGZfbGl2ZV81dXhnU2lSSWdLa3Rsdm1PZ3NMbzZxTWc00UFDcwpt5
+2021-01-29 15:58:19,424 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_278.jpg
+2021-01-29 15:58:31,070 - INFO - Adding WBS: BRCFR001
+2021-01-29 15:58:31,179 - INFO - Saving expense
+2021-01-29 15:58:38,535 - INFO - Expense correctly logged: 4519e219-fc4e-4eff-8685-06736981920a
+2021-01-29 15:58:38,535 - INFO - Closing the Add Expense form
+2021-01-29 15:58:40,586 - INFO - Saving the draft of expense report
+2021-01-29 15:58:45,309 - INFO - Logging out
+2021-01-29 16:16:32,959 - INFO - Initialising the classes
+2021-01-29 16:16:32,962 - INFO - Starting the bot
+2021-01-29 16:16:33,104 - INFO - Starting the server
+2021-01-29 16:16:33,105 - INFO - Server started
+2021-02-02 10:17:56,560 - DEBUG - Using function saveDocument
+2021-02-02 10:17:56,942 - DEBUG - Using function checkCompletion
+2021-02-02 10:17:56,942 - DEBUG - Using function parseText
+2021-02-02 10:17:56,942 - DEBUG - Using function conversionRate
+2021-02-02 10:17:56,942 - DEBUG - Using function conversionRate
+2021-02-02 10:17:56,942 - DEBUG - Using function convertUpdateElement
+2021-02-02 10:17:56,942 - DEBUG - Using function conversionRate
+2021-02-02 10:17:56,942 - DEBUG - Using function convertUpdateElement
+2021-02-02 10:17:56,942 - DEBUG - Using function deductType
+2021-02-02 10:17:56,942 - DEBUG - Using function checkCompletion
+2021-02-02 10:17:56,942 - INFO - Expense data is complete. Ready for database injection.
+2021-02-02 10:17:56,943 - DEBUG - Using function injectData
+2021-02-02 10:17:56,947 - INFO - Expense 4b2146c0-a719-4bc2-93f1-e9a2281200ac added to the databse for user thedropper
+2021-02-02 10:19:11,108 - DEBUG - Using function toMarkdown
+2021-02-02 10:19:11,111 - DEBUG - Using function totalPending
+2021-02-02 10:46:35,182 - INFO - Extracting all pending expenses from expenses db
+2021-02-02 10:46:35,183 - INFO - Creating a list of expense objects
+2021-02-02 10:46:35,183 - INFO - Opening the login page
+2021-02-02 10:46:35,183 - INFO - Logging in...
+2021-02-02 10:46:41,739 - INFO - Logged in
+2021-02-02 10:46:41,739 - INFO - Checking if an expense report exists
+2021-02-02 10:46:44,746 - INFO - Expense Report not found. Back to Home.
+2021-02-02 10:46:45,606 - INFO - Creating a new expense report
+2021-02-02 10:46:52,073 - INFO - Expense Report title added
+2021-02-02 10:46:52,073 - INFO - Opening the Add Expense form
+2021-02-02 10:46:57,118 - INFO - Adding expense 0
+2021-02-02 10:46:57,118 - INFO - Adding type: 17819687102
+2021-02-02 10:46:59,186 - INFO - Adding date: 02-2-2021
+2021-02-02 10:46:59,264 - INFO - Adding amount: 1152,36
+2021-02-02 10:46:59,329 - INFO - Adding reason: Lookback annual subscription
+2021-02-02 10:46:59,429 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_279.pdf
+2021-02-02 10:47:10,784 - INFO - Adding WBS: BRCFR001
+2021-02-02 10:47:10,873 - INFO - Saving expense
+2021-02-02 10:47:18,204 - INFO - Expense correctly logged: 4b2146c0-a719-4bc2-93f1-e9a2281200ac
+2021-02-02 10:47:18,205 - INFO - Closing the Add Expense form
+2021-02-02 10:47:20,252 - INFO - Saving the draft of expense report
+2021-02-02 10:47:24,872 - INFO - Logging out
+2021-02-02 11:28:41,521 - INFO - Opening the login page
+2021-02-02 11:28:41,521 - INFO - Logging in...
+2021-02-02 11:28:47,165 - INFO - Logged in
+2021-02-02 11:28:47,165 - INFO - Checking if an expense report exists
+2021-02-02 11:33:50,833 - ERROR - Could not perform checkExpenseReport. Error: Message: timeout
+  (Session info: headless chrome=88.0.4324.96)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-135-generic x86_64)
+
