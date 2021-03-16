@@ -3,6 +3,7 @@
 import sqlite3
 import time
 import uuid
+import pandas as pd
 
 class DBHelper:
     def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
@@ -76,6 +77,17 @@ class DBHelper:
         c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
 
         return c.fetchall()
+
+    def extract_all(self, activeUser):
+        '''Extracts all expenses from a specific user. 
+        Input: telegram handle
+        Output: list of tuples, one tuple per expense'''
+
+        query = 'SELECT * FROM items WHERE user="' + activeUser + '";'
+        rawResult = pd.read_sql_query(query, self.conn)
+
+        #Save csv export under a temporary name
+        rawResult.to_csv('temp.csv')
 
     def updateStatus(self, currentStatus, newStatus, telegram_username):
         '''

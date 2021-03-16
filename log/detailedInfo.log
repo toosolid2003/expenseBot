@@ -2058,3 +2058,136 @@
   (Session info: headless chrome=88.0.4324.96)
   (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.15.0-135-generic x86_64)
 
+2021-02-03 11:52:41,628 - INFO - Initialising the classes
+2021-02-03 11:52:41,630 - INFO - Starting the bot
+2021-03-04 11:28:03,751 - INFO - Initialising the classes
+2021-03-04 11:28:03,754 - INFO - Starting the bot
+2021-03-04 11:28:03,900 - INFO - Starting the server
+2021-03-04 11:28:03,902 - INFO - Server started
+2021-03-04 11:28:36,760 - INFO - Adding user thedropper to the users database
+2021-03-04 11:28:37,915 - ERROR - Error when creating user's folder. User: thedropper
+2021-03-04 11:36:25,882 - INFO - Initialising the classes
+2021-03-04 11:36:25,883 - INFO - Starting the bot
+2021-03-04 11:36:26,021 - INFO - Starting the server
+2021-03-04 11:36:26,022 - INFO - Server started
+2021-03-04 11:37:38,243 - INFO - Initialising the classes
+2021-03-04 11:37:38,244 - INFO - Starting the bot
+2021-03-04 11:37:38,391 - INFO - Starting the server
+2021-03-04 11:37:38,392 - INFO - Server started
+2021-03-04 11:38:40,306 - INFO - Initialising the classes
+2021-03-04 11:38:40,307 - INFO - Starting the bot
+2021-03-04 11:38:40,453 - INFO - Starting the server
+2021-03-04 11:38:40,455 - INFO - Server started
+2021-03-04 11:58:27,492 - INFO - Initialising the classes
+2021-03-04 11:58:27,493 - INFO - Starting the bot
+2021-03-04 11:58:27,644 - INFO - Starting the server
+2021-03-04 11:58:27,645 - INFO - Server started
+2021-03-04 11:58:29,849 - DEBUG - Using function saveDocument
+2021-03-04 11:58:30,381 - DEBUG - Using function checkCompletion
+2021-03-04 11:58:30,381 - DEBUG - Using function parseText
+2021-03-04 11:58:30,381 - DEBUG - Using function conversionRate
+2021-03-04 11:58:30,381 - DEBUG - Using function convertUpdateElement
+2021-03-04 11:58:30,381 - DEBUG - Using function conversionRate
+2021-03-04 11:58:30,382 - DEBUG - Using function convertUpdateElement
+2021-03-04 11:58:30,382 - DEBUG - Using function deductType
+2021-03-04 11:58:30,382 - DEBUG - Using function checkCompletion
+2021-03-04 11:58:30,383 - INFO - Expense data is complete. Ready for database injection.
+2021-03-04 11:58:30,383 - DEBUG - Using function injectData
+2021-03-04 11:58:30,387 - INFO - Expense 7b2aecd7-fcc8-4281-a26e-f533d7e4f64b added to the databse for user thedropper
+2021-03-04 12:25:02,195 - DEBUG - Using function parseText
+2021-03-04 12:25:02,196 - DEBUG - Using function conversionRate
+2021-03-04 12:25:02,196 - DEBUG - Using function conversionRate
+2021-03-04 12:25:02,197 - DEBUG - Using function convertUpdateElement
+2021-03-04 12:25:02,197 - DEBUG - Using function conversionRate
+2021-03-04 12:25:02,197 - DEBUG - Using function convertUpdateElement
+2021-03-04 12:25:02,198 - DEBUG - Using function deductType
+2021-03-04 12:25:02,198 - DEBUG - Using function checkCompletion
+2021-03-04 12:25:02,271 - DEBUG - Using function saveDocument
+2021-03-04 12:25:02,751 - DEBUG - Using function checkCompletion
+2021-03-04 12:25:02,754 - INFO - Expense data is complete. Ready for database injection.
+2021-03-04 12:25:02,754 - DEBUG - Using function injectData
+2021-03-04 12:25:02,758 - INFO - Expense e6432529-1508-40b8-9ee2-a0b5fc5202b0 added to the databse for user thedropper
+2021-03-04 12:28:30,341 - INFO - Extracting all pending expenses from expenses db
+2021-03-04 12:28:30,342 - INFO - Creating a list of expense objects
+2021-03-04 12:28:30,343 - INFO - Opening the login page
+2021-03-04 12:28:30,344 - INFO - Logging in...
+2021-03-04 12:28:36,484 - INFO - Logged in
+2021-03-04 12:28:36,486 - INFO - Checking if an expense report exists
+2021-03-04 12:28:39,116 - INFO - Expense Report not found. Back to Home.
+2021-03-04 12:28:39,809 - INFO - Creating a new expense report
+2021-03-04 12:28:46,220 - INFO - Expense Report title added
+2021-03-04 12:28:46,222 - INFO - Opening the Add Expense form
+2021-03-04 12:28:51,273 - INFO - Adding expense 0
+2021-03-04 12:28:51,273 - INFO - Adding type: 17819670115
+2021-03-04 12:28:53,350 - INFO - Adding date: 04-3-2021
+2021-03-04 12:28:53,434 - INFO - Adding amount: 12,0
+2021-03-04 12:28:53,495 - INFO - Adding reason: hotel
+2021-03-04 12:28:53,559 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_280.pdf
+2021-03-04 12:29:05,019 - INFO - Adding WBS: 000001
+2021-03-04 12:29:05,102 - INFO - Saving expense
+2021-03-04 12:29:12,415 - ERROR - Expense 7b2aecd7-fcc8-4281-a26e-f533d7e4f64b could not be saved
+2021-03-04 12:29:12,617 - INFO - Adding expense 1
+2021-03-04 12:29:12,618 - INFO - Adding type: 17819687102
+2021-03-04 12:29:14,679 - INFO - Adding date: 04-3-2021
+2021-03-04 12:29:14,756 - INFO - Adding amount: 5,87
+2021-03-04 12:29:14,832 - INFO - Adding reason: digital ocean
+2021-03-04 12:29:14,905 - INFO - Uploading receipt: /var/www/expenseBot/receipts/thedropper/file_281.pdf
+2021-03-04 12:29:26,263 - INFO - Adding WBS: 000001
+2021-03-04 12:29:26,348 - INFO - Saving expense
+2021-03-04 12:29:33,687 - ERROR - Expense e6432529-1508-40b8-9ee2-a0b5fc5202b0 could not be saved
+2021-03-04 12:29:33,908 - INFO - Closing the Add Expense form
+2021-03-04 12:29:35,956 - INFO - Saving the draft of expense report
+2021-03-04 12:29:40,493 - INFO - Logging out
+2021-03-12 16:02:33,132 - INFO - Initialising the classes
+2021-03-12 16:02:33,135 - INFO - Starting the bot
+2021-03-12 16:02:33,301 - INFO - Starting the server
+2021-03-12 16:02:33,303 - INFO - Server started
+2021-03-12 16:02:45,007 - DEBUG - Using function parseText
+2021-03-12 16:02:45,009 - DEBUG - Using function conversionRate
+2021-03-12 16:02:45,009 - DEBUG - Using function convertUpdateElement
+2021-03-12 16:02:45,009 - DEBUG - Using function deductType
+2021-03-12 16:02:45,009 - DEBUG - Using function checkCompletion
+2021-03-12 16:03:37,045 - INFO - Initialising the classes
+2021-03-12 16:03:37,046 - INFO - Starting the bot
+2021-03-12 16:03:37,259 - INFO - Starting the server
+2021-03-12 16:03:37,264 - INFO - Server started
+2021-03-12 16:03:38,699 - DEBUG - Using function parseText
+2021-03-12 16:03:38,701 - DEBUG - Using function conversionRate
+2021-03-12 16:03:38,701 - DEBUG - Using function convertUpdateElement
+2021-03-12 16:03:38,702 - DEBUG - Using function deductType
+2021-03-12 16:03:38,702 - DEBUG - Using function checkCompletion
+2021-03-16 09:28:16,591 - INFO - Initialising the classes
+2021-03-16 09:28:16,594 - INFO - Starting the bot
+2021-03-16 09:28:16,761 - INFO - Starting the server
+2021-03-16 09:28:16,763 - INFO - Server started
+2021-03-16 09:28:44,892 - DEBUG - Using function saveDocument
+2021-03-16 09:28:45,523 - DEBUG - Using function checkCompletion
+2021-03-16 09:28:45,525 - DEBUG - Using function parseText
+2021-03-16 09:28:45,526 - DEBUG - Using function conversionRate
+2021-03-16 09:28:45,526 - DEBUG - Using function conversionRate
+2021-03-16 09:28:45,526 - DEBUG - Using function convertUpdateElement
+2021-03-16 09:28:45,526 - DEBUG - Using function conversionRate
+2021-03-16 09:28:45,526 - DEBUG - Using function convertUpdateElement
+2021-03-16 09:28:45,527 - DEBUG - Using function deductType
+2021-03-16 09:28:45,527 - DEBUG - Using function checkCompletion
+2021-03-16 09:28:45,527 - INFO - Expense data is complete. Ready for database injection.
+2021-03-16 09:28:45,527 - DEBUG - Using function injectData
+2021-03-16 09:28:45,531 - INFO - Expense 0e809611-02e6-4fcd-92db-96284f85f898 added to the databse for user thedropper
+2021-03-16 09:33:07,265 - INFO - Initialising the classes
+2021-03-16 09:33:07,267 - INFO - Starting the bot
+2021-03-16 09:33:21,567 - INFO - Initialising the classes
+2021-03-16 09:33:21,568 - INFO - Starting the bot
+2021-03-16 09:33:21,710 - INFO - Starting the server
+2021-03-16 09:33:21,711 - INFO - Server started
+2021-03-16 09:38:24,419 - INFO - Initialising the classes
+2021-03-16 09:38:24,425 - INFO - Starting the bot
+2021-03-16 09:38:24,583 - INFO - Starting the server
+2021-03-16 09:38:24,588 - INFO - Server started
+2021-03-16 09:41:17,393 - INFO - Initialising the classes
+2021-03-16 09:41:17,394 - INFO - Starting the bot
+2021-03-16 09:41:17,535 - INFO - Starting the server
+2021-03-16 09:41:17,537 - INFO - Server started
+2021-03-16 09:42:48,676 - INFO - Initialising the classes
+2021-03-16 09:42:48,677 - INFO - Starting the bot
+2021-03-16 09:42:48,831 - INFO - Starting the server
+2021-03-16 09:42:48,835 - INFO - Server started

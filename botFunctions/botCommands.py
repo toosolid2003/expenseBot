@@ -8,7 +8,7 @@ from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Fi
 import telegram
 import os
 from logger.logger import logger
-
+import time
 
 # Database helpers
 #################################################################
@@ -38,107 +38,14 @@ def commandTrack(func):
 # Commands
 #################################################################
 
-@commandTrack
-def wbs(update, context):
-    '''Adds a new wbs to the wbs table.
-    Changes the older wbs status to "active". If no wbs is provided as input,
-    the command displays the current primary WBS against which expenses are logged'''
-
-
-    
-    if len(context.args) > 0:
-        #Adding a new wbs
-        logger.info('Adding new wbs')
-
-
-        newWBS = context.args[0].upper()
-
-        #Changing the status of the former primary wbs to "active"
-        old_primary_wbs = db.get_wbs(update.message.chat.username)
-        db.update_wbs(update.message.chat.username, old_primary_wbs, "active")
-
-        #Creating a new wbs in the wbs table with primary status
-        db.add_wbs(update.message.chat.username, newWBS, "primary")
-
-        #Communicating the changes to the user.
-        wbs = db.get_wbs(update.message.chat.username)
-        update.message.reply_text('Your new default WBS for expenses: {}'.format(wbs))
-
-
-        #Check if the wbs is valid
-        isWbsValid = wbsCheck(update.message.chat.username, wbs)
-        if not isWbsValid:
-            update.message.reply_text('There is a little problem with this wbs. Whether you are not allowed to use it or maybe the code is invalid, but it does not seem to be working for you. Try to update it again or just reach out to your manager to make sure you can use it.')
-    else:
-        try:
-            logger.info('{} is checking for existing wbs'.format(update.message.chat.username))
-            wbs = db.get_wbs(update.message.chat.username)
-            update.message.reply_text('Your current WBS for expenses is {}'.format(wbs))
-        except:
-            update.message.reply_text("You don't have a WBS assigned yet. Please type '/wbs xxxx' (xxxx being your wbs number) to be able to record your business expenses.")
-
-
-@commandTrack
-def submit(update, context):
-    '''Submit into IQ Navigtor the expenses that are still in pending status'''
-    
-    result = True
-    result = submitJob(update.message.chat.username)
-    if result:
-        update.message.reply_text('Alright, your expenses have been submitted for approval')
-        db.updateStatus('logged','submitted', update.message.chat.username)
-    else:
-        update.message.reply_text('The submission seems to have failed. I won\'t be able to help from here, so I suggest you have a look on IQ Navigator to sort it out.')
 
 
 @commandTrack
 def helpmsg(update, context):
-    text = '''To log an expense, send me an amount (number), a reason (text) and a receipt (a picture or document). 
-I have other talents too, just type '/' to display my available commands. Enjoy!'''
+    text = '''To record an expense, just type in the amount, a curreny, a reason and attach a picture or document as receipt.
+    Example: "19 usd, hotel California" -> hit send then just share a picture of the receipt with the bot'''
     update.message.reply_text(text)
 
-
-@commandTrack
-def status(update, context):
-    '''Returns a list of pending expenses for current Telegram user'''
-    
-    currentExpenses = db.extract_expenses(update.message.chat.username, 'logged')
-    currentExpenses += db.extract_expenses(update.message.chat.username, 'pending')
-
-    if currentExpenses:
-        text = 'Here are the expenses that I have recorded for you:\n\n'
-        text += toMarkdown(currentExpenses)
-        text += '\n Total: {} CHF'.format(round(totalPending(currentExpenses),2))
-        update.message.reply_text(text)
-
-    else:
-        update.message.reply_text('I don\'t have any expenses for you. They must all be in IQ Navigator already :)')
-
-@commandTrack
-def iqn(update, context):
-    '''Update IQ Navigator credentials'''
-
-    if len(context.args) > 0:
-        iq_username = context.args[0]
-        iq_password = context.args[1]
-
-        #Pull the iqn username corresponding to the username
-        creds = db.get_credentials(update.message.chat.username)
-
-        #Username is in first position in the result lists (creds)
-        if creds[0] == iq_username:
-            logger.info(f'The IQ username provided, "{iq_username}", belongs to the user: confirmed.')
-            db.update_iq_creds(update.message.chat.username, iq_username, iq_password)     
-            logger.info('IQ Credentials update for %s', update.message.chat.username)
-            update.message.reply_text('Your IQ Navigator credentials have been updated. Thanks!')
-        
-        else:
-            logger.info(f'The IQ username "{iq_username}" does not belong to the user or could not be found.')
-            update.message.reply_text(f'I am sorry, The username you provided does not appear to exist '
-            f'or does not belong to you. Double check your IQ username and try again :).')
-
-    else:
-        update.message.reply_text('type "/iqn username password" to update your IQ credentials')
 
 #Conversation commands
 #################################################################
@@ -146,20 +53,23 @@ def iqn(update, context):
 # First Sign up process
 
 #EMAIL, IQUSERNAME, IQPASSWORD, CURRENCY, WBS = range(5)
-EMAIL, CURRENCY, WBS = range(3)
+EMAIL, CURRENCY = range(2)
 
 
 @commandTrack
 def start(update, context):
     """Handles the setup process"""
-    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recording business expenses, I will need fo finish the sign-up process with you. If you have not registsred yet, have a look on our website (www.expensebot.net/signup). ")
-    update.message.reply_text("It will take 1 min, but you can stop at any point by typing '/stop'. Let's start! Can you confirm the email address you want to use?")
+    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recording business expenses, I will need to set you up." )
+    message = (f"It will take 1 minute, but you can stop at any point by typing /stop. \n"
+                "First, I need an email. I will use this email to send you the expense reports you request via /export.\n"
+                "Ok. What email should I use?")
+    update.message.reply_text(message)
     return EMAIL
 
 
 @commandTrack
 def email(update, context):
-    """Verifying the email given to the bot with a list of registered emails in the web"""
+    """Verifying the email given to the bot""" 
 
     email = update.message.text
     if '/stop' in email:
@@ -167,7 +77,7 @@ def email(update, context):
         return ConversationHandler.END
     else:
         #Check with web database if the email is registered
-        update.message.reply_text('Thanks for your email, {}, and welcome back.'.format(email))
+        update.message.reply_text('Thanks for your email, {}.'.format(email))
         context.user_data['email'] = email
         update.message.reply_text('Now, what currency should I use to record your expenses?')
         keyboard = [['EUR','CHF','USD'],
@@ -178,44 +88,6 @@ def email(update, context):
         telegram.ReplyKeyboardRemove()
 
     return CURRENCY
-
-
-
-
-#@commandTrack
-#def iqusername(update, context):
-#    """Gimme your IQ username"""
-#    username = update.message.text
-#
-#    if '/stop' in username:
-#        update.message.reply_text("Let's stop then. Remember: I will still need at least a wbs to start recording your business expenses. \nYou can send it to me using the '/wbs' command. For instance, '/wbs yourWbsHere'.")
-#        return ConversationHandler.END
-#    else:
-#        context.user_data['iq_username'] = username
-#        update.message.reply_text('Thanks for your username. What would your password be?')
-#
-#    return IQPASSWORD
-#
-#
-#
-#@commandTrack
-#def iqpassword(update, context):
-#    """Gimme your password"""
-#
-#    context.user_data['password'] = update.message.text
-#    if '/stop' in context.user_data['password']:
-#        update.message.reply_text("Ok, let's stop here. You can restart the process anytime by typing '/start'.")
-#        return ConversationHandler.END
-#
-#    else:
-#        update.message.reply_text('Thanks. Now, what currency should I use to record your expenses?')
-#        keyboard = [['EUR','CHF','USD'],
-#                ['NZD','AUD','CAD']]
-#        reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-#        bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
-#
-#    return CURRENCY
-#
 
 @commandTrack
 def currency(update, context):
@@ -230,31 +102,23 @@ def currency(update, context):
 
     else:
         context.user_data['currency'] = update.message.text
-        update.message.reply_text('Thanks for that. Last thing: I need a wbs to start recording your expenses. It is not definitive, you can always change it by using the "/wbs" command. Ok, what is your current WBS?')
+        update.message.reply_text('Thanks for that. Now, let me add you to our list of users.')
 
-    return WBS
-
-
-@commandTrack
-def wbsSetup(update, context):
-    """Captures a WBS code and records the data in the users table"""
-
-    wbs = update.message.text
-
-    if '/stop' in wbs:
-        update.message.reply_text("No worrie, let's stop here. You will need to send me a wbs though, otherwise I won't be able to record your business expenses. You can add or change the current wbs using the /wbs command.")
-    else:
         #Adding the new user to the users database now
         telegramUsername = update.message.chat.username
-        #iq_username = context.user_data['iq_username']
-        #iq_password = context.user_data['password']
         email = context.user_data['email']
         currency = context.user_data['currency']
 
-        
+        #Fake data to make sure the add_user function does not raise an exception
+        wbs = '000000'
+        iq_username = 'rando'
+        iq_password = 'rando'
+
         logger.info('Adding user %s to the users database', telegramUsername)
-       # db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
-        update.message.reply_text('Thanks for the WBS ({}), and congrats, you are now all set!'.format(wbs))
+        db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
+        time.sleep(1)
+        update.message.reply_text('Congrats, you are now all set!')
+
         #Creating a specific folder to save user's receipts
         try:
             path = '/var/www/expenseBot/receipts/' + telegramUsername
@@ -263,89 +127,13 @@ def wbsSetup(update, context):
             logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
  
 
-       
-        #Checking the validity of the WBS
-        isWbsValid = wbsCheck(update.message.chat.username, wbs)
-
-        if not isWbsValid:
-            update.message.reply_text('Your WBS does not seem to be working for you. Make sure it is activated before I can record any expense for you! Check this with your manager, maybe? \nPlease use the /wbs command if you need to change your wbs.')
-
-
     return ConversationHandler.END
-
 
 @commandTrack
 def stopit(update, context):
-    update.message.reply_text('Ok, I stop now')
+    update.message.reply_text("I am stopping now")
 
-    return ConversationHandler.END
-
-####### Conversation to reallocate an expense to another wbs.
-CHOSENWBS, DEFAULTWBS, CHANGEWBS = range(3)
-
-def reallocate(update, context):
-    """Conversation to reallocate an expense to another wbs"""
-
-    #Preparing the keyboard
-    update.message.reply_text("OK, let's reassign this expense.")
-    activeWbs = db.get_active_wbs(update.message.chat.username)
-    keyboard = [activeWbs]
-    choice = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-    
-    #Send reply with keyboard
-    bot.send_message(chat_id=update.message.chat.id, reply_markup=choice, text='Choose the wbs below')
-
-    return CHOSENWBS
-
-def chosenWbs(update, context):
-    
-    # Removing the custom keyboard
-    telegram.ReplyKeyboardRemove() 
-
-    # Storing the wbs to reallocate the expense to
-    context.user_data["reallocatedWbs"] = update.message.text
-
-    # Extracting all pending expenses for the user and selecting the uid of the last expense
-    pendingExpenses = db.extract_expenses(update.message.chat.username, 'pending')
-    lastExpenseId = pendingExpenses[-1][-1]
-
-    # Updating the last expense with a new wbs
-    db.update_item_wbs(context.user_data["reallocatedWbs"], lastExpenseId)
-    update.message.reply_text("Alright, I have reallocated your expense successfuly.")
-
-    return DEFAULTWBS
-
-def defaultWbs(update, context):
-    """Asking user to change the default/primary wbs"""
-
-    #Preparing the keyboard
-    keyboard = ['Yes','No']
-    choice = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-
-    #Asking the question with keyboard as possible answers
-    bot.send_message(chat_id=update.message.chat.id, reply_markup=choice, text='Do you want to make this wbs your default one?')
-
-    return CHANGEWBS
-
-def changeWbs(update, context):
-    """Change the default/primary wbs if the user reponded yes on the DEFAULTwbs step"""
-
-    #Capturing the user's response
-    response = update.message.text
-    
-    if response == 'Yes':
-        #Demote the current default/primary wbs to active
-        activeWbs = db.get_wbs(update.message.chat.username)
-        db.update_wbs(update.message.chat.username, activeWbs,"active")
-
-        #Assign reallocated wbs as default/primary wbs for the user
-        db.update_wbs(update.message.chat.username, context.user_data["reallocatedWbs"],"primary")
-        
-        #Respond to user
-        update.message.reply_text('{} is now your default wbs.'.format(context.user_data["reallocatedWbs"]))
-
-    #Do nothing if "no"
-    else:
-        update.message.reply_text("Ok, I won't change your default wbs.")
-
-    return ConversationHandler.END
+@commandTrack
+def export(update, context):
+    db.extract_all(update.message.chat.username)
+    update.message.reply_text('I have exported all your expenses in a csv file')

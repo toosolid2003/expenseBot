@@ -41,7 +41,9 @@ def photoCapture(update, context):
 
     #Second the wbs
     try: 
-        context.user_data['wbs'] = db.get_wbs(user)
+#        context.user_data['wbs'] = db.get_wbs(user)
+        context.user_data['wbs'] = '000001'
+
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
@@ -52,8 +54,7 @@ def photoCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)     
-        update.message.reply_text('''Thanks, I have recorded your expense on wbs {}
-If you need to change the wbs allocation, just type /reallocate now'''.format(context.user_data['wbs']))
+        update.message.reply_text('''Thanks, I have recorded your expense correctly.''')
         context.user_data.clear()
 
 
@@ -83,7 +84,9 @@ def textCapture(update, context):
 
     # Add the wbs to context.user_data
     try: 
-       context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
+       #context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
+       context.user_data['wbs'] = '000001'
+
     except KeyError:
         update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
     except Exception as e:
@@ -94,8 +97,7 @@ def textCapture(update, context):
     if isComplete:
         logger.info('Expense data is complete. Ready for database injection.')
         expId = injectData(context.user_data)
-        update.message.reply_text("""Thanks for this, I recorded your expense on wbs {}.
-Type /reallocate to assign this expense to another wbs.""".format(context.user_data['wbs']))
+        update.message.reply_text('''Thanks, I have recorded your expense correctly.''')
         context.user_data.clear()
 
 ##########################################################################################################
@@ -123,30 +125,17 @@ conv_handler = ConversationHandler(
     entry_points=[CommandHandler('start', start)],
     states = {EMAIL: [MessageHandler(Filters.text, email)],
         CURRENCY: [MessageHandler(Filters.text, currency)],
-        WBS: [MessageHandler(Filters.text, wbsSetup)],
         },
     fallbacks=[CommandHandler('stopit', stopit)]
     )
 
-#Initiate the "reallocate" conversation handler
-reallocate_conv = ConversationHandler(
-    entry_points=[CommandHandler('reallocate', reallocate)],
-    states = {CHOSENWBS: [MessageHandler(Filters.text, chosenWbs)],
-    DEFAULTWBS: [MessageHandler(Filters.text, defaultWbs)],
-    CHANGEWBS: [MessageHandler(Filters.text, changeWbs)],
-    },
-    fallbacks=[CommandHandler('stopit', stopit)],
-    conversation_timeout=20
-)
-
 #Registering handlers
+
 dispatcher.add_handler(conv_handler)
-dispatcher.add_handler(reallocate_conv)
 dispatcher.add_handler(CommandHandler('help', helpmsg))
-dispatcher.add_handler(CommandHandler('wbs', wbs))
-dispatcher.add_handler(CommandHandler('submit', submit))
-dispatcher.add_handler(CommandHandler('status', status))
-dispatcher.add_handler(CommandHandler('iqn', iqn))
+#dispatcher.add_handler(CommandHandler('status', status))
+dispatcher.add_handler(CommandHandler('export', export))
+
 dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
 dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
