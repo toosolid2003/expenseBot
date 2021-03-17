@@ -81,13 +81,15 @@ class DBHelper:
     def extract_all(self, activeUser):
         '''Extracts all expenses from a specific user. 
         Input: telegram handle
-        Output: list of tuples, one tuple per expense'''
+        Output: saved csv file in a dedicated user folder''' 
 
         query = 'SELECT * FROM items WHERE user="' + activeUser + '";'
         rawResult = pd.read_sql_query(query, self.conn)
 
         #Save csv export under a temporary name
-        rawResult.to_csv('temp.csv')
+        path = '/var/www/expenseBot/exports/' + activeUser + '/'
+        filename = path + 'export.csv'
+        rawResult.to_csv(filename)
 
     def updateStatus(self, currentStatus, newStatus, telegram_username):
         '''

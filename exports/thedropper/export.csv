@@ -1,0 +1,53 @@
+,uid,amount,date_expense,reason,status,wbs,type,receipt,user
+0,f74b91a6-a9b9-4292-9a27-586965058291,3.0,15-5-2020,hotel la pras,submitted,BMWD4001,17819670115,/var/www/expenseBot/receipts/thedropper/file_216.jpg,thedropper
+1,af9ccc3c-1be2-4ffc-8826-6802e39147c6,1.1,18-5-2020,pooka hotel,submitted,BMWD4001,17819670115,/var/www/expenseBot/receipts/thedropper/file_217.jpg,thedropper
+2,e2c6cec4-84c9-43f5-b0b0-8d13622d2001,2.2,18-5-2020,expense added,submitted,BMWD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_218.jpg,thedropper
+3,dd6f1193-825c-4df9-b112-d3eb38a1b931,3.4,18-5-2020,kraken hotel,submitted,BMWD4001,17819670115,/var/www/expenseBot/receipts/thedropper/file_219.jpg,thedropper
+4,43bedf71-bced-49f7-9637-f93e8a5524ea,4.4,18-5-2020,jysk,submitted,BMWD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_220.jpg,thedropper
+5,1350db91-f392-47fb-97bc-bfa45fc25b2f,4.0,19-5-2020,test capture,submitted,BMWD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_221.jpg,thedropper
+6,360fa0c8-a198-4e79-8305-e75d56525586,3.3,23-5-2020,whooa test,submitted,BMWD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_223.png,thedropper
+7,68a61d9d-5b08-4536-b11d-a161c6de713f,1.1,23-5-2020,hotel,submitted,BMWD4001,17819670115,/var/www/expenseBot/receipts/thedropper/file_224.png,thedropper
+8,ba4a7496-3696-442d-b360-f73db7f3796c,44.52,23-5-2020,computer hardware,submitted,BMWD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_225.jpg,thedropper
+9,c23e09bd-dcdd-413b-b44c-a89ff01154fe,22.13,05-6-2020,Restaurant Praxis,error,BNB7C001,17819687015,/var/www/expenseBot/receipts/thedropper/file_227.jpg,thedropper
+10,dc16286b-1c66-47d8-948e-280b13efb025,22.13,05-6-2020,computer hardware,error,XXXXXX,17819687102,/var/www/expenseBot/receipts/thedropper/file_227.jpg,thedropper
+11,d6d50bfd-2e94-4dac-8f44-fc9e01912f1a,49.9,05-6-2020,Computer hardware,error,XXXXXX,17819687102,/var/www/expenseBot/receipts/thedropper/file_227.jpg,thedropper
+12,51bd2487-8c26-4d08-bd8d-750e2e62efb9,14.57,05-6-2020,lunch with Dan,error,XXXXXX,17819687015,/var/www/expenseBot/receipts/thedropper/file_228.jpg,thedropper
+13,9c4a772e-ad00-4577-aaf7-dd022094ac78,32.3,09-6-2020,restau,error,XXXXXX,17819687015,/var/www/expenseBot/receipts/thedropper/file_229.jpg,thedropper
+14,63c880c9-3949-40af-aa5b-197f5fe1cdd2,1.0,15-6-2020,hotel,submitted,APO2E300,17819670115,/var/www/expenseBot/receipts/thedropper/file_230.jpg,thedropper
+15,970890ed-5722-4ff6-8d35-714e49670ca1,1.0,21-6-2020,test log,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_231.jpg,thedropper
+16,34c07d16-c026-45cc-8a9d-23976f500c1b,2.0,21-6-2020,biggy hotel,submitted,APO2E300,17819670115,/var/www/expenseBot/receipts/thedropper/file_232.jpg,thedropper
+17,a6b3074c-128b-41f4-a471-0d944b611402,3.0,21-6-2020,hotel n,submitted,APO2E300,17819670115,/var/www/expenseBot/receipts/thedropper/file_233.jpg,thedropper
+18,45417938-ab86-42fc-bfd2-5ad80ff4c47a,1.0,21-6-2020,hb,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_234.jpg,thedropper
+19,73da5dca-b8bb-4efc-8a8a-ce535f12b42b,1.0,22-6-2020,hôtel,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_235.jpg,thedropper
+20,9151c1ce-3349-4f87-875a-d0e4af443e0e,1.0,29-6-2020,restau,submitted,APO2E300,17819687015,/var/www/expenseBot/receipts/thedropper/file_236.jpg,thedropper
+21,4ced580c-e9f3-4f99-b460-f2d605fc3dd0,344.11,12-7-2020,flight Zürich,submitted,APO2E300,17819684336,/var/www/expenseBot/receipts/thedropper/file_238.pdf,thedropper
+22,7388b760-d3ec-4c2d-b387-41815a4d66d2,136.6,13-7-2020,Hôtel Zurich 15/07,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_239.pdf,thedropper
+23,713f96e3-c39a-4c97-8cb6-fcc42db0bb1b,19.39,23-7-2020,omniplan license,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_240.pdf,thedropper
+24,0d426b30-f7b5-41a4-acb1-db858b0bb2f5,86.57,26-7-2020,car rental,submitted,APO2E300,17819687102,/var/www/expenseBot/receipts/thedropper/file_241.pdf,thedropper
+25,afa35c88-2051-452d-86ea-f7286de94fd9,86.26,26-7-2020,rental car,submitted,APO2E300,107851819,/var/www/expenseBot/receipts/thedropper/file_244.pdf,thedropper
+26,8cef0b11-a7ce-42b0-9e1e-7bc6c96bfc1a,1.0,12-8-2020,car rental,error,APO2E300,107851819,/var/www/expenseBot/receipts/thedropper/file_245.jpg,thedropper
+27,74e93d8f-2752-4d4f-96c9-43c5158ac472,2.0,12-8-2020,hotel,error,APO2E300,17819670115,/var/www/expenseBot/receipts/thedropper/file_246.jpg,thedropper
+28,8306e3b0-2f6e-474a-a29f-23f2e7d055b0,3.0,12-8-2020,restau,error,APO2E300,17819687015,/var/www/expenseBot/receipts/thedropper/file_247.jpg,thedropper
+29,263b580c-ff3e-4a2a-901c-86764a2d46cd,178.41,14-8-2020,flight Basel and back,submitted,GA309011,17819684336,/var/www/expenseBot/receipts/thedropper/file_248.pdf,thedropper
+30,d05cfd27-2c8a-4c8b-86c6-dd911fad7d42,132.82,18-8-2020,hotel Basel,submitted,GA309011,17819670115,/var/www/expenseBot/receipts/thedropper/file_255.pdf,thedropper
+31,f8664d37-e21e-424b-9ee2-d3666284e374,154.6,18-8-2020,hotel Zurich,submitted,GA309011,17819670115,/var/www/expenseBot/receipts/thedropper/file_256.pdf,thedropper
+32,5831b605-3ae3-4f53-849a-02048ef66440,6.1,19-8-2020,bus Basel airport,submitted,GA309011,17819688948,/var/www/expenseBot/receipts/thedropper/file_257.jpg,thedropper
+33,0b5da761-1133-4874-8616-6a236898275c,267.12,19-8-2020,flight Zurich-Amsterdam,submitted,GA309011,17819684336,/var/www/expenseBot/receipts/thedropper/file_258.pdf,thedropper
+34,acee9ea5-7acd-4956-a747-53359020b05e,34.0,20-8-2020,train to Zurich,submitted,GA309011,17819688948,/var/www/expenseBot/receipts/thedropper/file_265.jpg,thedropper
+35,63a4259c-56fb-4eb2-92a8-b9977b254839,26.0,20-8-2020,train upgrade,submitted,GA309011,17819688948,/var/www/expenseBot/receipts/thedropper/file_266.jpg,thedropper
+36,b18e3450-b864-42e3-a4eb-30b55156145d,19.39,23-8-2020,omniplan license,submitted,BOVT0001,17819687102,/var/www/expenseBot/receipts/thedropper/file_267.pdf,thedropper
+37,31c9e982-644c-405a-ba52-6eb43c326a8a,19.39,23-9-2020,Omniplan subscription,submitted,BOVT0001,17819687102,/var/www/expenseBot/receipts/thedropper/file_268.pdf,thedropper
+38,ebfb27ed-99a6-444f-923c-24f9b570ca56,19.39,23-10-2020,omniplan subscription,submitted,GA309011,17819687102,/var/www/expenseBot/receipts/thedropper/file_269.pdf,thedropper
+39,92ed39b1-e211-43ea-9333-ffaf5d47a2d4,14.55,27-10-2020,figma subscription,submitted,GA309011,17819687102,/var/www/expenseBot/receipts/thedropper/file_270.pdf,thedropper
+40,46bab1d1-f676-4d17-b375-5dd4a3d2bc2a,14.55,09-11-2020,Figma subscription,submitted,BOPD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_271.pdf,thedropper
+41,335b788e-42fd-4a9d-9538-4494d9e9169d,19.39,23-11-2020,omniplan subscription,submitted,BOPD4001,17819687102,/var/www/expenseBot/receipts/thedropper/file_272.pdf,thedropper
+42,c6f8bacf-2406-47f0-bc90-6897156661d5,14.55,27-11-2020,Figma subscription,submitted,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_273.pdf,thedropper
+43,896a8178-55c9-456e-b3ae-36a50cabcc8b,698.4,07-12-2020,figma yearly subscription,submitted,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_274.pdf,thedropper
+44,51eb2c01-7bf2-492f-a3db-a57fabb12eaa,2095.2,18-12-2020,Figma upgrade to organization,submitted,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_275.pdf,thedropper
+45,2c8e7615-f0c1-40c0-b1b6-493a15f50b89,11.64,19-12-2020,hotel geneve,submitted,BRCFR001,17819670115,/var/www/expenseBot/receipts/thedropper/file_276.png,thedropper
+46,0ea376c1-e8d6-4d5c-aebc-3aa6b5b5d518,0.97,16-1-2021,test,submitted,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_277.jpg,thedropper
+47,4519e219-fc4e-4eff-8685-06736981920a,19.3,29-1-2021,//files.stripe.com/files/MDB8YWNjdF8xRTYza3JIUFhySWV1WENifGZfbGl2ZV81dXhnU2lSSWdLa3Rsdm1PZ3NMbzZxTWc00UFDcwpt5,submitted,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_278.jpg,thedropper
+48,4b2146c0-a719-4bc2-93f1-e9a2281200ac,1152.36,02-2-2021,Lookback annual subscription,logged,BRCFR001,17819687102,/var/www/expenseBot/receipts/thedropper/file_279.pdf,thedropper
+49,7b2aecd7-fcc8-4281-a26e-f533d7e4f64b,12.0,04-3-2021,hotel,error,000001,17819670115,/var/www/expenseBot/receipts/thedropper/file_280.pdf,thedropper
+50,e6432529-1508-40b8-9ee2-a0b5fc5202b0,5.87,04-3-2021,digital ocean,error,000001,17819687102,/var/www/expenseBot/receipts/thedropper/file_281.pdf,thedropper
+51,0e809611-02e6-4fcd-92db-96284f85f898,0.97,16-3-2021,hotel,pending,000001,17819670115,/var/www/expenseBot/receipts/thedropper/file_282.jpg,thedropper

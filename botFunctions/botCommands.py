@@ -113,6 +113,7 @@ def currency(update, context):
         wbs = '000000'
         iq_username = 'rando'
         iq_password = 'rando'
+        ###########################################################################
 
         logger.info('Adding user %s to the users database', telegramUsername)
         db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
@@ -122,6 +123,8 @@ def currency(update, context):
         #Creating a specific folder to save user's receipts
         try:
             path = '/var/www/expenseBot/receipts/' + telegramUsername
+            os.mkdir(path)
+            path = '/var/www/expenseBot/exports/' + telegramUsername
             os.mkdir(path)
         except:
             logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
