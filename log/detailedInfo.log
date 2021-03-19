@@ -2199,3 +2199,124 @@
 2021-03-17 09:47:10,902 - INFO - Starting the bot
 2021-03-17 09:47:11,047 - INFO - Starting the server
 2021-03-17 09:47:11,048 - INFO - Server started
+2021-03-17 13:54:43,846 - INFO - Initialising the classes
+2021-03-17 13:54:43,847 - INFO - Starting the bot
+2021-03-17 13:54:44,023 - INFO - Starting the server
+2021-03-17 13:54:44,027 - INFO - Server started
+2021-03-17 13:56:11,312 - INFO - Initialising the classes
+2021-03-17 13:56:11,315 - INFO - Starting the bot
+2021-03-17 13:56:11,475 - INFO - Starting the server
+2021-03-17 13:56:11,479 - INFO - Server started
+2021-03-17 15:11:41,232 - INFO - Initialising the classes
+2021-03-17 15:11:41,233 - INFO - Starting the bot
+2021-03-17 15:11:41,392 - INFO - Starting the server
+2021-03-17 15:11:41,394 - INFO - Server started
+2021-03-19 15:56:18,309 - INFO - Initialising the classes
+2021-03-19 15:56:18,312 - INFO - Starting the bot
+2021-03-19 15:56:18,462 - INFO - Starting the server
+2021-03-19 15:56:18,464 - INFO - Server started
+2021-03-19 15:56:20,649 - DEBUG - Using function toMarkdown
+2021-03-19 15:59:34,476 - INFO - Initialising the classes
+2021-03-19 15:59:34,477 - INFO - Starting the bot
+2021-03-19 15:59:34,645 - INFO - Starting the server
+2021-03-19 15:59:34,655 - INFO - Server started
+2021-03-19 15:59:45,480 - DEBUG - Using function toMarkdown
+2021-03-19 16:00:40,280 - INFO - Initialising the classes
+2021-03-19 16:00:40,281 - INFO - Starting the bot
+2021-03-19 16:00:40,427 - INFO - Starting the server
+2021-03-19 16:00:40,429 - INFO - Server started
+2021-03-19 16:00:43,320 - DEBUG - Using function toMarkdown
+2021-03-19 16:01:14,688 - INFO - Initialising the classes
+2021-03-19 16:01:14,689 - INFO - Starting the bot
+2021-03-19 16:01:14,717 - INFO - Starting the server
+2021-03-19 16:01:14,719 - INFO - Server started
+2021-03-19 16:01:16,763 - DEBUG - Using function toMarkdown
+2021-03-19 16:03:39,611 - INFO - Initialising the classes
+2021-03-19 16:03:39,612 - INFO - Starting the bot
+2021-03-19 16:03:39,778 - INFO - Starting the server
+2021-03-19 16:03:39,780 - INFO - Server started
+2021-03-19 16:03:41,793 - DEBUG - Using function saveDocument
+2021-03-19 16:03:42,331 - DEBUG - Using function checkCompletion
+2021-03-19 16:03:42,333 - DEBUG - Using function parseText
+2021-03-19 16:03:42,334 - DEBUG - Using function conversionRate
+2021-03-19 16:03:42,334 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:03:42,335 - DEBUG - Using function conversionRate
+2021-03-19 16:03:42,335 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:03:42,335 - DEBUG - Using function deductType
+2021-03-19 16:03:42,335 - DEBUG - Using function checkCompletion
+2021-03-19 16:03:42,335 - INFO - Expense data is complete. Ready for database injection.
+2021-03-19 16:03:42,335 - DEBUG - Using function injectData
+2021-03-19 16:03:42,338 - INFO - Expense 5a2ae29a-aa47-4808-a5a5-73aba19b01de added to the databse for user thedropper
+2021-03-19 16:03:42,491 - DEBUG - Using function saveDocument
+2021-03-19 16:03:42,736 - DEBUG - Using function checkCompletion
+2021-03-19 16:03:42,739 - DEBUG - Using function parseText
+2021-03-19 16:03:42,739 - DEBUG - Using function conversionRate
+2021-03-19 16:03:42,739 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:03:42,740 - DEBUG - Using function conversionRate
+2021-03-19 16:03:42,740 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:03:42,740 - DEBUG - Using function deductType
+2021-03-19 16:03:42,741 - DEBUG - Using function checkCompletion
+2021-03-19 16:03:42,742 - INFO - Expense data is complete. Ready for database injection.
+2021-03-19 16:03:42,742 - DEBUG - Using function injectData
+2021-03-19 16:03:42,745 - INFO - Expense 0860d4f4-4d54-44ae-be05-fbd1732eadf6 added to the databse for user thedropper
+2021-03-19 16:04:05,299 - DEBUG - Using function saveDocument
+2021-03-19 16:04:05,729 - DEBUG - Using function checkCompletion
+2021-03-19 16:04:05,730 - DEBUG - Using function parseText
+2021-03-19 16:04:05,730 - DEBUG - Using function conversionRate
+2021-03-19 16:04:05,731 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:04:05,731 - DEBUG - Using function conversionRate
+2021-03-19 16:04:05,732 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:04:05,732 - DEBUG - Using function deductType
+2021-03-19 16:04:05,732 - DEBUG - Using function checkCompletion
+2021-03-19 16:04:05,735 - INFO - Expense data is complete. Ready for database injection.
+2021-03-19 16:04:05,735 - DEBUG - Using function injectData
+2021-03-19 16:04:05,737 - INFO - Expense 7244889a-34d6-4ce7-aaf5-f67eb45d7ad7 added to the databse for user thedropper
+2021-03-19 16:04:21,120 - DEBUG - Using function saveDocument
+2021-03-19 16:04:21,533 - DEBUG - Using function checkCompletion
+2021-03-19 16:04:21,534 - DEBUG - Using function parseText
+2021-03-19 16:04:21,534 - DEBUG - Using function conversionRate
+2021-03-19 16:04:21,535 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:04:21,535 - DEBUG - Using function conversionRate
+2021-03-19 16:04:21,535 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:04:21,536 - DEBUG - Using function deductType
+2021-03-19 16:04:21,536 - DEBUG - Using function checkCompletion
+2021-03-19 16:04:21,536 - INFO - Expense data is complete. Ready for database injection.
+2021-03-19 16:04:21,537 - DEBUG - Using function injectData
+2021-03-19 16:04:21,540 - INFO - Expense c291c7f6-8928-4fa2-8d11-d8d9dbf829e4 added to the databse for user thedropper
+2021-03-19 16:04:48,993 - INFO - Initialising the classes
+2021-03-19 16:04:48,994 - INFO - Starting the bot
+2021-03-19 16:04:49,148 - INFO - Starting the server
+2021-03-19 16:04:49,150 - INFO - Server started
+2021-03-19 16:04:57,252 - DEBUG - Using function toMarkdown
+2021-03-19 16:05:35,646 - INFO - Initialising the classes
+2021-03-19 16:05:35,647 - INFO - Starting the bot
+2021-03-19 16:05:35,667 - INFO - Starting the server
+2021-03-19 16:05:35,668 - INFO - Server started
+2021-03-19 16:05:37,856 - DEBUG - Using function toMarkdown
+2021-03-19 16:06:04,621 - INFO - Initialising the classes
+2021-03-19 16:06:04,623 - INFO - Starting the bot
+2021-03-19 16:06:04,788 - INFO - Starting the server
+2021-03-19 16:06:04,796 - INFO - Server started
+2021-03-19 16:06:06,477 - DEBUG - Using function toMarkdown
+2021-03-19 16:06:49,917 - INFO - Initialising the classes
+2021-03-19 16:06:49,918 - INFO - Starting the bot
+2021-03-19 16:06:49,942 - INFO - Starting the server
+2021-03-19 16:06:49,943 - INFO - Server started
+2021-03-19 16:06:51,954 - DEBUG - Using function saveDocument
+2021-03-19 16:06:52,364 - DEBUG - Using function checkCompletion
+2021-03-19 16:06:52,364 - DEBUG - Using function parseText
+2021-03-19 16:06:52,364 - DEBUG - Using function conversionRate
+2021-03-19 16:06:52,370 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:06:52,371 - DEBUG - Using function conversionRate
+2021-03-19 16:06:52,371 - DEBUG - Using function convertUpdateElement
+2021-03-19 16:06:52,371 - DEBUG - Using function deductType
+2021-03-19 16:06:52,372 - DEBUG - Using function checkCompletion
+2021-03-19 16:06:52,372 - INFO - Expense data is complete. Ready for database injection.
+2021-03-19 16:06:52,372 - DEBUG - Using function injectData
+2021-03-19 16:06:52,375 - INFO - Expense f1231d5e-aaab-4f23-a63a-45b1b9ee96d3 added to the databse for user thedropper
+2021-03-19 16:07:07,559 - DEBUG - Using function toMarkdown
+2021-03-19 16:10:33,396 - INFO - Initialising the classes
+2021-03-19 16:10:33,397 - INFO - Starting the bot
+2021-03-19 16:10:33,541 - INFO - Starting the server
+2021-03-19 16:10:33,543 - INFO - Server started
+2021-03-19 16:10:36,823 - DEBUG - Using function toMarkdown

@@ -70,7 +70,7 @@ class DBHelper:
     def extract_expenses(self, activeUser, status):
         '''Extracts all expenses with a specific status. Returns a list of data tuple rows.
         Input: an active user (telegram username) and a status.
-        Output: list of tuples, one tuple per pending expense'''
+        Output: list of tuples, one tuple per expense'''
 
         data = (status, activeUser)
         c = self.conn.cursor()
@@ -81,15 +81,24 @@ class DBHelper:
     def extract_all(self, activeUser):
         '''Extracts all expenses from a specific user. 
         Input: telegram handle
-        Output: saved csv file in a dedicated user folder''' 
+        Output: absolute filepath to the exported csv file with all expenses for activeUser'''
 
         query = 'SELECT * FROM items WHERE user="' + activeUser + '";'
         rawResult = pd.read_sql_query(query, self.conn)
 
-        #Save csv export under a temporary name
-        path = '/var/www/expenseBot/exports/' + activeUser + '/'
-        filename = path + 'export.csv'
-        rawResult.to_csv(filename)
+        #Create a dedicated filename
+        timestamp = pd.Timestamp.now()
+        timestamp = str(timestamp)
+        
+        #Only the first 10 characters of the timestamp: the date in dd-mm-yyyy format
+        timestamp = timestamp[:10]
+        filename = activeUser + '_export_' + timestamp + '.csv'
+
+        #Saving the file in the dedicated user folder
+        path = '/var/www/expenseBot/exports/' + activeUser + '/' + filename
+        rawResult.to_csv(path)
+
+        return path
 
     def updateStatus(self, currentStatus, newStatus, telegram_username):
         '''
@@ -101,6 +110,11 @@ class DBHelper:
         c = self.conn.cursor()
         c.execute('''UPDATE items SET status = ? WHERE status = ? AND user = ?''', data)
         self.conn.commit()
+
+
+
+
+
 ################# User Table Helpers #################################
 
     def add_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):

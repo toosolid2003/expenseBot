@@ -140,3 +140,13 @@ def stopit(update, context):
 def export(update, context):
     db.extract_all(update.message.chat.username)
     update.message.reply_text('I have exported all your expenses in a csv file')
+
+@commandTrack
+def status(update, context):
+    #Extracting ALL pending expenses. We choose the "pending" status because it's the first one assigned to a new expense object.
+    allExpenses = db.extract_expenses(update.message.chat.username, "pending")
+
+    #Only keep the last 5 expenses
+    result = allExpenses[-5:]
+    result = toMarkdown(result)
+    update.message.reply_text(result)

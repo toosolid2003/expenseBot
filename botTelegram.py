@@ -133,7 +133,7 @@ conv_handler = ConversationHandler(
 
 dispatcher.add_handler(conv_handler)
 dispatcher.add_handler(CommandHandler('help', helpmsg))
-#dispatcher.add_handler(CommandHandler('status', status))
+dispatcher.add_handler(CommandHandler('status', status))
 dispatcher.add_handler(CommandHandler('export', export))
 
 dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
