@@ -85,17 +85,17 @@ def getCurrency(resultList):
         if elt in managedCcy:
             return elt
 
-def getReason(rawText):
-    result = re.split(r'[,;:]\s*', rawText)
+def getReason(resultList):
 
-    answer = None 
-    
-    #Case 1: reason is the second element of the list. We merged all elements
-    # after the 1st one to get a reason; aka, everything after the 1st comma
-    if len(result) > 1:
-        answer = " ".join(result[1:])
+    #Other way: we remove the currency and the amount from the splitted result list
+    ccy = getCurrency(resultList)
+    if ccy is not None:
+        resultList.pop(1)
 
-    return answer    
+    resultList.pop(0)
+
+    reason = " ".join(resultList)
+    return reason    
    
 @decoLog
 def parseText(rawText, activeUser):
@@ -123,7 +123,7 @@ def parseText(rawText, activeUser):
 
     #GETTING THE TYPE AND REASON
     values['typex'] = getType(resultList)
-    values['reason'] = getReason(rawText)
+    values['reason'] = getReason(resultList)
 
     #END OF NEW VERSION
 #    #Split the text according to a pre-determined list of separators
