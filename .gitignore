@@ -8,3 +8,5 @@ log/
 *.token
 tutorial/
 log/detailedInfo.log
+exports/thedropper/*
+log/detailedInfo.log

@@ -1,5 +1,5 @@
 #coding: utf-8
-from botClasses.classes import *
+from botClasses.classes import DBHelper
 from botFunctions.botLogic import toMarkdown, totalPending
 from botFunctions.iqnCommands import wbsCheck
 from botFunctions.botJobs import submitJob
@@ -147,6 +147,10 @@ def status(update, context):
     allExpenses = db.extract_expenses(update.message.chat.username, "pending")
 
     #Only keep the last 5 expenses
-    result = allExpenses[-5:]
-    result = toMarkdown(result)
-    update.message.reply_text(result)
+    if len(allExpenses) > 0:
+        result = allExpenses[-5:]
+        result = toMarkdown(result)
+        update.message.reply_text(result)
+    
+    else:
+        update.message.reply_text(f"I'm sorry, there is no pending expense for you :/")

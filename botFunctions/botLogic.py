@@ -1,10 +1,12 @@
 #-*- coding: utf-8 -*-
-import os
+from os import chdir, rename
 import json
-import time
+from time import strftime, strptime
 from logger.logger import logger
 from botClasses.classes import DBHelper
 import uuid
+import re
+from forex_python.converter import CurrencyRates
 
 db = DBHelper()
 
@@ -45,6 +47,57 @@ def checkCompletion(dic):
         return True
 
 @decoLog
+def getAmount(resultList):
+    for elt in resultList:
+        try:
+            return float(elt)
+        except:
+            pass
+
+@decoLog
+def getType(resultList):
+    types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
+           'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
+   'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
+   'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+   'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
+   'per diem':['perdiem', 'per diem','per diems','perdiems']
+   }
+
+    expenseType = 'various'
+      #We run through the types dictionnary, getting both the items and the indexes
+   # From that, we run through all the elemtns of the results list and see if one of
+   # them matches an item in the dictionnary
+   # If yes, we we return the index title of the dictionnary list that has the element.
+
+    for title, typeList in types.items(): 
+        for elt in resultList: 
+            if elt in typeList: 
+                expenseType = title
+                return expenseType
+
+@decoLog
+def getCurrency(resultList):
+    managedCcy = ['usd','chf','aud','nzd','rub','eur','cad']
+
+    for elt in resultList:
+        if elt in managedCcy:
+            return elt
+
+def getReason(rawText):
+    result = re.split(r'[,;:]\s*', rawText)
+
+    answer = None 
+    
+    #Case 1: reason is the second element of the list. We merged all elements
+    # after the 1st one to get a reason; aka, everything after the 1st comma
+    if len(result) > 1:
+        answer = " ".join(result[1:])
+
+    return answer    
+   
+@decoLog
 def parseText(rawText, activeUser):
     '''Parses the raw text data captured by the bot. Turns it into an amount (float) and a reason (string).
     Input: rawText, active user (telegram handle)
@@ -53,85 +106,68 @@ def parseText(rawText, activeUser):
     #Initiate the dictionnary that will be returned
     values = {'amount':None, 'reason':None, 'typex':None}
 
-    #Initiate the base currency variable
+    #NEW VERSION: using a regex to parse the raw text sent by user
+    resultList = re.split(r'[:,;\s]\s*', rawText.lower())
+
+    #GETTING THE CURRENCY AND AMOUNT
     baseCcy = db.get_ccy(activeUser)
+    ccy = getCurrency(resultList)
 
-    #Split the text according to a pre-determined list of separators
-    sepList = [',',':',';']
-    parsedText = []
-    conversionFactor = 1
-    #Step 1 - Split the raw text into a list of elements
-    for sep in sepList:
-        if sep in rawText:
-            parsedText = rawText.split(sep)
+    if ccy and ccy != baseCcy:
+        #get the converstion rate and recalculate the amount
+        c = CurrencyRates()
+        unroundedAmount = c.convert(ccy.upper(), baseCcy.upper(),getAmount(resultList))
+        values['amount'] = round(unroundedAmount, 2)
+    else:
+        values['amount'] = getAmount(resultList)
 
-    #Step 2 - Assign amount and reason
-    if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
-        for elt in parsedText:
-            #Detecte a potential currency in the parsedText and update conversionFactor
-            if conversionRate(elt, baseCcy):
-                conversionFactor = conversionRate(elt, baseCcy)
+    #GETTING THE TYPE AND REASON
+    values['typex'] = getType(resultList)
+    values['reason'] = getReason(rawText)
 
-            #Remove the ccy from the elt to prepare for float assignment
-            elt = convertUpdateElement(elt)
-
-            try:
-                values['amount'] = float(elt)
-            except ValueError:
-                values['reason'] = elt.strip()
-                values['typex'] = deductType(values['reason'])
-
-    else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
-        if conversionRate(rawText, baseCcy):
-            conversionFactor = conversionRate(rawText, baseCcy)
-        rawText = convertUpdateElement(rawText)
-
-        try:
-            values['amount'] = float(rawText)
-        except ValueError:
-            values['reason'] = rawText.strip()
-            values['typex'] = deductType(values['reason'])
-
-    #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
-    if values['amount']:
-        values['amount'] = round(values['amount'] * conversionFactor, 2)    #Roudning the amount to 2 decimal to support injection in IQ Navigator
-
+    #END OF NEW VERSION
+#    #Split the text according to a pre-determined list of separators
+#    sepList = [',',':',';']
+#    parsedText = []
+#    conversionFactor = 1
+#    #Step 1 - Split the raw text into a list of elements
+#    for sep in sepList:
+#        if sep in rawText:
+#            parsedText = rawText.split(sep)
+#
+#    #Step 2 - Assign amount and reason
+#    if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
+#        for elt in parsedText:
+#            #Detecte a potential currency in the parsedText and update conversionFactor
+#            if conversionRate(elt, baseCcy):
+#                conversionFactor = conversionRate(elt, baseCcy)
+#
+#            #Remove the ccy from the elt to prepare for float assignment
+#            elt = convertUpdateElement(elt)
+#
+#            try:
+#                values['amount'] = float(elt)
+#            except ValueError:
+#                values['reason'] = elt.strip()
+#                values['typex'] = deductType(values['reason'])
+#
+#    else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
+#        if conversionRate(rawText, baseCcy):
+#            conversionFactor = conversionRate(rawText, baseCcy)
+#        rawText = convertUpdateElement(rawText)
+#
+#        try:
+#            values['amount'] = float(rawText)
+#        except ValueError:
+#            values['reason'] = rawText.strip()
+#            values['typex'] = deductType(values['reason'])
+#
+#    #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
+#    if values['amount']:
+#        values['amount'] = round(values['amount'] * conversionFactor, 2)    #Roudning the amount to 2 decimal to support injection in IQ Navigator
+#
     return values
-
-@decoLog
-def conversionRate(parsingElt, baseCcy):
-
-    '''Converts an amount from CHF to a target ccy.
-    Input: parsing element, base currency (strings)
-    Output: conversion rate as float
-
-    Returns None if no currency has been found in the parsed element'''
-
-
-    #Identify the dict corresponding to the base currency
-    allCcy = {'CHF': {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2},
-            'EUR': {'chf':0.95, 'usd':0.92, 'nzd':0.56, 'aud':0.6, 'cad':0.66, 'gbp':1.15}
-            }
-    ccyDict = allCcy[baseCcy]
-
-    #Identify the  conversion rate
-    for ccy in ccyDict.keys():
-        if ccy in parsingElt.lower():
-            return ccyDict[ccy]
-
-@decoLog
-def convertUpdateElement(parsingElt):
-    '''Substract the currency denominator from the parsed element to prepare it for
-    type change withe float'''
-
-    ccyDict = {'eur':1.06,'usd':0.97,'nzd':0.59,'aud':0.61,'cad':0.69,'gbp':1.2}
-
-    tempElt = parsingElt.lower()
-    for ccy in ccyDict.keys():
-        if ccy in tempElt:
-            parsingElt = parsingElt.replace(ccy,'')
-
-    return parsingElt
+#
 
 def parseFlightEmail(jsonFile):
     '''Parses the data contained in a json file sent by mailparser.io
@@ -142,19 +178,16 @@ def parseFlightEmail(jsonFile):
         data = json.load(data)
         data = data[-1]     #we only consider the last element
 
-    exp = Expense()
-    exp.amount = data['amount']
-    exp.reason = 'flight ' + data['destination']
+    #exp = Expense()
+    #exp.amount = data['amount']
+    #exp.reason = 'flight ' + data['destination']
 
     #Check if the currency is euro, in which case it conerts amount to CHF and format
     #to only keep 2 decimals
 
-    if data['currency'] == '€':
-        exp.amount = float(data['amount']) * 1.03
-        exp.amount = "{:.2f}".format(exp.amount)
-
-    #We miss the exp.receipt...
-    return exp
+    #if data['currency'] == '€':
+        #exp.amount = float(data['amount']) * 1.03
+        #exp.amount = "{:.2f}".format(exp.amount)
 
 @decoLog
 def saveDocument(fileId, telegram_username, bot):
@@ -163,17 +196,17 @@ def saveDocument(fileId, telegram_username, bot):
     Output: absolute_path_to_file'''
 
     #Change the current directory to one which www-data has access to
-    os.chdir('/var/www/expenseBot/receipts/')
+    chdir('/var/www/expenseBot/receipts/')
     #Download the file
     try:
         filename = bot.get_file(fileId).download()
     except Exception as e:
-        logging.error('Could not download file %s. Error: %s', fileId, e)
+        logger.error('Could not download file %s. Error: %s', fileId, e)
 
     newFilepath = '/var/www/expenseBot/receipts/' + telegram_username +'/' + filename
 
     #Move the document to a dedicated folder
-    os.rename(filename, newFilepath)
+    rename(filename, newFilepath)
 
     return newFilepath
 
@@ -190,8 +223,8 @@ def toMarkdown(expenses):
     for expense in expenses:
 
         #Reformatting the time variable for legibility
-        totime = time.strptime(expense[1], "%d-%m-%Y")
-        expenseDate = time.strftime("%a %d %B", totime)
+        totime = strptime(expense[1], "%d-%m-%Y")
+        expenseDate = strftime("%a %d %B", totime)
         output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
     
     return output
@@ -221,18 +254,29 @@ def deductType(reason):
    
 
    # Types dictionnary
-   types = {'17819670115' :['hotel','pension','hostel'],
-           '17819672005':['airbnb','apartment'],
-           '17819688948':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
-           '17819688802':['taxi','uber','lyft'],
-   '17819684336':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-   '107851819':['avis','entreprise','rental car','alamo', 'car rental','car'],
-   '17819687015':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
-   '17858921758':['toll','parking','fuel','highway','public','gas','petrol'],
-   '17819687871':['perdiem', 'per diem','per diems','perdiems']
+   #These types below for IQ Navigator categories
+#   types = {'17819670115' :['hotel','pension','hostel'],
+#           '17819672005':['airbnb','apartment'],
+#           '17819688948':['train','bus','ferry','sbb','eurostar','sncf','thalys'],
+#           '17819688802':['taxi','uber','lyft'],
+#   '17819684336':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+#   '107851819':['avis','entreprise','rental car','alamo', 'car rental','car'],
+#   '17819687015':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+#   '17858921758':['toll','parking','fuel','highway','public','gas','petrol'],
+#   '17819687871':['perdiem', 'per diem','per diems','perdiems']
+#   }
+#
+#   typex = '17819687102'
+   types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
+           'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
+   'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+   'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
+   'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+   'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
+   'per diem':['perdiem', 'per diem','per diems','perdiems']
    }
 
-   typex = '17819687102'
+   typex = 'various'
 
    #The magic loop, where the deduction happens
    for accType, typeList in types.items():
@@ -252,7 +296,7 @@ def injectData(dico):
     Output: uid of the expense
     """
     dico['uid'] = str(uuid.uuid4())
-    dico['date'] = time.strftime("%d-%-m-%Y")
+    dico['date'] = strftime("%d-%-m-%Y")
     dico['status'] = 'pending'
 
     data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['wbs'], dico['typex'], dico['receipt'], dico['user'])

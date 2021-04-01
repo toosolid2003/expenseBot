@@ -33,7 +33,7 @@ def photoCapture(update, context):
 
     #Logging and error for all other kinds of exceptions
     except Exception as e:
-        logger.error('Could not save the attached document or photo for %s. Error: %s', exp.user, e)
+        logger.error('Could not save the attached document or photo for %s. Error: %s', user, e)
 
     # Inject the DATA if expense is complete
     #First the user
@@ -140,12 +140,13 @@ dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
 dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
 dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 
-#Initiate the job_queue performed by the server
-j = JobQueue()
-j.set_dispatcher(dispatcher)
-jobTime = datetime.timedelta(minutes=30)
-job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
-j.start()
+#Initiate the job_queue performed by the server. The job looks 
+# for pending expenses then logs these into IQ Navigator
+#j = JobQueue()
+#j.set_dispatcher(dispatcher)
+#jobTime = datetime.timedelta(minutes=30)
+#job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
+#j.start()
 
 #Starting the server
 logger.info('Starting the server')

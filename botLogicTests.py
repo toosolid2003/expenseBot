@@ -20,31 +20,25 @@ class TestParsetext(unittest.TestCase):
     def testOrder1(self):
         raw = '667,Restau'
         result = parseText(raw,'thedropper')
-        expected = {'amount':667.0,'reason':'Restau', 'typex':'17819687015'}
+        expected = {'amount':667.0,'reason':'Restau', 'typex':'food & beverage'}
         self.assertEqual(expected, result)
 
     def testOrder2(self):
         raw = 'Restau,667'
         result = parseText(raw,'thedropper')
-        expected = {'amount':667.0,'reason':'Restau', 'typex':'17819687015'}
-        self.assertEqual(expected, result)
-
-    def testSeparator1(self):
-        raw = '667-Restau'
-        result = parseText(raw,'thedropper')
-        expected = {'amount':667.0,'reason':'Restau', 'typex':'17819687015'}
+        expected = {'amount':667.0,'reason':'Restau', 'typex':'food & beverage'}
         self.assertEqual(expected, result)
 
     def testSeparator2(self):
         raw = '667;Restau'
         result = parseText(raw,'thedropper')
-        expected = {'amount':667.0,'reason':'Restau', 'typex':'17819687015'}
+        expected = {'amount':667.0,'reason':'Restau', 'typex':'food & beverage'}
         self.assertEqual(expected, result)
 
     def testSeparator3(self):
         raw = '667:Restau'
         result = parseText(raw,'thedropper')
-        expected = {'amount':667.0,'reason':'Restau', 'typex':'17819687015'}
+        expected = {'amount':667.0,'reason':'Restau', 'typex':'food & beverage'}
         self.assertEqual(expected, result)
 
     def testUniqueFloat(self):
@@ -56,30 +50,30 @@ class TestParsetext(unittest.TestCase):
     def testUniqueReason(self):
         raw = 'hotel beach'
         result = parseText(raw,'thedropper')
-        expected = {'amount':None,'reason':'hotel beach', 'typex':'17819670115'}
+        expected = {'amount':None,'reason':'hotel beach', 'typex':'accomodation'}
         self.assertEqual(expected, result)
 
     def testCents(self):
         raw = '45.76,Restau'
         result = parseText(raw,'thedropper')
-        expected = {'amount':45.76,'reason':'Restau', 'typex':'17819687015' }
+        expected = {'amount':45.76,'reason':'Restau', 'typex':'food & beverage' }
         self.assertEqual(expected, result)
 
     def testExpenseFeedingAmount(self):
         raw = 'Hotel, 490'
         result = parseText(raw,'thedropper')
-        expected = {'amount':490.0,'reason':'Hotel', 'typex':'17819670115'}
+        expected = {'amount':490.0,'reason':'Hotel', 'typex':'accomodation'}
         self.assertEqual(expected, result)
 
     def testExpenseFeedingReason(self):
         raw = 'Hotel, 490'
         result = parseText(raw,'thedropper')
-        expected = {'amount':490.0,'reason':'Hotel', 'typex':'17819670115'}
+        expected = {'amount':490.0,'reason':'Hotel', 'typex':'accomodation'}
         self.assertEqual(expected, result)
 
     def testCurrencyConvert(self):
         raw = '45 eur, train'
-        expected = {'amount': 47.7,'reason':'train', 'typex': '17819688948'}
+        expected = {'amount': 47.7,'reason':'train', 'typex': 'transportation'}
         result = parseText(raw,'thedropper')
         self.assertEqual(result, expected)
 
@@ -93,23 +87,23 @@ class testDeductType(unittest.TestCase):
     
     def testAccomodationApartment(self):
         reason = 'Airbnb'
-        expectedType = deductType(reason)
-        self.assertEqual(expectedType, '17819672005')
+        expectedType = getType(reason)
+        self.assertEqual(expectedType, 'accomodation')
 
     def testAccomodationHotel(self):
         reason = 'Hotel Accapulco'
-        expectedType = deductType(reason)
-        self.assertEqual(expectedType, '17819670115')
+        expectedType = getType(reason)
+        self.assertEqual(expectedType, 'accomodation')
 
     def testAirfare(self):
         reason = 'Flight Zurich'
-        expectedType = deductType(reason)
-        self.assertEqual(expectedType, '17819684336')
+        expectedType = getType(reason)
+        self.assertEqual(expectedType, 'flight')
 
     def testPerdiemsDomestic(self):
         reason = 'per diem welly'
-        expectedType = deductType(reason)
-        self.assertEqual(expectedType,'17819687871')
+        expectedType = getType(reason)
+        self.assertEqual(expectedType,'per diem')
 
 
 #class TestEmailParser(unittest.TestCase):

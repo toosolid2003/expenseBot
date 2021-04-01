@@ -4,6 +4,8 @@ import sqlite3
 import time
 import uuid
 import pandas as pd
+from logger.logger import logger
+
 
 class DBHelper:
     def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
@@ -221,7 +223,7 @@ class DBHelper:
             result = c.fetchone()       #result is a tuple
 
         except Exception as e:
-            logging.error('Could not retrive wbs from database: %s',e)
+            logger.error('Could not retrive wbs from database: %s',e)
 
         return result[0]
 
