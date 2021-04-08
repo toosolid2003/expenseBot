@@ -3,6 +3,7 @@ from botClasses.classes import DBHelper
 from botFunctions.botLogic import toMarkdown, totalPending
 from botFunctions.iqnCommands import wbsCheck
 from botFunctions.botJobs import submitJob
+from botFunctions.export_mail import sendExport
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -138,8 +139,15 @@ def stopit(update, context):
 
 @commandTrack
 def export(update, context):
-    db.extract_all(update.message.chat.username)
-    update.message.reply_text('I have exported all your expenses in a csv file')
+    filename = db.extract_all(update.message.chat.username)
+    email = db.get_user_email(update.message.chat.username)
+    response = sendExport('support@expensebot.net', email, filename)
+    if response.status_code != 202:
+        update.message.reply_text('oops, there\'s been a problem')
+        logger.error(f'Email with expense export not sent. {response.status_code}')
+
+    update.message.reply_text(f'I have exported all your expenses in a csv file and ' 
+    f'sent it to your email: {email}.')
 
 @commandTrack
 def status(update, context):

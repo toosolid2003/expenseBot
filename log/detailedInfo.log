@@ -3977,3 +3977,62 @@
 2021-04-01 15:58:42,750 - DEBUG - Using function injectData
 2021-04-01 15:58:42,754 - INFO - Expense 4ff93939-7ff9-4aa5-b783-4e0983ee4128 added to the databse for user thedropper
 2021-04-01 15:58:46,299 - DEBUG - Using function toMarkdown
+2021-04-01 18:07:48,812 - DEBUG - Using function toMarkdown
+2021-04-01 18:08:13,109 - DEBUG - Using function saveDocument
+2021-04-01 18:08:13,584 - DEBUG - Using function checkCompletion
+2021-04-01 18:08:13,585 - DEBUG - Using function parseText
+2021-04-01 18:08:13,585 - DEBUG - Using function getCurrency
+2021-04-01 18:08:13,585 - DEBUG - Using function getAmount
+2021-04-01 18:08:13,775 - DEBUG - Using function getType
+2021-04-01 18:08:13,776 - DEBUG - Using function getCurrency
+2021-04-01 18:08:13,776 - DEBUG - Using function checkCompletion
+2021-04-01 18:08:13,776 - INFO - Expense data is complete. Ready for database injection.
+2021-04-01 18:08:13,776 - DEBUG - Using function injectData
+2021-04-01 18:08:13,779 - INFO - Expense 11a6469c-24d9-4b3f-9de1-3f479876aba1 added to the databse for user thedropper
+2021-04-01 18:08:17,500 - DEBUG - Using function toMarkdown
+2021-04-02 09:22:11,785 - DEBUG - Using function toMarkdown
+2021-04-02 16:06:12,928 - INFO - Initialising the classes
+2021-04-02 16:06:12,931 - INFO - Starting the bot
+2021-04-02 16:06:12,932 - INFO - Starting the server
+2021-04-02 16:06:13,087 - INFO - Server started
+2021-04-02 16:06:15,107 - DEBUG - Using function toMarkdown
+2021-04-02 16:20:09,294 - DEBUG - Using function toMarkdown
+2021-04-02 16:20:29,035 - DEBUG - Using function saveDocument
+2021-04-02 16:20:29,499 - DEBUG - Using function checkCompletion
+2021-04-02 16:20:29,499 - DEBUG - Using function parseText
+2021-04-02 16:20:29,500 - DEBUG - Using function getCurrency
+2021-04-02 16:20:29,500 - DEBUG - Using function getAmount
+2021-04-02 16:20:29,659 - DEBUG - Using function getType
+2021-04-02 16:20:29,659 - DEBUG - Using function getCurrency
+2021-04-02 16:20:29,659 - DEBUG - Using function checkCompletion
+2021-04-02 16:20:29,659 - INFO - Expense data is complete. Ready for database injection.
+2021-04-02 16:20:29,659 - DEBUG - Using function injectData
+2021-04-02 16:20:29,663 - INFO - Expense 743b95b7-63a0-4b36-b480-f797561bec7a added to the databse for user thedropper
+2021-04-02 16:20:33,345 - DEBUG - Using function toMarkdown
+2021-04-02 16:25:12,011 - DEBUG - Using function toMarkdown
+2021-04-02 18:18:32,209 - DEBUG - Using function toMarkdown
+2021-04-02 20:25:07,191 - DEBUG - Using function toMarkdown
+2021-04-03 11:50:47,001 - DEBUG - Using function toMarkdown
+2021-04-04 16:04:50,910 - DEBUG - Using function toMarkdown
+2021-04-07 18:12:43,853 - DEBUG - Using function toMarkdown
+2021-04-08 14:16:03,490 - DEBUG - Using function toMarkdown
+2021-04-08 15:06:47,068 - INFO - Initialising the classes
+2021-04-08 15:06:47,068 - INFO - Starting the bot
+2021-04-08 15:06:47,070 - INFO - Starting the server
+2021-04-08 15:06:47,221 - INFO - Server started
+2021-04-08 15:22:41,535 - INFO - Initialising the classes
+2021-04-08 15:22:41,536 - INFO - Starting the bot
+2021-04-08 15:22:41,542 - INFO - Starting the server
+2021-04-08 15:22:41,754 - INFO - Server started
+2021-04-08 15:23:33,290 - INFO - Initialising the classes
+2021-04-08 15:23:33,292 - INFO - Starting the bot
+2021-04-08 15:23:33,294 - INFO - Starting the server
+2021-04-08 15:23:33,322 - INFO - Server started
+2021-04-08 15:23:47,200 - DEBUG - Using function toMarkdown
+2021-04-08 15:28:34,182 - DEBUG - Using function toMarkdown
+2021-04-08 15:37:33,405 - DEBUG - Using function parseText
+2021-04-08 15:37:33,405 - DEBUG - Using function getCurrency
+2021-04-08 15:37:33,405 - DEBUG - Using function getAmount
+2021-04-08 15:37:33,405 - DEBUG - Using function getType
+2021-04-08 15:37:33,405 - DEBUG - Using function getCurrency
+2021-04-08 15:37:33,405 - DEBUG - Using function checkCompletion

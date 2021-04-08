@@ -7,6 +7,12 @@ from botFunctions.botLogic import *
 from botFunctions.botJobs import iqnExpensesLog, submitJob 
 from logger.logger import logger
 
+#################################################################
+# Constants
+#################################################################
+
+#Regular expression to identify a new expense. Not used yet.
+regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 
 #################################################################
 # Input handlers

@@ -85,7 +85,7 @@ class DBHelper:
         Input: telegram handle
         Output: absolute filepath to the exported csv file with all expenses for activeUser'''
 
-        query = 'SELECT * FROM items WHERE user="' + activeUser + '";'
+        query = 'SELECT date_expense, amount, reason, type FROM items WHERE user="' + activeUser + '";'
         rawResult = pd.read_sql_query(query, self.conn)
 
         #Create a dedicated filename
@@ -197,6 +197,15 @@ class DBHelper:
         result = c.fetchone()
 
         return result
+    
+    def get_user_email(self, telegram_username):
+        stmt = '''SELECT email FROM users WHERE telegram_username=?'''
+        data = (telegram_username,)
+        c = self.conn.cursor()
+        c.execute(stmt, data)
+        result = c.fetchone()
+
+        return result[0]
 
     def del_user_by_iq_username(self,iq_username):
         stmt = '''DELETE FROM users WHERE iq_username = ?'''
