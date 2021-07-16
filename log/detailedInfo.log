@@ -4316,3 +4316,11 @@
 2021-07-15 15:23:52,173 - DEBUG - Using function toMarkdown
 2021-07-15 23:09:06,835 - INFO - Adding user thedropper to the users database
 2021-07-15 23:09:07,989 - ERROR - Error when creating user's folder. User: thedropper
+2021-07-16 12:06:37,217 - INFO - Initialising the classes
+2021-07-16 12:06:37,219 - INFO - Starting the bot
+2021-07-16 12:06:37,221 - INFO - Starting the server
+2021-07-16 12:06:37,362 - INFO - Server started
+2021-07-16 12:10:33,578 - INFO - Initialising the classes
+2021-07-16 12:10:33,580 - INFO - Starting the bot
+2021-07-16 12:10:33,582 - INFO - Starting the server
+2021-07-16 12:10:33,734 - INFO - Server started

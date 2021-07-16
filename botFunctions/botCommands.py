@@ -60,6 +60,14 @@ EMAIL, CURRENCY = range(2)
 @commandTrack
 def start(update, context):
     """Handles the setup process"""
+
+    #Checking if user exists
+    userExists = db.checkExistingUser(update.message.chat.username)
+    if userExists:
+        update.message.reply_text('Hey, it looks like you already have an account with us. You are good to log your expenses.')
+        return ConversationHandler.END
+
+    #If user does not exist yet, proceed.
     update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recording business expenses, I will need to set you up." )
     message = (f"It will take 1 minute, but you can stop at any point by typing /stop. \n"
                 "First, I need an email. I will use this email to send you the expense reports you request via /export.\n"
