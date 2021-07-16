@@ -42,6 +42,7 @@ def checkCompletion(dic):
             missingData.append(elt)
 
     if missingData:
+        logger.info(f'Missing: {missingData}')
         return False
     else:
         return True
@@ -75,7 +76,9 @@ def getType(resultList):
         for elt in resultList: 
             if elt in typeList: 
                 expenseType = title
-                return expenseType
+
+    return expenseType
+        
 
 @decoLog
 def getCurrency(resultList):
