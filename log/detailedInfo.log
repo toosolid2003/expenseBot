@@ -4324,3 +4324,77 @@
 2021-07-16 12:10:33,580 - INFO - Starting the bot
 2021-07-16 12:10:33,582 - INFO - Starting the server
 2021-07-16 12:10:33,734 - INFO - Server started
+2021-07-16 12:15:14,718 - INFO - Initialising the classes
+2021-07-16 12:15:14,719 - INFO - Starting the bot
+2021-07-16 12:15:14,721 - INFO - Starting the server
+2021-07-16 12:15:14,858 - INFO - Server started
+2021-07-16 12:20:02,053 - DEBUG - Using function parseText
+2021-07-16 12:20:02,053 - DEBUG - Using function getCurrency
+2021-07-16 12:20:02,054 - DEBUG - Using function getAmount
+2021-07-16 12:20:02,054 - DEBUG - Using function getType
+2021-07-16 12:20:02,054 - DEBUG - Using function getCurrency
+2021-07-16 12:20:02,054 - DEBUG - Using function checkCompletion
+2021-07-16 12:20:02,054 - INFO - Missing: ['amount', 'reason', 'receipt']
+2021-07-16 12:20:05,765 - DEBUG - Using function parseText
+2021-07-16 12:20:05,765 - DEBUG - Using function getCurrency
+2021-07-16 12:20:05,766 - DEBUG - Using function getAmount
+2021-07-16 12:20:05,766 - DEBUG - Using function getType
+2021-07-16 12:20:05,766 - DEBUG - Using function getCurrency
+2021-07-16 12:20:05,766 - DEBUG - Using function checkCompletion
+2021-07-16 12:20:05,766 - INFO - Missing: ['amount', 'reason', 'receipt']
+2021-07-16 15:49:13,579 - INFO - Initialising the classes
+2021-07-16 15:49:13,581 - INFO - Starting the bot
+2021-07-16 15:49:13,585 - INFO - Starting the server
+2021-07-16 15:49:13,729 - INFO - Server started
+2021-07-16 15:54:16,789 - INFO - Initialising the classes
+2021-07-16 15:54:16,791 - INFO - Starting the bot
+2021-07-16 15:54:16,799 - INFO - Starting the server
+2021-07-16 15:54:16,939 - INFO - Server started
+2021-07-16 15:59:04,836 - INFO - Initialising the classes
+2021-07-16 15:59:04,838 - INFO - Starting the bot
+2021-07-16 15:59:04,840 - INFO - Starting the server
+2021-07-16 15:59:04,978 - INFO - Server started
+2021-07-16 15:59:53,309 - INFO - Initialising the classes
+2021-07-16 15:59:53,310 - INFO - Starting the bot
+2021-07-16 15:59:53,312 - INFO - Starting the server
+2021-07-16 15:59:53,818 - INFO - Server started
+2021-07-16 16:01:58,955 - INFO - Initialising the classes
+2021-07-16 16:01:58,956 - INFO - Starting the bot
+2021-07-16 16:01:58,958 - INFO - Starting the server
+2021-07-16 16:01:59,094 - INFO - Server started
+2021-07-16 16:02:46,555 - INFO - Initialising the classes
+2021-07-16 16:02:46,556 - INFO - Starting the bot
+2021-07-16 16:02:46,559 - INFO - Starting the server
+2021-07-16 16:02:46,701 - INFO - Server started
+2021-07-16 16:04:05,301 - INFO - Initialising the classes
+2021-07-16 16:04:05,302 - INFO - Starting the bot
+2021-07-16 16:04:05,304 - INFO - Starting the server
+2021-07-16 16:04:05,447 - INFO - Server started
+2021-07-16 16:08:58,826 - INFO - Initialising the classes
+2021-07-16 16:08:58,827 - INFO - Starting the bot
+2021-07-16 16:08:58,830 - INFO - Starting the server
+2021-07-16 16:08:58,973 - INFO - Server started
+2021-07-16 16:09:38,302 - INFO - Initialising the classes
+2021-07-16 16:09:38,304 - INFO - Starting the bot
+2021-07-16 16:09:38,307 - INFO - Starting the server
+2021-07-16 16:09:38,458 - INFO - Server started
+2021-07-16 16:14:21,966 - INFO - Initialising the classes
+2021-07-16 16:14:21,967 - INFO - Starting the bot
+2021-07-16 16:14:21,969 - INFO - Starting the server
+2021-07-16 16:14:22,108 - INFO - Server started
+2021-07-16 16:15:55,085 - INFO - Initialising the classes
+2021-07-16 16:15:55,086 - INFO - Starting the bot
+2021-07-16 16:15:55,088 - INFO - Starting the server
+2021-07-16 16:15:55,225 - INFO - Server started
+2021-07-16 16:16:39,925 - INFO - Initialising the classes
+2021-07-16 16:16:39,926 - INFO - Starting the bot
+2021-07-16 16:16:39,928 - INFO - Starting the server
+2021-07-16 16:16:40,068 - INFO - Server started
+2021-07-16 16:19:38,697 - INFO - Initialising the classes
+2021-07-16 16:19:38,698 - INFO - Starting the bot
+2021-07-16 16:19:38,700 - INFO - Starting the server
+2021-07-16 16:19:38,919 - INFO - Server started
+2021-07-16 16:26:08,916 - INFO - Initialising the classes
+2021-07-16 16:26:08,917 - INFO - Starting the bot
+2021-07-16 16:26:08,919 - INFO - Starting the server
+2021-07-16 16:26:09,074 - INFO - Server started

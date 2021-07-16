@@ -213,6 +213,14 @@ class DBHelper:
         self.conn.execute(stmt, data)
         self.conn.commit()
 
+    def update_user_email(self, telegram_username, mel):
+        """Changes the email address for the user."""
+        
+        stmt = '''UPDATE users SET email=? WHERE telegram_username=?'''
+        data = (mel, telegram_username)
+        self.conn.execute(stmt, data)
+        self.conn.commit()
+
 
 ################# WBS table helpers    ##############################################
 ### wbs status can take 3 values: active, inactive, primary. Primary gets called by default

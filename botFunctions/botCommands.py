@@ -85,7 +85,7 @@ def email(update, context):
         update.message.reply_text('OK then. Feel free to resume the sign up by typing "/start" when you are ready')
         return ConversationHandler.END
     else:
-        #Check with web database if the email is registered
+        #Check with web database if the email is registered?
         update.message.reply_text('Thanks for your email, {}.'.format(email))
         context.user_data['email'] = email
         update.message.reply_text('Now, what currency should I use to record your expenses?')
@@ -170,3 +170,18 @@ def status(update, context):
     
     else:
         update.message.reply_text(f"I'm sorry, there is no pending expense for you :/")
+
+def emailCheck(update, context):
+    """Check and update the user's email address."""
+
+    if len(context.args) == 1:
+        try:
+            db.update_user_email(update.message.chat.username, context.args[0])
+        except e as Exception:
+            logger.info(e)
+
+        update.message.reply_text(f'I have updated your email, thanks!')
+    else:
+        userEmail = db.get_user_email(update.message.chat.username)
+        update.message.reply_text('Your current email address is {}'.format(userEmail))
+        update.message.reply_text('Type /email followed by your new email address to update it.')
