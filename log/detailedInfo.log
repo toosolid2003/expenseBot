@@ -4436,3 +4436,29 @@
 2021-07-19 19:10:29,696 - DEBUG - Using function injectData
 2021-07-19 19:10:29,710 - INFO - Expense 7f4bca3c-1439-4657-ac15-9797d15d7282 added to the databse for user thedropper
 2021-07-19 19:12:49,962 - DEBUG - Using function toMarkdown
+2021-07-19 19:16:23,681 - INFO - Initialising the classes
+2021-07-19 19:16:23,683 - INFO - Starting the bot
+2021-07-19 19:16:23,686 - INFO - Starting the server
+2021-07-19 19:16:23,874 - INFO - Server started
+2021-07-19 19:16:27,563 - DEBUG - Using function toMarkdown
+2021-07-19 19:16:27,740 - DEBUG - Using function totalPending
+2021-07-19 19:18:53,061 - INFO - Initialising the classes
+2021-07-19 19:18:53,063 - INFO - Starting the bot
+2021-07-19 19:18:53,067 - INFO - Starting the server
+2021-07-19 19:18:53,223 - INFO - Server started
+2021-07-19 19:18:55,247 - DEBUG - Using function toMarkdown
+2021-07-19 19:18:55,386 - DEBUG - Using function toMarkdown
+2021-07-19 19:21:08,117 - INFO - Initialising the classes
+2021-07-19 19:21:08,118 - INFO - Starting the bot
+2021-07-19 19:21:08,120 - INFO - Starting the server
+2021-07-19 19:21:08,375 - INFO - Server started
+2021-07-19 19:21:17,151 - DEBUG - Using function totalPending
+2021-07-19 19:21:17,151 - DEBUG - Using function toMarkdown
+2021-07-19 19:24:25,688 - INFO - Initialising the classes
+2021-07-19 19:24:25,690 - INFO - Starting the bot
+2021-07-19 19:24:25,692 - INFO - Starting the server
+2021-07-19 19:24:25,862 - INFO - Server started
+2021-07-19 19:24:27,918 - DEBUG - Using function totalPending
+2021-07-19 19:24:27,918 - DEBUG - Using function toMarkdown
+2021-07-19 19:25:10,043 - DEBUG - Using function totalPending
+2021-07-19 19:25:10,043 - DEBUG - Using function toMarkdown
