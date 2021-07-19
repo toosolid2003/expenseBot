@@ -19,6 +19,7 @@ regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 #################################################################
 
 # Downloads the receipt picture or documents and stores the filepath to document in the db
+@inputTrack
 def photoCapture(update, context):
     '''
     Downloads the picture and saves the path to file in context.user_data
@@ -64,7 +65,7 @@ def photoCapture(update, context):
         context.user_data.clear()
 
 
-
+@inputTrack
 def textCapture(update, context):
 
     #Check where the text to parse comes from, text or caption.

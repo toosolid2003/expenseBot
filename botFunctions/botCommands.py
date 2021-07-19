@@ -33,6 +33,17 @@ def commandTrack(func):
         return func(update, context)
     return wrapper
 
+def inputTrack(func):
+    def wrapper(update, context):
+        try:
+            value = update.message.text
+        except:
+            value = ''
+        
+        db.add_datapoint(update.message.chat.username, func.__name__, value)
+        return func(update, context)
+    return wrapper
+
 
 
 #################################################################
@@ -171,6 +182,7 @@ def status(update, context):
     else:
         update.message.reply_text(f"I'm sorry, there is no pending expense for you :/")
 
+@commandTrack
 def emailCheck(update, context):
     """Check and update the user's email address."""
 

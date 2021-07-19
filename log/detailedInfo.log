@@ -4398,3 +4398,41 @@
 2021-07-16 16:26:08,917 - INFO - Starting the bot
 2021-07-16 16:26:08,919 - INFO - Starting the server
 2021-07-16 16:26:09,074 - INFO - Server started
+2021-07-16 18:55:32,460 - DEBUG - Using function toMarkdown
+2021-07-19 11:45:30,962 - DEBUG - Using function toMarkdown
+2021-07-19 11:50:22,207 - INFO - Initialising the classes
+2021-07-19 11:50:22,209 - INFO - Starting the bot
+2021-07-19 11:50:22,211 - INFO - Starting the server
+2021-07-19 11:50:22,349 - INFO - Server started
+2021-07-19 18:40:09,994 - DEBUG - Using function toMarkdown
+2021-07-19 19:08:42,148 - INFO - Initialising the classes
+2021-07-19 19:08:42,150 - INFO - Starting the bot
+2021-07-19 19:08:42,155 - INFO - Starting the server
+2021-07-19 19:08:42,292 - INFO - Server started
+2021-07-19 19:08:54,727 - DEBUG - Using function parseText
+2021-07-19 19:08:54,728 - DEBUG - Using function getCurrency
+2021-07-19 19:08:54,728 - DEBUG - Using function getAmount
+2021-07-19 19:08:54,728 - DEBUG - Using function getType
+2021-07-19 19:08:54,728 - DEBUG - Using function getCurrency
+2021-07-19 19:08:54,728 - DEBUG - Using function checkCompletion
+2021-07-19 19:08:54,728 - INFO - Missing: ['amount', 'receipt']
+2021-07-19 19:09:56,255 - DEBUG - Using function parseText
+2021-07-19 19:09:56,255 - DEBUG - Using function getCurrency
+2021-07-19 19:09:56,255 - DEBUG - Using function getAmount
+2021-07-19 19:09:57,565 - DEBUG - Using function getType
+2021-07-19 19:09:57,567 - DEBUG - Using function getCurrency
+2021-07-19 19:09:57,567 - DEBUG - Using function checkCompletion
+2021-07-19 19:09:57,568 - INFO - Missing: ['reason', 'receipt']
+2021-07-19 19:10:28,347 - DEBUG - Using function saveDocument
+2021-07-19 19:10:28,735 - DEBUG - Using function checkCompletion
+2021-07-19 19:10:28,736 - INFO - Missing: ['reason']
+2021-07-19 19:10:28,736 - DEBUG - Using function parseText
+2021-07-19 19:10:28,737 - DEBUG - Using function getCurrency
+2021-07-19 19:10:28,737 - DEBUG - Using function getAmount
+2021-07-19 19:10:29,691 - DEBUG - Using function getType
+2021-07-19 19:10:29,692 - DEBUG - Using function getCurrency
+2021-07-19 19:10:29,692 - DEBUG - Using function checkCompletion
+2021-07-19 19:10:29,693 - INFO - Expense data is complete. Ready for database injection.
+2021-07-19 19:10:29,696 - DEBUG - Using function injectData
+2021-07-19 19:10:29,710 - INFO - Expense 7f4bca3c-1439-4657-ac15-9797d15d7282 added to the databse for user thedropper
+2021-07-19 19:12:49,962 - DEBUG - Using function toMarkdown
