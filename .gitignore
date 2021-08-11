@@ -7,9 +7,6 @@ receipts/
 log/
 *.token
 tutorial/
-log/detailedInfo.log
 exports/thedropper/*
-log/detailedInfo.log
 sendgrid.env
-log/detailedInfo.log
 *.log

@@ -35,11 +35,14 @@ def commandTrack(func):
 
 def inputTrack(func):
     def wrapper(update, context):
-        try:
+
+        if update.message.text:
             value = update.message.text
-        except:
-            value = ''
-        
+        elif update.message.caption:
+            value = update.message.caption
+        else:
+            value = '' 
+
         db.add_datapoint(update.message.chat.username, func.__name__, value)
         return func(update, context)
     return wrapper
@@ -191,7 +194,7 @@ def emailCheck(update, context):
     if len(context.args) == 1:
         try:
             db.update_user_email(update.message.chat.username, context.args[0])
-        except e as Exception:
+        except Exception as e:
             logger.info(e)
 
         update.message.reply_text(f'I have updated your email, thanks!')
