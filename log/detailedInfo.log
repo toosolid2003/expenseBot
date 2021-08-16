@@ -4625,3 +4625,17 @@
 2021-08-07 15:35:40,393 - DEBUG - Using function toMarkdown
 2021-08-07 15:35:48,665 - DEBUG - Using function totalPending
 2021-08-07 15:35:48,666 - DEBUG - Using function toMarkdown
+2021-08-11 10:54:01,206 - INFO - Initialising the classes
+2021-08-11 10:54:01,208 - INFO - Starting the bot
+2021-08-11 10:54:01,210 - INFO - Starting the server
+2021-08-11 10:54:01,417 - INFO - Server started
+2021-08-11 10:54:03,445 - DEBUG - Using function totalPending
+2021-08-11 10:54:03,445 - DEBUG - Using function toMarkdown
+2021-08-11 10:54:34,872 - INFO - Initialising the classes
+2021-08-11 10:54:34,875 - INFO - Starting the bot
+2021-08-11 10:54:34,895 - INFO - Starting the server
+2021-08-11 10:54:35,069 - INFO - Server started
+2021-08-11 10:54:42,999 - DEBUG - Using function totalPending
+2021-08-11 10:54:43,000 - DEBUG - Using function toMarkdown
+2021-08-11 23:24:43,682 - DEBUG - Using function totalPending
+2021-08-11 23:24:43,682 - DEBUG - Using function toMarkdown

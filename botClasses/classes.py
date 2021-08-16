@@ -21,7 +21,6 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit()
 
-
     def add_item(self, data_tuple):
         stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
@@ -80,7 +79,7 @@ class DBHelper:
 
         return c.fetchall()
 
-    def extract_all(self, activeUser):
+    def extract_all(self, activeUser, path='/var/www/expenseBot/exports/'):
         '''Extracts all expenses from a specific user. 
         Input: telegram handle
         Output: absolute filepath to the exported csv file with all expenses for activeUser'''
@@ -97,7 +96,7 @@ class DBHelper:
         filename = activeUser + '_export_' + timestamp + '.csv'
 
         #Saving the file in the dedicated user folder
-        path = '/var/www/expenseBot/exports/' + activeUser + '/' + filename
+        path +=  activeUser + '/' + filename
         rawResult.to_csv(path)
 
         return path

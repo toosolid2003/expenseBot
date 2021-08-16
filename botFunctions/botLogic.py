@@ -241,6 +241,7 @@ def totalPending(expenses):
     total = 0
     for expense in expenses:
         total += expense[0]
+        total = round(total, 2)
 
     return total
 
