@@ -67,6 +67,7 @@ def test_extract_expenses(setup_database):
     assert result is not None
     assert result[0][0] == 1000.01  #The uid is not collected by the function, this is why we have amount first
 
+#@pytest.mark.skip(reason='Dont want to save a file on the server')
 def test_extract_all(setup_database):
     db = DBHelper()
     db.conn = setup_database
@@ -86,3 +87,65 @@ def test_update_multiple_statuses(setup_database):
 
     result = db.extract_expenses('testUser','updated')
     assert len(result) == 15
+
+
+
+########################################## Databse User Tests ####################################
+
+def test_get_user(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    result = db.get_user_email('tgUser')
+    assert result == 'user@gmail.com'
+
+
+def test_add_user(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    db.add_user('tgUsername','active','test@expensebot.net','01/01/2000','eur')
+    assert db.get_user_email('tgUsername') == 'test@expensebot.net'
+
+def test_check_existing_user(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    assert db.checkExistingUser('tgUser') == True
+
+def test_get_user_by_status(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    result = db.get_users_by_status('active')
+    assert result[0] == ('tgUser','user@gmail.com','01/01/2000')
+def test_get_ccy(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    result = db.get_ccy('tgUser')
+    assert result == 'EUR'
+
+def test_get_user_email(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()   
+
+    result = db.get_user_email('tgUser')
+    assert result == 'user@gmail.com'
+
+def test_update_user_email(setup_user_database):
+    db = DBHelper()
+    db.conn = setup_user_database
+    c = db.conn.cursor()
+
+    db.update_user_email('tgUser','tg@gmail.com')
+
+    assert db.get_user_email('tgUser') == 'tg@gmail.com'
+
+

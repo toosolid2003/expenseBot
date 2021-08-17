@@ -3,6 +3,7 @@ import sys
 import sqlite3
 import csv
 import pytest
+import time
 
 #Add expenseBot folder to sys.path to be able to import the app's modules
 sys.path.append('/var/www/expenseBot/')
@@ -35,10 +36,12 @@ def setup_user_database():
     db.conn = sqlite3.connect(':memory:')
     cursor = db.conn.cursor()
 
-    stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
-    self.conn.execute(stmt)
-    self.conn.commit()
+    stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, status varchar, email varchar, date_created date, currency text)'''
+    db.conn.execute(stmt)
+    db.conn.commit()
 
-    stmt = '''INSERT INTO users VALUES(?,?,?,?,?,?,?,?)'''
-    data ('tgUsers','iquser','iqpassword', 'active','user@gmail.com')
-    self.conn.execute(stmt, data)
+    stmt = '''INSERT INTO users VALUES(?,?,?,?,?)'''
+    data = ('tgUser','active','user@gmail.com','01/01/2000','EUR')
+    db.conn.execute(stmt, data)
+
+    yield db.conn

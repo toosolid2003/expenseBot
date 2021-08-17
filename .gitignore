@@ -10,5 +10,5 @@ tutorial/
 exports/thedropper/*
 sendgrid.env
 *.log
-exports/testUser/testUser_export_2021-08-16.csv
+exports/testUser/*
 log/detailedInfo.log

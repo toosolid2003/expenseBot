@@ -2,7 +2,6 @@
 
 import sqlite3
 import time
-import uuid
 import pandas as pd
 from logger.logger import logger
 
@@ -17,7 +16,7 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit()
 
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, status varchar, email varchar, date_created date, currency text)'''
         self.conn.execute(stmt)
         self.conn.commit()
 
@@ -118,13 +117,13 @@ class DBHelper:
 
 ################# User Table Helpers #################################
 
-    def add_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):
+    def add_user(self, telegram_username, status, email, date, ccy):
         '''Adds a user to the users table.
-        Input:  telegram username, iq_username, iq_password, user email, wbs, base currency
+        Input:  telegram username, user email, date of creation, base currency
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, iq_username, iq_password, 'active', email, time.strftime('%d-%m-%Y'), wbs, ccy)
-        stmt = '''INSERT INTO users VALUES (?,?,?,?,?,?,?,?)'''
+        data = (telegram_username, 'active', email, time.strftime('%d-%m-%Y'), ccy)
+        stmt = '''INSERT INTO users VALUES (?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 
@@ -147,28 +146,10 @@ class DBHelper:
         else:
             return False
 
-    def update_user(self, telegram_username, iq_username, iq_password, email, wbs, ccy):
-        """
-        Updates the user data.
-        """
-        data = (iq_username, iq_password, email, wbs, ccy, telegram_username)
-        stmt = '''UPDATE users SET iq_username=?, iq_password=?, email=?, wbs=?, currency=? WHERE telegram_username=?''' 
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
-    def update_iq_creds(self, telegram_username, iq_username, iq_password):
-        '''Updates only the IQ credentials for a telegram user'''
-
-        data = (iq_username, iq_password, telegram_username)
-        stmt = '''UPDATE users SET iq_username=?, iq_password=? WHERE telegram_username=?'''
-        
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
     def get_users_by_status(self, status):
         data = (status,)
         c = self.conn.cursor()
-        c.execute('''SELECT telegram_username, iq_username, iq_password FROM users WHERE status = ?''', data)
+        c.execute('''SELECT telegram_username, email, date_created FROM users WHERE status = ?''', data)
 
         return c.fetchall()
 
@@ -188,15 +169,7 @@ class DBHelper:
 
         return result[0]
 
-    def get_credentials(self, telegram_username):
-        stmt = '''SELECT iq_username, iq_password FROM users WHERE telegram_username=?'''
-        data = (telegram_username,)
-        c = self.conn.cursor()
-        c.execute(stmt, data)
-        result = c.fetchone()
-
-        return result
-    
+        
     def get_user_email(self, telegram_username):
         stmt = '''SELECT email FROM users WHERE telegram_username=?'''
         data = (telegram_username,)
@@ -206,12 +179,6 @@ class DBHelper:
 
         return result[0]
 
-    def del_user_by_iq_username(self,iq_username):
-        stmt = '''DELETE FROM users WHERE iq_username = ?'''
-        data = (iq_username,)
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
     def update_user_email(self, telegram_username, mel):
         """Changes the email address for the user."""
         
@@ -220,82 +187,7 @@ class DBHelper:
         self.conn.execute(stmt, data)
         self.conn.commit()
 
-
-################# WBS table helpers    ##############################################
-### wbs status can take 3 values: active, inactive, primary. Primary gets called by default
-
-    def get_wbs(self, activeUser):
-        """
-        Get the primary wbs for a specific telegram user
-        Input: telegram handle
-        Output: wbs as a string object
-        """
-
-        try:
-            data = (activeUser,)
-            stmt = '''SELECT wbs FROM wbs WHERE telegram_username = ? AND status="primary"'''
-            c = self.conn.cursor()
-            c.execute(stmt, data)
-            result = c.fetchone()       #result is a tuple
-
-        except Exception as e:
-            logger.error('Could not retrive wbs from database: %s',e)
-
-        return result[0]
-
-    def update_wbs(self, activeUser, wbs, status):
-        """
-        Updates the status of a wbs used by the activeUser
-        Input: active user telegram handle, wbs number, new status
-        Output: None
-        """
-
-        #DO NOT forget to also change the status of the former primary wbs to "active"
-        data = (wbs, status, activeUser)
-        stmt = '''UPDATE wbs SET wbs = ?, status=? WHERE telegram_username = ?'''
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
-    def add_wbs(self, activeUser, wbs, status):
-        """
-        Adds a new default wbs to the wbs table for the active user
-        """
-
-        today = time.strftime('%d-%m-%Y')
-        data = (wbs, activeUser, today, status)
-        stmt = '''INSERT INTO wbs (wbs, telegram_username, date_creation, status)
-        VALUES (?, ?, ?, ?)'''
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
-    def get_active_wbs(self, activeUser):
-        """
-        Gets all active wbs for the telegram user
-        """
-        data = (activeUser,)
-        stmt = '''SELECT wbs from wbs WHERE telegram_username = ? AND status="active"'''
-        c = self.conn.cursor()
-        c.execute(stmt, data)
-        query_result = c.fetchall()
-
-        #Creating a list to return only the wbs strings, without the tuples
-        result = []
-        for wbs in query_result:
-            result.append(wbs[0])
-        
-        return result           # Returns a list of tuples. One tuple per wbs?
-    
-    def update_last_used(self, wbs, activeUser):
-        """
-        Update the date of the last use of the given wbs for a user
-        """
-        today = time.strftime('%d-%m-%Y')
-        data = (today, wbs, activeUser)
-        stmt = '''UPDATE wbs SET date_last_used = ? WHERE wbs = ? AND telegram_username = ?'''
-        self.conn.execute(stmt, data)
-        self.conn.commit()
-
-    ################### Analytics helpers #####################################
+################### Analytics helpers #####################################
 
     def add_datapoint(self, user, action, value):
         """
@@ -306,27 +198,3 @@ class DBHelper:
         stmt = '''INSERT INTO analytics (time, user, action, value) VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
-
-
-
-class Expense:
-    def __init__(self, amount=None, wbs=None, receipt=None, reason=None, typex='17819687102', user=None):
-        self.uid = str(uuid.uuid4())
-        self.amount = amount
-        self.date = time.strftime("%d-%-m-%Y")
-        self.wbs = wbs
-        self.receipt = receipt
-        self.reason = reason
-        self.typex = typex
-        self.status = 'pending'
-        self.user = user
-
-    def to_tuple(self):
-        '''Converts the data in the expense class into a tuple.
-        Input: expense class with all data
-        Output: a data tuple, ready for injection in the db'''
-
-        data_tuple = (self.uid, self.amount, self.date, self.reason, self.status, self.wbs, self.typex, self.receipt, self.user)
-        return data_tuple
-
-
