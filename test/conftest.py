@@ -28,3 +28,17 @@ def setup_database():
     cursor.executemany('INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)', sample_data)
     yield db.conn
 
+@pytest.fixture
+def setup_user_database():
+    """Fixture to create a user database"""
+    db = DBHelper()
+    db.conn = sqlite3.connect(':memory:')
+    cursor = db.conn.cursor()
+
+    stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, iq_username varchar, iq_password varchar, status varchar, email varchar, date_created date, wbs varchar, currency text)'''
+    self.conn.execute(stmt)
+    self.conn.commit()
+
+    stmt = '''INSERT INTO users VALUES(?,?,?,?,?,?,?,?)'''
+    data ('tgUsers','iquser','iqpassword', 'active','user@gmail.com')
+    self.conn.execute(stmt, data)
