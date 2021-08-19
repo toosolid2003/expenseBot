@@ -46,15 +46,15 @@ def photoCapture(update, context):
     #First the user
     context.user_data['user'] = user
 
-    #Second the wbs
-    try: 
-#        context.user_data['wbs'] = db.get_wbs(user)
-        context.user_data['wbs'] = '000001'
-
-    except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
-    except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+#    #Second the wbs
+#    try: 
+##        context.user_data['wbs'] = db.get_wbs(user)
+#        context.user_data['wbs'] = '000001'
+#
+#    except KeyError:
+#        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
+#    except Exception as e:
+#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
 
     #Third check for completion
     isComplete = checkCompletion(context.user_data)
@@ -89,15 +89,15 @@ def textCapture(update, context):
     # Add the telegram handle to context.user_dat
     context.user_data['user'] = update.message.chat.username
 
-    # Add the wbs to context.user_data
-    try: 
-       #context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
-       context.user_data['wbs'] = '000001'
-
-    except KeyError:
-        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
-    except Exception as e:
-        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
+#    # Add the wbs to context.user_data
+#    try: 
+#       #context.user_data['wbs'] = db.get_wbs(context.user_data['user'])
+#       context.user_data['wbs'] = '000001'
+#
+#    except KeyError:
+#        update.message.reply_text("I don't have a wbs yet. Please type '/wbs yourWbsHere' to be able to record business expenses. Then you'll have to record this expense again.")
+#    except Exception as e:
+#        logger.error('Problem while trying to recover the wbs from the database. Error: %s', e)
     
 
     isComplete = checkCompletion(context.user_data)

@@ -23,7 +23,7 @@ def test_add_item(setup_database):
     db.conn = setup_database
     c = db.conn.cursor()
 
-    insertData = ('a6d0865f-e06b-4c26-ac3a-4fb6014db3dc',10.12,'01/08/2021','hotel acapulco','logged','wbs','accomodation','/file/receipt.jpg','thedropper')
+    insertData = ('a6d0865f-e06b-4c26-ac3a-4fb6014db3dc',10.12,'01/08/2021','hotel acapulco','logged','accomodation','/file/receipt.jpg','thedropper')
     db.add_item(insertData)
     c.execute("SELECT * FROM items WHERE uid='a6d0865f-e06b-4c26-ac3a-4fb6014db3dc'")
     result = c.fetchone()
@@ -97,7 +97,7 @@ def test_get_user(setup_user_database):
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    result = db.get_user_email('tgUser')
+    result = db.get_user_email('testUser')
     assert result == 'user@gmail.com'
 
 
@@ -106,15 +106,15 @@ def test_add_user(setup_user_database):
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    db.add_user('tgUsername','active','test@expensebot.net','01/01/2000','eur')
-    assert db.get_user_email('tgUsername') == 'test@expensebot.net'
+    db.add_user('testUsername','active','test@expensebot.net','01/01/2000','eur')
+    assert db.get_user_email('testUsername') == 'test@expensebot.net'
 
 def test_check_existing_user(setup_user_database):
     db = DBHelper()
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    assert db.checkExistingUser('tgUser') == True
+    assert db.checkExistingUser('testUser') == True
 
 def test_get_user_by_status(setup_user_database):
     db = DBHelper()
@@ -122,13 +122,15 @@ def test_get_user_by_status(setup_user_database):
     c = db.conn.cursor()
 
     result = db.get_users_by_status('active')
-    assert result[0] == ('tgUser','user@gmail.com','01/01/2000')
+    assert result[0] == ('testUser','user@gmail.com','01/01/2000')
+
+
 def test_get_ccy(setup_user_database):
     db = DBHelper()
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    result = db.get_ccy('tgUser')
+    result = db.get_ccy('testUser')
     assert result == 'EUR'
 
 def test_get_user_email(setup_user_database):
@@ -136,7 +138,7 @@ def test_get_user_email(setup_user_database):
     db.conn = setup_user_database
     c = db.conn.cursor()   
 
-    result = db.get_user_email('tgUser')
+    result = db.get_user_email('testUser')
     assert result == 'user@gmail.com'
 
 def test_update_user_email(setup_user_database):
@@ -144,8 +146,8 @@ def test_update_user_email(setup_user_database):
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    db.update_user_email('tgUser','tg@gmail.com')
+    db.update_user_email('testUser','tg@gmail.com')
 
-    assert db.get_user_email('tgUser') == 'tg@gmail.com'
+    assert db.get_user_email('testUser') == 'tg@gmail.com'
 
 

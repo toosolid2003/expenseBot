@@ -31,27 +31,33 @@ def checkCompletion(dic):
     Input: context.user_data (dictionnary)
     Output: Boolean
     """
-    expectedKeys = ['wbs','amount','reason','typex','receipt','user']
+    expectedKeys = ['amount','reason','typex','receipt','user']
     missingData = []
 
-    for elt in expectedKeys:
-        try:
-            if not dic[elt]:
-                missingData.append(elt)
-        except KeyError:                # in case context.user_data has not create the key yet (new user)
-            missingData.append(elt)
+    if len(dic) == len(expectedKeys):
+        #Making sure we have the right amount of values from the user input.
 
-    if missingData:
-        logger.info(f'Missing: {missingData}')
-        return False
+        for elt in expectedKeys:
+            try:
+                if not dic[elt]:
+                    missingData.append(elt)
+            except KeyError:                # in case context.user_data has not create the key yet (new user)
+                missingData.append(elt)
+
+        if missingData:
+            logger.info(f'Missing: {missingData}')
+            return False
+        else:
+            return True
+    
     else:
-        return True
+        return False
 
 @decoLog
 def getAmount(resultList):
     for elt in resultList:
         try:
-            return float(elt)
+            return round(float(elt),2)
         except:
             pass
 
@@ -128,49 +134,8 @@ def parseText(rawText, activeUser):
     values['typex'] = getType(resultList)
     values['reason'] = getReason(resultList)
 
-    #END OF NEW VERSION
-#    #Split the text according to a pre-determined list of separators
-#    sepList = [',',':',';']
-#    parsedText = []
-#    conversionFactor = 1
-#    #Step 1 - Split the raw text into a list of elements
-#    for sep in sepList:
-#        if sep in rawText:
-#            parsedText = rawText.split(sep)
-#
-#    #Step 2 - Assign amount and reason
-#    if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
-#        for elt in parsedText:
-#            #Detecte a potential currency in the parsedText and update conversionFactor
-#            if conversionRate(elt, baseCcy):
-#                conversionFactor = conversionRate(elt, baseCcy)
-#
-#            #Remove the ccy from the elt to prepare for float assignment
-#            elt = convertUpdateElement(elt)
-#
-#            try:
-#                values['amount'] = float(elt)
-#            except ValueError:
-#                values['reason'] = elt.strip()
-#                values['typex'] = deductType(values['reason'])
-#
-#    else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
-#        if conversionRate(rawText, baseCcy):
-#            conversionFactor = conversionRate(rawText, baseCcy)
-#        rawText = convertUpdateElement(rawText)
-#
-#        try:
-#            values['amount'] = float(rawText)
-#        except ValueError:
-#            values['reason'] = rawText.strip()
-#            values['typex'] = deductType(values['reason'])
-#
-#    #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
-#    if values['amount']:
-#        values['amount'] = round(values['amount'] * conversionFactor, 2)    #Roudning the amount to 2 decimal to support injection in IQ Navigator
-#
+
     return values
-#
 
 def parseFlightEmail(jsonFile):
     '''Parses the data contained in a json file sent by mailparser.io
@@ -271,14 +236,15 @@ def deductType(reason):
 #   }
 #
 #   typex = '17819687102'
+
    types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
-           'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
-   'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-   'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
-   'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
-   'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
-   'per diem':['perdiem', 'per diem','per diems','perdiems']
-   }
+    'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
+    'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+    'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
+    'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+    'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
+    'per diem':['perdiem', 'per diem','per diems','perdiems'],
+    }
 
    typex = 'various'
 
@@ -303,7 +269,7 @@ def injectData(dico):
     dico['date'] = strftime("%d-%-m-%Y")
     dico['status'] = 'pending'
 
-    data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['wbs'], dico['typex'], dico['receipt'], dico['user'])
+    data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['typex'], dico['receipt'], dico['user'])
 
     try:
         db.add_item(data_tuple)

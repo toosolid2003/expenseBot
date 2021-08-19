@@ -21,7 +21,7 @@ class DBHelper:
         self.conn.commit()
 
     def add_item(self, data_tuple):
-        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
+        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
@@ -74,7 +74,7 @@ class DBHelper:
 
         data = (status, activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, date_expense, reason, wbs, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
+        c.execute('''SELECT amount, date_expense, reason, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
 
         return c.fetchall()
 
