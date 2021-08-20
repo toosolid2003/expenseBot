@@ -34,24 +34,19 @@ def checkCompletion(dic):
     expectedKeys = ['amount','reason','typex','receipt','user']
     missingData = []
 
-    if len(dic) == len(expectedKeys):
-        #Making sure we have the right amount of values from the user input.
-
-        for elt in expectedKeys:
-            try:
-                if not dic[elt]:
-                    missingData.append(elt)
-            except KeyError:                # in case context.user_data has not create the key yet (new user)
+    for elt in expectedKeys:
+        try:
+            if not dic[elt]:
                 missingData.append(elt)
+        except KeyError:                # in case context.user_data has not create the key yet (new user)
+            missingData.append(elt)
 
-        if missingData:
-            logger.info(f'Missing: {missingData}')
-            return False
-        else:
-            return True
-    
-    else:
+    if missingData:
+        logger.info(f'Missing: {missingData}')
         return False
+    else:
+        return True
+    
 
 @decoLog
 def getAmount(resultList):
@@ -268,8 +263,19 @@ def injectData(dico):
     dico['uid'] = str(uuid.uuid4())
     dico['date'] = strftime("%d-%-m-%Y")
     dico['status'] = 'pending'
+    dico['currency'] = db.get_ccy(dico['user'])
 
-    data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['typex'], dico['receipt'], dico['user'])
+    data_tuple = (
+        dico['uid'], 
+        dico['amount'], 
+        dico['currency'], 
+        dico['date'], 
+        dico['reason'], 
+        dico['status'], 
+        dico['typex'], 
+        dico['receipt'], 
+        dico['user'],
+        )
 
     try:
         db.add_item(data_tuple)

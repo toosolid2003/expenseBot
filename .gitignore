@@ -12,3 +12,5 @@ sendgrid.env
 *.log
 exports/testUser/*
 log/detailedInfo.log
+export_expenses.csv
+test/testData.csv

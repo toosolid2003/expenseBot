@@ -23,7 +23,7 @@ def test_add_item(setup_database):
     db.conn = setup_database
     c = db.conn.cursor()
 
-    insertData = ('a6d0865f-e06b-4c26-ac3a-4fb6014db3dc',10.12,'01/08/2021','hotel acapulco','logged','accomodation','/file/receipt.jpg','thedropper')
+    insertData = ('a6d0865f-e06b-4c26-ac3a-4fb6014db3dc',10.12,'EUR','01/08/2021','hotel acapulco','logged','accomodation','/file/receipt.jpg','thedropper')
     db.add_item(insertData)
     c.execute("SELECT * FROM items WHERE uid='a6d0865f-e06b-4c26-ac3a-4fb6014db3dc'")
     result = c.fetchone()
@@ -38,7 +38,7 @@ def test_get_item(setup_database):
 
     result = db.get_item('test15')
     assert result is not None
-    assert result[3] == 'Car rental'
+    assert result[4] == 'Car rental'
 
 def test_del_item(setup_database):
     #Test for the del_item method of the DBHelper class
@@ -56,7 +56,7 @@ def test_update_status(setup_database):
 
     db.update_item_status('test01','updated')
     result = db.get_item('test01')
-    assert result[4] == 'updated'
+    assert result[5] == 'updated'
 
 def test_extract_expenses(setup_database):
     db = DBHelper()

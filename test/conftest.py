@@ -18,7 +18,7 @@ def setup_database():
     db = DBHelper()
     db.conn = sqlite3.connect(':memory:')
     cursor = db.conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), date_expense date, reason text, status text, type text, receipt varchar, user varchar)''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), currency varchar, date_expense date, reason text, status text, type text, receipt varchar, user varchar)''')
 
     l = []
     with open('/var/www/expenseBot/test/testData.csv') as file:
@@ -26,7 +26,7 @@ def setup_database():
         for row in csvReader:
             l.append(row)
         sample_data = tuple(l)
-    cursor.executemany('INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?)', sample_data)
+    cursor.executemany('INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)', sample_data)
     return db.conn
 
 @pytest.fixture

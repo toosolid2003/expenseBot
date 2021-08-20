@@ -12,7 +12,7 @@ class DBHelper:
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = "CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), date_expense date, reason text, status text, wbs text, type text, receipt varchar, user varchar)"
+        stmt = "CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), date_expense date, reason text, status text, type text, receipt varchar, user varchar)"
         self.conn.execute(stmt)
         self.conn.commit()
 
@@ -21,7 +21,7 @@ class DBHelper:
         self.conn.commit()
 
     def add_item(self, data_tuple):
-        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?)"
+        stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
         self.conn.commit()
 
