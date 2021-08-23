@@ -6083,3 +6083,54 @@
 2021-08-20 15:28:35,088 - INFO - Expense data is complete. Ready for database injection.
 2021-08-20 15:28:35,097 - DEBUG - Using function injectData
 2021-08-20 15:28:35,105 - INFO - Expense 3441c30c-ea57-4537-9f5b-6c904872bce7 added to the databse for user thedropper
+2021-08-20 16:12:10,168 - DEBUG - Using function parseText
+2021-08-20 16:12:10,169 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,170 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,352 - DEBUG - Using function getType
+2021-08-20 16:12:10,354 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,354 - DEBUG - Using function injectData
+2021-08-20 16:12:10,378 - INFO - Expense 8125580a-f731-43c8-8c3a-c3ff7572168d added to the databse for user testUser
+2021-08-20 16:12:10,413 - DEBUG - Using function parseText
+2021-08-20 16:12:10,413 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,413 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,413 - DEBUG - Using function getType
+2021-08-20 16:12:10,413 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,413 - DEBUG - Using function injectData
+2021-08-20 16:12:10,423 - INFO - Expense d4843668-ffa4-47a1-84c3-db39f6978228 added to the databse for user testUser
+2021-08-20 16:12:10,446 - DEBUG - Using function checkCompletion
+2021-08-20 16:12:10,452 - DEBUG - Using function checkCompletion
+2021-08-20 16:12:10,452 - INFO - Missing: ['receipt']
+2021-08-20 16:12:10,457 - DEBUG - Using function checkCompletion
+2021-08-20 16:12:10,555 - DEBUG - Using function parseText
+2021-08-20 16:12:10,556 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,557 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,558 - DEBUG - Using function getType
+2021-08-20 16:12:10,559 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,564 - DEBUG - Using function parseText
+2021-08-20 16:12:10,568 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,568 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,569 - DEBUG - Using function getType
+2021-08-20 16:12:10,570 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,575 - DEBUG - Using function parseText
+2021-08-20 16:12:10,576 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,576 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,757 - DEBUG - Using function getType
+2021-08-20 16:12:10,759 - DEBUG - Using function getCurrency
+2021-08-20 16:12:10,766 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,769 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,771 - DEBUG - Using function getAmount
+2021-08-20 16:12:10,774 - DEBUG - Using function getType
+2021-08-20 19:14:26,768 - INFO - Initialising the classes
+2021-08-20 19:14:26,771 - INFO - Starting the bot
+2021-08-20 19:14:26,773 - INFO - Starting the server
+2021-08-20 19:14:26,919 - INFO - Server started
+2021-08-20 19:14:28,938 - DEBUG - Using function totalPending
+2021-08-20 19:14:28,938 - DEBUG - Using function toMarkdown
+2021-08-20 19:14:29,292 - DEBUG - Using function totalPending
+2021-08-20 19:14:29,292 - DEBUG - Using function toMarkdown
+2021-08-20 19:14:37,541 - DEBUG - Using function totalPending
+2021-08-20 19:14:37,541 - DEBUG - Using function toMarkdown
+2021-08-20 22:03:20,214 - DEBUG - Using function totalPending
+2021-08-20 22:03:20,214 - DEBUG - Using function toMarkdown
+2021-08-23 07:58:57,817 - DEBUG - Using function totalPending
+2021-08-23 07:58:57,817 - DEBUG - Using function toMarkdown

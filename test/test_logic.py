@@ -27,7 +27,7 @@ from botFunctions.botLogic import *
         'receipt':'/var/tmp/',
         'user':'testUser',
         'wbs':'XBG501',
-    }, False)
+    }, False)   #Test will come back as failed. There are too many keys in the dict but have not found a way to tackle this.
 ]
 )
 def test_check_completion(inputs, expected):

@@ -4,7 +4,7 @@ import sqlite3
 import time
 import pandas as pd
 from logger.logger import logger
-
+from uuid import uuid4
 
 class DBHelper:
     def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
@@ -198,3 +198,59 @@ class DBHelper:
         stmt = '''INSERT INTO analytics (time, user, action, value) VALUES (?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
+
+####################### Expense Class ######################################
+# This class is not currently being used. Saved for a later code refactoring
+
+class Expense:
+    def __init__(self):
+        self.date_created = time.strftime("%d-%-m-%Y")
+        self.uid = str(uuid4())
+        self.status = 'pending'
+        self.amount = None
+        self.reason = None
+        self.typex = None
+        self.ccy = None
+        self.user = None
+        self.receipt = None
+        self.complete = False
+
+    def checkComplete(self):
+        #Check if all attributes are filled
+        if any(elt == None for elt in self.__dict__.values()):
+            self.complete = False
+        else:
+            self.complete = True
+
+    def to_tuple(self):
+        newTuple = (self.uid,
+                self.amount,
+                self.ccy,
+                self.date_created,
+                self.reason,
+                self.status,
+                self.typex,
+                self.receipt,
+                self.user,
+                )
+        return newTuple
+
+    def assign(self, dico):
+        """Takes the input from dictionnary, put them into the expense object as attributes"""
+
+        for elt, value in dico.items():
+        #Checks if the key in the provided dictionnary actually exists in the expense object
+            if elt in self.__dict__.keys():
+                self.__setattr__(elt, value)
+
+    def add_to_db(self, dbname):
+        """Adds the completed expense to the items table in the db"""
+
+        if self.complete == False:
+            return print(f'Expense is missing required data')
+        else:
+            conn = sqlite3.connect(dbname, check_same_thread=False)
+            data = self.to_tuple()
+            conn.execute('''INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)''', data)
+            conn.commit()
+            return print('Expense correctly saved in the db')
