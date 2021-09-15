@@ -186,9 +186,9 @@ def toMarkdown(expenses):
     for expense in expenses:
 
         #Reformatting the time variable for legibility
-        totime = strptime(expense[1], "%d-%m-%Y")
+        totime = strptime(expense[2], "%d-%m-%Y")
         expenseDate = strftime("%a %d %B", totime)
-        output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
+        output += '- {}, {} {}, {}\n'.format(expenseDate, expense[0], expense[1], expense[3])
     
     return output
 

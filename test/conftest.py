@@ -1,9 +1,6 @@
 #standard imports
 import sys
-import sqlite3
-import csv
 import pytest
-import time
 
 #Add expenseBot folder to sys.path to be able to import the app's modules
 sys.path.append('/var/www/expenseBot/')
@@ -14,6 +11,9 @@ from botClasses.classes import *
 @pytest.fixture
 def setup_database():
     """ Fixture to set up the in-memory database with test data """
+
+    import sqlite3
+    import csv
 
     db = DBHelper()
     db.conn = sqlite3.connect(':memory:')
@@ -32,6 +32,8 @@ def setup_database():
 @pytest.fixture
 def setup_user_database():
     """Fixture to create a user database"""
+
+    import sqlite3
     db = DBHelper()
     db.conn = sqlite3.connect(':memory:')
     cursor = db.conn.cursor()

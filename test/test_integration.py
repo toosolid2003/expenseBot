@@ -18,22 +18,33 @@ from botFunctions.botLogic import *
 )
 def test_integration_simple(userInput, amnt, typex):
     #userInput = '165.87, hotel la mer bleue'
-
+#    dico = {}
+#    dico = parseText(userInput, 'testUser')
+#    dico['receipt'] = '/test'
+#    dico['user'] = 'testUser'
+#    dico['currency'] = 'EUR'
+#    uid = injectData(dico)
+    exp = Expense()
+    
     dico = {}
     dico = parseText(userInput, 'testUser')
-    dico['receipt'] = '/test'
-    dico['user'] = 'testUser'
-    dico['currency'] = 'EUR'
-    uid = injectData(dico)
+    
+    exp.receipt = '/var/test'
+    exp.user = 'testUser'
+    exp.ccy = 'EUR'
+
+    exp.assign(dico)
+    exp.checkComplete()
+    exp.add_to_db('expenses.sqlite')
 
     #Getting the newly injected item
     db = DBHelper()
-    result = db.get_item(uid)
+    result = db.get_item(exp.uid)
     
     #Assert part
     assert pytest.approx(result[1] == amnt)
     assert result[6] == typex
     
     #Deleting new entry from PRODUCTION database
-    db.del_item(uid)
+    db.del_item(exp.uid)
 

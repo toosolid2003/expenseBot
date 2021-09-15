@@ -179,10 +179,10 @@ def status(update, context):
     #Only keep the last 5 expenses
     if len(allExpenses) > 0:
         result = allExpenses[-5:]
-        total = totalPending(result)
+        #total = totalPending(result)
         result = toMarkdown(result)
         update.message.reply_text(result)
-        update.message.reply_text(f'Total for these expenses: {total}')
+        #update.message.reply_text(f'Total for these expenses: {total}')
     
     else:
         update.message.reply_text(f"I'm sorry, there is no pending expense for you :/")

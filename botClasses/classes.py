@@ -74,7 +74,7 @@ class DBHelper:
 
         data = (status, activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, date_expense, reason, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
+        c.execute('''SELECT amount, currency, date_expense, reason, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
 
         return c.fetchall()
 

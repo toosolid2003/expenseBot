@@ -1,7 +1,6 @@
 # Standard imports 
 import pytest
 import sys
-from pandas import Timestamp
 
 #Add expenseBot folder to sys.path to be able to import the app's modules
 sys.path.append('/var/www/expenseBot/')
@@ -69,6 +68,9 @@ def test_extract_expenses(setup_database):
 
 #@pytest.mark.skip(reason='Dont want to save a file on the server')
 def test_extract_all(setup_database):
+
+    from pandas import Timestamp
+
     db = DBHelper()
     db.conn = setup_database
     c = db.conn.cursor()
@@ -150,4 +152,67 @@ def test_update_user_email(setup_user_database):
 
     assert db.get_user_email('testUser') == 'tg@gmail.com'
 
+##############  Expense Classes Tests  ######################
 
+@pytest.fixture(scope='session')
+def expenseFixture():
+    from uuid import uuid4
+
+    exp = Expense()
+    exp.amount = 1000.00
+    exp.ccy = 'EUR'
+    exp.date_created = '01-01-2000'
+    exp.reason = 'hotel Marmara'
+    exp.typex = 'accomodation'
+    exp.uid = str(uuid4())
+    exp.user = 'thib'
+    exp.receipt = '/tmp'
+
+    return exp
+
+def test_checkComplete(expenseFixture):
+    newExpense = Expense()
+
+    newExpense.checkComplete()
+    assert newExpense.complete == False
+
+    expenseFixture.checkComplete()
+    assert expenseFixture.complete == True
+
+def test_to_tuple(expenseFixture):
+
+    #We check that we generate a tuple with the right number of data point before injection
+    assert len(expenseFixture.to_tuple()) == 9
+
+def test_add_to_db(expenseFixture):
+
+    conn = sqlite3.connect('testItems.sqlite')
+    c = conn.cursor()
+    data = expenseFixture.to_tuple()
+    c.execute('''INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)''', data)
+
+    data = (expenseFixture.uid,)
+    c.execute('''SELECT * FROM items WHERE uid=?''', data)
+    result = c.fetchall()
+
+    assert result[0][0] == expenseFixture.uid
+
+def test_assign(expenseFixture):
+    testDic = {
+        'amount': 122.09,
+        'reason': 'restaurant labatte',
+        'typex': 'food & beverage',
+        'ccy': 'EUR',
+        'falseAttr': 'should not be there',
+    }
+
+    expenseFixture.assign(testDic)
+
+    assert expenseFixture.amount == 122.09
+    assert expenseFixture.reason == 'restaurant labatte'
+    assert expenseFixture.typex == 'food & beverage'
+    assert expenseFixture.ccy == 'EUR'
+
+    #Also checking if the 'assign' method does not add unwanted attributes to the instance
+    with pytest.raises(AttributeError):
+        expenseFixture.falseAttr 
