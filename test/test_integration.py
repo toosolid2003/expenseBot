@@ -14,6 +14,7 @@ from botFunctions.botLogic import *
     [
         ('160 chf, restaurant', 150.00, 'food & beverage'),
         ('100, car rental', 100.00,'car rental'),
+        ('200 eur, hotel novotel', 200.00, 'accomodation'),
     ]
 )
 def test_integration_simple(userInput, amnt, typex):

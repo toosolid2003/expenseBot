@@ -1,6 +1,6 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
-from botFunctions.botLogic import toMarkdown, totalPending
+from botFunctions.botLogic import exportFile, toMarkdown, totalPending
 from botFunctions.iqnCommands import wbsCheck
 from botFunctions.botJobs import submitJob
 from botFunctions.export_mail import sendExport
@@ -10,6 +10,9 @@ import telegram
 import os
 from logger.logger import logger
 import time
+import csv
+from datetime import datetime
+from maya import dateparser
 
 # Database helpers
 #################################################################
@@ -161,15 +164,32 @@ def stopit(update, context):
 
 @commandTrack
 def export(update, context):
-    filename = db.extract_all(update.message.chat.username)
+
+
     email = db.get_user_email(update.message.chat.username)
+
+    if len(context.args) >= 1:
+        
+        #Create and parse a single string with all parameters after the /export command
+        date_exp = ' '.join(context.args)
+        date_exp = dateparser.parse(date_exp) 
+
+        #Creating the export file and returning its path on server
+        filename = exportFile(update.message.chat.username, date_exp)
+        responseBack = f'I have exported your expenses from {date_exp.strftime("%A, %B %-d")} and sent them to your email, {email}'
+    else:
+        filename = db.extract_all(update.message.chat.username)
+        responseBack = f'I have exported all of your expenses to your email, {email}'
+    
+    #Sending the email
+    
     response = sendExport('support@expensebot.net', email, filename)
     if response.status_code != 202:
         update.message.reply_text('oops, there\'s been a problem')
         logger.error(f'Email with expense export not sent. {response.status_code}')
-
-    update.message.reply_text(f'I have exported all your expenses in a csv file and ' 
-    f'sent it to your email: {email}.')
+    else:
+        update.message.reply_text(responseBack)
+    logger.info(f'Export sent to {update.message.chat.username}')
 
 @commandTrack
 def status(update, context):

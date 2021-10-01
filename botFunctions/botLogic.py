@@ -7,6 +7,9 @@ from botClasses.classes import DBHelper
 import uuid
 import re
 from forex_python.converter import CurrencyRates
+from datetime import datetime
+import csv
+from maya import dateparser
 
 db = DBHelper()
 
@@ -186,7 +189,7 @@ def toMarkdown(expenses):
     for expense in expenses:
 
         #Reformatting the time variable for legibility
-        totime = strptime(expense[2], "%d-%m-%Y")
+        totime = strptime(expense[2], "%Y-%m-%d")
         expenseDate = strftime("%a %d %B", totime)
         output += '- {}, {} {}, {}\n'.format(expenseDate, expense[0], expense[1], expense[3])
     
@@ -261,7 +264,7 @@ def injectData(dico):
     Output: uid of the expense
     """
     dico['uid'] = str(uuid.uuid4())
-    dico['date'] = strftime("%d-%-m-%Y")
+    dico['date'] = strftime("%Y-%m-%d")
     dico['status'] = 'pending'
     dico['currency'] = db.get_ccy(dico['user'])
 
@@ -286,4 +289,28 @@ def injectData(dico):
     except Exception as e:
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
+
+def exportFile(activeUser, date_exp, fileformat='.csv', path='/var/www/expenseBot/exports/'):
+    '''
+    Creates an export file in specified format
+    Input: username, datetime object with date of first expense to be extracted, file format (opt), path (opt)
+    Output: export file
+    '''
+
+
+    #Getting the expenses from the db
+    db = DBHelper()
+    expenses = db.extract_exp_date(activeUser, date_exp.strftime('%Y-%m-%d'))
+
+    #Filename creation
+    today = datetime.today().strftime('%Y_%m_%d')
+    filename = path + activeUser + '/' + 'export_' + today + fileformat
+
+    #Writing expenses in the csv file
+    with open(filename, 'w') as out:
+        csv_out = csv.writer(out)
+        for row in expenses:
+            csv_out.writerow(row)
+    
+    return filename
 

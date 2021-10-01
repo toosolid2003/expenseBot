@@ -90,6 +90,10 @@ def test_update_multiple_statuses(setup_database):
     result = db.extract_expenses('testUser','updated')
     assert len(result) == 15
 
+def test_extract_by_date(setup_database):
+    db = DBHelper()
+    ##Fix the setup db first, testData.csv
+
 
 
 ########################################## Databse User Tests ####################################

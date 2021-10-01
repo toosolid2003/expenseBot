@@ -74,8 +74,17 @@ class DBHelper:
 
         data = (status, activeUser)
         c = self.conn.cursor()
-        c.execute('''SELECT amount, currency, date_expense, reason, type, receipt, uid FROM items WHERE status=? AND user=?''', data)
+        c.execute('''SELECT amount, currency, date_expense, reason, typex, receipt, uid FROM items WHERE status=? AND user=?''', data)
 
+        return c.fetchall()
+    
+    def extract_exp_date(self, activeUser, date_exp):
+        '''Extract all expenses from the specified date'''
+
+        c = self.conn.cursor()
+        data = (date_exp, activeUser)
+        c.execute('''SELECT amount, currency, date_expense, reason, typex FROM items WHERE date_expense >=? AND user=?''', data)
+        
         return c.fetchall()
 
     def extract_all(self, activeUser, path='/var/www/expenseBot/exports/'):
@@ -83,7 +92,7 @@ class DBHelper:
         Input: telegram handle
         Output: absolute filepath to the exported csv file with all expenses for activeUser'''
 
-        query = 'SELECT date_expense, amount, reason, type FROM items WHERE user="' + activeUser + '";'
+        query = 'SELECT date_expense, amount, reason, typex FROM items WHERE user="' + activeUser + '";'
         rawResult = pd.read_sql_query(query, self.conn)
 
         #Create a dedicated filename
@@ -204,7 +213,7 @@ class DBHelper:
 
 class Expense:
     def __init__(self):
-        self.date_created = time.strftime("%d-%-m-%Y")
+        self.date_created = time.strftime("%Y-%m-%d")
         self.uid = str(uuid4())
         self.status = 'pending'
         self.amount = None

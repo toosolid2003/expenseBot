@@ -66,3 +66,10 @@ def test_get_amount(input, result):
 def test_get_type():
     input = ['10','eur','hotel','acapulco']
     assert getType(input) == 'accomodation'
+
+def test_exportFile(setup_database):
+    from datetime import datetime
+    date_exp = datetime(2021,5,5)
+    filename = exportFile('testUser', date_exp)
+    expectedFilename = '/var/www/expenseBot/exports/testUser/export_' + datetime.today().strftime('%Y_%m_%d') + '.csv'
+    assert filename == expectedFilename
