@@ -83,9 +83,10 @@ class DBHelper:
 
         c = self.conn.cursor()
         data = (date_exp, activeUser)
-        c.execute('''SELECT amount, currency, date_expense, reason, typex FROM items WHERE date_expense >=? AND user=?''', data)
+        c.execute('''SELECT reason, amount, currency, date_expense, typex, receipt FROM items WHERE date_expense >=? AND user=?''', data)
+        expenseTuple = c.fetchall()
         
-        return c.fetchall()
+        return list(expenseTuple)
 
     def extract_all(self, activeUser, path='/var/www/expenseBot/exports/'):
         '''Extracts all expenses from a specific user. 

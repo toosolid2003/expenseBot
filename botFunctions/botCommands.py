@@ -1,6 +1,7 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
-from botFunctions.botLogic import exportFile, toMarkdown, totalPending
+from botClasses.reportClass import ExpenseReport
+from botFunctions.botLogic import exportFile, receiptsZip, toMarkdown, totalPending 
 from botFunctions.iqnCommands import wbsCheck
 from botFunctions.botJobs import submitJob
 from botFunctions.export_mail import sendExport
@@ -13,6 +14,7 @@ import time
 import csv
 from datetime import datetime
 from maya import dateparser
+
 
 # Database helpers
 #################################################################
@@ -165,8 +167,8 @@ def stopit(update, context):
 @commandTrack
 def export(update, context):
 
-
-    email = db.get_user_email(update.message.chat.username)
+    user = update.message.chat.username
+    email = db.get_user_email(user)
 
     if len(context.args) >= 1:
         
@@ -174,22 +176,26 @@ def export(update, context):
         date_exp = ' '.join(context.args)
         date_exp = dateparser.parse(date_exp) 
 
-        #Creating the export file and returning its path on server
-        filename = exportFile(update.message.chat.username, date_exp)
+        #Getting the expenses from the db
+        expenses = db.extract_exp_date(user, date_exp)
+
+        #Creating the export file and associated receipts and returning their path on server
+        expReport = exportFile(user, date_exp)
+        receiptPath = receiptsZip(user,date_exp)
         responseBack = f'I have exported your expenses from {date_exp.strftime("%A, %B %-d")} and sent them to your email, {email}'
     else:
-        filename = db.extract_all(update.message.chat.username)
+        expReport = db.extract_all(user)
         responseBack = f'I have exported all of your expenses to your email, {email}'
     
     #Sending the email
     
-    response = sendExport('support@expensebot.net', email, filename)
+    response = sendExport('support@expensebot.net', email, expReport, receiptPath)
     if response.status_code != 202:
         update.message.reply_text('oops, there\'s been a problem')
         logger.error(f'Email with expense export not sent. {response.status_code}')
     else:
         update.message.reply_text(responseBack)
-    logger.info(f'Export sent to {update.message.chat.username}')
+    logger.info(f'Export sent to {user}')
 
 @commandTrack
 def status(update, context):

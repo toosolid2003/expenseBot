@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from os import chdir, rename
+from os import chdir, rename, path
 import json
 from time import strftime, strptime
 from logger.logger import logger
@@ -10,6 +10,7 @@ from forex_python.converter import CurrencyRates
 from datetime import datetime
 import csv
 from maya import dateparser
+import zipfile
 
 db = DBHelper()
 
@@ -290,7 +291,7 @@ def injectData(dico):
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
 
-def exportFile(activeUser, date_exp, fileformat='.csv', path='/var/www/expenseBot/exports/'):
+def exportFile(activeUser, date_exp, fileformat='.csv', abspath='/var/www/expenseBot/exports/'):
     '''
     Creates an export file in specified format
     Input: username, datetime object with date of first expense to be extracted, file format (opt), path (opt)
@@ -298,13 +299,22 @@ def exportFile(activeUser, date_exp, fileformat='.csv', path='/var/www/expenseBo
     '''
 
 
-    #Getting the expenses from the db
+    #Getting the expenses from the db, returns a tuple
     db = DBHelper()
-    expenses = db.extract_exp_date(activeUser, date_exp.strftime('%Y-%m-%d'))
+    result = db.extract_exp_date(activeUser, date_exp.strftime('%Y-%m-%d'))
+
+    #Converting the result into a list of lists to allow reformatting later on
+    expenses = []
+    for elt in result:
+        expenses.append(list(elt))
+
+    #Reformating the 'receipts' string to remove the abosulte path
+    for expense in expenses:
+        expense[5] = path.basename(expense[5])
 
     #Filename creation
     today = datetime.today().strftime('%Y_%m_%d')
-    filename = path + activeUser + '/' + 'export_' + today + fileformat
+    filename = abspath + activeUser + '/' + 'export_' + today + fileformat
 
     #Writing expenses in the csv file
     with open(filename, 'w') as out:
@@ -314,3 +324,22 @@ def exportFile(activeUser, date_exp, fileformat='.csv', path='/var/www/expenseBo
     
     return filename
 
+def receiptsZip(activeUser, date_exp):
+    '''Creates a zipfile with the receipts. Return a string containing the file path'''
+
+    #Flename creation
+    filename = '/var/www/expenseBot/exports/' + activeUser +'/'+'receiptsExports.zip'
+
+    #Extracting the expenses in a list
+    db = DBHelper()
+    expenseList = db.extract_exp_date(activeUser, date_exp)
+
+    #Creating the zipfile
+    with zipfile.ZipFile(filename,'x') as myzip:
+        for expense in expenseList:
+            myzip.write(expense[5], path.basename(expense[5]))   #The path of the receipt is in 5th position in the expense list
+    
+    #Return the file path
+    return filename
+        
+    
