@@ -5,10 +5,14 @@ sys.path.append('/var/www/expenseBot/')
 
 from botClasses.reportClass import *
 
-@pytest.fixture
-def expenseList():
-    #Create a list of expense object, properly filled out
-    expenses = []
-
-def test_generate(setup_database):
+def test_getExpenseList():
     report = ExpenseReport('testUser')
+
+    #Get all expenses for testUser
+    report.getExpenses('testExpenses.sqlite')
+    assert len(report.expenseList) == 15
+
+def test_getExpenseList_date():
+    report = ExpenseReport('testUser')
+#    report.getExpenses('testExpenses.sqlite', '20')
+# To be continued...

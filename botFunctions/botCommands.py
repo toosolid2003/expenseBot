@@ -172,27 +172,26 @@ def export(update, context):
 
     if len(context.args) >= 1:
         
-        #Create and parse a single string with all parameters after the /export command
+        #Create and parse a date with all parameters after the /export command
         date_exp = ' '.join(context.args)
         date_exp = dateparser.parse(date_exp) 
 
-        #Getting the expenses from the db
-        expenses = db.extract_exp_date(user, date_exp)
-
-        #Creating the export file and associated receipts and returning their path on server
-        expReport = exportFile(user, date_exp)
-        receiptPath = receiptsZip(user,date_exp)
         responseBack = f'I have exported your expenses from {date_exp.strftime("%A, %B %-d")} and sent them to your email, {email}'
     else:
-        expReport = db.extract_all(user)
         responseBack = f'I have exported all of your expenses to your email, {email}'
-    
+        date_exp = None
+
+    report = ExpenseReport(user)
+    report.getExpenses('expenses.sqlite', date_exp)
+    report.generateXls()
+    report.receiptZip()
+
+    result = report.sendMail(email)    
     #Sending the email
     
-    response = sendExport('support@expensebot.net', email, expReport, receiptPath)
-    if response.status_code != 202:
+    if result != 202:
         update.message.reply_text('oops, there\'s been a problem')
-        logger.error(f'Email with expense export not sent. {response.status_code}')
+        logger.error(f'Email with expense export not sent. {result}')
     else:
         update.message.reply_text(responseBack)
     logger.info(f'Export sent to {user}')
