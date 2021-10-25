@@ -201,9 +201,14 @@ def status(update, context):
     #Extracting ALL pending expenses. We choose the "pending" status because it's the first one assigned to a new expense object.
     allExpenses = db.extract_expenses(update.message.chat.username, "pending")
 
+    if len(context.args) >= 1:
+        nbExpenses = int(context.args[0])
+    else:
+        nbExpenses = 5
+
     #Only keep the last 5 expenses
     if len(allExpenses) > 0:
-        result = allExpenses[-5:]
+        result = allExpenses[-nbExpenses:]
         #total = totalPending(result)
         result = toMarkdown(result)
         update.message.reply_text(result)
