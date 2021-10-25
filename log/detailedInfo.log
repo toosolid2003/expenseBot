@@ -3468,3 +3468,8 @@
 2021-10-22 17:51:02,301 - INFO - Starting the server
 2021-10-22 17:51:02,453 - INFO - Server started
 2021-10-22 17:51:09,444 - INFO - Export sent to thedropper
+2021-10-23 20:42:56,536 - DEBUG - Using function toMarkdown
+2021-10-23 20:50:25,607 - DEBUG - Using function toMarkdown
+2021-10-24 18:56:28,453 - DEBUG - Using function toMarkdown
+2021-10-25 11:56:04,096 - INFO - Export sent to thedropper
+2021-10-25 11:58:50,179 - INFO - Export sent to thedropper
