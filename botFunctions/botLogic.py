@@ -87,7 +87,7 @@ def getType(resultList):
 
 @decoLog
 def getCurrency(resultList):
-    managedCcy = ['usd','chf','aud','nzd','rub','eur','cad']
+    managedCcy = ['usd','chf','aud','nzd','rub','eur','cad','rub','uah']
 
     for elt in resultList:
         if elt in managedCcy:
@@ -135,26 +135,6 @@ def parseText(rawText, activeUser):
 
 
     return values
-
-def parseFlightEmail(jsonFile):
-    '''Parses the data contained in a json file sent by mailparser.io
-    Input: filePath.json
-    Output: an expense object with amount and reason'''
-
-    with open(jsonFile) as data:
-        data = json.load(data)
-        data = data[-1]     #we only consider the last element
-
-    #exp = Expense()
-    #exp.amount = data['amount']
-    #exp.reason = 'flight ' + data['destination']
-
-    #Check if the currency is euro, in which case it conerts amount to CHF and format
-    #to only keep 2 decimals
-
-    #if data['currency'] == '€':
-        #exp.amount = float(data['amount']) * 1.03
-        #exp.amount = "{:.2f}".format(exp.amount)
 
 @decoLog
 def saveDocument(fileId, telegram_username, bot):
@@ -290,56 +270,3 @@ def injectData(dico):
     except Exception as e:
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
-
-def exportFile(activeUser, date_exp, fileformat='.csv', abspath='/var/www/expenseBot/exports/'):
-    '''
-    Creates an export file in specified format
-    Input: username, datetime object with date of first expense to be extracted, file format (opt), path (opt)
-    Output: export file
-    '''
-
-
-    #Getting the expenses from the db, returns a tuple
-    db = DBHelper()
-    result = db.extract_exp_date(activeUser, date_exp.strftime('%Y-%m-%d'))
-
-    #Converting the result into a list of lists to allow reformatting later on
-    expenses = []
-    for elt in result:
-        expenses.append(list(elt))
-
-    #Reformating the 'receipts' string to remove the abosulte path
-    for expense in expenses:
-        expense[5] = path.basename(expense[5])
-
-    #Filename creation
-    today = datetime.today().strftime('%Y_%m_%d')
-    filename = abspath + activeUser + '/' + 'export_' + today + fileformat
-
-    #Writing expenses in the csv file
-    with open(filename, 'w') as out:
-        csv_out = csv.writer(out)
-        for row in expenses:
-            csv_out.writerow(row)
-    
-    return filename
-
-def receiptsZip(activeUser, date_exp):
-    '''Creates a zipfile with the receipts. Return a string containing the file path'''
-
-    #Flename creation
-    filename = '/var/www/expenseBot/exports/' + activeUser +'/'+'receiptsExports.zip'
-
-    #Extracting the expenses in a list
-    db = DBHelper()
-    expenseList = db.extract_exp_date(activeUser, date_exp)
-
-    #Creating the zipfile
-    with zipfile.ZipFile(filename,'x') as myzip:
-        for expense in expenseList:
-            myzip.write(expense[5], path.basename(expense[5]))   #The path of the receipt is in 5th position in the expense list
-    
-    #Return the file path
-    return filename
-        
-    

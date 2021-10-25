@@ -3518,3 +3518,32 @@
 2021-10-25 12:14:59,279 - DEBUG - Using function getAmount
 2021-10-25 12:14:59,573 - DEBUG - Using function getAmount
 2021-10-25 12:14:59,596 - DEBUG - Using function getType
+2021-10-25 18:31:49,769 - INFO - Initialising the classes
+2021-10-25 18:31:49,770 - INFO - Starting the bot
+2021-10-25 18:31:49,770 - INFO - Starting the server
+2021-10-25 18:31:50,061 - INFO - Server started
+2021-10-25 18:31:59,037 - DEBUG - Using function toMarkdown
+2021-10-25 18:32:02,642 - DEBUG - Using function toMarkdown
+2021-10-25 18:48:03,083 - DEBUG - Using function toMarkdown
+2021-10-25 19:01:41,699 - INFO - Initialising the classes
+2021-10-25 19:01:41,700 - INFO - Starting the bot
+2021-10-25 19:01:41,702 - INFO - Starting the server
+2021-10-25 19:01:41,861 - INFO - Server started
+2021-10-25 19:01:52,067 - DEBUG - Using function toMarkdown
+2021-10-25 19:02:27,058 - INFO - Export sent to thedropper
+2021-10-25 19:21:40,733 - INFO - Initialising the classes
+2021-10-25 19:21:40,735 - INFO - Starting the bot
+2021-10-25 19:21:40,736 - INFO - Starting the server
+2021-10-25 19:21:40,878 - INFO - Server started
+2021-10-25 19:22:07,262 - INFO - Initialising the classes
+2021-10-25 19:22:07,268 - INFO - Starting the bot
+2021-10-25 19:22:07,269 - INFO - Starting the server
+2021-10-25 19:22:07,492 - INFO - Server started
+2021-10-25 19:22:21,622 - INFO - Initialising the classes
+2021-10-25 19:22:21,627 - INFO - Starting the bot
+2021-10-25 19:22:21,628 - INFO - Starting the server
+2021-10-25 19:22:21,790 - INFO - Server started
+2021-10-25 19:22:44,207 - INFO - Initialising the classes
+2021-10-25 19:22:44,208 - INFO - Starting the bot
+2021-10-25 19:22:44,210 - INFO - Starting the server
+2021-10-25 19:22:44,432 - INFO - Server started

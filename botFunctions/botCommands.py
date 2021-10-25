@@ -1,10 +1,7 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
 from botClasses.reportClass import ExpenseReport
-from botFunctions.botLogic import exportFile, receiptsZip, toMarkdown, totalPending 
-from botFunctions.iqnCommands import wbsCheck
-from botFunctions.botJobs import submitJob
-from botFunctions.export_mail import sendExport
+from botFunctions.botLogic import toMarkdown, totalPending 
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -30,7 +27,8 @@ def commandTrack(func):
     def wrapper(update, context):
        
         try:
-            value = context.args[0]
+            value = " ".join(context.args)
+            #value = context.args[0]
         except:
             value = ''
 
@@ -62,9 +60,10 @@ def inputTrack(func):
 
 @commandTrack
 def helpmsg(update, context):
-    text = '''To record an expense, just type in the amount, a curreny, a reason and attach a picture or document as receipt.
-    Example: "19 usd, hotel California" -> hit send then just share a picture of the receipt with the bot'''
-    update.message.reply_text(text)
+    messages = ['''To record an expense, just type in the amount, a curreny, a reason and attach a picture or document as receipt.
+    Example: "19 usd, hotel California" -> hit send then just share a picture of the receipt with the bot''',f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
+    for msg in messages:
+        update.message.reply_text(msg)
 
 
 #Conversation commands
@@ -108,8 +107,8 @@ def email(update, context):
         update.message.reply_text('Thanks for your email, {}.'.format(email))
         context.user_data['email'] = email
         update.message.reply_text('Now, what currency should I use to record your expenses?')
-        keyboard = [['EUR','CHF','USD'],
-                ['NZD','AUD','CAD']]
+        keyboard = [['EUR','RUB','USD'],
+                ['NZD','AUD','UAH']]
         reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
         bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
         #Remove the custome keyboard used in password state
@@ -197,7 +196,7 @@ def export(update, context):
     logger.info(f'Export sent to {user}')
 
 @commandTrack
-def status(update, context):
+def last(update, context):
     #Extracting ALL pending expenses. We choose the "pending" status because it's the first one assigned to a new expense object.
     allExpenses = db.extract_expenses(update.message.chat.username, "pending")
 
