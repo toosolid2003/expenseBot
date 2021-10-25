@@ -1,10 +1,8 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue, CallbackContext
 from telegram import Bot
-import datetime
 from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
-from botFunctions.botJobs import iqnExpensesLog, submitJob 
 from logger.logger import logger
 
 #################################################################
@@ -142,7 +140,7 @@ conv_handler = ConversationHandler(
 
 dispatcher.add_handler(conv_handler)
 dispatcher.add_handler(CommandHandler('help', helpmsg))
-dispatcher.add_handler(CommandHandler('status', status))
+dispatcher.add_handler(CommandHandler('last', last))
 dispatcher.add_handler(CommandHandler('export', export))
 dispatcher.add_handler(CommandHandler('email', emailCheck,pass_args=True))
 
