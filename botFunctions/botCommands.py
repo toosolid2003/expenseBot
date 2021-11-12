@@ -1,7 +1,7 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
 from botClasses.reportClass import ExpenseReport
-from botFunctions.botLogic import toMarkdown, totalPending 
+from botFunctions.botLogic import toMarkdown, registeredEmail, totalPending 
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -60,8 +60,10 @@ def inputTrack(func):
 
 @commandTrack
 def helpmsg(update, context):
-    messages = ['''To record an expense, just type in the amount, a curreny, a reason and attach a picture or document as receipt.
-    Example: "19 usd, hotel California" -> hit send then just share a picture of the receipt with the bot''',f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
+    messages = ['''To record a new business expense, 
+send the bot a picture of your receipt, with the amount and reason in the caption, separated by a comma (eg, "12, coffee with Johnny").
+You can also record an expense in a different currency: follow the same procedure, just add the 3 letters of a currency after the amount (eg, "12 eur, lunch with Paul)''',
+    f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
     for msg in messages:
         update.message.reply_text(msg)
 
@@ -86,9 +88,9 @@ def start(update, context):
         return ConversationHandler.END
 
     #If user does not exist yet, proceed.
-    update.message.reply_text("Hey, welcome to the Expense Bot. Before you can start recording business expenses, I will need to set you up." )
+    update.message.reply_text("Hey, welcome to expensebot.net! Before you can start recording business expenses, I will need to set you up." )
     message = (f"It will take 1 minute, but you can stop at any point by typing /stop. \n"
-                "First, I need an email. I will use this email to send you the expense reports you request via /export.\n"
+                "First, I need an email. I will use this email to send you the expense reports you request via the /export command.\n"
                 "Ok. What email should I use?")
     update.message.reply_text(message)
     return EMAIL
@@ -136,16 +138,16 @@ def currency(update, context):
         email = context.user_data['email']
         currency = context.user_data['currency']
 
-        #Fake data to make sure the add_user function does not raise an exception
-        wbs = '000000'
-        iq_username = 'rando'
-        iq_password = 'rando'
         ###########################################################################
 
-        logger.info('Adding user %s to the users database', telegramUsername)
-        db.add_user(telegramUsername, iq_username, iq_password, email, wbs, currency)
-        time.sleep(1)
-        update.message.reply_text('Congrats, you are now all set!')
+        try:
+            db.add_user(telegramUsername, email, currency)
+            time.sleep(1)
+            update.message.reply_text('Congrats, you are now all set!')
+        except Exception as e:
+            logger.error(f'User {telegramUsername} could not be created', e)
+            update.message.reply_text(f'It seems I ran into trouble. Please start again in a while using the /start commend. Apologies :/')
+            ConversationHandler.END
 
         #Creating a specific folder to save user's receipts
         try:
@@ -155,7 +157,9 @@ def currency(update, context):
             os.mkdir(path)
         except:
             logger.error('Error when creating user\'s folder. User: %s', telegramUsername)
+            ConversationHandler.END
  
+        logger.info('Adding user %s to the users database', telegramUsername)
 
     return ConversationHandler.END
 

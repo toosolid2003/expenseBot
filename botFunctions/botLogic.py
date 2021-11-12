@@ -270,3 +270,30 @@ def injectData(dico):
     except Exception as e:
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
+
+def userRegistered(email):
+    """Checks if the email used during the start process on the bot is the same as the one used to sign up
+    on the website.
+    Input: email (string)
+    Output: Boolean"""
+
+    registeredEmails = [
+        'jmorrisonpr@gmail.com',
+        "thibaut.segura@yahoo.fr",
+        "tina@spacefinish.com",
+        "alexmakeev81@gmail.com",
+        "it.vladrom@gmail.com",
+        "speedman77@gmail.com",
+        "mineolegcraft@gmail.com",
+        "nozoom2@gmail.com",
+        "sevakode@gmail.com",
+        "yuriykvasn@gmail.com",
+        "jennifer@bilanciainc.com",
+        "jakovlev.ivan.me@gmail.com",
+        "seax4one@gmail.com",
+    ]
+
+    if email in registeredEmails:
+        return True
+    else:
+        return False

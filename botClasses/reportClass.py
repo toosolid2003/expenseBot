@@ -7,6 +7,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition, ContentId)
 import base64
 import sqlite3
+from logger.logger import logger
 
 class ExpenseReport:
     
@@ -28,6 +29,7 @@ class ExpenseReport:
         """
 
         #Setting up the connection with the db
+        logger.debug('[*] Connecting to the db')
         conn = sqlite3.connect(db, check_same_thread=False)
         conn.row_factory = sqlite3.Row
 
@@ -40,6 +42,7 @@ class ExpenseReport:
             data = (self.user, date_exp)
 
         #Launching the query
+        logger.debug('[*] Executing the query')
         c = conn.cursor()
         c.execute(query, data)
         self.expenseList = c.fetchall()
@@ -55,6 +58,7 @@ class ExpenseReport:
         Output: absolute path to the expense report"""
 
         #Loading the excel template
+        logger.debug('[*] Loading the workbook template')
         wb = openpyxl.load_workbook(filename=self.template)
         ws = wb.active
         row = 19
@@ -62,6 +66,7 @@ class ExpenseReport:
 
 
         #Insert all the expenses in the Excel template
+        logger.debug('[*] Filling the spreadsheet')
         for expense in self.expenseList:
             ws.cell(row, col).value = expense['reason']
             ws.cell(row, col + 1).value = expense['amount']
@@ -80,6 +85,7 @@ class ExpenseReport:
 
 
         #Saving the file
+        logger.debug('[*] Saving the file on disk')
         self.reportPath = '/var/www/expenseBot/exports/' + self.user + '/' + 'expenseReport_' + str(self.timestamp) + self.format
         wb.save(self.reportPath)
 
@@ -89,9 +95,11 @@ class ExpenseReport:
         '''Gets the receipts for the expense report of the object.'''
 
         #Flename creation
+        logger.debug('[*] Creating filename for zip file')
         self.receiptsPath = '/var/www/expenseBot/exports/' + self.user + '/' + 'receiptsExports_' + str(self.timestamp) + '.zip'
 
         #Creating the zipfile
+        logger.debug('[*] Filling the zip archive with receipts')
         with zipfile.ZipFile(self.receiptsPath,'x') as myzip:
             for expense in self.expenseList:
                 myzip.write(expense['receipt'], path.basename(expense['receipt']))   #The path of the receipt is in 5th position in the expense list
@@ -121,6 +129,7 @@ class ExpenseReport:
         sg = SendGridAPIClient(api_key=API)
 
         #Creating Mail object
+        logger.debug('[*] Initiating mail object')
         message = Mail(
             from_email = 'support@expensebot.net',
             to_emails= email,
@@ -129,6 +138,7 @@ class ExpenseReport:
             )
 
         #Creating expense report attachment
+        logger.debug('[*] Creating the expense report attachment')
         with open(self.reportPath, 'rb') as f:
             data = f.read()
             f.close()
@@ -145,6 +155,7 @@ class ExpenseReport:
         message.add_attachment(expenseReportAttachment)
 
         #Creating receipts attachment
+        logger.debug('[*] Creating the receipts attachment')
         with open(self.receiptsPath, 'rb') as file:
             data = file.read()
             file.close()
@@ -159,7 +170,7 @@ class ExpenseReport:
         message.add_attachment(receiptsAttachment)
 
         #Sending the email
-
+        logger.debug('[*] Sending the email')
         response = sg.send(message)
 
         return response.status_code

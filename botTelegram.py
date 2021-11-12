@@ -27,9 +27,9 @@ def photoCapture(update, context):
     user = update.message.chat.username
 
     #Is there an existing expense object in context.user_data
-    if context.user_data['expense'] == None:
-        exp = Expense()
-        exp.user = update.message.chat.username
+#    if context.user_data['expense'] == None:
+#        exp = Expense()
+#        exp.user = update.message.chat.username
 
     #Is is a photo?
     try:
@@ -69,9 +69,9 @@ def photoCapture(update, context):
 def textCapture(update, context):
 
     #Expense checl
-    if context.user_data['expense'] == None:
-        exp = Expense()
-        exp.user = context.update.message.username
+#    if context.user_data['expense'] == None:
+#        exp = Expense()
+#        exp.user = context.update.message.username
 
     #Check where the text to parse comes from, text or caption.
     if update.message.text != None:

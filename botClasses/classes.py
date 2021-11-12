@@ -127,12 +127,12 @@ class DBHelper:
 
 ################# User Table Helpers #################################
 
-    def add_user(self, telegram_username, status, email, date, ccy):
+    def add_user(self, telegram_username, email, ccy):
         '''Adds a user to the users table.
         Input:  telegram username, user email, date of creation, base currency
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, 'active', email, time.strftime('%d-%m-%Y'), ccy)
+        data = (telegram_username, 'beta', email, time.strftime('%d-%m-%Y'), ccy)
         stmt = '''INSERT INTO users VALUES (?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
