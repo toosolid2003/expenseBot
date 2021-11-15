@@ -61,8 +61,8 @@ def inputTrack(func):
 @commandTrack
 def helpmsg(update, context):
     messages = ['''To record a new business expense, 
-send the bot a picture of your receipt, with the amount and reason in the caption, separated by a comma (eg, "12, coffee with Johnny").
-You can also record an expense in a different currency: follow the same procedure, just add the 3 letters of a currency after the amount (eg, "12 eur, lunch with Paul)''',
+send the bot a picture of your receipt, with the amount and reason in the caption, separated by a comma (eg: "12, coffee with Johnny").
+You can also record an expense in a different currency: follow the same procedure, just add the 3 letters of a currency after the amount (eg: "12 eur, lunch with Paul")''',
     f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
     for msg in messages:
         update.message.reply_text(msg)

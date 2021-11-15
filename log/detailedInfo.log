@@ -3865,3 +3865,138 @@
 2021-11-12 15:59:45,173 - INFO - Starting the server
 2021-11-12 15:59:45,317 - INFO - Server started
 2021-11-12 16:00:10,012 - INFO - Adding user thedropper to the users database
+2021-11-13 13:50:00,665 - DEBUG - Using function toMarkdown
+2021-11-13 13:50:05,026 - DEBUG - Using function toMarkdown
+2021-11-13 14:31:35,850 - DEBUG - Using function toMarkdown
+2021-11-15 09:33:45,372 - DEBUG - [*] Connecting to the db
+2021-11-15 09:33:45,372 - DEBUG - [*] Executing the query
+2021-11-15 09:33:45,373 - DEBUG - [*] Loading the workbook template
+2021-11-15 09:33:45,387 - DEBUG - [*] Filling the spreadsheet
+2021-11-15 09:33:45,388 - DEBUG - [*] Saving the file on disk
+2021-11-15 09:33:45,401 - DEBUG - [*] Creating filename for zip file
+2021-11-15 09:33:45,402 - DEBUG - [*] Filling the zip archive with receipts
+2021-11-15 09:33:45,438 - DEBUG - [*] Initiating mail object
+2021-11-15 09:33:45,439 - DEBUG - [*] Creating the expense report attachment
+2021-11-15 09:33:45,439 - DEBUG - [*] Creating the receipts attachment
+2021-11-15 09:33:45,452 - DEBUG - [*] Sending the email
+2021-11-15 09:33:46,578 - INFO - Export sent to thedropper
+2021-11-15 22:06:47,078 - DEBUG - Using function parseText
+2021-11-15 22:06:47,079 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,080 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,290 - DEBUG - Using function getType
+2021-11-15 22:06:47,291 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,319 - DEBUG - Using function parseText
+2021-11-15 22:06:47,319 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,319 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,319 - DEBUG - Using function getType
+2021-11-15 22:06:47,319 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,328 - DEBUG - Using function parseText
+2021-11-15 22:06:47,328 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,329 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,329 - DEBUG - Using function getType
+2021-11-15 22:06:47,329 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,345 - DEBUG - Using function checkCompletion
+2021-11-15 22:06:47,351 - DEBUG - Using function checkCompletion
+2021-11-15 22:06:47,351 - INFO - Missing: ['receipt']
+2021-11-15 22:06:47,360 - DEBUG - Using function checkCompletion
+2021-11-15 22:06:47,377 - DEBUG - Using function parseText
+2021-11-15 22:06:47,378 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,378 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,379 - DEBUG - Using function getType
+2021-11-15 22:06:47,379 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,384 - DEBUG - Using function parseText
+2021-11-15 22:06:47,385 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,386 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,386 - DEBUG - Using function getType
+2021-11-15 22:06:47,387 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,391 - DEBUG - Using function parseText
+2021-11-15 22:06:47,392 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,393 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,634 - DEBUG - Using function getType
+2021-11-15 22:06:47,635 - DEBUG - Using function getCurrency
+2021-11-15 22:06:47,645 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,648 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,652 - DEBUG - Using function getAmount
+2021-11-15 22:06:47,658 - DEBUG - Using function getType
+2021-11-15 22:06:47,662 - DEBUG - [*] Connecting to the db
+2021-11-15 22:06:47,663 - DEBUG - [*] Executing the query
+2021-11-15 22:10:58,700 - DEBUG - Using function parseText
+2021-11-15 22:10:58,701 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,701 - DEBUG - Using function getAmount
+2021-11-15 22:10:58,906 - DEBUG - Using function getType
+2021-11-15 22:10:58,908 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,927 - DEBUG - Using function parseText
+2021-11-15 22:10:58,927 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,927 - DEBUG - Using function getAmount
+2021-11-15 22:10:58,927 - DEBUG - Using function getType
+2021-11-15 22:10:58,927 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,941 - DEBUG - Using function parseText
+2021-11-15 22:10:58,941 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,942 - DEBUG - Using function getAmount
+2021-11-15 22:10:58,942 - DEBUG - Using function getType
+2021-11-15 22:10:58,942 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,953 - DEBUG - Using function checkCompletion
+2021-11-15 22:10:58,956 - DEBUG - Using function checkCompletion
+2021-11-15 22:10:58,956 - INFO - Missing: ['receipt']
+2021-11-15 22:10:58,959 - DEBUG - Using function checkCompletion
+2021-11-15 22:10:58,962 - DEBUG - Using function parseText
+2021-11-15 22:10:58,963 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,963 - DEBUG - Using function getAmount
+2021-11-15 22:10:58,964 - DEBUG - Using function getType
+2021-11-15 22:10:58,965 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,969 - DEBUG - Using function parseText
+2021-11-15 22:10:58,970 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,970 - DEBUG - Using function getAmount
+2021-11-15 22:10:58,971 - DEBUG - Using function getType
+2021-11-15 22:10:58,971 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,980 - DEBUG - Using function parseText
+2021-11-15 22:10:58,982 - DEBUG - Using function getCurrency
+2021-11-15 22:10:58,983 - DEBUG - Using function getAmount
+2021-11-15 22:10:59,182 - DEBUG - Using function getType
+2021-11-15 22:10:59,183 - DEBUG - Using function getCurrency
+2021-11-15 22:10:59,190 - DEBUG - Using function getAmount
+2021-11-15 22:10:59,193 - DEBUG - Using function getAmount
+2021-11-15 22:10:59,195 - DEBUG - Using function getAmount
+2021-11-15 22:10:59,198 - DEBUG - Using function getType
+2021-11-15 22:10:59,205 - DEBUG - [*] Connecting to the db
+2021-11-15 22:10:59,206 - DEBUG - [*] Executing the query
+2021-11-15 22:11:45,196 - DEBUG - Using function parseText
+2021-11-15 22:11:45,197 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,198 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,393 - DEBUG - Using function getType
+2021-11-15 22:11:45,394 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,422 - DEBUG - Using function parseText
+2021-11-15 22:11:45,423 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,423 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,423 - DEBUG - Using function getType
+2021-11-15 22:11:45,423 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,438 - DEBUG - Using function parseText
+2021-11-15 22:11:45,439 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,439 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,440 - DEBUG - Using function getType
+2021-11-15 22:11:45,440 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,449 - DEBUG - Using function checkCompletion
+2021-11-15 22:11:45,454 - DEBUG - Using function checkCompletion
+2021-11-15 22:11:45,454 - INFO - Missing: ['receipt']
+2021-11-15 22:11:45,460 - DEBUG - Using function checkCompletion
+2021-11-15 22:11:45,465 - DEBUG - Using function parseText
+2021-11-15 22:11:45,466 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,466 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,467 - DEBUG - Using function getType
+2021-11-15 22:11:45,467 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,472 - DEBUG - Using function parseText
+2021-11-15 22:11:45,472 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,486 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,486 - DEBUG - Using function getType
+2021-11-15 22:11:45,487 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,494 - DEBUG - Using function parseText
+2021-11-15 22:11:45,495 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,495 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,698 - DEBUG - Using function getType
+2021-11-15 22:11:45,699 - DEBUG - Using function getCurrency
+2021-11-15 22:11:45,709 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,717 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,721 - DEBUG - Using function getAmount
+2021-11-15 22:11:45,727 - DEBUG - Using function getType
+2021-11-15 22:11:45,738 - DEBUG - [*] Connecting to the db
+2021-11-15 22:11:45,739 - DEBUG - [*] Executing the query

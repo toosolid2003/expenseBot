@@ -112,7 +112,7 @@ def test_add_user(setup_user_database):
     db.conn = setup_user_database
     c = db.conn.cursor()
 
-    db.add_user('testUsername','active','test@expensebot.net','01/01/2000','eur')
+    db.add_user('testUsername','test@expensebot.net','eur')
     assert db.get_user_email('testUsername') == 'test@expensebot.net'
 
 def test_check_existing_user(setup_user_database):
