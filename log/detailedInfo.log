@@ -4000,3 +4000,63 @@
 2021-11-15 22:11:45,727 - DEBUG - Using function getType
 2021-11-15 22:11:45,738 - DEBUG - [*] Connecting to the db
 2021-11-15 22:11:45,739 - DEBUG - [*] Executing the query
+2021-11-15 22:18:50,703 - INFO - Initialising the classes
+2021-11-15 22:18:50,707 - INFO - Starting the bot
+2021-11-15 22:18:50,709 - INFO - Starting the server
+2021-11-15 22:18:50,856 - INFO - Server started
+2021-11-15 22:19:23,832 - DEBUG - Using function toMarkdown
+2021-11-16 18:00:49,701 - DEBUG - Using function toMarkdown
+2021-11-16 19:40:31,806 - DEBUG - Using function toMarkdown
+2021-11-19 19:07:19,253 - DEBUG - Using function saveDocument
+2021-11-19 19:07:19,756 - DEBUG - Using function checkCompletion
+2021-11-19 19:07:19,756 - INFO - Missing: ['amount', 'reason', 'typex']
+2021-11-19 19:07:19,756 - DEBUG - Using function parseText
+2021-11-19 19:07:19,759 - DEBUG - Using function getCurrency
+2021-11-19 19:07:19,760 - DEBUG - Using function getAmount
+2021-11-19 19:07:19,760 - DEBUG - Using function getType
+2021-11-19 19:07:19,760 - DEBUG - Using function getCurrency
+2021-11-19 19:07:19,760 - DEBUG - Using function checkCompletion
+2021-11-19 19:07:19,760 - INFO - Expense data is complete. Ready for database injection.
+2021-11-19 19:07:19,760 - DEBUG - Using function injectData
+2021-11-19 19:07:19,769 - INFO - Expense a7f3d538-97eb-4517-b060-1e1fb0b52e8c added to the databse for user thedropper
+2021-11-19 19:07:26,036 - DEBUG - Using function toMarkdown
+2021-11-19 19:10:28,486 - DEBUG - [*] Connecting to the db
+2021-11-19 19:10:28,487 - DEBUG - [*] Executing the query
+2021-11-19 19:14:56,153 - INFO - Initialising the classes
+2021-11-19 19:14:56,155 - INFO - Starting the bot
+2021-11-19 19:14:56,156 - INFO - Starting the server
+2021-11-19 19:14:56,301 - INFO - Server started
+2021-11-19 19:44:09,630 - DEBUG - [*] Connecting to the db
+2021-11-19 19:44:09,635 - DEBUG - [*] Executing the query
+2021-11-19 19:44:09,637 - DEBUG - [*] Loading the workbook template
+2021-11-19 19:44:09,655 - DEBUG - [*] Filling the spreadsheet
+2021-11-19 19:44:09,656 - DEBUG - [*] Saving the file on disk
+2021-11-19 19:44:09,686 - DEBUG - [*] Creating filename for zip file
+2021-11-19 19:44:09,686 - DEBUG - [*] Filling the zip archive with receipts
+2021-11-19 19:44:09,708 - DEBUG - [*] Initiating mail object
+2021-11-19 19:44:09,709 - DEBUG - [*] Creating the expense report attachment
+2021-11-19 19:44:09,709 - DEBUG - [*] Creating the receipts attachment
+2021-11-19 19:44:09,715 - DEBUG - [*] Sending the email
+2021-11-19 19:44:11,228 - INFO - Export sent to thedropper
+2021-11-30 10:59:20,157 - INFO - Initialising the classes
+2021-11-30 10:59:20,159 - INFO - Starting the bot
+2021-11-30 10:59:20,161 - INFO - Starting the server
+2021-11-30 10:59:20,307 - INFO - Server started
+2021-12-09 17:52:49,517 - DEBUG - Using function parseText
+2021-12-09 17:52:49,518 - DEBUG - Using function getCurrency
+2021-12-09 17:52:49,518 - DEBUG - Using function getAmount
+2021-12-09 17:52:49,518 - DEBUG - Using function getType
+2021-12-09 17:52:49,518 - DEBUG - Using function getCurrency
+2021-12-09 17:52:49,518 - DEBUG - Using function checkCompletion
+2021-12-09 17:52:49,518 - INFO - Missing: ['amount', 'reason', 'receipt']
+2021-12-09 17:52:57,424 - DEBUG - Using function parseText
+2021-12-09 17:52:57,424 - DEBUG - Using function getCurrency
+2021-12-09 17:52:57,424 - DEBUG - Using function getAmount
+2021-12-09 17:52:57,424 - DEBUG - Using function getType
+2021-12-09 17:52:57,425 - DEBUG - Using function getCurrency
+2021-12-09 17:52:57,425 - DEBUG - Using function checkCompletion
+2021-12-09 17:52:57,425 - INFO - Missing: ['amount', 'reason', 'receipt']
+2022-01-06 16:30:35,520 - INFO - Initialising the classes
+2022-01-06 16:30:35,522 - INFO - Starting the bot
+2022-01-06 16:30:35,523 - INFO - Starting the server
+2022-01-06 16:30:35,669 - INFO - Server started

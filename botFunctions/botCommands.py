@@ -1,7 +1,7 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
 from botClasses.reportClass import ExpenseReport
-from botFunctions.botLogic import toMarkdown, registeredEmail, totalPending 
+from botFunctions.botLogic import toMarkdown, totalPending 
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram

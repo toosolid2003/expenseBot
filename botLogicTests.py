@@ -1,8 +1,6 @@
 import unittest
 from botClasses.classes import Expense, DBHelper
 from botFunctions.botLogic import *
-import random
-import time
 
 class TestCheckCompletion(unittest.TestCase):
     def test_returnEmpty(self):
