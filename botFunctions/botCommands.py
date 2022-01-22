@@ -8,8 +8,6 @@ import telegram
 import os
 from logger.logger import logger
 import time
-import csv
-from datetime import datetime
 from maya import dateparser
 
 
