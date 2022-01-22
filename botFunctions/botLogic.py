@@ -1,16 +1,11 @@
 #-*- coding: utf-8 -*-
 from os import chdir, rename, path
-import json
 from time import strftime, strptime
 from logger.logger import logger
 from botClasses.classes import DBHelper
 import uuid
 import re
 from forex_python.converter import CurrencyRates
-from datetime import datetime
-import csv
-from maya import dateparser
-import zipfile
 
 db = DBHelper()
 

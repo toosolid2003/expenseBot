@@ -20,6 +20,12 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit()
 
+        stmt = '''CREATE TABLE IF NOT EXISTS analytics (time datetime, user varchar, action varchar, value varchar)'''
+        self.conn.execute(stmt)
+        self.conn.commit()
+
+
+
     def add_item(self, data_tuple):
         stmt = "INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)"
         self.conn.execute(stmt, data_tuple)
