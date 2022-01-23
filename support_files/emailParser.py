@@ -1,5 +1,5 @@
 # coding: utf-8
-from classes import Expense
+from botClasses.classes import Expense
 import json
 def parseFlightEmail(jsonFile):
     '''Parses the data contained in a json file sent by mailparser.io

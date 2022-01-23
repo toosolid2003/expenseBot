@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*-
-from os import chdir, rename
-import json
+from os import chdir, rename, path
 from time import strftime, strptime
 from logger.logger import logger
 from botClasses.classes import DBHelper
@@ -31,7 +30,7 @@ def checkCompletion(dic):
     Input: context.user_data (dictionnary)
     Output: Boolean
     """
-    expectedKeys = ['wbs','amount','reason','typex','receipt','user']
+    expectedKeys = ['amount','reason','typex','receipt','user']
     missingData = []
 
     for elt in expectedKeys:
@@ -46,12 +45,13 @@ def checkCompletion(dic):
         return False
     else:
         return True
+    
 
 @decoLog
 def getAmount(resultList):
     for elt in resultList:
         try:
-            return float(elt)
+            return round(float(elt),2)
         except:
             pass
 
@@ -82,7 +82,7 @@ def getType(resultList):
 
 @decoLog
 def getCurrency(resultList):
-    managedCcy = ['usd','chf','aud','nzd','rub','eur','cad']
+    managedCcy = ['usd','chf','aud','nzd','rub','eur','cad','rub','uah']
 
     for elt in resultList:
         if elt in managedCcy:
@@ -128,69 +128,8 @@ def parseText(rawText, activeUser):
     values['typex'] = getType(resultList)
     values['reason'] = getReason(resultList)
 
-    #END OF NEW VERSION
-#    #Split the text according to a pre-determined list of separators
-#    sepList = [',',':',';']
-#    parsedText = []
-#    conversionFactor = 1
-#    #Step 1 - Split the raw text into a list of elements
-#    for sep in sepList:
-#        if sep in rawText:
-#            parsedText = rawText.split(sep)
-#
-#    #Step 2 - Assign amount and reason
-#    if parsedText:              #If parsedText list IS NOT empty = if there is more than 1 element in rawText
-#        for elt in parsedText:
-#            #Detecte a potential currency in the parsedText and update conversionFactor
-#            if conversionRate(elt, baseCcy):
-#                conversionFactor = conversionRate(elt, baseCcy)
-#
-#            #Remove the ccy from the elt to prepare for float assignment
-#            elt = convertUpdateElement(elt)
-#
-#            try:
-#                values['amount'] = float(elt)
-#            except ValueError:
-#                values['reason'] = elt.strip()
-#                values['typex'] = deductType(values['reason'])
-#
-#    else:                       #If parsedText IS an empty list = if there is just 1 element in rawText
-#        if conversionRate(rawText, baseCcy):
-#            conversionFactor = conversionRate(rawText, baseCcy)
-#        rawText = convertUpdateElement(rawText)
-#
-#        try:
-#            values['amount'] = float(rawText)
-#        except ValueError:
-#            values['reason'] = rawText.strip()
-#            values['typex'] = deductType(values['reason'])
-#
-#    #Multiple anount by conversion factor before return - only if we could extract the amount from rawText
-#    if values['amount']:
-#        values['amount'] = round(values['amount'] * conversionFactor, 2)    #Roudning the amount to 2 decimal to support injection in IQ Navigator
-#
+
     return values
-#
-
-def parseFlightEmail(jsonFile):
-    '''Parses the data contained in a json file sent by mailparser.io
-    Input: filePath.json
-    Output: an expense object with amount and reason'''
-
-    with open(jsonFile) as data:
-        data = json.load(data)
-        data = data[-1]     #we only consider the last element
-
-    #exp = Expense()
-    #exp.amount = data['amount']
-    #exp.reason = 'flight ' + data['destination']
-
-    #Check if the currency is euro, in which case it conerts amount to CHF and format
-    #to only keep 2 decimals
-
-    #if data['currency'] == '€':
-        #exp.amount = float(data['amount']) * 1.03
-        #exp.amount = "{:.2f}".format(exp.amount)
 
 @decoLog
 def saveDocument(fileId, telegram_username, bot):
@@ -226,9 +165,9 @@ def toMarkdown(expenses):
     for expense in expenses:
 
         #Reformatting the time variable for legibility
-        totime = strptime(expense[1], "%d-%m-%Y")
+        totime = strptime(expense[2], "%Y-%m-%d")
         expenseDate = strftime("%a %d %B", totime)
-        output += '- {}, {} CHF, {}\n'.format(expenseDate, expense[0], expense[2])
+        output += '- {}, {} {}, {}\n'.format(expenseDate, expense[0], expense[1], expense[3])
     
     return output
 
@@ -271,14 +210,15 @@ def deductType(reason):
 #   }
 #
 #   typex = '17819687102'
+
    types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
-           'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
-   'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
-   'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
-   'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
-   'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
-   'per diem':['perdiem', 'per diem','per diems','perdiems']
-   }
+    'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
+    'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+    'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
+    'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+    'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
+    'per diem':['perdiem', 'per diem','per diems','perdiems'],
+    }
 
    typex = 'various'
 
@@ -300,10 +240,21 @@ def injectData(dico):
     Output: uid of the expense
     """
     dico['uid'] = str(uuid.uuid4())
-    dico['date'] = strftime("%d-%-m-%Y")
+    dico['date'] = strftime("%Y-%m-%d")
     dico['status'] = 'pending'
+    dico['currency'] = db.get_ccy(dico['user'])
 
-    data_tuple = (dico['uid'], dico['amount'], dico['date'], dico['reason'], dico['status'], dico['wbs'], dico['typex'], dico['receipt'], dico['user'])
+    data_tuple = (
+        dico['uid'], 
+        dico['amount'], 
+        dico['currency'], 
+        dico['date'], 
+        dico['reason'], 
+        dico['status'], 
+        dico['typex'], 
+        dico['receipt'], 
+        dico['user'],
+        )
 
     try:
         db.add_item(data_tuple)
@@ -315,3 +266,29 @@ def injectData(dico):
         logger.error('Error while injecting expense into database (%s) for %s', e, dico['user'])
         pass
 
+def userRegistered(email):
+    """Checks if the email used during the start process on the bot is the same as the one used to sign up
+    on the website.
+    Input: email (string)
+    Output: Boolean"""
+
+    registeredEmails = [
+        'jmorrisonpr@gmail.com',
+        "thibaut.segura@yahoo.fr",
+        "tina@spacefinish.com",
+        "alexmakeev81@gmail.com",
+        "it.vladrom@gmail.com",
+        "speedman77@gmail.com",
+        "mineolegcraft@gmail.com",
+        "nozoom2@gmail.com",
+        "sevakode@gmail.com",
+        "yuriykvasn@gmail.com",
+        "jennifer@bilanciainc.com",
+        "jakovlev.ivan.me@gmail.com",
+        "seax4one@gmail.com",
+    ]
+
+    if email in registeredEmails:
+        return True
+    else:
+        return False
