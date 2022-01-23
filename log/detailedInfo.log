@@ -4216,3 +4216,226 @@
 2022-01-23 11:52:25,558 - INFO - Starting the bot
 2022-01-23 11:52:25,559 - INFO - Starting the server
 2022-01-23 11:52:25,588 - INFO - Server started
+2022-01-23 13:59:13,497 - DEBUG - Using function parseText
+2022-01-23 13:59:13,497 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,497 - DEBUG - Using function getAmount
+2022-01-23 13:59:13,497 - DEBUG - Using function getType
+2022-01-23 13:59:13,498 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,498 - DEBUG - Using function injectData
+2022-01-23 13:59:13,500 - INFO - Expense 2b5569fb-4970-4c78-b9b9-d65d181f02fc added to the databse for user testUser
+2022-01-23 13:59:13,549 - DEBUG - Using function parseText
+2022-01-23 13:59:13,549 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,549 - DEBUG - Using function getAmount
+2022-01-23 13:59:13,549 - DEBUG - Using function getType
+2022-01-23 13:59:13,549 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,549 - DEBUG - Using function injectData
+2022-01-23 13:59:13,551 - INFO - Expense 3e7d9f1f-ccf1-49cf-92e0-1662755a769b added to the databse for user testUser
+2022-01-23 13:59:13,558 - DEBUG - Using function parseText
+2022-01-23 13:59:13,558 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,558 - DEBUG - Using function getAmount
+2022-01-23 13:59:13,558 - DEBUG - Using function getType
+2022-01-23 13:59:13,558 - DEBUG - Using function getCurrency
+2022-01-23 13:59:13,558 - DEBUG - Using function injectData
+2022-01-23 13:59:13,560 - INFO - Expense 2a7f3139-7917-484a-a580-060f2206b011 added to the databse for user testUser
+2022-01-23 13:59:37,595 - DEBUG - Using function parseText
+2022-01-23 13:59:37,595 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,595 - DEBUG - Using function getAmount
+2022-01-23 13:59:37,595 - DEBUG - Using function getType
+2022-01-23 13:59:37,596 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,596 - DEBUG - Using function injectData
+2022-01-23 13:59:37,598 - INFO - Expense 34a38bc3-3f98-4265-897a-d5244b1b2eb6 added to the databse for user testUser
+2022-01-23 13:59:37,788 - DEBUG - Using function parseText
+2022-01-23 13:59:37,810 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,811 - DEBUG - Using function getAmount
+2022-01-23 13:59:37,811 - DEBUG - Using function getType
+2022-01-23 13:59:37,811 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,811 - DEBUG - Using function injectData
+2022-01-23 13:59:37,812 - INFO - Expense e9207605-c349-42e0-86fe-5a8a5d5c1424 added to the databse for user testUser
+2022-01-23 13:59:37,840 - DEBUG - Using function parseText
+2022-01-23 13:59:37,847 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,847 - DEBUG - Using function getAmount
+2022-01-23 13:59:37,847 - DEBUG - Using function getType
+2022-01-23 13:59:37,848 - DEBUG - Using function getCurrency
+2022-01-23 13:59:37,848 - DEBUG - Using function injectData
+2022-01-23 13:59:37,854 - INFO - Expense f939a02c-b6e2-4750-a5da-e4336fa92bcf added to the databse for user testUser
+2022-01-23 14:10:57,826 - DEBUG - Using function parseText
+2022-01-23 14:10:57,827 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,827 - DEBUG - Using function getAmount
+2022-01-23 14:10:57,827 - DEBUG - Using function getType
+2022-01-23 14:10:57,827 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,827 - DEBUG - Using function injectData
+2022-01-23 14:10:57,830 - INFO - Expense 99cd2f82-fadb-446f-9c5e-47720d70fb54 added to the databse for user testUser
+2022-01-23 14:10:57,891 - DEBUG - Using function parseText
+2022-01-23 14:10:57,891 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,891 - DEBUG - Using function getAmount
+2022-01-23 14:10:57,891 - DEBUG - Using function getType
+2022-01-23 14:10:57,891 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,891 - DEBUG - Using function injectData
+2022-01-23 14:10:57,893 - INFO - Expense 3cde499e-1d55-4b16-ac78-8b5b879e4b53 added to the databse for user testUser
+2022-01-23 14:10:57,901 - DEBUG - Using function parseText
+2022-01-23 14:10:57,901 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,901 - DEBUG - Using function getAmount
+2022-01-23 14:10:57,901 - DEBUG - Using function getType
+2022-01-23 14:10:57,901 - DEBUG - Using function getCurrency
+2022-01-23 14:10:57,901 - DEBUG - Using function injectData
+2022-01-23 14:10:57,904 - INFO - Expense 11f19bd7-374c-4c1c-8e50-ae93b205ff16 added to the databse for user testUser
+2022-01-23 14:11:26,472 - DEBUG - Using function parseText
+2022-01-23 14:11:26,472 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,477 - DEBUG - Using function getAmount
+2022-01-23 14:11:26,477 - DEBUG - Using function getType
+2022-01-23 14:11:26,477 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,477 - DEBUG - Using function injectData
+2022-01-23 14:11:26,481 - INFO - Expense de5d87fd-f05c-451b-8efe-4033f594e844 added to the databse for user testUser
+2022-01-23 14:11:26,644 - DEBUG - Using function parseText
+2022-01-23 14:11:26,654 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,654 - DEBUG - Using function getAmount
+2022-01-23 14:11:26,655 - DEBUG - Using function getType
+2022-01-23 14:11:26,655 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,655 - DEBUG - Using function injectData
+2022-01-23 14:11:26,660 - INFO - Expense a13d49b2-ccf7-4ad8-bd56-9897279367d6 added to the databse for user testUser
+2022-01-23 14:11:26,680 - DEBUG - Using function parseText
+2022-01-23 14:11:26,690 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,694 - DEBUG - Using function getAmount
+2022-01-23 14:11:26,694 - DEBUG - Using function getType
+2022-01-23 14:11:26,694 - DEBUG - Using function getCurrency
+2022-01-23 14:11:26,695 - DEBUG - Using function injectData
+2022-01-23 14:11:26,703 - INFO - Expense bb925691-180e-470d-aa29-0d98c59179a9 added to the databse for user testUser
+2022-01-23 14:13:48,571 - DEBUG - Using function parseText
+2022-01-23 14:13:48,572 - DEBUG - Using function getCurrency
+2022-01-23 14:13:48,573 - DEBUG - Using function getAmount
+2022-01-23 14:13:56,069 - DEBUG - Using function getType
+2022-01-23 14:13:56,069 - DEBUG - Using function getCurrency
+2022-01-23 14:13:56,069 - DEBUG - Using function injectData
+2022-01-23 14:13:56,072 - INFO - Expense d3f21413-5743-4eff-9dca-8a2edce5d6c7 added to the databse for user testUser
+2022-01-23 14:13:56,079 - DEBUG - Using function parseText
+2022-01-23 14:13:56,079 - DEBUG - Using function getCurrency
+2022-01-23 14:13:56,079 - DEBUG - Using function getAmount
+2022-01-23 14:13:56,079 - DEBUG - Using function getType
+2022-01-23 14:13:56,079 - DEBUG - Using function getCurrency
+2022-01-23 14:13:56,079 - DEBUG - Using function injectData
+2022-01-23 14:13:56,081 - INFO - Expense 3ee25a8d-4ce6-4920-92e4-5f6ae948c650 added to the databse for user testUser
+2022-01-23 14:13:56,085 - DEBUG - Using function parseText
+2022-01-23 14:13:56,086 - DEBUG - Using function getCurrency
+2022-01-23 14:13:56,086 - DEBUG - Using function getAmount
+2022-01-23 14:13:56,086 - DEBUG - Using function getType
+2022-01-23 14:13:56,086 - DEBUG - Using function getCurrency
+2022-01-23 14:13:56,086 - DEBUG - Using function injectData
+2022-01-23 14:13:56,087 - INFO - Expense c6218f67-4d4b-4baa-b511-61057c98e78a added to the databse for user testUser
+2022-01-23 14:14:11,714 - DEBUG - Using function parseText
+2022-01-23 14:14:11,715 - DEBUG - Using function getCurrency
+2022-01-23 14:14:11,715 - DEBUG - Using function getAmount
+2022-01-23 14:14:14,431 - DEBUG - Using function getType
+2022-01-23 14:14:14,431 - DEBUG - Using function getCurrency
+2022-01-23 14:14:14,432 - DEBUG - Using function injectData
+2022-01-23 14:14:14,435 - INFO - Expense 43cdfcdf-5a99-43ad-825d-f3b7a2a49f54 added to the databse for user testUser
+2022-01-23 14:14:14,442 - DEBUG - Using function parseText
+2022-01-23 14:14:14,443 - DEBUG - Using function getCurrency
+2022-01-23 14:14:14,443 - DEBUG - Using function getAmount
+2022-01-23 14:14:14,443 - DEBUG - Using function getType
+2022-01-23 14:14:14,443 - DEBUG - Using function getCurrency
+2022-01-23 14:14:14,443 - DEBUG - Using function injectData
+2022-01-23 14:14:14,444 - INFO - Expense 91fea27c-22d1-49ed-bbea-8c857afc7b77 added to the databse for user testUser
+2022-01-23 14:14:14,451 - DEBUG - Using function parseText
+2022-01-23 14:14:14,451 - DEBUG - Using function getCurrency
+2022-01-23 14:14:14,451 - DEBUG - Using function getAmount
+2022-01-23 14:14:14,451 - DEBUG - Using function getType
+2022-01-23 14:14:14,452 - DEBUG - Using function getCurrency
+2022-01-23 14:14:14,452 - DEBUG - Using function injectData
+2022-01-23 14:14:14,453 - INFO - Expense 4ee406af-8f7f-464a-80a2-f1f98670b809 added to the databse for user testUser
+2022-01-23 14:14:54,963 - DEBUG - Using function parseText
+2022-01-23 14:14:54,966 - DEBUG - Using function getCurrency
+2022-01-23 14:14:54,966 - DEBUG - Using function getAmount
+2022-01-23 14:14:58,019 - DEBUG - Using function getType
+2022-01-23 14:14:58,019 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,019 - DEBUG - Using function injectData
+2022-01-23 14:14:58,023 - INFO - Expense ede2ad6f-3108-470b-9b0e-9c55dc6fb4c0 added to the databse for user testUser
+2022-01-23 14:14:58,030 - DEBUG - Using function parseText
+2022-01-23 14:14:58,030 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,030 - DEBUG - Using function getAmount
+2022-01-23 14:14:58,030 - DEBUG - Using function getType
+2022-01-23 14:14:58,030 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,030 - DEBUG - Using function injectData
+2022-01-23 14:14:58,031 - INFO - Expense 6612d824-dd24-409e-8132-08721adfd096 added to the databse for user testUser
+2022-01-23 14:14:58,037 - DEBUG - Using function parseText
+2022-01-23 14:14:58,037 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,037 - DEBUG - Using function getAmount
+2022-01-23 14:14:58,037 - DEBUG - Using function getType
+2022-01-23 14:14:58,037 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,037 - DEBUG - Using function injectData
+2022-01-23 14:14:58,038 - INFO - Expense 9354ac0d-4ad4-4bdd-858e-c046e8e691ee added to the databse for user testUser
+2022-01-23 14:14:58,043 - DEBUG - Using function parseText
+2022-01-23 14:14:58,044 - DEBUG - Using function getCurrency
+2022-01-23 14:14:58,044 - DEBUG - Using function getAmount
+2022-01-23 14:15:00,837 - DEBUG - Using function getType
+2022-01-23 14:15:00,837 - DEBUG - Using function getCurrency
+2022-01-23 14:15:00,844 - DEBUG - Using function parseText
+2022-01-23 14:15:00,844 - DEBUG - Using function getCurrency
+2022-01-23 14:15:00,844 - DEBUG - Using function getAmount
+2022-01-23 14:15:00,844 - DEBUG - Using function getType
+2022-01-23 14:15:00,844 - DEBUG - Using function getCurrency
+2022-01-23 14:15:00,852 - DEBUG - Using function parseText
+2022-01-23 14:15:00,852 - DEBUG - Using function getCurrency
+2022-01-23 14:15:00,852 - DEBUG - Using function getAmount
+2022-01-23 14:15:00,853 - DEBUG - Using function getType
+2022-01-23 14:15:00,853 - DEBUG - Using function getCurrency
+2022-01-23 14:15:17,015 - DEBUG - Using function parseText
+2022-01-23 14:15:17,015 - DEBUG - Using function getCurrency
+2022-01-23 14:15:17,016 - DEBUG - Using function getAmount
+2022-01-23 14:15:24,501 - DEBUG - Using function getType
+2022-01-23 14:15:24,502 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,502 - DEBUG - Using function injectData
+2022-01-23 14:15:24,504 - INFO - Expense 9db7d4ca-383e-4c71-a937-310e16b64216 added to the databse for user testUser
+2022-01-23 14:15:24,513 - DEBUG - Using function parseText
+2022-01-23 14:15:24,514 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,514 - DEBUG - Using function getAmount
+2022-01-23 14:15:24,514 - DEBUG - Using function getType
+2022-01-23 14:15:24,514 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,514 - DEBUG - Using function injectData
+2022-01-23 14:15:24,516 - INFO - Expense 1dbf9485-6457-4062-a27a-8be8904d320c added to the databse for user testUser
+2022-01-23 14:15:24,522 - DEBUG - Using function parseText
+2022-01-23 14:15:24,522 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,522 - DEBUG - Using function getAmount
+2022-01-23 14:15:24,523 - DEBUG - Using function getType
+2022-01-23 14:15:24,523 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,523 - DEBUG - Using function injectData
+2022-01-23 14:15:24,524 - INFO - Expense 2b6d3d04-024c-4315-937c-980ce2cacd44 added to the databse for user testUser
+2022-01-23 14:15:24,530 - DEBUG - Using function parseText
+2022-01-23 14:15:24,530 - DEBUG - Using function getCurrency
+2022-01-23 14:15:24,531 - DEBUG - Using function getAmount
+2022-01-23 14:15:32,203 - DEBUG - Using function getType
+2022-01-23 14:15:32,203 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,211 - DEBUG - Using function parseText
+2022-01-23 14:15:32,211 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,211 - DEBUG - Using function getAmount
+2022-01-23 14:15:32,212 - DEBUG - Using function getType
+2022-01-23 14:15:32,212 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,217 - DEBUG - Using function parseText
+2022-01-23 14:15:32,218 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,218 - DEBUG - Using function getAmount
+2022-01-23 14:15:32,218 - DEBUG - Using function getType
+2022-01-23 14:15:32,218 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,224 - DEBUG - Using function checkCompletion
+2022-01-23 14:15:32,227 - DEBUG - Using function checkCompletion
+2022-01-23 14:15:32,227 - INFO - Missing: ['receipt']
+2022-01-23 14:15:32,230 - DEBUG - Using function checkCompletion
+2022-01-23 14:15:32,233 - DEBUG - Using function parseText
+2022-01-23 14:15:32,233 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,233 - DEBUG - Using function getAmount
+2022-01-23 14:15:32,233 - DEBUG - Using function getType
+2022-01-23 14:15:32,233 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,236 - DEBUG - Using function parseText
+2022-01-23 14:15:32,237 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,237 - DEBUG - Using function getAmount
+2022-01-23 14:15:32,237 - DEBUG - Using function getType
+2022-01-23 14:15:32,237 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,240 - DEBUG - Using function parseText
+2022-01-23 14:15:32,240 - DEBUG - Using function getCurrency
+2022-01-23 14:15:32,240 - DEBUG - Using function getAmount
+2022-01-23 14:15:41,150 - DEBUG - Using function getType
+2022-01-23 14:15:41,150 - DEBUG - Using function getCurrency
+2022-01-23 14:15:41,159 - DEBUG - Using function getAmount
+2022-01-23 14:15:41,162 - DEBUG - Using function getAmount
+2022-01-23 14:15:41,166 - DEBUG - Using function getAmount
+2022-01-23 14:15:41,169 - DEBUG - Using function getType
+2022-01-23 14:15:41,173 - DEBUG - [*] Connecting to the db
+2022-01-23 14:15:41,173 - DEBUG - [*] Executing the query
