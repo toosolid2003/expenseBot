@@ -12,7 +12,7 @@ class DBHelper:
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
     def setup(self):
-        stmt = "CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), date_expense date, reason text, status text, type text, receipt varchar, user varchar)"
+        stmt = "CREATE TABLE IF NOT EXISTS items (uid varchar, amount float (2), currency varchar, date_expense date, reason varchar, status varchar, typex varchar, receipt varchar, user varchar)"
         self.conn.execute(stmt)
         self.conn.commit()
 

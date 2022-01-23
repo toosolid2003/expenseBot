@@ -4175,3 +4175,44 @@
 2022-01-23 12:35:18,739 - INFO - Starting the bot
 2022-01-23 12:35:18,740 - INFO - Starting the server
 2022-01-23 12:35:18,889 - INFO - Server started
+2022-01-23 11:45:21,414 - INFO - Initialising the classes
+2022-01-23 11:45:21,415 - INFO - Starting the bot
+2022-01-23 11:45:21,416 - INFO - Starting the server
+2022-01-23 11:45:21,441 - INFO - Server started
+2022-01-23 11:45:46,769 - DEBUG - Using function parseText
+2022-01-23 11:45:46,769 - DEBUG - Using function getCurrency
+2022-01-23 11:45:46,770 - DEBUG - Using function getAmount
+2022-01-23 11:45:46,770 - DEBUG - Using function getType
+2022-01-23 11:45:46,770 - DEBUG - Using function getCurrency
+2022-01-23 11:45:46,770 - DEBUG - Using function checkCompletion
+2022-01-23 11:45:46,770 - INFO - Missing: ['amount', 'reason', 'receipt']
+2022-01-23 11:50:18,360 - INFO - Initialising the classes
+2022-01-23 11:50:18,370 - INFO - Starting the bot
+2022-01-23 11:50:18,372 - INFO - Starting the server
+2022-01-23 11:50:49,213 - INFO - Initialising the classes
+2022-01-23 11:50:49,213 - INFO - Starting the bot
+2022-01-23 11:50:49,215 - INFO - Starting the server
+2022-01-23 11:50:49,244 - INFO - Server started
+2022-01-23 11:51:10,189 - DEBUG - Using function saveDocument
+2022-01-23 11:51:10,805 - DEBUG - Using function checkCompletion
+2022-01-23 11:51:10,806 - INFO - Missing: ['amount', 'reason', 'typex']
+2022-01-23 11:51:10,806 - DEBUG - Using function parseText
+2022-01-23 11:51:42,003 - ERROR - Error when creating user's folder. User: thedropper
+2022-01-23 11:51:42,004 - INFO - Adding user thedropper to the users database
+2022-01-23 11:51:54,338 - DEBUG - Using function saveDocument
+2022-01-23 11:51:54,350 - DEBUG - Using function checkCompletion
+2022-01-23 11:51:54,350 - INFO - Missing: ['amount', 'reason', 'typex']
+2022-01-23 11:51:54,350 - DEBUG - Using function parseText
+2022-01-23 11:51:54,351 - DEBUG - Using function getCurrency
+2022-01-23 11:51:54,351 - DEBUG - Using function getAmount
+2022-01-23 11:51:54,351 - DEBUG - Using function getType
+2022-01-23 11:51:54,351 - DEBUG - Using function getCurrency
+2022-01-23 11:51:54,351 - DEBUG - Using function checkCompletion
+2022-01-23 11:51:54,351 - INFO - Expense data is complete. Ready for database injection.
+2022-01-23 11:51:54,351 - DEBUG - Using function injectData
+2022-01-23 11:51:54,353 - INFO - Expense 7ad2d473-2b4f-4180-9520-0cabc528366a added to the databse for user thedropper
+2022-01-23 11:52:01,324 - DEBUG - Using function toMarkdown
+2022-01-23 11:52:25,558 - INFO - Initialising the classes
+2022-01-23 11:52:25,558 - INFO - Starting the bot
+2022-01-23 11:52:25,559 - INFO - Starting the server
+2022-01-23 11:52:25,588 - INFO - Server started
