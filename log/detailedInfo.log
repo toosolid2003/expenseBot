@@ -4097,3 +4097,43 @@
 2022-01-15 12:44:03,404 - INFO - Starting the server
 2022-01-15 12:44:03,547 - INFO - Server started
 2022-01-22 16:02:38,221 - DEBUG - Using function toMarkdown
+2022-01-23 12:04:38,784 - DEBUG - Using function parseText
+2022-01-23 12:04:38,786 - DEBUG - Using function getCurrency
+2022-01-23 12:04:38,786 - DEBUG - Using function getAmount
+2022-01-23 12:04:44,929 - DEBUG - Using function getType
+2022-01-23 12:04:44,929 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,938 - DEBUG - Using function parseText
+2022-01-23 12:04:44,938 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,938 - DEBUG - Using function getAmount
+2022-01-23 12:04:44,938 - DEBUG - Using function getType
+2022-01-23 12:04:44,938 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,942 - DEBUG - Using function parseText
+2022-01-23 12:04:44,943 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,943 - DEBUG - Using function getAmount
+2022-01-23 12:04:44,943 - DEBUG - Using function getType
+2022-01-23 12:04:44,943 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,947 - DEBUG - Using function checkCompletion
+2022-01-23 12:04:44,948 - DEBUG - Using function checkCompletion
+2022-01-23 12:04:44,948 - INFO - Missing: ['receipt']
+2022-01-23 12:04:44,950 - DEBUG - Using function checkCompletion
+2022-01-23 12:04:44,952 - DEBUG - Using function parseText
+2022-01-23 12:04:44,952 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,952 - DEBUG - Using function getAmount
+2022-01-23 12:04:44,952 - DEBUG - Using function getType
+2022-01-23 12:04:44,952 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,954 - DEBUG - Using function parseText
+2022-01-23 12:04:44,954 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,954 - DEBUG - Using function getAmount
+2022-01-23 12:04:44,954 - DEBUG - Using function getType
+2022-01-23 12:04:44,954 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,956 - DEBUG - Using function parseText
+2022-01-23 12:04:44,956 - DEBUG - Using function getCurrency
+2022-01-23 12:04:44,956 - DEBUG - Using function getAmount
+2022-01-23 12:04:45,199 - DEBUG - Using function getType
+2022-01-23 12:04:45,200 - DEBUG - Using function getCurrency
+2022-01-23 12:04:45,204 - DEBUG - Using function getAmount
+2022-01-23 12:04:45,205 - DEBUG - Using function getAmount
+2022-01-23 12:04:45,207 - DEBUG - Using function getAmount
+2022-01-23 12:04:45,208 - DEBUG - Using function getType
+2022-01-23 12:04:45,209 - DEBUG - [*] Connecting to the db
+2022-01-23 12:04:45,210 - DEBUG - [*] Executing the query
