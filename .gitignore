@@ -12,3 +12,4 @@ sendgrid.env
 *.log
 exports/testUser/testUser_export_2021-08-16.csv
 log/detailedInfo.log
+ssl/
