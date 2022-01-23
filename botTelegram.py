@@ -160,9 +160,9 @@ dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 logger.info('Starting the server')
 updater.start_webhook(listen='0.0.0.0',
                       port=443,
-                      key='/var/www/expenseBot/ssl/private.key',
-                      cert='/var/www/expenseBot/ssl/cert.pem',
-                      webhook_url='https://expensebot.design/',
+                      key='/var/www/expenseBot/ssl/PRODPRIVATE.key',
+                      cert='/var/www/expenseBot/ssl/PRODPUBLIC.pem',
+                      webhook_url='https://prod.expensebot.design/',
                       )
 logger.info('Server started')
 
