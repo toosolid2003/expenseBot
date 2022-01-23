@@ -4137,3 +4137,41 @@
 2022-01-23 12:04:45,208 - DEBUG - Using function getType
 2022-01-23 12:04:45,209 - DEBUG - [*] Connecting to the db
 2022-01-23 12:04:45,210 - DEBUG - [*] Executing the query
+2022-01-23 12:31:14,567 - INFO - Initialising the classes
+2022-01-23 12:31:14,573 - INFO - Starting the bot
+2022-01-23 12:31:14,573 - INFO - Starting the server
+2022-01-23 12:31:14,739 - INFO - Server started
+2022-01-23 12:32:58,463 - INFO - Initialising the classes
+2022-01-23 12:32:58,463 - INFO - Starting the bot
+2022-01-23 12:32:58,464 - INFO - Starting the server
+2022-01-23 12:32:58,612 - INFO - Server started
+2022-01-23 12:33:00,627 - DEBUG - Using function toMarkdown
+2022-01-23 12:34:09,981 - DEBUG - Using function saveDocument
+2022-01-23 12:34:10,584 - DEBUG - Using function checkCompletion
+2022-01-23 12:34:10,584 - INFO - Missing: ['amount', 'reason', 'typex']
+2022-01-23 12:34:10,584 - DEBUG - Using function parseText
+2022-01-23 12:34:10,585 - DEBUG - Using function getCurrency
+2022-01-23 12:34:10,585 - DEBUG - Using function getAmount
+2022-01-23 12:34:10,586 - DEBUG - Using function getType
+2022-01-23 12:34:10,586 - DEBUG - Using function getCurrency
+2022-01-23 12:34:10,586 - DEBUG - Using function checkCompletion
+2022-01-23 12:34:10,586 - INFO - Expense data is complete. Ready for database injection.
+2022-01-23 12:34:10,586 - DEBUG - Using function injectData
+2022-01-23 12:34:10,588 - INFO - Expense 6af768db-493a-454b-837a-038efc4ee90a added to the databse for user thedropper
+2022-01-23 12:34:37,057 - DEBUG - Using function saveDocument
+2022-01-23 12:34:37,417 - DEBUG - Using function checkCompletion
+2022-01-23 12:34:37,417 - INFO - Missing: ['amount', 'reason', 'typex']
+2022-01-23 12:34:37,417 - DEBUG - Using function parseText
+2022-01-23 12:34:37,418 - DEBUG - Using function getCurrency
+2022-01-23 12:34:37,418 - DEBUG - Using function getAmount
+2022-01-23 12:34:38,886 - DEBUG - Using function getType
+2022-01-23 12:34:38,887 - DEBUG - Using function getCurrency
+2022-01-23 12:34:38,887 - DEBUG - Using function checkCompletion
+2022-01-23 12:34:38,887 - INFO - Expense data is complete. Ready for database injection.
+2022-01-23 12:34:38,887 - DEBUG - Using function injectData
+2022-01-23 12:34:38,889 - INFO - Expense 360e7188-805b-4fda-94da-ef6adc217837 added to the databse for user thedropper
+2022-01-23 12:34:46,450 - DEBUG - Using function toMarkdown
+2022-01-23 12:35:18,738 - INFO - Initialising the classes
+2022-01-23 12:35:18,739 - INFO - Starting the bot
+2022-01-23 12:35:18,740 - INFO - Starting the server
+2022-01-23 12:35:18,889 - INFO - Server started

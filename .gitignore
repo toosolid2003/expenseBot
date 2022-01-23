@@ -16,3 +16,4 @@ backup/
 ssl/
 support_files/
 test/
+botParams.py

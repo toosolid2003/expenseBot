@@ -4,6 +4,7 @@ from botClasses.classes import *
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from logger.logger import logger
+from botParams import *
 
 #################################################################
 # Constants
@@ -160,9 +161,9 @@ dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 logger.info('Starting the server')
 updater.start_webhook(listen='0.0.0.0',
                       port=443,
-                      key='/var/www/expenseBot/ssl/PRIVATE.key',
-                      cert='/var/www/expenseBot/ssl/PUBLIC.pem',
-                      webhook_url='https://test.expensebot.design/',
+                      key= KEY,
+                      cert= CERT,
+                      webhook_url=WEBHOOK,
                       )
 logger.info('Server started')
 
