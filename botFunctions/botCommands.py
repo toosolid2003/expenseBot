@@ -82,7 +82,7 @@ def start(update, context):
     #Checking if user exists
     userExists = db.checkExistingUser(update.message.chat.username)
     if userExists:
-        update.message.reply_text('Hey, it looks like you already have an account with us. You are good to log your expenses.')
+        update.message.reply_text('Hey, it looks like you already have an account with us. You are good to log your expenses. Type "/help" for more.')
         return ConversationHandler.END
 
     #If user does not exist yet, proceed.

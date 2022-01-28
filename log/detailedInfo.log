@@ -4439,3 +4439,24 @@
 2022-01-23 14:15:41,169 - DEBUG - Using function getType
 2022-01-23 14:15:41,173 - DEBUG - [*] Connecting to the db
 2022-01-23 14:15:41,173 - DEBUG - [*] Executing the query
+2022-01-24 09:30:06,767 - INFO - Initialising the classes
+2022-01-24 09:30:06,768 - INFO - Starting the bot
+2022-01-24 09:30:06,768 - INFO - Starting the server
+2022-01-24 09:30:06,924 - INFO - Server started
+2022-01-24 10:41:56,353 - DEBUG - Using function toMarkdown
+2022-01-25 15:52:32,233 - DEBUG - Using function toMarkdown
+2022-01-25 22:07:10,982 - DEBUG - Using function toMarkdown
+2022-01-25 22:07:21,538 - DEBUG - Using function toMarkdown
+2022-01-26 13:09:21,829 - DEBUG - Using function saveDocument
+2022-01-26 13:09:22,443 - DEBUG - Using function checkCompletion
+2022-01-26 13:09:22,443 - INFO - Missing: ['amount', 'reason', 'typex']
+2022-01-26 13:09:22,443 - DEBUG - Using function parseText
+2022-01-26 13:09:22,444 - DEBUG - Using function getCurrency
+2022-01-26 13:09:22,444 - DEBUG - Using function getAmount
+2022-01-26 13:09:22,708 - DEBUG - Using function getType
+2022-01-26 13:09:22,708 - DEBUG - Using function getCurrency
+2022-01-26 13:09:22,708 - DEBUG - Using function checkCompletion
+2022-01-26 13:09:22,708 - INFO - Expense data is complete. Ready for database injection.
+2022-01-26 13:09:22,708 - DEBUG - Using function injectData
+2022-01-26 13:09:22,710 - INFO - Expense 38d7504e-55a9-46a0-b8d9-efda5b1ee62a added to the databse for user thedropper
+2022-01-26 13:09:27,290 - DEBUG - Using function toMarkdown
