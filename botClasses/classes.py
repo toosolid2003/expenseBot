@@ -5,6 +5,8 @@ import time
 import pandas as pd
 from logger.logger import logger
 from uuid import uuid4
+from botFunctions.botData.parserData import *
+import re
 
 class DBHelper:
     def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
@@ -219,17 +221,55 @@ class DBHelper:
 # This class is not currently being used. Saved for a later code refactoring
 
 class Expense:
-    def __init__(self):
+    def __init__(self, textInput):
         self.date_created = time.strftime("%Y-%m-%d")
         self.uid = str(uuid4())
+        self.split = re.split(r',| |-', textInput)      #We use a regex to split the input string with 3 delimiteres: comma OR space OR dash.
         self.status = 'pending'
         self.amount = None
-        self.reason = None
-        self.typex = None
+        self.reason = textInput
+        self.typex = 'various'
         self.ccy = None
         self.user = None
         self.receipt = None
         self.complete = False
+    
+    def getCcy(self):
+        '''
+        Returns the currency if specified in the user input:
+        Input: split string from user input
+        Output: trigram (string) of the currency or None, if no currency spcified, store
+        in the expense object.
+        '''
+        #We compare two sets to find the intersection. If the user has specified a currency
+        #in his input, and if this currency is managed, then we find it.
+        res = set(self.split) & set(managedCcy)
+        
+        #If the currency has been found, we store it in the expense object. If not, 
+        #leave the object as is.
+        if len(res) > 0:
+            self.ccy = list(res)[0]
+    
+    def getType(self):
+        '''
+        Deduct the type of expense from a word list that is managed separately.
+        Input: split string from user input.
+        Output: expense type as string and store it in the expense object. If no type
+        found, the attribute stays on its default value, 'various'.
+        '''
+
+           #The magic loop, where the deduction happens
+        for accType, typeList in types.items():
+            for elt in typeList:
+                if elt in self.split:
+                    self.typex = accType
+     
+    def getAmount(self):
+        for elt in self.split:
+            try:
+                self.amount = float(elt)
+            except:
+                pass
 
     def checkComplete(self):
         #Check if all attributes are filled
