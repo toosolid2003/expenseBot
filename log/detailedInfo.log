@@ -4986,3 +4986,152 @@
 2023-02-14 10:33:10,970 - INFO - Server started
 2023-02-14 10:33:27,036 - DEBUG - Using function toMarkdown
 2023-02-15 07:52:40,434 - DEBUG - Using function toMarkdown
+2023-02-16 06:58:11,785 - DEBUG - Using function toMarkdown
+2023-02-23 18:36:40,215 - DEBUG - Using function toMarkdown
+2023-03-07 13:57:33,483 - INFO - Initialising the classes
+2023-03-07 13:57:33,488 - INFO - Starting the bot
+2023-03-07 13:57:33,490 - INFO - Starting the server
+2023-03-07 13:57:33,545 - INFO - Server started
+2023-03-12 13:53:22,687 - DEBUG - Using function toMarkdown
+2023-03-22 14:01:00,564 - INFO - Initialising the classes
+2023-03-22 14:01:00,565 - INFO - Starting the bot
+2023-03-22 14:01:00,566 - INFO - Starting the server
+2023-03-22 14:01:00,611 - INFO - Server started
+2023-03-22 14:01:26,168 - DEBUG - Using function parseText
+2023-03-22 14:01:26,169 - DEBUG - Using function getCurrency
+2023-03-22 14:01:26,169 - DEBUG - Using function getAmount
+2023-03-22 14:01:26,346 - DEBUG - Using function getType
+2023-03-22 14:01:26,346 - DEBUG - Using function getCurrency
+2023-03-22 14:01:26,346 - DEBUG - Current dictionnary:
+2023-03-22 14:01:26,346 - DEBUG - Using function checkCompletion
+2023-03-22 14:01:26,346 - INFO - Missing: ['receipt']
+2023-03-22 14:01:48,878 - DEBUG - Using function saveDocument
+2023-03-22 14:01:49,342 - DEBUG - Using function checkCompletion
+2023-03-22 14:01:49,342 - INFO - Expense data is complete. Ready for database injection.
+2023-03-22 14:01:49,342 - DEBUG - Using function injectData
+2023-03-22 14:01:49,346 - INFO - Expense a93ca665-c505-48ee-8426-8cad8077d9fe added to the databse for user thedropper
+2023-03-22 14:01:49,494 - DEBUG - Using function parseText
+2023-03-22 14:01:49,494 - DEBUG - Using function getCurrency
+2023-03-22 14:01:49,494 - DEBUG - Using function getAmount
+2023-03-22 14:01:49,681 - DEBUG - Using function getType
+2023-03-22 14:01:49,682 - DEBUG - Using function getCurrency
+2023-03-22 14:01:49,682 - DEBUG - Current dictionnary:
+2023-03-22 14:01:49,682 - DEBUG - Using function checkCompletion
+2023-03-22 14:01:49,682 - INFO - Missing: ['receipt']
+2023-03-22 14:03:38,930 - INFO - Initialising the classes
+2023-03-22 14:03:38,932 - INFO - Starting the bot
+2023-03-22 14:03:38,933 - INFO - Starting the server
+2023-03-22 14:03:38,977 - INFO - Server started
+2023-03-22 14:16:21,355 - DEBUG - Using function toMarkdown
+2023-03-22 14:16:59,370 - DEBUG - Using function saveDocument
+2023-03-22 14:16:59,788 - DEBUG - Using function checkCompletion
+2023-03-22 14:16:59,788 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-22 14:16:59,788 - DEBUG - Using function parseText
+2023-03-22 14:16:59,789 - DEBUG - Using function getCurrency
+2023-03-22 14:16:59,789 - DEBUG - Using function getAmount
+2023-03-22 14:16:59,995 - DEBUG - Using function getType
+2023-03-22 14:16:59,995 - DEBUG - Using function getCurrency
+2023-03-22 14:16:59,995 - DEBUG - Current dictionnary:
+2023-03-22 14:16:59,995 - DEBUG - Using function checkCompletion
+2023-03-22 14:16:59,995 - INFO - Expense data is complete. Ready for database injection.
+2023-03-22 14:16:59,995 - DEBUG - Using function injectData
+2023-03-22 14:17:00,003 - INFO - Expense df0b5672-5202-40d2-a306-e43dcc95a1ad added to the databse for user thedropper
+2023-03-22 14:23:04,411 - DEBUG - Using function toMarkdown
+2023-03-22 16:58:13,755 - DEBUG - Using function toMarkdown
+2023-03-22 18:02:56,872 - DEBUG - Using function toMarkdown
+2023-03-22 18:28:19,579 - DEBUG - [*] Connecting to the db
+2023-03-22 18:28:19,580 - DEBUG - [*] Executing the query
+2023-03-22 18:34:04,101 - INFO - Initialising the classes
+2023-03-22 18:34:04,103 - INFO - Starting the bot
+2023-03-22 18:34:04,105 - INFO - Starting the server
+2023-03-22 18:34:04,165 - INFO - Server started
+2023-03-22 18:34:12,518 - DEBUG - [*] Connecting to the db
+2023-03-22 18:34:12,518 - DEBUG - [*] Executing the query
+2023-03-22 18:34:12,525 - DEBUG - [*] Loading the workbook template
+2023-03-22 18:34:12,538 - DEBUG - [*] Filling the spreadsheet
+2023-03-22 18:34:12,539 - DEBUG - [*] Saving the file on disk
+2023-03-22 18:34:12,553 - DEBUG - [*] Creating filename for zip file
+2023-03-22 18:34:12,553 - DEBUG - [*] Filling the zip archive with receipts
+2023-03-22 18:34:12,572 - DEBUG - [*] Initiating mail object
+2023-03-22 18:34:12,573 - DEBUG - [*] Creating the expense report attachment
+2023-03-22 18:34:12,573 - DEBUG - [*] Creating the receipts attachment
+2023-03-22 18:34:12,581 - DEBUG - [*] Sending the email
+2023-03-22 18:34:13,573 - INFO - Export sent to thedropper
+2023-03-22 18:35:44,831 - INFO - Initialising the classes
+2023-03-22 18:35:44,833 - INFO - Starting the bot
+2023-03-22 18:35:44,835 - INFO - Starting the server
+2023-03-22 18:35:44,880 - INFO - Server started
+2023-03-23 10:01:19,300 - DEBUG - Using function toMarkdown
+2023-03-23 14:46:06,104 - DEBUG - Using function toMarkdown
+2023-03-23 17:40:06,313 - DEBUG - Using function toMarkdown
+2023-03-24 06:31:13,105 - DEBUG - Using function parseText
+2023-03-24 06:31:13,107 - DEBUG - Using function getCurrency
+2023-03-24 06:31:13,107 - DEBUG - Using function getAmount
+2023-03-24 06:31:13,233 - DEBUG - Using function saveDocument
+2023-03-24 06:31:13,715 - DEBUG - Using function checkCompletion
+2023-03-24 06:31:13,715 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-24 06:31:29,339 - DEBUG - Using function toMarkdown
+2023-03-24 06:36:51,441 - DEBUG - Using function parseText
+2023-03-24 06:36:51,442 - DEBUG - Using function getCurrency
+2023-03-24 06:36:51,442 - DEBUG - Using function getAmount
+2023-03-24 06:36:51,588 - DEBUG - Using function saveDocument
+2023-03-24 06:36:52,063 - DEBUG - Using function checkCompletion
+2023-03-24 06:36:52,063 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-24 06:37:16,296 - DEBUG - Using function toMarkdown
+2023-03-24 13:13:49,328 - INFO - Initialising the classes
+2023-03-24 13:13:49,330 - INFO - Starting the bot
+2023-03-24 13:13:49,331 - INFO - Starting the server
+2023-03-24 13:13:49,379 - INFO - Server started
+2023-03-24 13:14:20,399 - DEBUG - Using function saveDocument
+2023-03-24 13:14:20,871 - DEBUG - [*] File saved
+2023-03-24 13:14:20,871 - DEBUG - Using function checkCompletion
+2023-03-24 13:14:20,872 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-24 13:14:20,872 - DEBUG - Expense dictionnary: 
+2023-03-24 13:14:29,870 - DEBUG - [*] Raw text identified`
+2023-03-24 13:14:29,870 - DEBUG - Using function parseText
+2023-03-24 13:14:29,871 - DEBUG - Using function getCurrency
+2023-03-24 13:14:29,871 - DEBUG - Using function getAmount
+2023-03-24 13:16:33,869 - INFO - Initialising the classes
+2023-03-24 13:16:33,877 - INFO - Starting the bot
+2023-03-24 13:16:33,879 - INFO - Starting the server
+2023-03-24 13:16:33,976 - INFO - Server started
+2023-03-24 13:16:36,004 - DEBUG - Using function saveDocument
+2023-03-24 13:16:36,230 - DEBUG - [*] File saved
+2023-03-24 13:16:36,230 - DEBUG - Using function checkCompletion
+2023-03-24 13:16:36,231 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-24 13:16:36,231 - DEBUG - Expense dictionnary: 
+2023-03-24 13:16:45,672 - DEBUG - [*] Raw text identified`
+2023-03-24 13:16:45,673 - DEBUG - Using function parseText
+2023-03-24 13:16:45,674 - DEBUG - Using function getCurrency
+2023-03-24 13:16:45,675 - DEBUG - Using function getAmount
+2023-03-24 13:16:45,675 - DEBUG - Using function getType
+2023-03-24 13:16:45,675 - DEBUG - Using function getCurrency
+2023-03-24 13:16:45,675 - DEBUG - Parsed text: 
+2023-03-24 13:16:45,676 - DEBUG - Current dictionnary:
+2023-03-24 13:16:45,676 - DEBUG - Expense dictionnary: 
+2023-03-24 13:16:45,676 - DEBUG - Using function checkCompletion
+2023-03-24 13:16:45,676 - INFO - Expense data is complete. Ready for database injection.
+2023-03-24 13:16:45,676 - DEBUG - Using function injectData
+2023-03-24 13:16:45,681 - INFO - Expense e9efac94-bed7-4893-93fa-018a5842ce64 added to the databse for user thedropper
+2023-03-24 13:30:46,934 - INFO - Initialising the classes
+2023-03-24 13:30:46,935 - INFO - Starting the bot
+2023-03-24 13:30:46,936 - INFO - Starting the server
+2023-03-24 13:30:46,971 - INFO - Server started
+2023-03-24 13:31:05,110 - DEBUG - Using function saveDocument
+2023-03-24 13:31:05,578 - DEBUG - [*] File saved
+2023-03-24 13:31:05,578 - DEBUG - Using function checkCompletion
+2023-03-24 13:31:05,578 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-03-24 13:31:05,578 - DEBUG - Expense dictionnary: 
+2023-03-24 13:31:05,579 - DEBUG - [*] Caption identified
+2023-03-24 13:31:05,579 - DEBUG - Using function parseText
+2023-03-24 13:31:05,579 - DEBUG - Using function getCurrency
+2023-03-24 13:31:05,873 - DEBUG - Using function getAmount
+2023-03-24 13:31:05,874 - DEBUG - Using function getType
+2023-03-24 13:31:05,874 - DEBUG - Using function getCurrency
+2023-03-24 13:31:05,881 - DEBUG - Parsed text: 
+2023-03-24 13:31:05,882 - DEBUG - Current dictionnary:
+2023-03-24 13:31:05,882 - DEBUG - Expense dictionnary: 
+2023-03-24 13:31:05,883 - DEBUG - Using function checkCompletion
+2023-03-24 13:31:05,883 - INFO - Expense data is complete. Ready for database injection.
+2023-03-24 13:31:05,883 - DEBUG - Using function injectData
+2023-03-24 13:31:05,889 - INFO - Expense a0a68f14-3380-4e67-bc03-71554a07eeac added to the databse for user thedropper

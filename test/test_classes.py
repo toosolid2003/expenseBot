@@ -171,6 +171,7 @@ def expenseFixture():
     exp.uid = str(uuid4())
     exp.user = 'thib'
     exp.receipt = '/tmp'
+    exp.split = ['1000','eur','hotel','Marmara']
 
     return exp
 
@@ -220,3 +221,4 @@ def test_assign(expenseFixture):
     #Also checking if the 'assign' method does not add unwanted attributes to the instance
     with pytest.raises(AttributeError):
         expenseFixture.falseAttr 
+        

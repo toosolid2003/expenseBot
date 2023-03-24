@@ -5,7 +5,7 @@ from logger.logger import logger
 from botClasses.classes import DBHelper
 import uuid
 import re
-from forex_python.converter import CurrencyRates
+from currency_converter import CurrencyConverter
 
 db = DBHelper()
 
@@ -118,8 +118,8 @@ def parseText(rawText, activeUser):
 
     if ccy and ccy != baseCcy:
         #get the converstion rate and recalculate the amount
-        c = CurrencyRates()
-        unroundedAmount = c.convert(ccy.upper(), baseCcy.upper(),getAmount(resultList))
+        c = CurrencyConverter()
+        unroundedAmount = c.convert(getAmount(resultList), ccy.upper(), baseCcy.upper())
         values['amount'] = round(unroundedAmount, 2)
     else:
         values['amount'] = getAmount(resultList)

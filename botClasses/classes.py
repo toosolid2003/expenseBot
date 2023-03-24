@@ -221,18 +221,26 @@ class DBHelper:
 # This class is not currently being used. Saved for a later code refactoring
 
 class Expense:
-    def __init__(self, textInput):
+    def __init__(self):
         self.date_created = time.strftime("%Y-%m-%d")
         self.uid = str(uuid4())
-        self.split = re.split(r',| |-', textInput)      #We use a regex to split the input string with 3 delimiteres: comma OR space OR dash.
+        self.split = None 
         self.status = 'pending'
         self.amount = None
-        self.reason = textInput
+        self.reason = None
         self.typex = 'various'
         self.ccy = None
         self.user = None
         self.receipt = None
         self.complete = False
+    
+    def split(self, textInput):
+        '''
+        Split the text input into a list, using 3 delimeters:"," OR " " OR "-"
+        Input: text string
+        Output: list stored in the expense object
+        '''
+        self.split = re.split(r',| |-', textInput)
     
     def getCcy(self):
         '''
@@ -270,6 +278,14 @@ class Expense:
                 self.amount = float(elt)
             except:
                 pass
+    
+    def addReason(self):
+        '''
+        Adds a reason for the expense, based on the text inputted by the user.
+        Input: self.split, string
+        Output: self.reason completed
+        '''
+        self.reason = " ".join(self.split)
 
     def checkComplete(self):
         #Check if all attributes are filled

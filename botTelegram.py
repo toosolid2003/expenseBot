@@ -37,11 +37,13 @@ def photoCapture(update, context):
         photoId = update.message.photo[-1]['file_id']
         context.user_data['receipt'] = saveDocument(photoId, user, bot)
         #exp.receipt = saveDocument(photoId, user, bot)
+        logger.debug("[*] Picutre saved")
 
     #or a document (pdf, etc.)?
     except IndexError:
         fileId = update.message.document['file_id']
         context.user_data['receipt'] = saveDocument(fileId, user, bot)
+        logger.debug("[*] File saved")
         #exp.receipt = saveDocument(fileId, user, bot)
 
     #Logging and error for all other kinds of exceptions
@@ -54,6 +56,7 @@ def photoCapture(update, context):
 
     #Third check for completion
     isComplete = checkCompletion(context.user_data)
+    logger.debug("Expense dictionnary: ", context.user_data)
     #exp.checkComplete()
 
     if isComplete:
@@ -77,16 +80,20 @@ def textCapture(update, context):
     #Check where the text to parse comes from, text or caption.
     if update.message.text != None:
         rawText = update.message.text
+        logger.debug("[*] Raw text identified`")
     elif update.message.caption:
         rawText = update.message.caption
         photoCapture(update, context)
+        logger.debug("[*] Caption identified")
 
     # Parse the text: adds amount + reason and type if amount and reason in the raw text
     tempDict = parseText(rawText, update.message.chat.username)
+    logger.debug("Parsed text: ", tempDict)
 
     # Feeding the missing elements in context.user_data
     if tempDict['amount'] != None:
         context.user_data['amount'] = tempDict['amount']
+        logger.debug("Current dictionnary:", tempDict)
 
     if tempDict['reason'] != None:
         context.user_data['reason'] = tempDict['reason']
@@ -96,6 +103,7 @@ def textCapture(update, context):
     
     # Add the telegram handle to context.user_dat
     context.user_data['user'] = update.message.chat.username
+    logger.debug("Expense dictionnary: ", context.user_data)
 
 
     isComplete = checkCompletion(context.user_data)
