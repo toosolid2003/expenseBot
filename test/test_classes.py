@@ -67,18 +67,6 @@ def test_extract_expenses(setup_database):
     assert result[0][0] == 1000.01  #The uid is not collected by the function, this is why we have amount first
 
 #@pytest.mark.skip(reason='Dont want to save a file on the server')
-def test_extract_all(setup_database):
-
-    from pandas import Timestamp
-
-    db = DBHelper()
-    db.conn = setup_database
-    c = db.conn.cursor()
-
-    timestamp = pd.Timestamp.now()
-    timestamp = str(timestamp)
-    expectedPath = '/var/www/expenseBot/exports/testUser/'+'testUser_export_' + timestamp[:10] +'.csv'
-    assert db.extract_all('testUser') == expectedPath 
 
 def test_update_multiple_statuses(setup_database):
     db = DBHelper()

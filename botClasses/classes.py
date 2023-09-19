@@ -96,27 +96,6 @@ class DBHelper:
         
         return list(expenseTuple)
 
-    def extract_all(self, activeUser, path='/var/www/expenseBot/exports/'):
-        '''Extracts all expenses from a specific user. 
-        Input: telegram handle
-        Output: absolute filepath to the exported csv file with all expenses for activeUser'''
-
-        query = 'SELECT date_expense, amount, reason, typex FROM items WHERE user="' + activeUser + '";'
-        rawResult = pd.read_sql_query(query, self.conn)
-
-        #Create a dedicated filename
-        timestamp = pd.Timestamp.now()
-        timestamp = str(timestamp)
-        
-        #Only the first 10 characters of the timestamp: the date in dd-mm-yyyy format
-        timestamp = timestamp[:10]
-        filename = activeUser + '_export_' + timestamp + '.csv'
-
-        #Saving the file in the dedicated user folder
-        path +=  activeUser + '/' + filename
-        rawResult.to_csv(path)
-
-        return path
 
     def updateStatus(self, currentStatus, newStatus, telegram_username):
         '''

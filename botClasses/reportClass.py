@@ -1,6 +1,6 @@
 from datetime import datetime
 import openpyxl
-from os import path
+import os
 import zipfile
 import time
 from sendgrid import SendGridAPIClient
@@ -34,6 +34,7 @@ class ExpenseReport:
         conn.row_factory = sqlite3.Row
 
         #Building the query
+        logger.debug('[*] Building the query')
         query = 'SELECT * FROM items WHERE user=?'
         data = (self.user,)
 
@@ -41,12 +42,16 @@ class ExpenseReport:
             query += ' AND date_expense>=?'
             data = (self.user, date_exp)
 
+        logger.debug(f'[*] Query built: {query}')
         #Launching the query
         logger.debug('[*] Executing the query')
-        c = conn.cursor()
-        c.execute(query, data)
-        self.expenseList = c.fetchall()
-        conn.close()
+        try:
+            c = conn.cursor()
+            c.execute(query, data)
+            self.expenseList = c.fetchall()
+            conn.close()
+        except e as Exception:
+            logger.debug(e)
 
         return True
 
@@ -73,7 +78,7 @@ class ExpenseReport:
             ws.cell(row, col + 2).value = expense['currency']
             ws.cell(row, col + 3).value = expense['date_expense']
             ws.cell(row, col + 4).value = expense['typex']
-            ws.cell(row, col + 5).value = path.basename(expense['receipt'])
+            ws.cell(row, col + 5).value = os.path.basename(expense['receipt'])
             row += 1
         
         #Adding the total amount
@@ -102,7 +107,7 @@ class ExpenseReport:
         logger.debug('[*] Filling the zip archive with receipts')
         with zipfile.ZipFile(self.receiptsPath,'x') as myzip:
             for expense in self.expenseList:
-                myzip.write(expense['receipt'], path.basename(expense['receipt']))   #The path of the receipt is in 5th position in the expense list
+                myzip.write(expense['receipt'], os.path.basename(expense['receipt']))   #The path of the receipt is in 5th position in the expense list
     
         #Return the file path
         return self.receiptsPath
@@ -125,13 +130,13 @@ class ExpenseReport:
 
         #Initiate constants and objects
 
-        API = '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'
-        sg = SendGridAPIClient(api_key=API)
+        #API = SendGridAPIClient('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') 
+        sg = SendGridAPIClient('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')
 
         #Creating Mail object
         logger.debug('[*] Initiating mail object')
         message = Mail(
-            from_email = 'support@expensebot.net',
+            from_email = 'expensebot@segura.design',
             to_emails= email,
             subject = 'Your expense report',
             html_content = '<strong>Here is your expense report, with receipts, from expenseBot.net</strong>'

@@ -18,3 +18,4 @@ support_files/
 test/
 botParams.py
 log/detailedInfo.log
+sendgrid.env

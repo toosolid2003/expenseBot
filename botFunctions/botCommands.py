@@ -59,7 +59,7 @@ def inputTrack(func):
 @commandTrack
 def helpmsg(update, context):
     messages = ['''To record a new business expense, 
-send the bot a picture of your receipt, with the amount and reason in the caption, separated by a comma (eg: "12, coffee with Johnny").
+send the bot a picture of your receipt, with the amount and reason in the comments, separated by a comma (eg: "12, coffee with Johnny").
 You can also record an expense in a different currency: follow the same procedure, just add the 3 letters of a currency after the amount (eg: "12 eur, lunch with Paul")''',
     f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
     for msg in messages:
@@ -107,7 +107,7 @@ def email(update, context):
         update.message.reply_text('Thanks for your email, {}.'.format(email))
         context.user_data['email'] = email
         update.message.reply_text('Now, what currency should I use to record your expenses?')
-        keyboard = [['EUR','RUB','USD'],
+        keyboard = [['EUR','GBP','USD'],
                 ['NZD','AUD','UAH']]
         reply = telegram.ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
         bot.send_message(chat_id=update.message.chat.id, reply_markup=reply, text='Choose among the following:')
@@ -172,16 +172,17 @@ def export(update, context):
     email = db.get_user_email(user)
 
     if len(context.args) >= 1:
-        
+
         #Create and parse a date with all parameters after the /export command
         date_exp = ' '.join(context.args)
-        date_exp = dateparser.parse(date_exp) 
+        date_exp = dateparser.parse(date_exp, languages=['fr']) 
 
         responseBack = f'I have exported your expenses from {date_exp.strftime("%A, %B %-d")} and sent them to your email, {email}'
     else:
         responseBack = f'I have exported all of your expenses to your email, {email}'
         date_exp = None
 
+    print(user, date_exp) #debug line
     report = ExpenseReport(user)
     report.getExpenses('expenses.sqlite', date_exp)
     report.generateXls()

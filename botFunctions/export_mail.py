@@ -21,7 +21,7 @@ def sendExport(emailSender, emailRecipient, expenseReport, receipts):
     """
     #Initiate constants and objects
 
-    API = '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'
+    API = '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'
     sg = SendGridAPIClient(api_key=API)
 
     #Creating Mail object
