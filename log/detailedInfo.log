@@ -6651,3 +6651,58 @@
 2023-09-20 13:50:35,448 - INFO - Export sent to thedropper
 2023-09-20 16:00:08,538 - DEBUG - Using function toMarkdown
 2023-09-20 17:12:20,050 - DEBUG - Using function toMarkdown
+2023-09-21 09:37:26,184 - INFO - Initialising the classes
+2023-09-21 09:37:26,186 - INFO - Starting the bot
+2023-09-21 09:37:26,188 - INFO - Starting the server
+2023-09-21 09:37:26,224 - INFO - Server started
+2023-09-21 09:37:28,234 - DEBUG - Using function toMarkdown
+2023-09-21 09:37:35,871 - DEBUG - [*] Raw text identified`
+2023-09-21 09:37:36,014 - DEBUG - Expense dictionnary: 
+2023-09-21 09:37:36,014 - DEBUG - Using function checkCompletion
+2023-09-21 09:37:36,015 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-09-21 09:38:25,203 - INFO - Initialising the classes
+2023-09-21 09:38:25,203 - INFO - Starting the bot
+2023-09-21 09:38:25,205 - INFO - Starting the server
+2023-09-21 09:38:25,251 - INFO - Server started
+2023-09-21 09:38:32,319 - DEBUG - [*] Raw text identified`
+2023-09-21 09:38:32,454 - DEBUG - Expense dictionnary: 
+2023-09-21 09:38:32,455 - DEBUG - Using function checkCompletion
+2023-09-21 09:38:32,455 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-09-21 09:39:29,029 - INFO - Initialising the classes
+2023-09-21 09:39:29,030 - INFO - Starting the bot
+2023-09-21 09:39:29,031 - INFO - Starting the server
+2023-09-21 09:39:29,069 - INFO - Server started
+2023-09-21 09:39:34,267 - DEBUG - [*] Raw text identified`
+2023-09-21 09:39:34,408 - DEBUG - Expense dictionnary: 
+2023-09-21 09:39:34,408 - DEBUG - Using function checkCompletion
+2023-09-21 09:39:34,409 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-09-21 09:40:17,128 - INFO - Initialising the classes
+2023-09-21 09:40:17,129 - INFO - Starting the bot
+2023-09-21 09:40:17,130 - INFO - Starting the server
+2023-09-21 09:40:17,169 - INFO - Server started
+2023-09-21 09:40:20,274 - DEBUG - [*] Raw text identified`
+2023-09-21 09:40:20,418 - DEBUG - Expense dictionnary: 
+2023-09-21 09:40:20,419 - DEBUG - Using function checkCompletion
+2023-09-21 09:40:20,419 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-09-21 09:40:43,026 - DEBUG - [*] Raw text identified`
+2023-09-21 09:40:43,026 - DEBUG - Using function parseText
+2023-09-21 09:40:43,027 - DEBUG - Using function getCurrency
+2023-09-21 09:40:43,264 - DEBUG - Using function getAmount
+2023-09-21 09:40:43,265 - DEBUG - Using function getType
+2023-09-21 09:40:43,265 - DEBUG - Using function getCurrency
+2023-09-21 09:40:43,273 - DEBUG - Parsed text: 
+2023-09-21 09:40:43,274 - DEBUG - Current dictionnary:
+2023-09-21 09:40:43,274 - DEBUG - Expense dictionnary: 
+2023-09-21 09:40:43,274 - DEBUG - Using function checkCompletion
+2023-09-21 09:40:43,274 - INFO - Missing: ['receipt']
+2023-09-21 09:40:54,606 - DEBUG - Using function saveDocument
+2023-09-21 09:40:55,095 - DEBUG - [*] Picutre saved
+2023-09-21 09:40:55,095 - DEBUG - Using function checkCompletion
+2023-09-21 09:40:55,096 - DEBUG - Expense dictionnary: 
+2023-09-21 09:40:55,096 - INFO - Expense data is complete. Ready for database injection.
+2023-09-21 09:40:55,096 - DEBUG - Using function injectData
+2023-09-21 09:40:55,101 - INFO - Expense 02a13f7f-3ef3-4cbb-ac26-873bc34f965b added to the databse for user thedropper
+2023-09-21 09:41:14,228 - INFO - Initialising the classes
+2023-09-21 09:41:14,229 - INFO - Starting the bot
+2023-09-21 09:41:14,230 - INFO - Starting the server
+2023-09-21 09:41:14,259 - INFO - Server started

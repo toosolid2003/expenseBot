@@ -5,6 +5,7 @@ from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from logger.logger import logger
 from botParams import *
+import re
 
 #################################################################
 # Constants
@@ -85,21 +86,33 @@ def textCapture(update, context):
         rawText = update.message.caption
         photoCapture(update, context)
         logger.debug("[*] Caption identified")
+    
+    #Text validation. We check if the text input is expense data or something else
+    regular_exp = re.compile(regex)
+    result = regular_exp.match(rawText)
+    
+    #Text validation positive. 
+    if result:
+        # Parse the text: adds amount + reason and type if amount and reason in the raw text
+        tempDict = parseText(rawText, update.message.chat.username)
+        logger.debug("Parsed text: ", tempDict)
 
-    # Parse the text: adds amount + reason and type if amount and reason in the raw text
-    tempDict = parseText(rawText, update.message.chat.username)
-    logger.debug("Parsed text: ", tempDict)
+        # Feeding the missing elements in context.user_data
+        if tempDict['amount'] != None:
+            context.user_data['amount'] = tempDict['amount']
+            logger.debug("Current dictionnary:", tempDict)
 
-    # Feeding the missing elements in context.user_data
-    if tempDict['amount'] != None:
-        context.user_data['amount'] = tempDict['amount']
-        logger.debug("Current dictionnary:", tempDict)
+        if tempDict['reason'] != None:
+            context.user_data['reason'] = tempDict['reason']
+            context.user_data['typex'] = tempDict['typex']
+    
+    #Text validation negative.
+    else:
+        update.message.reply_text(f"""Hey, I am not able to process a conversation yet. I can only record expenses. 
+If you want to submit an expense, type the amount, followed by the currency and then a reason.\n 
+Example: 10 usd, lunch with Tara. Don\'t forget to also share a picture of a receipt. Type /help for more.""")
 
-    if tempDict['reason'] != None:
-        context.user_data['reason'] = tempDict['reason']
-        context.user_data['typex'] = tempDict['typex']
-
-    #exp.assign(tempDict)
+        #exp.assign(tempDict)
     
     # Add the telegram handle to context.user_dat
     context.user_data['user'] = update.message.chat.username
