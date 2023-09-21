@@ -61,7 +61,7 @@ def helpmsg(update, context):
     messages = ['''To record a new business expense, 
 send the bot a picture of your receipt, with the amount and reason in the comments, separated by a comma (eg: "12, coffee with Johnny").
 You can also record an expense in a different currency: follow the same procedure, just add the 3 letters of a currency after the amount (eg: "12 eur, lunch with Paul")''',
-    f'Send a message to support@expensebot.net if you run into trouble or have questions about the bot.']
+    f'Send a message to info@expensebot.me if you run into trouble or have questions about the bot.']
     for msg in messages:
         update.message.reply_text(msg)
 
@@ -170,7 +170,8 @@ def export(update, context):
 
     user = update.message.chat.username
     email = db.get_user_email(user)
-
+    logger.debug(f'{user} with {email} tries to export expense items.')
+    
     if len(context.args) >= 1:
 
         #Create and parse a date with all parameters after the /export command
@@ -182,9 +183,9 @@ def export(update, context):
         responseBack = f'I have exported all of your expenses to your email, {email}'
         date_exp = None
 
-    print(user, date_exp) #debug line
+    logger.debug(f'Date of expense: {date_exp}.')
     report = ExpenseReport(user)
-    report.getExpenses('expenses.sqlite', date_exp)
+    report.getExpenses('/var/www/expenseBot/expenses.sqlite', date_exp)
     report.generateXls()
     report.receiptZip()
 

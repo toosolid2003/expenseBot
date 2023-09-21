@@ -6413,3 +6413,241 @@
 2023-09-19 18:29:04,176 - DEBUG - [*] Creating the receipts attachment
 2023-09-19 18:29:04,180 - DEBUG - [*] Sending the email
 2023-09-19 18:29:04,990 - INFO - Export sent to thedropper
+2023-09-19 18:31:31,901 - DEBUG - Using function toMarkdown
+2023-09-19 18:32:34,184 - INFO - Initialising the classes
+2023-09-19 18:32:34,184 - INFO - Starting the bot
+2023-09-19 18:32:34,185 - INFO - Starting the server
+2023-09-19 18:32:34,214 - INFO - Server started
+2023-09-19 18:32:38,232 - DEBUG - Using function toMarkdown
+2023-09-19 18:32:44,538 - DEBUG - [*] Connecting to the db
+2023-09-19 18:32:44,538 - DEBUG - [*] Building the query
+2023-09-19 18:32:44,538 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 18:32:44,538 - DEBUG - [*] Executing the query
+2023-09-19 18:32:44,539 - DEBUG - [*] Loading the workbook template
+2023-09-19 18:32:44,551 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 18:32:44,552 - DEBUG - [*] Saving the file on disk
+2023-09-19 18:32:44,565 - DEBUG - [*] Creating filename for zip file
+2023-09-19 18:32:44,566 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 18:32:44,568 - DEBUG - [*] Initiating mail object
+2023-09-19 18:32:44,568 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 18:32:44,568 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 18:32:44,570 - DEBUG - [*] Sending the email
+2023-09-19 18:32:45,033 - INFO - Export sent to thedropper
+2023-09-19 19:07:49,401 - DEBUG - [*] Connecting to the db
+2023-09-19 19:07:49,401 - DEBUG - [*] Building the query
+2023-09-19 19:07:49,401 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 19:07:49,401 - DEBUG - [*] Executing the query
+2023-09-19 19:07:49,402 - DEBUG - [*] Loading the workbook template
+2023-09-19 19:07:49,416 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 19:07:49,416 - DEBUG - [*] Saving the file on disk
+2023-09-19 19:07:49,426 - DEBUG - [*] Creating filename for zip file
+2023-09-19 19:07:49,426 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 19:07:49,428 - DEBUG - [*] Initiating mail object
+2023-09-19 19:07:49,428 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 19:07:49,428 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 19:07:49,429 - DEBUG - [*] Sending the email
+2023-09-19 19:07:50,177 - INFO - Export sent to thedropper
+2023-09-19 19:08:02,752 - DEBUG - [*] Connecting to the db
+2023-09-19 19:08:02,752 - DEBUG - [*] Building the query
+2023-09-19 19:08:02,752 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 19:08:02,753 - DEBUG - [*] Executing the query
+2023-09-19 19:08:02,753 - DEBUG - [*] Loading the workbook template
+2023-09-19 19:08:02,767 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 19:08:02,768 - DEBUG - [*] Saving the file on disk
+2023-09-19 19:08:02,779 - DEBUG - [*] Creating filename for zip file
+2023-09-19 19:08:02,780 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 19:08:02,782 - DEBUG - [*] Initiating mail object
+2023-09-19 19:08:02,783 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 19:08:02,783 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 19:08:02,786 - DEBUG - [*] Sending the email
+2023-09-19 19:08:03,564 - INFO - Export sent to thedropper
+2023-09-19 19:08:13,817 - DEBUG - Using function toMarkdown
+2023-09-19 19:16:27,326 - INFO - Initialising the classes
+2023-09-19 19:16:27,333 - INFO - Starting the bot
+2023-09-19 19:16:27,334 - INFO - Starting the server
+2023-09-19 19:16:27,391 - INFO - Server started
+2023-09-19 19:18:42,210 - DEBUG - Using function toMarkdown
+2023-09-19 19:21:25,239 - DEBUG - [*] Raw text identified`
+2023-09-19 19:21:25,239 - DEBUG - Using function parseText
+2023-09-19 19:21:25,239 - DEBUG - Using function getCurrency
+2023-09-19 19:21:25,461 - DEBUG - Using function getAmount
+2023-09-19 19:21:25,461 - DEBUG - Using function getType
+2023-09-19 19:21:25,461 - DEBUG - Using function getCurrency
+2023-09-19 19:21:25,467 - DEBUG - Parsed text: 
+2023-09-19 19:21:25,467 - DEBUG - Current dictionnary:
+2023-09-19 19:21:25,467 - DEBUG - Expense dictionnary: 
+2023-09-19 19:21:25,467 - DEBUG - Using function checkCompletion
+2023-09-19 19:21:25,467 - INFO - Missing: ['receipt']
+2023-09-19 19:21:31,746 - DEBUG - Using function saveDocument
+2023-09-19 19:21:32,303 - DEBUG - [*] Picutre saved
+2023-09-19 19:21:32,303 - DEBUG - Using function checkCompletion
+2023-09-19 19:21:32,303 - DEBUG - Expense dictionnary: 
+2023-09-19 19:21:32,303 - INFO - Expense data is complete. Ready for database injection.
+2023-09-19 19:21:32,303 - DEBUG - Using function injectData
+2023-09-19 19:21:32,307 - INFO - Expense 778276da-7199-4493-b2dc-459ea6d3ef11 added to the databse for user thedropper
+2023-09-19 19:23:08,629 - DEBUG - Using function toMarkdown
+2023-09-19 19:23:14,869 - DEBUG - [*] Connecting to the db
+2023-09-19 19:23:14,869 - DEBUG - [*] Building the query
+2023-09-19 19:23:14,870 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 19:23:14,870 - DEBUG - [*] Executing the query
+2023-09-19 19:24:16,726 - INFO - Initialising the classes
+2023-09-19 19:24:16,726 - INFO - Starting the bot
+2023-09-19 19:24:16,728 - INFO - Starting the server
+2023-09-19 19:24:16,757 - INFO - Server started
+2023-09-19 19:24:24,821 - DEBUG - [*] Connecting to the db
+2023-09-19 19:24:24,821 - DEBUG - [*] Building the query
+2023-09-19 19:24:24,821 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 19:24:24,821 - DEBUG - [*] Executing the query
+2023-09-19 19:24:24,822 - DEBUG - [*] Loading the workbook template
+2023-09-19 19:24:24,837 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 19:24:24,837 - DEBUG - [*] Saving the file on disk
+2023-09-19 19:24:24,851 - DEBUG - [*] Creating filename for zip file
+2023-09-19 19:24:24,851 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 19:24:24,854 - DEBUG - [*] Initiating mail object
+2023-09-19 19:24:24,855 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 19:24:24,855 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 19:24:24,856 - DEBUG - [*] Sending the email
+2023-09-19 19:24:25,570 - INFO - Export sent to thedropper
+2023-09-19 19:26:57,047 - INFO - Initialising the classes
+2023-09-19 19:26:57,048 - INFO - Starting the bot
+2023-09-19 19:26:57,049 - INFO - Starting the server
+2023-09-19 19:26:57,072 - INFO - Server started
+2023-09-19 19:27:01,323 - DEBUG - Using function toMarkdown
+2023-09-19 19:27:10,992 - DEBUG - [*] Connecting to the db
+2023-09-19 19:27:10,993 - DEBUG - [*] Building the query
+2023-09-19 19:27:10,993 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 19:27:10,993 - DEBUG - [*] Executing the query
+2023-09-19 19:27:10,993 - DEBUG - [*] Loading the workbook template
+2023-09-19 19:27:11,007 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 19:27:11,008 - DEBUG - [*] Saving the file on disk
+2023-09-19 19:27:11,021 - DEBUG - [*] Creating filename for zip file
+2023-09-19 19:27:11,021 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 19:27:11,030 - DEBUG - [*] Initiating mail object
+2023-09-19 19:27:11,031 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 19:27:11,031 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 19:27:11,032 - DEBUG - [*] Sending the email
+2023-09-19 19:27:11,504 - INFO - Export sent to thedropper
+2023-09-19 19:27:25,736 - INFO - Initialising the classes
+2023-09-19 19:27:25,737 - INFO - Starting the bot
+2023-09-19 19:27:25,738 - INFO - Starting the server
+2023-09-19 19:27:25,764 - INFO - Server started
+2023-09-19 19:28:03,032 - DEBUG - Using function toMarkdown
+2023-09-19 19:28:53,878 - DEBUG - Using function toMarkdown
+2023-09-19 20:19:42,986 - INFO - Initialising the classes
+2023-09-19 20:19:42,987 - INFO - Starting the bot
+2023-09-19 20:19:42,988 - INFO - Starting the server
+2023-09-19 20:19:43,021 - INFO - Server started
+2023-09-19 20:19:45,040 - DEBUG - Using function toMarkdown
+2023-09-19 20:19:55,013 - DEBUG - [*] Connecting to the db
+2023-09-19 20:19:55,013 - DEBUG - [*] Building the query
+2023-09-19 20:19:55,013 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 20:19:55,013 - DEBUG - [*] Executing the query
+2023-09-19 20:19:55,014 - DEBUG - 4 items found in db
+2023-09-19 20:19:55,014 - DEBUG - [*] Loading the workbook template
+2023-09-19 20:19:55,026 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 20:19:55,026 - DEBUG - [*] Saving the file on disk
+2023-09-19 20:19:55,037 - DEBUG - [*] Creating filename for zip file
+2023-09-19 20:19:55,037 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 20:19:55,043 - DEBUG - [*] Initiating mail object
+2023-09-19 20:19:55,043 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 20:19:55,043 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 20:19:55,044 - DEBUG - [*] Sending the email
+2023-09-19 20:19:55,760 - INFO - Export sent to thedropper
+2023-09-19 20:24:16,633 - DEBUG - Using function toMarkdown
+2023-09-19 20:24:24,032 - DEBUG - Using function toMarkdown
+2023-09-19 20:24:39,864 - INFO - Initialising the classes
+2023-09-19 20:24:39,865 - INFO - Starting the bot
+2023-09-19 20:24:39,866 - INFO - Starting the server
+2023-09-19 20:24:39,895 - INFO - Server started
+2023-09-19 20:24:41,902 - DEBUG - Using function toMarkdown
+2023-09-19 20:24:48,891 - DEBUG - thedropper with thibaut@segura.design tries to export expense items.
+2023-09-19 20:24:48,924 - DEBUG - Date of expense: 2023-09-01 00:00:00.
+2023-09-19 20:24:48,924 - DEBUG - [*] Connecting to the db
+2023-09-19 20:24:48,925 - DEBUG - [*] Building the query
+2023-09-19 20:24:48,925 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 20:24:48,925 - DEBUG - [*] Executing the query
+2023-09-19 20:24:48,926 - DEBUG - [*] 4 items found in db
+2023-09-19 20:24:48,926 - DEBUG - [*] Loading the workbook template
+2023-09-19 20:24:48,939 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 20:24:48,939 - DEBUG - [*] Saving the file on disk
+2023-09-19 20:24:48,951 - DEBUG - [*] Creating filename for zip file
+2023-09-19 20:24:48,951 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 20:24:48,956 - DEBUG - [*] Initiating mail object
+2023-09-19 20:24:48,957 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 20:24:48,957 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 20:24:48,958 - DEBUG - [*] Sending the email
+2023-09-19 20:24:49,581 - INFO - Export sent to thedropper
+2023-09-19 20:25:37,070 - DEBUG - thedropper with thibaut@segura.design tries to export expense items.
+2023-09-19 20:25:37,071 - DEBUG - Date of expense: 2023-09-01 00:00:00.
+2023-09-19 20:25:37,071 - DEBUG - [*] Connecting to the db
+2023-09-19 20:25:37,071 - DEBUG - [*] Building the query
+2023-09-19 20:25:37,071 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 20:25:37,071 - DEBUG - [*] Executing the query
+2023-09-19 20:25:37,072 - DEBUG - [*] 4 items found in db
+2023-09-19 20:25:37,072 - DEBUG - [*] Loading the workbook template
+2023-09-19 20:25:37,083 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 20:25:37,084 - DEBUG - [*] Saving the file on disk
+2023-09-19 20:25:37,095 - DEBUG - [*] Creating filename for zip file
+2023-09-19 20:25:37,095 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 20:25:37,101 - DEBUG - [*] Initiating mail object
+2023-09-19 20:25:37,101 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 20:25:37,101 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 20:25:37,102 - DEBUG - [*] Sending the email
+2023-09-19 20:25:37,822 - INFO - Export sent to thedropper
+2023-09-19 20:25:47,514 - DEBUG - thedropper with thibaut@segura.design tries to export expense items.
+2023-09-19 20:25:47,515 - DEBUG - Date of expense: 2023-08-01 00:00:00.
+2023-09-19 20:25:47,515 - DEBUG - [*] Connecting to the db
+2023-09-19 20:25:47,515 - DEBUG - [*] Building the query
+2023-09-19 20:25:47,515 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-19 20:25:47,515 - DEBUG - [*] Executing the query
+2023-09-19 20:25:47,515 - DEBUG - [*] 10 items found in db
+2023-09-19 20:25:47,516 - DEBUG - [*] Loading the workbook template
+2023-09-19 20:25:47,526 - DEBUG - [*] Filling the spreadsheet
+2023-09-19 20:25:47,527 - DEBUG - [*] Saving the file on disk
+2023-09-19 20:25:47,537 - DEBUG - [*] Creating filename for zip file
+2023-09-19 20:25:47,537 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-19 20:25:47,547 - DEBUG - [*] Initiating mail object
+2023-09-19 20:25:47,547 - DEBUG - [*] Creating the expense report attachment
+2023-09-19 20:25:47,547 - DEBUG - [*] Creating the receipts attachment
+2023-09-19 20:25:47,550 - DEBUG - [*] Sending the email
+2023-09-19 20:25:48,213 - INFO - Export sent to thedropper
+2023-09-20 05:03:02,705 - DEBUG - thedropper with thibaut@segura.design tries to export expense items.
+2023-09-20 05:03:02,706 - DEBUG - Date of expense: 2023-09-01 00:00:00.
+2023-09-20 05:03:02,706 - DEBUG - [*] Connecting to the db
+2023-09-20 05:03:02,707 - DEBUG - [*] Building the query
+2023-09-20 05:03:02,707 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-20 05:03:02,707 - DEBUG - [*] Executing the query
+2023-09-20 05:03:02,707 - DEBUG - [*] 4 items found in db
+2023-09-20 05:03:02,707 - DEBUG - [*] Loading the workbook template
+2023-09-20 05:03:02,721 - DEBUG - [*] Filling the spreadsheet
+2023-09-20 05:03:02,721 - DEBUG - [*] Saving the file on disk
+2023-09-20 05:03:02,732 - DEBUG - [*] Creating filename for zip file
+2023-09-20 05:03:02,732 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-20 05:03:02,734 - DEBUG - [*] Initiating mail object
+2023-09-20 05:03:02,734 - DEBUG - [*] Creating the expense report attachment
+2023-09-20 05:03:02,734 - DEBUG - [*] Creating the receipts attachment
+2023-09-20 05:03:02,735 - DEBUG - [*] Sending the email
+2023-09-20 05:03:03,565 - INFO - Export sent to thedropper
+2023-09-20 13:50:18,013 - INFO - Initialising the classes
+2023-09-20 13:50:18,014 - INFO - Starting the bot
+2023-09-20 13:50:18,015 - INFO - Starting the server
+2023-09-20 13:50:18,052 - INFO - Server started
+2023-09-20 13:50:34,511 - DEBUG - thedropper with thibaut@segura.design tries to export expense items.
+2023-09-20 13:50:34,546 - DEBUG - Date of expense: 2023-09-01 00:00:00.
+2023-09-20 13:50:34,547 - DEBUG - [*] Connecting to the db
+2023-09-20 13:50:34,547 - DEBUG - [*] Building the query
+2023-09-20 13:50:34,547 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2023-09-20 13:50:34,547 - DEBUG - [*] Executing the query
+2023-09-20 13:50:34,548 - DEBUG - [*] 4 items found in db
+2023-09-20 13:50:34,548 - DEBUG - [*] Loading the workbook template
+2023-09-20 13:50:34,561 - DEBUG - [*] Filling the spreadsheet
+2023-09-20 13:50:34,562 - DEBUG - [*] Saving the file on disk
+2023-09-20 13:50:34,573 - DEBUG - [*] Creating filename for zip file
+2023-09-20 13:50:34,573 - DEBUG - [*] Filling the zip archive with receipts
+2023-09-20 13:50:34,576 - DEBUG - [*] Initiating mail object
+2023-09-20 13:50:34,576 - DEBUG - [*] Creating the expense report attachment
+2023-09-20 13:50:34,577 - DEBUG - [*] Creating the receipts attachment
+2023-09-20 13:50:34,578 - DEBUG - [*] Sending the email
+2023-09-20 13:50:35,448 - INFO - Export sent to thedropper
+2023-09-20 16:00:08,538 - DEBUG - Using function toMarkdown
+2023-09-20 17:12:20,050 - DEBUG - Using function toMarkdown
