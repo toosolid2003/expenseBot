@@ -137,10 +137,10 @@ class ExpenseReport:
         #Creating Mail object
         logger.debug('[*] Initiating mail object')
         message = Mail(
-            from_email = 'expensebot@segura.design',
+            from_email = 'support@expensebot.me',
             to_emails= email,
             subject = 'Your expense report',
-            html_content = '<strong>Here is your expense report, with receipts, from expenseBot.net</strong>'
+            html_content = '<strong>Here is your expense report, with receipts, from the tean at ExpenseBot.</strong>'
             )
 
         #Creating expense report attachment
