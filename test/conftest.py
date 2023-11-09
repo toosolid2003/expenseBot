@@ -1,3 +1,5 @@
+#This file creates two fake databases for testing purposes.
+
 #standard imports
 import sys
 import pytest

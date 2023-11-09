@@ -142,7 +142,7 @@ db.setup()
 #Starting the bot
 logger.info('Starting the bot')
 
-with open('/var/www/expenseBot/bot.token','r') as fichier:
+with open('bot.token','r') as fichier:
     token = fichier.read()
     TOKEN = token.replace('\n','')
 
@@ -179,12 +179,13 @@ dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
 #j.start()
 
 #Starting the server
-logger.info('Starting the server')
-updater.start_webhook(listen='0.0.0.0',
-                      port=443,
-                      key= KEY,
-                      cert= CERT,
-                      webhook_url=WEBHOOK,
-                      )
-logger.info('Server started')
+# logger.info('Starting the server')
+# updater.start_webhook(listen='0.0.0.0',
+#                       port=443,
+#                       key= KEY,
+#                       cert= CERT,
+#                       webhook_url=WEBHOOK,
+#                       )
+# logger.info('Server started')
+updater.start_polling()
 

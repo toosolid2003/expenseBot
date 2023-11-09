@@ -9,7 +9,7 @@ from botFunctions.botData.parserData import *
 import re
 
 class DBHelper:
-    def __init__(self, dbname='/var/www/expenseBot/expenses.sqlite'):
+    def __init__(self, dbname='expenses.sqlite'):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
 

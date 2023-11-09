@@ -11,7 +11,7 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 #Create a log file that captures all events of DEBUG importance and above
 #This is the most detailed log
 
-debugLog = logging.FileHandler('/var/www/expenseBot/log/detailedInfo.log')
+debugLog = logging.FileHandler('log/detailedInfo.log')
 debugLog.setLevel(logging.DEBUG)
 debugLog.setFormatter(formatter)
 

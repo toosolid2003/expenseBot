@@ -7072,3 +7072,6 @@
 2023-11-03 12:31:46,241 - DEBUG - Using function injectData
 2023-11-03 12:31:46,245 - INFO - Expense bb651760-3026-400d-9720-5b021b31a4a2 added to the databse for user thedropper
 2023-11-05 09:29:54,968 - DEBUG - Using function toMarkdown
+2023-11-09 11:01:45,948 - INFO - Initialising the classes
+2023-11-09 11:01:45,951 - INFO - Starting the bot
+2023-11-09 11:02:30,882 - DEBUG - Using function toMarkdown

@@ -19,3 +19,7 @@ test/
 botParams.py
 log/detailedInfo.log
 sendgrid.env
+nohup.out
+items
+sendgrid_sample.py
+yourExpport.xlsx
