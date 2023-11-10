@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from os import chdir, rename, path
+from os import chdir, rename, path, getcwd
 from time import strftime, strptime
 from logger.logger import logger
 from botClasses.classes import DBHelper
@@ -138,14 +138,15 @@ def saveDocument(fileId, telegram_username, bot):
     Output: absolute_path_to_file'''
 
     #Change the current directory to one which www-data has access to
-    chdir('/var/www/expenseBot/receipts/')
+    cwd = getcwd()
+    chdir(cwd + '/receipts/')
     #Download the file
     try:
         filename = bot.get_file(fileId).download()
     except Exception as e:
         logger.error('Could not download file %s. Error: %s', fileId, e)
 
-    newFilepath = '/var/www/expenseBot/receipts/' + telegram_username +'/' + filename
+    newFilepath = cwd + '/receipts/' + telegram_username +'/' + filename
 
     #Move the document to a dedicated folder
     rename(filename, newFilepath)

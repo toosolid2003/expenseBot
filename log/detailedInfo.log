@@ -7075,3 +7075,329 @@
 2023-11-09 11:01:45,948 - INFO - Initialising the classes
 2023-11-09 11:01:45,951 - INFO - Starting the bot
 2023-11-09 11:02:30,882 - DEBUG - Using function toMarkdown
+2023-11-09 11:03:38,491 - INFO - Initialising the classes
+2023-11-09 11:03:38,491 - INFO - Starting the bot
+2023-11-09 11:08:19,754 - INFO - Initialising the classes
+2023-11-09 11:08:19,754 - INFO - Starting the bot
+2023-11-09 11:08:28,523 - DEBUG - [*] Raw text identified`
+2023-11-09 11:08:28,523 - DEBUG - Using function parseText
+2023-11-09 11:08:28,524 - DEBUG - Using function getCurrency
+2023-11-09 11:08:28,641 - DEBUG - Using function getAmount
+2023-11-09 11:08:28,642 - DEBUG - Using function getType
+2023-11-09 11:08:28,642 - DEBUG - Using function getCurrency
+2023-11-09 11:08:28,644 - DEBUG - Parsed text: 
+2023-11-09 11:08:28,644 - DEBUG - Current dictionnary:
+2023-11-09 11:08:28,644 - DEBUG - Expense dictionnary: 
+2023-11-09 11:08:28,644 - DEBUG - Using function checkCompletion
+2023-11-09 11:08:28,644 - INFO - Missing: ['receipt']
+2023-11-09 11:09:32,141 - INFO - Initialising the classes
+2023-11-09 11:09:32,141 - INFO - Starting the bot
+2023-11-09 11:11:17,131 - INFO - Initialising the classes
+2023-11-09 11:11:17,132 - INFO - Starting the bot
+2023-11-09 11:11:35,745 - DEBUG - Using function saveDocument
+2023-11-09 11:11:35,745 - ERROR - Could not save the attached document or photo for thedropper. Error: [Errno 2] No such file or directory: '/var/www/expenseBot/receipts/'
+2023-11-09 11:11:35,745 - DEBUG - Using function checkCompletion
+2023-11-09 11:11:35,745 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:11:35,745 - DEBUG - Expense dictionnary: 
+2023-11-09 11:11:35,745 - DEBUG - [*] Caption identified
+2023-11-09 11:11:35,745 - DEBUG - Using function parseText
+2023-11-09 11:11:35,746 - DEBUG - Using function getCurrency
+2023-11-09 11:11:35,858 - DEBUG - Using function getAmount
+2023-11-09 11:11:35,858 - DEBUG - Using function getType
+2023-11-09 11:11:35,858 - DEBUG - Using function getCurrency
+2023-11-09 11:11:35,860 - DEBUG - Parsed text: 
+2023-11-09 11:11:35,860 - DEBUG - Current dictionnary:
+2023-11-09 11:11:35,860 - DEBUG - Expense dictionnary: 
+2023-11-09 11:11:35,860 - DEBUG - Using function checkCompletion
+2023-11-09 11:11:35,860 - INFO - Missing: ['receipt']
+2023-11-09 11:11:57,138 - DEBUG - Using function saveDocument
+2023-11-09 11:11:57,139 - ERROR - Could not save the attached document or photo for thedropper. Error: [Errno 2] No such file or directory: '/var/www/expenseBot/receipts/'
+2023-11-09 11:11:57,139 - DEBUG - Using function checkCompletion
+2023-11-09 11:11:57,139 - INFO - Missing: ['receipt']
+2023-11-09 11:11:57,139 - DEBUG - Expense dictionnary: 
+2023-11-09 11:13:20,916 - INFO - Initialising the classes
+2023-11-09 11:13:20,916 - INFO - Starting the bot
+2023-11-09 11:13:30,859 - DEBUG - Using function saveDocument
+2023-11-09 11:13:30,861 - ERROR - Could not save the attached document or photo for thedropper. Error: [Errno 2] No such file or directory: 'receipts/'
+2023-11-09 11:13:30,861 - DEBUG - Using function checkCompletion
+2023-11-09 11:13:30,861 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:13:30,861 - DEBUG - Expense dictionnary: 
+2023-11-09 11:14:37,009 - INFO - Initialising the classes
+2023-11-09 11:14:37,009 - INFO - Starting the bot
+2023-11-09 11:14:42,688 - DEBUG - Using function saveDocument
+2023-11-09 11:14:43,298 - ERROR - Could not save the attached document or photo for thedropper. Error: [Errno 2] No such file or directory: 'file_0.jpg' -> 'receipts/thedropper/file_0.jpg'
+2023-11-09 11:14:43,298 - DEBUG - Using function checkCompletion
+2023-11-09 11:14:43,298 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:14:43,298 - DEBUG - Expense dictionnary: 
+2023-11-09 11:17:01,355 - INFO - Initialising the classes
+2023-11-09 11:17:01,356 - INFO - Starting the bot
+2023-11-09 11:17:09,699 - DEBUG - Using function saveDocument
+2023-11-09 11:17:09,700 - ERROR - Could not save the attached document or photo for thedropper. Error: name 'os' is not defined
+2023-11-09 11:17:09,700 - DEBUG - Using function checkCompletion
+2023-11-09 11:17:09,700 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:17:09,700 - DEBUG - Expense dictionnary: 
+2023-11-09 11:17:38,040 - INFO - Initialising the classes
+2023-11-09 11:17:38,040 - INFO - Starting the bot
+2023-11-09 11:17:43,135 - DEBUG - Using function saveDocument
+2023-11-09 11:17:43,288 - DEBUG - [*] Picutre saved
+2023-11-09 11:17:43,288 - DEBUG - Using function checkCompletion
+2023-11-09 11:17:43,288 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-11-09 11:17:43,288 - DEBUG - Expense dictionnary: 
+2023-11-09 11:18:06,426 - DEBUG - [*] Raw text identified`
+2023-11-09 11:18:06,426 - DEBUG - Using function parseText
+2023-11-09 11:18:06,428 - DEBUG - Using function getCurrency
+2023-11-09 11:18:06,551 - DEBUG - Using function getAmount
+2023-11-09 11:18:06,551 - DEBUG - Using function getType
+2023-11-09 11:18:06,551 - DEBUG - Using function getCurrency
+2023-11-09 11:18:06,554 - DEBUG - Parsed text: 
+2023-11-09 11:18:06,554 - DEBUG - Current dictionnary:
+2023-11-09 11:18:06,554 - DEBUG - Expense dictionnary: 
+2023-11-09 11:18:06,554 - DEBUG - Using function checkCompletion
+2023-11-09 11:18:06,554 - INFO - Expense data is complete. Ready for database injection.
+2023-11-09 11:18:06,554 - DEBUG - Using function injectData
+2023-11-09 11:18:06,555 - INFO - Expense b5fe3318-dcc9-4444-9a8b-6528c422e5a3 added to the databse for user thedropper
+2023-11-09 11:18:26,644 - DEBUG - Using function saveDocument
+2023-11-09 11:18:26,644 - ERROR - Could not save the attached document or photo for thedropper. Error: [Errno 2] No such file or directory: '/Users/thibautsegura/Documents/Code/expenseBot/receipts/receipts/'
+2023-11-09 11:18:26,644 - DEBUG - Using function checkCompletion
+2023-11-09 11:18:26,644 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:18:26,644 - DEBUG - Expense dictionnary: 
+2023-11-09 11:18:26,644 - DEBUG - [*] Caption identified
+2023-11-09 11:18:26,644 - DEBUG - Using function parseText
+2023-11-09 11:18:26,645 - DEBUG - Using function getCurrency
+2023-11-09 11:18:26,735 - DEBUG - Using function getAmount
+2023-11-09 11:18:26,736 - DEBUG - Using function getType
+2023-11-09 11:18:26,736 - DEBUG - Using function getCurrency
+2023-11-09 11:18:26,738 - DEBUG - Parsed text: 
+2023-11-09 11:18:26,738 - DEBUG - Current dictionnary:
+2023-11-09 11:18:26,738 - DEBUG - Expense dictionnary: 
+2023-11-09 11:18:26,738 - DEBUG - Using function checkCompletion
+2023-11-09 11:18:26,738 - INFO - Missing: ['receipt']
+2023-11-09 11:19:39,126 - INFO - Initialising the classes
+2023-11-09 11:19:39,127 - INFO - Starting the bot
+2023-11-09 11:19:49,780 - DEBUG - Using function saveDocument
+2023-11-09 11:19:49,938 - DEBUG - [*] Picutre saved
+2023-11-09 11:19:49,938 - DEBUG - Using function checkCompletion
+2023-11-09 11:19:49,938 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-11-09 11:19:49,938 - DEBUG - Expense dictionnary: 
+2023-11-09 11:19:49,938 - DEBUG - [*] Caption identified
+2023-11-09 11:19:49,939 - DEBUG - Using function parseText
+2023-11-09 11:19:49,940 - DEBUG - Using function getCurrency
+2023-11-09 11:19:50,056 - DEBUG - Using function getAmount
+2023-11-09 11:19:50,056 - DEBUG - Using function getType
+2023-11-09 11:19:50,056 - DEBUG - Using function getCurrency
+2023-11-09 11:19:50,058 - DEBUG - Parsed text: 
+2023-11-09 11:19:50,059 - DEBUG - Current dictionnary:
+2023-11-09 11:19:50,059 - DEBUG - Expense dictionnary: 
+2023-11-09 11:19:50,059 - DEBUG - Using function checkCompletion
+2023-11-09 11:19:50,059 - INFO - Expense data is complete. Ready for database injection.
+2023-11-09 11:19:50,059 - DEBUG - Using function injectData
+2023-11-09 11:19:50,059 - INFO - Expense 7179941f-466d-483b-8dd5-2eb50a87ff73 added to the databse for user thedropper
+2023-11-09 11:23:53,643 - INFO - Initialising the classes
+2023-11-09 11:23:53,643 - INFO - Starting the bot
+2023-11-09 11:24:00,105 - DEBUG - [*] Raw text identified`
+2023-11-09 11:24:00,332 - DEBUG - Expense dictionnary: 
+2023-11-09 11:24:00,332 - DEBUG - Using function checkCompletion
+2023-11-09 11:24:00,332 - INFO - Missing: ['amount', 'reason', 'typex', 'receipt']
+2023-11-09 11:25:14,336 - INFO - Initialising the classes
+2023-11-09 11:25:14,336 - INFO - Starting the bot
+2023-11-09 11:25:22,970 - DEBUG - [*] Raw text identified`
+2023-11-09 11:25:22,970 - DEBUG - Using function parseText
+2023-11-09 11:25:22,972 - DEBUG - Using function getCurrency
+2023-11-09 11:25:22,972 - DEBUG - Using function getAmount
+2023-11-09 11:25:22,973 - DEBUG - Using function getType
+2023-11-09 11:25:22,973 - DEBUG - Using function getCurrency
+2023-11-09 11:25:22,973 - DEBUG - Parsed text: 
+2023-11-09 11:25:22,973 - DEBUG - Expense dictionnary: 
+2023-11-09 11:25:22,973 - DEBUG - Using function checkCompletion
+2023-11-09 11:25:22,973 - INFO - Missing: ['amount', 'receipt']
+2023-11-09 11:33:21,507 - INFO - Initialising the classes
+2023-11-09 11:33:21,508 - INFO - Starting the bot
+2023-11-09 11:33:35,011 - DEBUG - Using function saveDocument
+2023-11-09 11:33:35,144 - DEBUG - [*] Picutre saved
+2023-11-09 11:33:35,144 - DEBUG - Using function checkCompletion
+2023-11-09 11:33:35,145 - INFO - Missing: ['amount', 'reason', 'typex']
+2023-11-09 11:33:35,145 - DEBUG - Expense dictionnary: 
+2023-11-09 11:34:49,235 - INFO - Initialising the classes
+2023-11-09 11:34:49,236 - INFO - Starting the bot
+2023-11-09 11:34:56,364 - DEBUG - [*] Raw text identified`
+2023-11-09 11:34:56,364 - DEBUG - Using function parseText
+2023-11-09 11:34:56,365 - DEBUG - Using function getCurrency
+2023-11-09 11:34:56,501 - DEBUG - Using function getAmount
+2023-11-09 11:34:56,501 - DEBUG - Using function getType
+2023-11-09 11:34:56,501 - DEBUG - Using function getCurrency
+2023-11-09 11:34:56,503 - DEBUG - Parsed text: 
+2023-11-09 11:34:56,503 - DEBUG - Current dictionnary:
+2023-11-09 11:34:56,503 - DEBUG - Expense dictionnary: 
+2023-11-09 11:34:56,503 - DEBUG - Using function checkCompletion
+2023-11-09 11:34:56,503 - INFO - Missing: ['receipt']
+2023-11-09 11:35:35,016 - INFO - Initialising the classes
+2023-11-09 11:35:35,017 - INFO - Starting the bot
+2023-11-09 11:37:58,153 - INFO - Initialising the classes
+2023-11-09 11:37:58,153 - INFO - Starting the bot
+2023-11-09 14:52:47,347 - INFO - Initialising the classes
+2023-11-09 14:52:47,347 - INFO - Starting the bot
+2023-11-09 14:52:50,852 - DEBUG - Using function toMarkdown
+2023-11-09 16:25:47,215 - INFO - Initialising the classes
+2023-11-09 16:25:47,215 - INFO - Starting the bot
+2023-11-09 16:26:52,258 - INFO - Initialising the classes
+2023-11-09 16:26:52,258 - INFO - Starting the bot
+2023-11-09 16:28:13,710 - INFO - Initialising the classes
+2023-11-09 16:28:13,710 - INFO - Starting the bot
+2023-11-09 16:30:22,632 - INFO - Initialising the classes
+2023-11-09 16:30:22,632 - INFO - Starting the bot
+2023-11-09 16:30:31,339 - INFO - Initialising the classes
+2023-11-09 16:30:31,339 - INFO - Starting the bot
+2023-11-09 16:31:49,555 - INFO - Initialising the classes
+2023-11-09 16:31:49,555 - INFO - Starting the bot
+2023-11-09 16:32:10,700 - INFO - Initialising the classes
+2023-11-09 16:32:10,701 - INFO - Starting the bot
+2023-11-09 16:32:33,584 - INFO - Initialising the classes
+2023-11-09 16:32:33,585 - INFO - Starting the bot
+2023-11-09 16:34:05,306 - INFO - Initialising the classes
+2023-11-09 16:34:05,307 - INFO - Starting the bot
+2023-11-09 16:35:12,096 - INFO - Initialising the classes
+2023-11-09 16:35:12,096 - INFO - Starting the bot
+2023-11-09 16:36:58,475 - INFO - Initialising the classes
+2023-11-09 16:36:58,475 - INFO - Starting the bot
+2023-11-09 16:37:40,715 - INFO - Initialising the classes
+2023-11-09 16:37:40,715 - INFO - Starting the bot
+2023-11-09 16:38:25,222 - INFO - Initialising the classes
+2023-11-09 16:38:25,222 - INFO - Starting the bot
+2023-11-09 16:39:31,184 - INFO - Initialising the classes
+2023-11-09 16:39:31,184 - INFO - Starting the bot
+2023-11-09 16:40:42,314 - INFO - Initialising the classes
+2023-11-09 16:40:42,314 - INFO - Starting the bot
+2023-11-09 16:41:09,829 - INFO - Initialising the classes
+2023-11-09 16:41:09,829 - INFO - Starting the bot
+2023-11-09 16:41:54,146 - INFO - Initialising the classes
+2023-11-09 16:41:54,147 - INFO - Starting the bot
+2023-11-09 16:44:26,482 - INFO - Initialising the classes
+2023-11-09 16:44:26,482 - INFO - Starting the bot
+2023-11-09 16:44:47,522 - INFO - Initialising the classes
+2023-11-09 16:44:47,523 - INFO - Starting the bot
+2023-11-09 16:45:19,434 - INFO - Initialising the classes
+2023-11-09 16:45:19,434 - INFO - Starting the bot
+2023-11-09 16:45:57,002 - INFO - Initialising the classes
+2023-11-09 16:45:57,003 - INFO - Starting the bot
+2023-11-09 16:46:58,449 - INFO - Initialising the classes
+2023-11-09 16:46:58,449 - INFO - Starting the bot
+2023-11-09 16:47:42,912 - INFO - Initialising the classes
+2023-11-09 16:47:42,912 - INFO - Starting the bot
+2023-11-09 16:48:31,457 - INFO - Initialising the classes
+2023-11-09 16:48:31,458 - INFO - Starting the bot
+2023-11-09 16:50:22,870 - INFO - Initialising the classes
+2023-11-09 16:50:22,871 - INFO - Starting the bot
+2023-11-09 16:51:16,748 - INFO - Initialising the classes
+2023-11-09 16:51:16,749 - INFO - Starting the bot
+2023-11-09 16:52:26,259 - INFO - Initialising the classes
+2023-11-09 16:52:26,259 - INFO - Starting the bot
+2023-11-09 16:53:59,154 - INFO - Initialising the classes
+2023-11-09 16:53:59,154 - INFO - Starting the bot
+2023-11-09 16:54:40,507 - INFO - Initialising the classes
+2023-11-09 16:54:40,507 - INFO - Starting the bot
+2023-11-09 16:55:02,139 - INFO - Initialising the classes
+2023-11-09 16:55:02,139 - INFO - Starting the bot
+2023-11-09 16:55:19,556 - INFO - Initialising the classes
+2023-11-09 16:55:19,557 - INFO - Starting the bot
+2023-11-09 16:58:19,771 - INFO - Initialising the classes
+2023-11-09 16:58:19,771 - INFO - Starting the bot
+2023-11-09 16:59:04,607 - INFO - Initialising the classes
+2023-11-09 16:59:04,608 - INFO - Starting the bot
+2023-11-09 16:59:31,168 - INFO - Initialising the classes
+2023-11-09 16:59:31,169 - INFO - Starting the bot
+2023-11-09 16:59:55,956 - INFO - Initialising the classes
+2023-11-09 16:59:55,957 - INFO - Starting the bot
+2023-11-09 18:09:39,329 - INFO - Initialising the classes
+2023-11-09 18:09:39,329 - INFO - Starting the bot
+2023-11-09 18:10:01,444 - INFO - Initialising the classes
+2023-11-09 18:10:01,444 - INFO - Starting the bot
+2023-11-09 18:10:25,102 - INFO - Initialising the classes
+2023-11-09 18:10:25,102 - INFO - Starting the bot
+2023-11-09 18:11:38,766 - INFO - Initialising the classes
+2023-11-09 18:11:38,766 - INFO - Starting the bot
+2023-11-09 18:12:29,563 - INFO - Initialising the classes
+2023-11-09 18:12:29,564 - INFO - Starting the bot
+2023-11-09 18:12:51,209 - INFO - Initialising the classes
+2023-11-09 18:12:51,210 - INFO - Starting the bot
+2023-11-09 18:14:40,928 - INFO - Initialising the classes
+2023-11-09 18:14:40,929 - INFO - Starting the bot
+2023-11-09 18:15:03,991 - INFO - Initialising the classes
+2023-11-09 18:15:03,991 - INFO - Starting the bot
+2023-11-09 18:16:37,438 - INFO - Initialising the classes
+2023-11-09 18:16:37,438 - INFO - Starting the bot
+2023-11-09 18:17:59,262 - INFO - Initialising the classes
+2023-11-09 18:17:59,262 - INFO - Starting the bot
+2023-11-09 18:19:07,587 - INFO - Initialising the classes
+2023-11-09 18:19:07,587 - INFO - Starting the bot
+2023-11-09 18:21:08,384 - INFO - Initialising the classes
+2023-11-09 18:21:08,385 - INFO - Starting the bot
+2023-11-09 18:23:48,202 - INFO - Initialising the classes
+2023-11-09 18:23:48,202 - INFO - Starting the bot
+2023-11-09 18:26:16,615 - INFO - Initialising the classes
+2023-11-09 18:26:16,615 - INFO - Starting the bot
+2023-11-09 18:26:25,201 - DEBUG - Filename is /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_2.jpg
+2023-11-09 20:14:06,388 - INFO - Initialising the classes
+2023-11-09 20:14:06,389 - INFO - Starting the bot
+2023-11-09 20:14:34,785 - INFO - Initialising the classes
+2023-11-09 20:14:34,785 - INFO - Starting the bot
+2023-11-09 20:14:51,765 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:18:05,803 - INFO - Initialising the classes
+2023-11-09 20:18:05,803 - INFO - Starting the bot
+2023-11-09 20:18:14,912 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:18:49,706 - INFO - Initialising the classes
+2023-11-09 20:18:49,706 - INFO - Starting the bot
+2023-11-09 20:19:01,319 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:21:01,193 - INFO - Initialising the classes
+2023-11-09 20:21:01,193 - INFO - Starting the bot
+2023-11-09 20:21:10,904 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:21:53,019 - INFO - Initialising the classes
+2023-11-09 20:21:53,019 - INFO - Starting the bot
+2023-11-09 20:22:00,488 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:22:24,100 - INFO - Initialising the classes
+2023-11-09 20:22:24,101 - INFO - Starting the bot
+2023-11-09 20:22:34,752 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 20:24:04,047 - INFO - Initialising the classes
+2023-11-09 20:24:04,047 - INFO - Starting the bot
+2023-11-09 20:24:14,070 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 21:47:44,616 - INFO - Initialising the classes
+2023-11-09 21:47:44,617 - INFO - Starting the bot
+2023-11-09 21:47:55,352 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-09 21:48:47,020 - INFO - Initialising the classes
+2023-11-09 21:48:47,020 - INFO - Starting the bot
+2023-11-09 21:48:57,050 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_0.jpg
+2023-11-10 11:54:22,731 - INFO - Initialising the classes
+2023-11-10 11:54:22,732 - INFO - Starting the bot
+2023-11-10 11:54:39,486 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 11:54:51,830 - INFO - Initialising the classes
+2023-11-10 11:54:51,830 - INFO - Starting the bot
+2023-11-10 11:55:01,828 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 11:56:02,727 - INFO - Initialising the classes
+2023-11-10 11:56:02,728 - INFO - Starting the bot
+2023-11-10 11:56:12,242 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 11:59:14,242 - INFO - Initialising the classes
+2023-11-10 11:59:14,242 - INFO - Starting the bot
+2023-11-10 11:59:24,495 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 12:01:03,567 - INFO - Initialising the classes
+2023-11-10 12:01:03,568 - INFO - Starting the bot
+2023-11-10 12:01:16,073 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 12:01:55,285 - INFO - Initialising the classes
+2023-11-10 12:01:55,285 - INFO - Starting the bot
+2023-11-10 12:02:09,186 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_4.jpg
+2023-11-10 12:02:35,194 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_5.jpg
+2023-11-10 12:03:39,865 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_2.jpg
+2023-11-10 12:08:14,496 - INFO - Initialising the classes
+2023-11-10 12:08:14,496 - INFO - Starting the bot
+2023-11-10 12:08:25,568 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_2.jpg
+2023-11-10 12:09:35,411 - INFO - Initialising the classes
+2023-11-10 12:09:35,412 - INFO - Starting the bot
+2023-11-10 12:09:48,888 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_2.jpg
+2023-11-10 12:10:43,919 - INFO - Initialising the classes
+2023-11-10 12:10:43,919 - INFO - Starting the bot
+2023-11-10 12:10:44,422 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_3.jpg
+2023-11-10 12:11:09,460 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropperfile_5.jpg
+2023-11-10 12:12:04,396 - INFO - Initialising the classes
+2023-11-10 12:12:04,396 - INFO - Starting the bot
+2023-11-10 12:12:13,976 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_5.jpg
+2023-11-10 12:12:36,558 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_6.jpg
+2023-11-10 12:14:22,548 - INFO - Initialising the classes
+2023-11-10 12:14:22,548 - INFO - Starting the bot

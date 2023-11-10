@@ -1,15 +1,19 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Dispatcher, JobQueue, CallbackContext
 from telegram import Bot
-from botClasses.classes import *
+from botClasses.classes import DBHelper
+from botClasses.parserClass import Parser
+from botClasses.expenseClass import Expense
 from botFunctions.botCommands import *
 from botFunctions.botLogic import *
 from logger.logger import logger
 from botParams import *
 import re
+import openai
 
 #################################################################
 # Constants
 #################################################################
+openai.api_key = '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'
 
 #Regular expression to identify a new expense. Not used yet.
 regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
@@ -88,8 +92,9 @@ def textCapture(update, context):
         logger.debug("[*] Caption identified")
     
     #Text validation. We check if the text input is expense data or something else
-    regular_exp = re.compile(regex)
-    result = regular_exp.match(rawText)
+    # regular_exp = re.compile(regex)
+    # result = regular_exp.match(rawText)
+    result = update.message.text
     
     #Text validation positive. 
     if result:
@@ -129,6 +134,64 @@ Example: 10 usd, lunch with Tara. Don\'t forget to also share a picture of a rec
         #Save the expense object in the context.user_data dictionnary
 #       context.user_data['expense'] = exp
 #
+
+def regCapture(update, context):
+    '''Handles user input matching the regex defined above'''
+
+    # textCapture(update, context)
+    update.message.reply_text("Regex identified")
+    p = Parser(update.message.text)
+    print(p.__dict__)
+
+def chat_with_ai(update, context):
+    '''Sends the user input to an LLM for an answer. Responds to the user.'''
+
+    update.message.reply_text("Sending input to chatgpt")
+    # assert isinstance(question, str), "question should be a string"
+    # #Parameters of the assistant
+    # assistant_mood = "You are a compassionate assistant"
+
+    # response = openai.ChatCompletion.create(
+    # model="gpt-3.5-turbo",
+    # messages=[{"role": "system", "content": assistant_mood},
+    # {"role": "user", "content": question }],
+    # temperature=0.5,
+    # max_tokens=256
+    # )
+
+    # return response['choices'][0]['message']['content']
+
+
+def totalHandler(update, context):
+
+    update.message.reply_text("Saving your expense")
+    
+
+    ##Parsing the user input
+    if update.message.caption:
+        p = Parser(update.message.caption)
+        p.get_receipt(update.message.photo[-1]['file_id'],update.message.chat.username, bot)
+    elif update.message.text:
+        p = Parser(update.message.text)
+    # print(p.__dict__)
+
+    ##Feeding the expense object
+    try:
+        if context.user_data['expense']:
+            e = context.user_data['expense'] 
+    except KeyError:
+            username = update.message.chat.username
+            e = Expense(username)
+    
+    #Storing the parsing results in the expense object
+    e.get_input(p.result)
+
+    #Storing the expense object in the context.user_data dictionnary
+    context.user_data['expense'] = e
+    # print(e.__dict__)
+
+    
+
 ##########################################################################################################
 # Starting the bot
 ##########################################################################################################
@@ -148,6 +211,7 @@ with open('bot.token','r') as fichier:
 
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
+bot = Bot(token=TOKEN)
 
 #Initiate the "start" conversation handler
 conv_handler = ConversationHandler(
@@ -166,9 +230,9 @@ dispatcher.add_handler(CommandHandler('last', last))
 dispatcher.add_handler(CommandHandler('export', export))
 dispatcher.add_handler(CommandHandler('email', emailCheck,pass_args=True))
 
-dispatcher.add_handler(MessageHandler(Filters.caption, textCapture))
-dispatcher.add_handler(MessageHandler(Filters.photo | Filters.document, photoCapture))
-dispatcher.add_handler(MessageHandler(Filters.text, textCapture))
+dispatcher.add_handler(MessageHandler(Filters.document and Filters.caption, totalHandler))
+dispatcher.add_handler(MessageHandler(Filters.text and Filters.regex(regex), totalHandler))
+dispatcher.add_handler(MessageHandler(Filters.text, chat_with_ai))
 
 #Initiate the job_queue performed by the server. The job looks 
 # for pending expenses then logs these into IQ Navigator

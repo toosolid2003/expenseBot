@@ -24,6 +24,16 @@ class Expense:
         self.user = user
         self._receipt = None
     
+    def get_input(self, input_dict):
+
+        
+     for key, value in input_dict.items():
+        if value is not None:
+            print(f'{key}: {value}')
+            self.__setattr__(key, value)
+            
+
+
     def check_if_complete(self):
         if any(elt == None for elt in self.__dict__.values()):
             pass
@@ -53,6 +63,7 @@ class Expense:
             c = CurrencyConverter()
             val = c.convert(val, self.ccy, default_ccy)
             val = round(val,2)
+            self.ccy = default_ccy
 
         #Store amount in object
         self._amount = val
@@ -72,8 +83,8 @@ class Expense:
         return self._receipt
 
     @receipt.setter
-    def receipt(self, path):
-        self._receipt = path 
+    def receipt(self, r):
+        self._receipt = r 
         self.check_if_complete()
     
 
