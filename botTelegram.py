@@ -166,16 +166,14 @@ def totalHandler(update, context):
 
     update.message.reply_text("Saving your expense")
     
-
     ##Parsing the user input
     if update.message.caption:
         p = Parser(update.message.caption)
         p.get_receipt(update.message.photo[-1]['file_id'],update.message.chat.username, bot)
     elif update.message.text:
         p = Parser(update.message.text)
-    # print(p.__dict__)
-
-    ##Feeding the expense object
+    
+    #Verifying if the user has an expense object opened with data in it.
     try:
         if context.user_data['expense']:
             e = context.user_data['expense'] 
@@ -185,12 +183,55 @@ def totalHandler(update, context):
     
     #Storing the parsing results in the expense object
     e.get_input(p.result)
+    print(e.__dict__)
 
-    #Storing the expense object in the context.user_data dictionnary
-    context.user_data['expense'] = e
+    #Testing if expense is complete. If it is complete, it has been
+    #automatically saved to the database and the 'complete' flag is True.
+    #We just need to delete it. Otherwise, we store it in the user_data
+
+    if e.complete:
+        del e
     # print(e.__dict__)
 
+def photoHandler(update, context):
+    '''In case just a picture is sent by the user'''
+
+
+    #Get the fileId
+    fileId = update.message.photo[-1]['file_id']
+
+    #Download the file
+    try:
+        filename = bot.get_file(fileId).download()
+    except Exception as e:
+        logger.error('Could not download file')
+
+    #Save the file
+    os.chdir('receipts/' + update.message.chat.username)
+    filename = os.getcwd() + '/' + filename
+    logger.debug(f'Document is saved as {filename}')
+
+    #Going back to the main directory
+    os.chdir('../..')
     
+    #Storing the photo in the expense object (or create it)
+        #Verifying if the user has an expense object opened with data in it.
+    try:
+        if context.user_data['expense']:
+            e = context.user_data['expense'] 
+    except KeyError:
+            username = update.message.chat.username
+            e = Expense(username)
+            context.user_data['expense'] = e
+    
+    #Storing the path the to the photo in the expense object
+    e.receipt = filename
+
+    #Delete the expense object if it is complete
+    if e.complete:
+        del e
+
+
 
 ##########################################################################################################
 # Starting the bot
@@ -231,6 +272,7 @@ dispatcher.add_handler(CommandHandler('export', export))
 dispatcher.add_handler(CommandHandler('email', emailCheck,pass_args=True))
 
 dispatcher.add_handler(MessageHandler(Filters.document and Filters.caption, totalHandler))
+dispatcher.add_handler(MessageHandler(Filters.photo, photoHandler))
 dispatcher.add_handler(MessageHandler(Filters.text and Filters.regex(regex), totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text, chat_with_ai))
 

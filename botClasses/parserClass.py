@@ -8,7 +8,7 @@ MANAGEDCCY = ['usd','chf','aud','nzd','rub','eur','cad','rub','uah']
 class Parser():
 
     def __init__(self, raw):
-        self.raw = raw
+        self.raw = raw 
         self.resultList = self.split_text() 
         self.result = {
             'ccy': self.get_ccy(MANAGEDCCY),
@@ -19,7 +19,9 @@ class Parser():
         }
 
     def split_text(self):
-        
+        '''Split the input string with a series of delimiters. 
+        Returns a list of splitted words'''
+
         return re.split(r'[:,;\s]\s*', self.raw)
 
     def get_amount(self):
@@ -37,6 +39,7 @@ class Parser():
                 return elt.upper()
 
     def get_reason(self):
+        
         splitted_input = re.split(r"[,.;:]{1}", self.raw)
         return splitted_input[1].strip()
 
@@ -68,7 +71,6 @@ class Parser():
         #Change the current directory to one which www-data has access to
         # cwd = os.getcwd()
         os.chdir('receipts/' + telegram_username)
-        print(os.getcwd())
 
         #Download the file
         try:

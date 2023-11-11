@@ -23,13 +23,13 @@ class Expense:
         self.ccy = None 
         self.user = user
         self._receipt = None
+        self.complete = False
     
     def get_input(self, input_dict):
 
         
      for key, value in input_dict.items():
         if value is not None:
-            print(f'{key}: {value}')
             self.__setattr__(key, value)
             
 
@@ -38,10 +38,12 @@ class Expense:
         if any(elt == None for elt in self.__dict__.values()):
             pass
         else:
+            self.complete = True
             self.save_to_db()
 
     def save_to_db(self):
         print("expense ready to be injected")
+        print(self.__dict__)
     
     def get_user_ccy(self):
         '''Gets the default currency specified by the user. 
@@ -49,6 +51,7 @@ class Expense:
         Output: 3 character uppercase string representing the currency.'''
 
         return 'NZD'
+    
 
     @property
     def amount(self):
