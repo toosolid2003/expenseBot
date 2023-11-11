@@ -43,7 +43,8 @@ class Expense:
 
     def save_to_db(self):
         print("expense ready to be injected")
-        print(self.__dict__)
+    
+
     
     def get_user_ccy(self):
         '''Gets the default currency specified by the user. 
@@ -93,4 +94,4 @@ class Expense:
 
     #this method just for fun
     def __repr__(self):
-        return f'Expense data:\nAmount: {self.amount}\nUID: {self.uid}\nDate: {self.date}'
+        return f'Expense data:\nAmount: {self.amount}\nUID: {self.uid}\nDate: {self.date}\nReceipt: {self.receipt}'

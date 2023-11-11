@@ -7467,3 +7467,250 @@
 2023-11-11 11:45:06,782 - INFO - Initialising the classes
 2023-11-11 11:45:06,783 - INFO - Starting the bot
 2023-11-11 11:45:17,291 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 11:51:24,253 - INFO - Initialising the classes
+2023-11-11 11:51:24,254 - INFO - Starting the bot
+2023-11-11 11:51:25,115 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg
+2023-11-11 11:51:25,478 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg
+2023-11-11 11:51:56,833 - INFO - Initialising the classes
+2023-11-11 11:51:56,833 - INFO - Starting the bot
+2023-11-11 11:51:57,313 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 11:51:57,425 - DEBUG - Expense complete. Deleted now.
+2023-11-11 11:53:09,662 - INFO - Initialising the classes
+2023-11-11 11:53:09,662 - INFO - Starting the bot
+2023-11-11 11:53:19,341 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 11:53:19,480 - DEBUG - Expense complete. Deleted now.
+2023-11-11 12:23:08,853 - INFO - Initialising the classes
+2023-11-11 12:23:08,853 - INFO - Starting the bot
+2023-11-11 16:59:41,418 - INFO - Initialising the classes
+2023-11-11 16:59:41,418 - INFO - Starting the bot
+2023-11-11 17:02:01,625 - INFO - Initialising the classes
+2023-11-11 17:02:01,626 - INFO - Starting the bot
+2023-11-11 17:06:09,609 - INFO - Initialising the classes
+2023-11-11 17:06:09,609 - INFO - Starting the bot
+2023-11-11 17:08:05,133 - INFO - Initialising the classes
+2023-11-11 17:08:05,134 - INFO - Starting the bot
+2023-11-11 17:08:45,322 - INFO - Initialising the classes
+2023-11-11 17:08:45,322 - INFO - Starting the bot
+2023-11-11 17:10:17,450 - INFO - Initialising the classes
+2023-11-11 17:10:17,450 - INFO - Starting the bot
+2023-11-11 17:12:23,338 - INFO - Initialising the classes
+2023-11-11 17:12:23,338 - INFO - Starting the bot
+2023-11-11 17:14:54,498 - INFO - Initialising the classes
+2023-11-11 17:14:54,498 - INFO - Starting the bot
+2023-11-11 17:16:40,664 - INFO - Initialising the classes
+2023-11-11 17:16:40,664 - INFO - Starting the bot
+2023-11-11 17:17:35,379 - INFO - Initialising the classes
+2023-11-11 17:17:35,379 - INFO - Starting the bot
+2023-11-11 17:18:10,482 - INFO - Initialising the classes
+2023-11-11 17:18:10,482 - INFO - Starting the bot
+2023-11-11 17:18:29,916 - DEBUG - Expense complete. Deleted now.
+2023-11-11 17:19:50,840 - DEBUG - Document is saved as /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_2.jpg
+2023-11-11 17:23:00,967 - INFO - Initialising the classes
+2023-11-11 17:23:00,968 - INFO - Starting the bot
+2023-11-11 17:23:12,833 - DEBUG - Expense complete. Deleted now.
+2023-11-11 17:23:54,821 - INFO - Initialising the classes
+2023-11-11 17:23:54,821 - INFO - Starting the bot
+2023-11-11 17:43:08,974 - INFO - Initialising the classes
+2023-11-11 17:43:08,975 - INFO - Starting the bot
+2023-11-11 17:43:22,019 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_10.jpg', 'category': 'accomodation', 'amount': 56.0}
+2023-11-11 17:43:22,159 - DEBUG - Expense data: Expense data:
+Amount: 100.83
+UID: 7d496f03-c610-4f26-86d6-53ab2cdeb4cb
+Date: 2023-11-11
+2023-11-11 17:43:22,159 - DEBUG - Expense complete. Deleted now.
+2023-11-11 17:43:30,741 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 56.0}
+2023-11-11 17:43:30,846 - DEBUG - Expense data: Expense data:
+Amount: 94.49
+UID: 8bc11864-f096-431f-a041-87f5358a5170
+Date: 2023-11-11
+2023-11-11 17:43:45,047 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg', 'category': None, 'amount': None}
+2023-11-11 17:43:45,047 - DEBUG - Expense data: Expense data:
+Amount: None
+UID: f128463a-7cb6-4745-b71d-902f3b0d995e
+Date: 2023-11-11
+2023-11-11 17:44:51,456 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 304.0}
+2023-11-11 17:44:51,553 - DEBUG - Expense data: Expense data:
+Amount: 547.38
+UID: f82ca0ac-c781-4433-b3ba-a6fb74a5ddeb
+Date: 2023-11-11
+2023-11-11 17:44:58,041 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_10.jpg', 'category': None, 'amount': None}
+2023-11-11 17:44:58,041 - DEBUG - Expense data: Expense data:
+Amount: None
+UID: 1f735276-1b3e-4f49-8920-17b41af3f799
+Date: 2023-11-11
+2023-11-11 18:01:56,648 - INFO - Initialising the classes
+2023-11-11 18:01:56,648 - INFO - Starting the bot
+2023-11-11 18:02:08,132 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_2.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2023-11-11 18:02:08,273 - DEBUG - Expense data: Expense data:
+Amount: 20.25
+UID: 4d669273-0a4d-40bc-bc12-e53e03740fa5
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_2.jpg
+2023-11-11 18:02:08,273 - DEBUG - Expense complete. Deleted now.
+2023-11-11 18:02:16,465 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 67.0}
+2023-11-11 18:02:16,562 - DEBUG - Expense data: Expense data:
+Amount: 120.64
+UID: 20550f55-48df-422f-a628-57aaef3afae5
+Date: 2023-11-11
+Receipt: None
+2023-11-11 18:02:38,687 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_9.jpg', 'category': None, 'amount': None}
+2023-11-11 18:02:38,687 - DEBUG - Expense data: Expense data:
+Amount: None
+UID: 436f694f-d5c3-4b44-a362-18756c0bd407
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_9.jpg
+2023-11-11 19:36:57,210 - INFO - Initialising the classes
+2023-11-11 19:36:57,211 - INFO - Starting the bot
+2023-11-11 19:39:05,887 - INFO - Initialising the classes
+2023-11-11 19:39:05,887 - INFO - Starting the bot
+2023-11-11 19:39:14,830 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg', 'category': 'accomodation', 'amount': 12.0}
+2023-11-11 19:39:14,968 - DEBUG - Expense data: Expense data:
+Amount: 21.61
+UID: ec267a42-095d-4786-98e6-b5567ad9edef
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg
+2023-11-11 19:39:14,968 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:39:23,621 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': None, 'amount': None}
+2023-11-11 19:39:23,621 - DEBUG - Expense data: Expense data:
+Amount: None
+UID: 512cb211-0706-47d7-b9e3-6b5c52568470
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:39:51,684 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel acapulco', 'receipt': None, 'category': 'accomodation', 'amount': 12.0}
+2023-11-11 19:39:51,786 - DEBUG - Expense data: Expense data:
+Amount: 20.25
+UID: 86d6afc4-2fae-48dd-a004-88d1fd418ccc
+Date: 2023-11-11
+Receipt: None
+2023-11-11 19:42:10,852 - INFO - Initialising the classes
+2023-11-11 19:42:10,853 - INFO - Starting the bot
+2023-11-11 19:42:18,070 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_11.jpg', 'category': None, 'amount': None}
+2023-11-11 19:42:18,070 - DEBUG - Expense data:
+Amount: None
+UID: 13540d21-94c5-4ecf-a8e4-9db7ed5c0ba2
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_11.jpg
+2023-11-11 19:42:25,613 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2023-11-11 19:42:25,753 - DEBUG - Expense data:
+Amount: 20.25
+UID: 13540d21-94c5-4ecf-a8e4-9db7ed5c0ba2
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_11.jpg
+2023-11-11 19:42:25,754 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:43:15,323 - DEBUG - Parsed input: {'ccy': 'NZD', 'reason': 'kksslla', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'various', 'amount': 120.0}
+2023-11-11 19:43:15,324 - DEBUG - Expense data:
+Amount: 120.0
+UID: 13540d21-94c5-4ecf-a8e4-9db7ed5c0ba2
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:43:15,324 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:43:26,221 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 123.0}
+2023-11-11 19:43:26,321 - DEBUG - Expense data:
+Amount: 221.47
+UID: 13540d21-94c5-4ecf-a8e4-9db7ed5c0ba2
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:43:26,322 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:44:11,824 - INFO - Initialising the classes
+2023-11-11 19:44:11,824 - INFO - Starting the bot
+2023-11-11 19:44:20,678 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'accomodation', 'amount': 120.0}
+2023-11-11 19:44:20,816 - DEBUG - Expense data:
+Amount: 216.07
+UID: 7af3bbb4-57b0-47ab-947f-b1b0935aa7f1
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:44:20,816 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:44:46,225 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 12.0}
+2023-11-11 19:44:46,328 - DEBUG - Expense data:
+Amount: 21.61
+UID: 07764e56-78fa-4845-8165-bc78f448329e
+Date: 2023-11-11
+Receipt: None
+2023-11-11 19:44:53,159 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': None, 'amount': None}
+2023-11-11 19:44:53,160 - DEBUG - Expense data:
+Amount: 21.61
+UID: 07764e56-78fa-4845-8165-bc78f448329e
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:44:53,160 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:45:08,891 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 120.0}
+2023-11-11 19:45:08,992 - DEBUG - Expense data:
+Amount: 216.07
+UID: 07764e56-78fa-4845-8165-bc78f448329e
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:45:08,992 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:48:12,824 - INFO - Initialising the classes
+2023-11-11 19:48:12,825 - INFO - Starting the bot
+2023-11-11 19:48:13,364 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg', 'category': 'accomodation', 'amount': 170.0}
+2023-11-11 19:48:13,485 - DEBUG - Expense data:
+Amount: 306.1
+UID: 8764e52e-75cf-4106-ab6f-54b5400eb66b
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_8.jpg
+2023-11-11 19:48:13,485 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:48:54,363 - INFO - Initialising the classes
+2023-11-11 19:48:54,364 - INFO - Starting the bot
+2023-11-11 19:49:02,915 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'accomodation', 'amount': 120.0}
+2023-11-11 19:49:03,053 - DEBUG - Expense data:
+Amount: 216.07
+UID: cfb9d649-4ec4-4b17-8b81-0eaed8ec346d
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:49:03,054 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:49:54,034 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 170.0}
+2023-11-11 19:49:54,132 - DEBUG - Expense data:
+Amount: 286.85
+UID: b805b8a3-1f64-458f-b012-87372211288e
+Date: 2023-11-11
+Receipt: None
+2023-11-11 19:50:18,319 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': None, 'amount': None}
+2023-11-11 19:50:18,319 - DEBUG - Expense data:
+Amount: 286.85
+UID: b805b8a3-1f64-458f-b012-87372211288e
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:50:18,320 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:50:31,438 - DEBUG - Parsed input: {'ccy': 'AUD', 'reason': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 190.0}
+2023-11-11 19:50:31,538 - DEBUG - Expense data:
+Amount: 206.19
+UID: b805b8a3-1f64-458f-b012-87372211288e
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:50:31,538 - DEBUG - Expense complete. Deleted now.
+2023-11-11 19:55:33,973 - INFO - Initialising the classes
+2023-11-11 19:55:33,973 - INFO - Starting the bot
+2023-11-11 19:55:43,025 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'accomodation', 'amount': 24.0}
+2023-11-11 19:55:43,163 - DEBUG - Expense data:
+Amount: 43.21
+UID: c9e5f7d5-3a13-4875-a338-c79051ba6b69
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 19:57:08,473 - INFO - Initialising the classes
+2023-11-11 19:57:08,473 - INFO - Starting the bot
+2023-11-11 19:57:17,711 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'accomodation', 'amount': 789.0}
+2023-11-11 19:57:17,832 - DEBUG - Expense data:
+Amount: 1331.34
+UID: 3dfcb92c-1215-4be3-a71c-bc0d99de60af
+Date: 2023-11-11
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg
+2023-11-11 20:09:57,655 - INFO - Initialising the classes
+2023-11-11 20:09:57,656 - INFO - Starting the bot
+2023-11-11 20:10:05,384 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': 'accomodation', 'amount': 89.0}
+2023-11-11 20:10:05,523 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:10:05,523 - DEBUG - Expense complete. Deleted now.
+2023-11-11 20:10:21,356 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2023-11-11 20:10:21,453 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:10:31,790 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': None, 'amount': None}
+2023-11-11 20:10:31,791 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:10:31,791 - DEBUG - Expense complete. Deleted now.
+2023-11-11 20:10:45,782 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'delta airlines', 'receipt': None, 'category': 'various', 'amount': 89.0}
+2023-11-11 20:10:45,882 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:10:52,658 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_7.jpg', 'category': None, 'amount': None}
+2023-11-11 20:10:52,658 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:10:52,658 - DEBUG - Expense complete. Deleted now.
+2023-11-11 20:11:03,370 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_11.jpg', 'category': None, 'amount': None}
+2023-11-11 20:11:03,370 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:11:10,338 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'fees', 'receipt': None, 'category': 'various', 'amount': 15.0}
+2023-11-11 20:11:10,437 - DEBUG - Assigning the parsed data to the expense object
+2023-11-11 20:11:10,438 - DEBUG - Expense complete. Deleted now.

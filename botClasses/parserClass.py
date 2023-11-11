@@ -1,22 +1,57 @@
 import os
 import re
-from logger.logger import logger
 
 #Constants
 MANAGEDCCY = ['usd','chf','aud','nzd','rub','eur','cad','rub','uah']
 
 class Parser():
 
-    def __init__(self, raw):
-        self.raw = raw 
-        self.resultList = self.split_text() 
+    def __init__(self):
+        self.raw = None
+        self.resultList = None 
         self.result = {
-            'ccy': self.get_ccy(MANAGEDCCY),
-            'reason': self.get_reason(),
+            'ccy': None,
+            'reason': None,
             'receipt': None,
-            'category': self.get_category(),
-            'amount': self.get_amount(),
+            'category': None, 
+            'amount': None,
         }
+    def parse_text(self, raw):
+        '''Parse text sent by the user. Feeds the results dictionnary'''
+        self.raw = raw
+        self.resultList = self.split_text()
+        self.result = {
+           'ccy': self.get_ccy(MANAGEDCCY),
+           'reason': self.get_reason(),
+           'receipt': None,
+           'category': self.get_category(),
+           'amount': self.get_amount(),
+        }
+    
+    def parse_picture(self, f, telegram_username, bot):
+         
+        '''Saves a document on the local disk and returns a filepath to be stored in the database.
+        Input: Telegram file_id, telegram_username and Telegram bot instance
+        Output: absolute_path_to_file'''
+
+        #Change the current directory to one which www-data has access to
+        #cwd = os.getcwd()
+        os.chdir('receipts/' + telegram_username)
+
+        #Download the file
+        try:
+            filename = bot.get_file(file_id=f).download()
+        except Exception as e:
+            print(f"Could not save file: {e}")
+
+        path = os.getcwd() + '/' + filename
+        print(f'Document is saved as {path}')
+
+        #Going back to the main directory
+        os.chdir('../..')
+
+        self.result['receipt'] = path
+
 
     def split_text(self):
         '''Split the input string with a series of delimiters. 
@@ -63,29 +98,8 @@ class Parser():
     def parse_with_ai(self):
         pass
 
-    def get_receipt(self, fileId, telegram_username, bot):
-        '''Saves a document on the local disk and returns a filepath to be stored in the database.
-        Input: Telegram file_id, telegram_username and Telegram bot instance
-        Output: absolute_path_to_file'''
-
-        #Change the current directory to one which www-data has access to
-        # cwd = os.getcwd()
-        os.chdir('receipts/' + telegram_username)
-
-        #Download the file
-        try:
-            filename = bot.get_file(fileId).download()
-        except Exception as e:
-            logger.error('Could not download file %s. Error: %s', fileId, e)
-
-        filename = os.getcwd() + '/' + filename
-        logger.debug(f'Document is saved as {filename}')
-
-        #Going back to the main directory
-        os.chdir('../..')
-        
-        self.result['receipt'] = filename
-
+ 
 if __name__ == "__main__":
-    p = Parser('15 usd, restaurant with Johnny')
+    p = Parser()
+    p.parse_text('45 eur, restaurant')
     print(p.__dict__)
