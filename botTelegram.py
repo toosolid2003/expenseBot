@@ -26,7 +26,7 @@ regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 def chat_with_ai(update, context):
     '''Sends the user input to an LLM for an answer. Responds to the user.'''
 
-    update.message.reply_text("Sending input to chatgpt")
+    update.message.reply_text("Asking chatGPT for help!")
     assert isinstance(update.message.text, str), "question should be a string"
 
     #Parameters of the assistant
