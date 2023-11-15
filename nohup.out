@@ -1,8 +1,0 @@
-/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.8) or chardet (3.0.4) doesn't match a supported version!
-  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
-INFO:expenseBotLogger:Server started
-Exception ignored in: <module 'threading' from '/usr/lib/python3.8/threading.py'>
-Traceback (most recent call last):
-  File "/usr/lib/python3.8/threading.py", line 1388, in _shutdown
-    lock.acquire()
-KeyboardInterrupt: 

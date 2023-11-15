@@ -75,10 +75,13 @@ class Parser():
 
     def get_reason(self):
         
-        splitted_input = re.split(r"[,.;:]{1}", self.raw)
+        splitted_input = re.split(r"[,;:]{1}", self.raw)
         return splitted_input[1].strip()
 
     def get_category(self):
+        '''Bug for the per diem: since the mechanism only searches for one word at a tinme, 2 words expressions like "per diem"
+        get through unnoticed.'''
+
         types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
            'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
    'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],

@@ -7714,3 +7714,17 @@ Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file
 2023-11-11 20:11:10,338 - DEBUG - Parsed input: {'ccy': 'EUR', 'reason': 'fees', 'receipt': None, 'category': 'various', 'amount': 15.0}
 2023-11-11 20:11:10,437 - DEBUG - Assigning the parsed data to the expense object
 2023-11-11 20:11:10,438 - DEBUG - Expense complete. Deleted now.
+2023-11-11 20:14:08,886 - INFO - Initialising the classes
+2023-11-11 20:14:08,887 - INFO - Starting the bot
+2023-11-11 20:14:59,131 - INFO - Initialising the classes
+2023-11-11 20:14:59,131 - INFO - Starting the bot
+2023-11-14 16:40:12,131 - INFO - Starting the bot
+2023-11-14 16:41:12,461 - INFO - Starting the bot
+2023-11-14 16:42:04,331 - INFO - Starting the bot
+2023-11-14 16:43:11,336 - INFO - Starting the bot
+2023-11-14 16:44:25,676 - INFO - Starting the bot
+2023-11-14 16:45:57,107 - INFO - Starting the bot
+2023-11-14 16:46:02,261 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 12.0}
+2023-11-14 16:46:02,261 - DEBUG - Assigning the parsed data to the expense object
+2023-11-14 16:47:23,752 - INFO - Starting the bot
+2023-11-14 22:02:02,302 - INFO - Starting the bot

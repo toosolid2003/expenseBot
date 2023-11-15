@@ -8,12 +8,11 @@ from botFunctions.botLogic import *
 from logger.logger import logger
 from botParams import *
 import re
-import openai
+from openai import OpenAI, api_key
 
 #################################################################
 # Constants
 #################################################################
-openai.api_key = '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'
 
 #Regular expression to identify a new expense. Not used yet.
 regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
@@ -28,19 +27,22 @@ def chat_with_ai(update, context):
     '''Sends the user input to an LLM for an answer. Responds to the user.'''
 
     update.message.reply_text("Sending input to chatgpt")
-    # assert isinstance(question, str), "question should be a string"
-    # #Parameters of the assistant
-    # assistant_mood = "You are a compassionate assistant"
+    assert isinstance(update.message.text, str), "question should be a string"
 
-    # response = openai.ChatCompletion.create(
-    # model="gpt-3.5-turbo",
-    # messages=[{"role": "system", "content": assistant_mood},
-    # {"role": "user", "content": question }],
-    # temperature=0.5,
-    # max_tokens=256
-    # )
+    #Parameters of the assistant
+    assistant_mood = "You are a professionnal assistant, focused on getting users to submit their expenses"
+    client = OpenAI(api_key='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')
 
-    # return response['choices'][0]['message']['content']
+    response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "system", "content": assistant_mood},
+    {"role": "user", "content": update.message.text }],
+    temperature=0.5,
+    max_tokens=256
+    )
+
+    result = response.choices[0].message.content
+    update.message.reply_text(result)
 
 
 def totalHandler(update, context):
@@ -87,10 +89,10 @@ def totalHandler(update, context):
 ##########################################################################################################
 
 #Initiating the classes
-logger.info('Initialising the classes')
+# logger.info('Initialising the classes')
 
-db = DBHelper()
-db.setup()
+# db = DBHelper()
+# db.setup()
 
 #Starting the bot
 logger.info('Starting the bot')
@@ -124,14 +126,6 @@ dispatcher.add_handler(MessageHandler(Filters.document and Filters.caption, tota
 dispatcher.add_handler(MessageHandler(Filters.photo, totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text and Filters.regex(regex), totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text, chat_with_ai))
-
-#Initiate the job_queue performed by the server. The job looks 
-# for pending expenses then logs these into IQ Navigator
-#j = JobQueue()
-#j.set_dispatcher(dispatcher)
-#jobTime = datetime.timedelta(minutes=30)
-#job_logExpenses = j.run_repeating(iqnExpensesLog,jobTime)
-#j.start()
 
 #Starting the server
 # logger.info('Starting the server')
