@@ -1,5 +1,7 @@
 import os
 import re
+from openai import OpenAI
+import json
 
 #Constants
 MANAGEDCCY = ['usd','chf','aud','nzd','rub','eur','cad','rub','uah']
@@ -88,7 +90,6 @@ class Parser():
    'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
    'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
    'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
-   'per diem':['perdiem', 'per diem','per diems','perdiems']
    }
 
         expenseType = 'various'
@@ -96,12 +97,60 @@ class Parser():
             for elt in self.resultList: 
                 if elt in typeList: 
                     expenseType = title
-        return expenseType
+        
+        #Send it to chatGPT if the expense has not been determined and still has its default value
+        if expenseType == 'various':
+            return self.get_category_ai()
+        else:
+            return expenseType
+
 
     def parse_with_ai(self):
         pass
+    
+    def get_category_ai(self):
+        '''Use OpenAI's ChatGPT to infer a category from an expense'''
 
- 
+        client = OpenAI(api_key="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")
+        
+        #Define a GPT function that deducts the category of the expense 
+        get_category_func = [
+            {
+                "type":"function",
+                "function": {
+                    "name":"get_category",
+                    "description": "Cateogize the business expense with a tax-fridnely category",
+                    "parameters":   {
+                            "type":"object",
+                            "properties":   {
+                                "exp_category":  {
+                                    "type": "string",
+                                    "description":"infer the category of the business expense being submitted"
+                            },
+                        }
+                        },
+                    },
+                },
+        ]
+
+        #Let"s see if it works
+
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo-1106",
+            messages=[{"role":"user","content": self.raw}],
+            tools=get_category_func,
+            tool_choice="auto",
+        ) 
+
+        response_message = response.choices[0].message
+
+        #Comnvert the response from a string to a dictionnary object
+        result_dict = response_message.tool_calls[0].function.arguments
+        r = json.loads(result_dict)
+        
+        #Returns the deducted category
+        return r['exp_category']
+
 if __name__ == "__main__":
     p = Parser()
     p.parse_text('45 eur, restaurant')
