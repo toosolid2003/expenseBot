@@ -7,7 +7,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition, ContentId)
 import base64
 import sqlite3
-from logger.logger import logger
+# from logger.logger import logger
 
 class ExpenseReport:
     

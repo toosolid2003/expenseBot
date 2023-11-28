@@ -7728,3 +7728,14 @@ Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file
 2023-11-14 16:46:02,261 - DEBUG - Assigning the parsed data to the expense object
 2023-11-14 16:47:23,752 - INFO - Starting the bot
 2023-11-14 22:02:02,302 - INFO - Starting the bot
+2023-11-23 16:03:47,242 - INFO - Starting the bot
+2023-11-23 16:04:27,712 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'rock star hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_12.jpg', 'category': 'accomodation', 'amount': 12.0}
+2023-11-23 16:04:27,712 - DEBUG - Assigning the parsed data to the expense object
+2023-11-23 16:04:27,836 - DEBUG - Expense complete. Deleted now.
+2023-11-23 16:07:33,531 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': '340 usd\n4. Credit card\n5. Purpose', 'receipt': None, 'category': 'client meeting', 'amount': 1.0}
+2023-11-23 16:07:33,532 - DEBUG - Assigning the parsed data to the expense object
+2023-11-23 16:07:57,749 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'hotel nigh', 'receipt': None, 'category': 'accomodation', 'amount': 123.0}
+2023-11-23 16:07:57,750 - DEBUG - Assigning the parsed data to the expense object
+2023-11-23 16:08:01,420 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_12.jpg', 'category': None, 'amount': None}
+2023-11-23 16:08:01,420 - DEBUG - Assigning the parsed data to the expense object
+2023-11-23 16:08:01,421 - DEBUG - Expense complete. Deleted now.

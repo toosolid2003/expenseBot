@@ -21,7 +21,6 @@ regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 # Input handlers
 #################################################################
 
-# Downloads the receipt picture or documents and stores the filepath to document in the db
 @inputTrack
 def chat_with_ai(update, context):
     '''Sends the user input to an LLM for an answer. Responds to the user.'''
@@ -47,7 +46,7 @@ def chat_with_ai(update, context):
 
 def totalHandler(update, context):
 
-    update.message.reply_text("Saving your expense")
+    update.message.reply_text("Parsing your expense")
     
     #Initiating the parser
     p = Parser()
