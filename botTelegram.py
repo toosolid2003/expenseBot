@@ -9,6 +9,8 @@ from logger.logger import logger
 from botParams import *
 import re
 from openai import OpenAI, api_key
+from botFunctions.openai_func import *
+import json
 
 #################################################################
 # Constants
@@ -33,15 +35,47 @@ def chat_with_ai(update, context):
     client = OpenAI(api_key='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')
 
     response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "system", "content": assistant_mood},
-    {"role": "user", "content": update.message.text }],
-    temperature=0.5,
-    max_tokens=256
+    model="gpt-3.5-turbo-1106",
+    messages=[{"role": "system", "content": assistant_mood},{"role": "user", "content": update.message.text }],
+    tools=funcs,
+    tool_choice={"type":"function", "function": {"name": "get_intent"}}
     )
 
-    result = response.choices[0].message.content
-    update.message.reply_text(result)
+    r = response.choices[0].message.tool_calls[0].function.arguments
+
+    #Loading the string into json to turn it into a dic
+    j = json.loads(r)
+
+
+    # If the intent is to record an expense, then use another functon call to OpenAI to extract the data
+    if j['intent'] == 'record expense':
+        res = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages = [{"role":"user","content":update.message.text}],
+        tools=funcs,
+        tool_choice={"type":"function", "function": {"name": "get_expense_data"}}
+    )
+
+        r = res.choices[0].message.tool_calls[0].function.arguments
+        j = json.loads(r) 
+        #Temporary print
+        print(j)
+    
+        #Creates an expense object and stores it in context.user_data, if it does not exist yet.
+        if 'expense' not in context.user_data.keys():
+            context.user_data['expense'] = Expense(update.message.chat.username) 
+    
+        #Inject the parsing results from OpenAI as a dict into the expense object
+        context.user_data['expense'].get_input(j)
+        print(context.user_data['expense'])
+    
+    else:
+        response = client.chat.completions.create(
+    model="gpt-3.5-turbo-1106",
+    messages=[{"role": "system", "content": assistant_mood},{"role": "user", "content": update.message.text }],
+    ) 
+        text_response = response.choices[0].message.content
+        update.message.reply_text(text_response)
 
 
 def totalHandler(update, context):

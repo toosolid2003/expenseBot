@@ -20,7 +20,7 @@ class Expense:
         self.uid = str(uuid4())
         self._reason = None
         self.category = 'Undetermined'
-        self.ccy = None 
+        self.ccy = self.get_user_ccy() 
         self.user = user
         self._receipt = None
         self.complete = False
