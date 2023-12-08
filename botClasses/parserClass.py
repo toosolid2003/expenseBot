@@ -13,7 +13,7 @@ class Parser():
         self.resultList = None 
         self.result = {
             'ccy': None,
-            'reason': None,
+            'description': None,
             'receipt': None,
             'category': None, 
             'amount': None,
@@ -24,7 +24,7 @@ class Parser():
         self.resultList = self.split_text()
         self.result = {
            'ccy': self.get_ccy(MANAGEDCCY),
-           'reason': self.get_reason(),
+           'description': self.get_description(),
            'receipt': None,
            'category': self.get_category(),
            'amount': self.get_amount(),
@@ -75,7 +75,7 @@ class Parser():
             if elt in managedCcy:
                 return elt.upper()
 
-    def get_reason(self):
+    def get_description(self):
         
         splitted_input = re.split(r"[,;:]{1}", self.raw)
         return splitted_input[1].strip()

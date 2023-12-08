@@ -19,6 +19,16 @@ import json
 #Regular expression to identify a new expense. Not used yet.
 regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 
+#Parameters of the assistant
+assistant_mood = '''You are a professionnal assistant, focused on getting users to record their expenses.
+Users need to provide you with the expense amount, its currency and description, and a photo of a receipt.
+The best is to provide all of it together, with the following syntax: amount currency, description. For instance: 
+12 usd, restaurant with Johhny.'''
+
+client = OpenAI(api_key='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')
+
+
+
 #################################################################
 # Input handlers
 #################################################################
@@ -27,12 +37,10 @@ regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 def chat_with_ai(update, context):
     '''Sends the user input to an LLM for an answer. Responds to the user.'''
 
-    update.message.reply_text("Asking chatGPT for help!")
+    logger.debug(f"Sending user input -{update.message.text}- to chatGPT for parsing.")
     assert isinstance(update.message.text, str), "question should be a string"
 
-    #Parameters of the assistant
-    assistant_mood = "You are a professionnal assistant, focused on getting users to submit their expenses"
-    client = OpenAI(api_key='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')
+
 
     response = client.chat.completions.create(
     model="gpt-3.5-turbo-1106",
@@ -48,7 +56,7 @@ def chat_with_ai(update, context):
 
 
     # If the intent is to record an expense, then use another functon call to OpenAI to extract the data
-    if j['intent'] == 'record expense':
+    if j['intent'] == 'record expense' or j['intent'] == 'submit expense':
         res = client.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages = [{"role":"user","content":update.message.text}],
@@ -80,7 +88,7 @@ def chat_with_ai(update, context):
 
 def totalHandler(update, context):
 
-    update.message.reply_text("Parsing your expense")
+    logger.debug(f"Parsing input for {update.message.chat.username}.")
     
     #Initiating the parser
     p = Parser()
@@ -97,9 +105,11 @@ def totalHandler(update, context):
     #Creates an expense object and stores it in context.user_data, if it does not exist yet.
     if 'expense' not in context.user_data.keys():
         context.user_data['expense'] = Expense(update.message.chat.username) 
+        logger.debug(f"Created a new expense object")
 
     
     #Storing the parsing results in the expense object
+
     logger.debug(f'Parsed input: {p.result}')
     logger.debug(f'Assigning the parsed data to the expense object')
     context.user_data['expense'].get_input(p.result)
@@ -109,6 +119,7 @@ def totalHandler(update, context):
     #We just need to delete it. 
 
     if context.user_data['expense'].complete:
+        update.message.reply_text("Thanks, I have recorded your expense!. \nFeel free to check your latest expenses using the /last command!")
         del context.user_data['expense']
         logger.debug(f'Expense complete. Deleted now.')
 

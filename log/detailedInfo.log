@@ -7756,3 +7756,291 @@ Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file
 2023-11-29 22:11:30,369 - INFO - Starting the bot
 2023-11-29 22:12:12,027 - INFO - Starting the bot
 2023-11-29 22:13:22,800 - INFO - Starting the bot
+2023-11-30 20:05:02,409 - INFO - Starting the bot
+2023-12-01 16:16:56,730 - INFO - Starting the bot
+2023-12-01 16:18:33,367 - INFO - Starting the bot
+2023-12-01 16:18:46,487 - DEBUG - Parsing input for thedropper. Input given: None
+2023-12-01 16:18:47,295 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_13.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2023-12-01 16:18:47,295 - DEBUG - Assigning the parsed data to the expense object
+2023-12-01 16:18:47,415 - DEBUG - Expense complete. Deleted now.
+2023-12-01 16:20:20,146 - INFO - Starting the bot
+2023-12-01 16:20:45,912 - INFO - Starting the bot
+2023-12-01 16:20:49,877 - DEBUG - Sending user input -who are you?- to chatGPT for parsing.
+2023-12-01 16:22:06,008 - INFO - Starting the bot
+2023-12-01 16:22:11,375 - DEBUG - Sending user input -who are you?- to chatGPT for parsing.
+2023-12-01 16:22:25,108 - DEBUG - Sending user input -Can you help me record an expense?- to chatGPT for parsing.
+2023-12-01 16:23:53,150 - INFO - Starting the bot
+2023-12-01 16:23:58,016 - DEBUG - Sending user input -who are you?- to chatGPT for parsing.
+2023-12-01 16:24:16,043 - DEBUG - Sending user input -what data do you need to record an expense?- to chatGPT for parsing.
+2023-12-01 16:24:35,284 - DEBUG - Sending user input -can you help me record an expense?- to chatGPT for parsing.
+2023-12-01 16:25:05,380 - DEBUG - Parsing input for thedropper.
+2023-12-01 16:25:06,194 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_14.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2023-12-01 16:25:06,194 - DEBUG - Assigning the parsed data to the expense object
+2023-12-01 16:25:06,316 - DEBUG - Expense complete. Deleted now.
+2023-12-05 20:33:44,226 - INFO - Starting the bot
+2023-12-05 20:33:58,872 - DEBUG - Sending user input -Hello- to chatGPT for parsing.
+2023-12-05 20:34:15,177 - DEBUG - Sending user input -reciord a 12 usd expense for a drink at Wendy's- to chatGPT for parsing.
+2023-12-05 20:34:33,180 - DEBUG - Parsing input for thedropper.
+2023-12-05 20:34:33,708 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_15.jpg', 'category': None, 'amount': None}
+2023-12-05 20:34:33,709 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:07:16,104 - INFO - Starting the bot
+2023-12-08 11:07:41,717 - DEBUG - Sending user input -Record a 12 usd expense for a coffee- to chatGPT for parsing.
+2023-12-08 11:08:15,732 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:08:16,588 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg', 'category': None, 'amount': None}
+2023-12-08 11:08:16,589 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:09:32,030 - INFO - Starting the bot
+2023-12-08 11:10:54,372 - INFO - Starting the bot
+2023-12-08 11:11:01,639 - DEBUG - Sending user input -Record a 12 usd expense for a coffee- to chatGPT for parsing.
+2023-12-08 11:12:00,542 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:12:01,076 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_17.jpg', 'category': None, 'amount': None}
+2023-12-08 11:12:01,076 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:12:17,406 - INFO - Starting the bot
+2023-12-08 11:12:31,575 - DEBUG - Sending user input -Record a 12 usd expense for a drink at Stefano's- to chatGPT for parsing.
+2023-12-08 11:12:45,932 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:12:46,056 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg', 'category': None, 'amount': None}
+2023-12-08 11:12:46,057 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:12:46,057 - DEBUG - Expense data:
+Amount: None
+UID: 652ce247-f20f-4b07-8188-574576b8bf2b
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg
+2023-12-08 11:14:07,609 - INFO - Starting the bot
+2023-12-08 11:14:08,274 - DEBUG - Sending user input -Record a 23 usd expense for a drink- to chatGPT for parsing.
+2023-12-08 11:14:27,413 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:14:28,033 - DEBUG - Expense data:
+Amount: 23
+UID: 97fff3a0-0683-4282-aef4-81e5cd546a2b
+Date: 2023-12-08
+Receipt: None
+2023-12-08 11:14:28,033 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:14:28,033 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:14:28,033 - DEBUG - Expense data:
+Amount: 23
+UID: 97fff3a0-0683-4282-aef4-81e5cd546a2b
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg
+2023-12-08 11:15:46,883 - INFO - Starting the bot
+2023-12-08 11:15:55,286 - DEBUG - Sending user input -Record a 34 usd expense for a drink- to chatGPT for parsing.
+2023-12-08 11:16:05,145 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:16:05,274 - DEBUG - Expense data:
+Amount: 34
+UID: c413e19e-b971-4fc1-aab7-f935639b95ce
+Date: 2023-12-08
+Receipt: None
+2023-12-08 11:16:05,274 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:16:05,274 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:16:05,275 - DEBUG - Expense data:
+Amount: 34
+UID: c413e19e-b971-4fc1-aab7-f935639b95ce
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg
+2023-12-08 11:17:50,890 - INFO - Starting the bot
+2023-12-08 11:17:59,570 - DEBUG - Sending user input -Record a 45 usd expense for restaurant- to chatGPT for parsing.
+2023-12-08 11:18:13,370 - DEBUG - Sending user input -Restaurant with James- to chatGPT for parsing.
+2023-12-08 11:18:36,465 - DEBUG - Sending user input -Amount: 45
+Currency: usd- to chatGPT for parsing.
+2023-12-08 11:18:50,746 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:19:26,695 - INFO - Starting the bot
+2023-12-08 11:19:40,797 - DEBUG - Sending user input -Record a 12 usd expense for a trip to Almeria- to chatGPT for parsing.
+2023-12-08 11:19:50,789 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:20:42,865 - INFO - Starting the bot
+2023-12-08 11:20:58,426 - DEBUG - Sending user input -Record a 78 usd expense for a meal at Pek- to chatGPT for parsing.
+2023-12-08 11:21:13,762 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:21:13,925 - DEBUG - Expense data:
+Amount: 78
+UID: d4041661-f45b-4db5-9867-7f2257d12885
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+2023-12-08 11:21:13,926 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:21:13,926 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:21:13,926 - DEBUG - Expense data:
+Amount: 78
+UID: d4041661-f45b-4db5-9867-7f2257d12885
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg
+Ccy: USD
+Category: Undetermined
+2023-12-08 11:22:23,110 - INFO - Starting the bot
+2023-12-08 11:22:41,333 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:22:48,936 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:22:49,077 - DEBUG - Expense data:
+Amount: None
+UID: b174c78a-2195-4f70-8e7a-8f302afa6bc7
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+2023-12-08 11:22:49,077 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:22:49,077 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:23:20,056 - INFO - Starting the bot
+2023-12-08 11:23:27,724 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:23:35,308 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:23:35,457 - DEBUG - Expense data:
+Amount: None
+UID: c2a00347-064f-4c02-9a5b-b5e8c3b84869
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+2023-12-08 11:23:35,457 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:23:35,457 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:23:35,457 - DEBUG - Expense incomplet: missing {elt}
+2023-12-08 11:23:35,457 - DEBUG - Expense data:
+Amount: None
+UID: c2a00347-064f-4c02-9a5b-b5e8c3b84869
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg
+Ccy: USD
+Category: Undetermined
+2023-12-08 11:24:18,741 - INFO - Starting the bot
+2023-12-08 11:24:24,569 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:24:27,210 - DEBUG - Expense incomplet: missing {elt}
+2023-12-08 11:24:30,442 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:24:30,555 - DEBUG - Expense data:
+Amount: 100
+UID: aa1e82f6-4c97-4fa9-b38a-e2e9990637e9
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined\Complete: False
+2023-12-08 11:24:30,555 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:24:30,555 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:24:30,555 - DEBUG - Expense incomplet: missing {elt}
+2023-12-08 11:24:30,556 - DEBUG - Expense data:
+Amount: 100
+UID: aa1e82f6-4c97-4fa9-b38a-e2e9990637e9
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg
+Ccy: USD
+Category: Undetermined\Complete: False
+2023-12-08 11:24:58,556 - INFO - Starting the bot
+2023-12-08 11:25:02,652 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:25:06,577 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:25:06,862 - DEBUG - Expense data:
+Amount: 100
+UID: 51a36463-bfdc-4389-9ad1-109cdfb283b7
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined\Complete: False
+2023-12-08 11:25:06,863 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg', 'category': None, 'amount': None}
+2023-12-08 11:25:06,863 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:26:23,778 - INFO - Starting the bot
+2023-12-08 11:26:35,564 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:26:44,834 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:26:45,483 - DEBUG - Expense data:
+Amount: None
+UID: 585021f4-916f-493d-9640-6bb27271d25e
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+Reason: None
+Complete: False
+2023-12-08 11:26:45,484 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_19.jpg', 'category': None, 'amount': None}
+2023-12-08 11:26:45,484 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:27:41,737 - INFO - Starting the bot
+2023-12-08 11:27:47,384 - DEBUG - Sending user input -Record a 100 usd expense for a meal at Chino's- to chatGPT for parsing.
+2023-12-08 11:27:53,847 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:27:53,967 - DEBUG - Expense data:
+Amount: 100
+UID: a47009cc-52d8-4370-8bf3-15f6949a172f
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+Reason: None
+Complete: False
+2023-12-08 11:27:53,967 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:27:53,967 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:28:03,021 - INFO - Starting the bot
+2023-12-08 11:28:11,772 - DEBUG - Sending user input -Record a 3 usd expense for a taxi to airport- to chatGPT for parsing.
+2023-12-08 11:28:13,813 - DEBUG - Missing an attribute
+2023-12-08 11:28:18,792 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:28:19,195 - DEBUG - Expense data:
+Amount: 3
+UID: 30fc33a5-8242-4cec-9aa9-b4c122e720ed
+Date: 2023-12-08
+Receipt: None
+Ccy: USD
+Category: Undetermined
+Reason: None
+Complete: False
+2023-12-08 11:28:19,196 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg', 'category': None, 'amount': None}
+2023-12-08 11:28:19,196 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:28:19,196 - DEBUG - Missing an attribute
+2023-12-08 11:28:19,196 - DEBUG - Expense data:
+Amount: 3
+UID: 30fc33a5-8242-4cec-9aa9-b4c122e720ed
+Date: 2023-12-08
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_16.jpg
+Ccy: USD
+Category: Undetermined
+Reason: None
+Complete: False
+2023-12-08 11:30:14,498 - INFO - Starting the bot
+2023-12-08 11:30:19,251 - DEBUG - Sending user input -Record a 3 usd expense for a taxi to airport- to chatGPT for parsing.
+2023-12-08 11:30:21,806 - DEBUG - Missing an attribute
+2023-12-08 11:30:21,806 - DEBUG - Missing an attribute
+2023-12-08 11:30:25,777 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:30:25,916 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_19.jpg', 'category': None, 'amount': None}
+2023-12-08 11:30:25,917 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:30:26,157 - DEBUG - Expense complete. Deleted now.
+2023-12-08 11:31:22,352 - INFO - Starting the bot
+2023-12-08 11:31:30,489 - DEBUG - Sending user input -Record a 3 usd expense for a taxi to airport- to chatGPT for parsing.
+2023-12-08 11:31:36,302 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:31:38,746 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_17.jpg', 'category': None, 'amount': None}
+2023-12-08 11:31:38,746 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:31:38,746 - DEBUG - Missing an attribute
+2023-12-08 11:32:32,673 - INFO - Starting the bot
+2023-12-08 11:32:32,816 - DEBUG - Sending user input -Record a 34 usd expense for a taxi ride to the airport- to chatGPT for parsing.
+2023-12-08 11:32:35,642 - DEBUG - Missing an attribute
+2023-12-08 11:32:35,642 - DEBUG - Missing an attribute
+2023-12-08 11:32:43,226 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:32:43,366 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:32:43,366 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:32:43,601 - DEBUG - Expense complete. Deleted now.
+2023-12-08 11:33:37,831 - INFO - Starting the bot
+2023-12-08 11:33:50,697 - DEBUG - Sending user input -Record a 34 usd expense for a meal at Stefano's- to chatGPT for parsing.
+2023-12-08 11:33:55,306 - DEBUG - Missing an attribute
+2023-12-08 11:33:55,307 - DEBUG - Missing an attribute
+2023-12-08 11:34:40,953 - INFO - Starting the bot
+2023-12-08 11:34:45,281 - DEBUG - Sending user input -Record a 34 usd expense for a meal at Stefano's- to chatGPT for parsing.
+2023-12-08 11:34:56,043 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:34:56,446 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_17.jpg', 'category': None, 'amount': None}
+2023-12-08 11:34:56,446 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:34:56,446 - DEBUG - Missing an attribute
+2023-12-08 11:36:06,277 - INFO - Starting the bot
+2023-12-08 11:36:11,217 - DEBUG - Sending user input -Record a 34 usd expense for a meal at Stefano's- to chatGPT for parsing.
+2023-12-08 11:36:13,539 - DEBUG - Missing an attribute
+2023-12-08 11:36:13,540 - DEBUG - Missing an attribute
+2023-12-08 11:36:24,940 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:36:25,321 - DEBUG - Parsed input: {'ccy': None, 'reason': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': None, 'amount': None}
+2023-12-08 11:36:25,321 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:36:25,557 - DEBUG - Expense complete. Deleted now.
+2023-12-08 11:37:25,108 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:37:25,241 - DEBUG - Created a new expense object
+2023-12-08 11:37:25,242 - DEBUG - Parsed input: {'ccy': 'USD', 'reason': 'restaurant at jen', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': 'food & beverage', 'amount': 34.0}
+2023-12-08 11:37:25,242 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:37:25,242 - DEBUG - Missing an attribute
+2023-12-08 11:37:25,242 - DEBUG - Missing an attribute
+2023-12-08 11:38:41,511 - INFO - Starting the bot
+2023-12-08 11:38:53,418 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:39:26,125 - INFO - Starting the bot
+2023-12-08 11:39:37,252 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:39:37,364 - DEBUG - Created a new expense object
+2023-12-08 11:39:37,364 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_19.jpg', 'category': 'food & beverage', 'amount': 34.0}
+2023-12-08 11:39:37,364 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:39:37,364 - DEBUG - Missing an attribute
+2023-12-08 11:39:37,364 - DEBUG - Missing an attribute
+2023-12-08 11:39:37,590 - DEBUG - Expense complete. Deleted now.
+2023-12-08 11:40:08,584 - INFO - Starting the bot
+2023-12-08 11:40:18,790 - DEBUG - Parsing input for thedropper.
+2023-12-08 11:40:18,948 - DEBUG - Created a new expense object
+2023-12-08 11:40:18,948 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_18.jpg', 'category': 'food & beverage', 'amount': 100.0}
+2023-12-08 11:40:18,949 - DEBUG - Assigning the parsed data to the expense object
+2023-12-08 11:40:18,949 - DEBUG - Missing an attribute
+2023-12-08 11:40:18,949 - DEBUG - Missing an attribute
+2023-12-08 11:40:19,317 - DEBUG - Expense complete. Deleted now.

@@ -5,7 +5,7 @@
 *.txt
 *.xlsx
 receipts/
-log/
+log/detailedInfo.log
 *.token
 tutorial/
 exports/
@@ -17,5 +17,4 @@ ssl/
 support_files/
 test/
 botParams.py
-log/detailedInfo.log
 expensebot_env/

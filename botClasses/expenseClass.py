@@ -1,7 +1,9 @@
 from datetime import date
 from uuid import uuid4
 import time
-from currency_converter import CurrencyConverter
+from currency_converter import CurrencyConverter, ECB_URL
+import urllib.request
+from logger.logger import logger
 
 class Expense:
     '''The Expense object. All attributes need to be not None in order for the expense to be recorded in a database,
@@ -10,7 +12,7 @@ class Expense:
     It needs 5 data points as input:
     - A user name (str)
     - An amount (float)
-    - A reason (str)
+    - A description (str)
     - A currency (str)
     - The path to a photo or pdf file of the receipt (str).'''
 
@@ -18,7 +20,7 @@ class Expense:
         self._amount = None
         self.date = date.today()
         self.uid = str(uuid4())
-        self._reason = None
+        self._description = None
         self.category = 'Undetermined'
         self.ccy = self.get_user_ccy() 
         self.user = user
@@ -36,7 +38,7 @@ class Expense:
 
     def check_if_complete(self):
         if any(elt == None for elt in self.__dict__.values()):
-            pass
+            logger.debug(f"Missing an attribute")
         else:
             self.complete = True
             self.save_to_db()
@@ -51,7 +53,16 @@ class Expense:
         Input: database where user infornation is stored
         Output: 3 character uppercase string representing the currency.'''
 
-        return 'NZD'
+        return 'USD'
+    
+    def pull_latest_rates(self):
+        '''Get the latest currency conversion rates from the ECB. 
+        Returns a CurrencyConverter object.'''
+
+        filename = f"ecb_{date.today():%Y%m%d}.zip"
+        urllib.request.urlretrieve(ECB_URL, filename)
+        c = CurrencyConverter(filename)
+        return c
     
 
     @property
@@ -62,24 +73,24 @@ class Expense:
     def amount(self, val):
         
         #compare user's default ccy and input ccy. If different, perform currency conversion
-        default_ccy = self.get_user_ccy()
-        if default_ccy != self.ccy:
-            c = CurrencyConverter()
-            val = c.convert(val, self.ccy, default_ccy)
-            val = round(val,2)
-            self.ccy = default_ccy
+        # default_ccy = self.get_user_ccy()
+        # if default_ccy != self.ccy:
+        #     c = CurrencyConverter()
+        #     val = c.convert(val, self.ccy, default_ccy)
+        #     val = round(val,2)
+        #     self.ccy = default_ccy
 
         #Store amount in object
         self._amount = val
         self.check_if_complete()
     
     @property
-    def reason(self):
-        return self._reason
+    def description(self):
+        return self._description
 
-    @reason.setter
-    def reason(self, r):
-        self._reason = r
+    @description.setter
+    def description(self, r):
+        self._description = r
         self.check_if_complete()
     
     @property
@@ -94,4 +105,4 @@ class Expense:
 
     #this method just for fun
     def __repr__(self):
-        return f'Expense data:\nAmount: {self.amount}\nUID: {self.uid}\nDate: {self.date}\nReceipt: {self.receipt}'
+        return f'Expense data:\nAmount: {self.amount}\nUID: {self.uid}\nDate: {self.date}\nReceipt: {self.receipt}\nCcy: {self.ccy}\nCategory: {self.category}\ndescription: {self.description}\nComplete: {self.complete}'
