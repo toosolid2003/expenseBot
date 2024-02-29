@@ -94,12 +94,14 @@ def totalHandler(update, context):
     p = Parser()
     ##Parsing the user input
     if update.message.caption:
+        logger.debug(f'Caption detected')
         p.parse_text(update.message.caption)
         p.parse_picture(update.message.photo[-1]['file_id'],update.message.chat.username, bot)
     elif update.message.text:
         p.parse_text(update.message.text)
     else:
         p.parse_picture(update.message.photo[-1]['file_id'],update.message.chat.username, bot) 
+        #does not work with documents, like pdf or Excel
     
 
     #Creates an expense object and stores it in context.user_data, if it does not exist yet.
@@ -166,7 +168,7 @@ dispatcher.add_handler(CommandHandler('last', last))
 dispatcher.add_handler(CommandHandler('export', export))
 dispatcher.add_handler(CommandHandler('email', emailCheck,pass_args=True))
 
-dispatcher.add_handler(MessageHandler(Filters.document and Filters.caption, totalHandler))
+dispatcher.add_handler(MessageHandler(Filters.document, totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.photo, totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text and Filters.regex(regex), totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text, chat_with_ai))

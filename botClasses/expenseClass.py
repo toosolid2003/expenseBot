@@ -4,6 +4,7 @@ import time
 from currency_converter import CurrencyConverter, ECB_URL
 import urllib.request
 from logger.logger import logger
+from botClasses.parserClass import Parser
 
 class Expense:
     '''The Expense object. All attributes need to be not None in order for the expense to be recorded in a database,
@@ -37,9 +38,14 @@ class Expense:
 
 
     def check_if_complete(self):
-        if any(elt == None for elt in self.__dict__.values()):
-            logger.debug(f"Missing an attribute")
+        for key, value in self.__dict__.items():
+            if value == None:
+                logger.debug(f'Missing value: {key}')
+        # if any(value == None for key, value in self.__dict__.items()):
+        #     logger.debug(f"Missing an attribute: {key}")
+
         else:
+            self.get_category()
             self.complete = True
             self.save_to_db()
 
@@ -64,6 +70,27 @@ class Expense:
         c = CurrencyConverter(filename)
         return c
     
+    def get_category(self):
+        return "Various"
+#         types = {'accomodation' :['airbnb','apartment','hotel','pension','hostel'],
+#            'transportation':['taxi','uber','lyft','train','bus','ferry','sbb','eurostar','sncf','thalys'],
+#    'flight':['plane','flight','easyjet','klm','airfrance','flights','ryanair','lufthansa'],
+#    'car rental':['avis','entreprise','rental car','alamo', 'car rental','car'],
+#    'food & beverage':['drinks','bar','restaurant','restau','sandwich','sandwiches','meal','dinner','lunch','breakfast'],
+#    'car expenses':['toll','parking','fuel','highway','public','gas','petrol'],
+#    }
+
+#         expenseType = 'various'
+#         for title, typeList in types.items(): 
+#             for elt in self.resultList: 
+#                 if elt in typeList: 
+#                     expenseType = title
+        
+#         #Send it to chatGPT if the expense has not been determined and still has its default value
+#         if expenseType == 'various':
+#             # return self.get_category_ai()
+#             logger.debug(f'Category undertermined')
+#         return expenseType
 
     @property
     def amount(self):

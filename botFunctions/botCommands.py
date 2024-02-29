@@ -1,7 +1,10 @@
 #coding: utf-8
 from botClasses.classes import DBHelper
+from botClasses.expenseClass import Expense
 from botClasses.reportClass import ExpenseReport
 from botFunctions.botLogic import toMarkdown, totalPending 
+from botFunctions.openai_func import funcs
+import json
 from botParams import bot
 from telegram.ext import ConversationHandler, CommandHandler, MessageHandler, Filters
 import telegram
@@ -9,6 +12,8 @@ import os
 from logger.logger import logger
 import time
 from maya import dateparser
+from openai import OpenAI, api_key
+
 
 
 # Database helpers
@@ -235,3 +240,87 @@ def emailCheck(update, context):
         userEmail = db.get_user_email(update.message.chat.username)
         update.message.reply_text('Your current email address is {}'.format(userEmail))
         update.message.reply_text('Type /email followed by your new email address to update it.')
+    
+
+    ### AI-enabled Flow ###
+    #######################
+
+INTENT, PARSE, SAVE, GENERAL = range(4)
+    
+
+assistant_mood = '''You are a professionnal assistant, focused on getting users to record their expenses.
+Users need to provide you with the expense amount, its currency and description, and a photo of a receipt.
+The best is to provide all of it together, with the following syntax: amount currency, description. For instance: 
+12 usd, restaurant with Johhny.'''
+
+client = OpenAI(api_key='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')
+    
+def intent(update, context):
+    logger.debug(f"Sending user input -{update.message.text}- to chatGPT for parsing.")
+    assert isinstance(update.message.text, str), "question should be a string"
+    
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages=[{"role": "system", "content": assistant_mood},{"role": "user", "content": update.message.text }],
+        tools=funcs,
+        tool_choice={"type":"function", "function": {"name": "get_intent"}}
+        )
+    
+    r = response.choices[0].message.tool_calls[0].function.arguments
+    
+        #Loading the string into json to turn it into a dic
+    j = json.loads(r)
+    if j['intent'] == 'record expense' or j['intent'] == 'submit expense':
+        return PARSE
+    else:
+        return GENERAL 
+    
+def parse(update, context):
+    res = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages = [{"role":"user","content":update.message.text}],
+        tools=funcs,
+        tool_choice={"type":"function", "function": {"name": "get_expense_data"}}
+    )
+
+    r = res.choices[0].message.tool_calls[0].function.arguments
+    j = json.loads(r)
+    logger.debug(f"Parsed data: {j}")
+    
+    #Storing the data for reuse in a later function
+    context.user_data['parsed'] = j
+
+    return SAVE_DATA
+
+def save_data(update, context):
+    if 'expense' not in context.user_data.keys():
+       context.user_data['expense'] = Expense(update.message.chat.username) 
+       logger.debug(f"Created a new expense object")
+
+    
+    #Storing the parsing results in the expense object
+    parsed_data = context.user_data['parsed']
+    logger.debug(f'Parsed input: {parsed_data}')
+    logger.debug(f'Assigning the parsed data to the expense object')
+    context.user_data['expense'].get_input(parsed_data)
+
+    #Testing if expense is complete. If it is complete, it has been
+    #automatically saved to the database and the 'complete' flag is True.
+    #We just need to delete it. 
+
+    if context.user_data['expense'].complete:
+        update.message.reply_text("Thanks, I have recorded your expense!. \nFeel free to check your latest expenses using the /last command!")
+        del context.user_data['expense']
+        logger.debug(f'Expense complete. Deleted now.')
+    
+    return ConversationHandler.END
+
+def general(update, context):
+    response = client.chat.completions.create(
+    model="gpt-3.5-turbo-1106",
+    messages=[{"role": "system", "content": assistant_mood},{"role": "user", "content": update.message.text }],
+    ) 
+    text_response = response.choices[0].message.content
+    update.message.reply_text(text_response)
+
+    return ConversationHandler.END

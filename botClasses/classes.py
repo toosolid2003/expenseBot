@@ -199,109 +199,109 @@ class DBHelper:
 ####################### Expense Class ######################################
 # This class is not currently being used. Saved for a later code refactoring
 
-class Expense:
-    def __init__(self):
-        self.date_created = time.strftime("%Y-%m-%d")
-        self.uid = str(uuid4())
-        self.split = None 
-        self.status = 'pending'
-        self.amount = None
-        self.reason = None
-        self.typex = 'various'
-        self.ccy = None
-        self.user = None
-        self.receipt = None
-        self.complete = False
+# class Expense:
+#     def __init__(self):
+#         self.date_created = time.strftime("%Y-%m-%d")
+#         self.uid = str(uuid4())
+#         self.split = None 
+#         self.status = 'pending'
+#         self.amount = None
+#         self.reason = None
+#         self.typex = 'various'
+#         self.ccy = None
+#         self.user = None
+#         self.receipt = None
+#         self.complete = False
     
-    def split(self, textInput):
-        '''
-        Split the text input into a list, using 3 delimeters:"," OR " " OR "-"
-        Input: text string
-        Output: list stored in the expense object
-        '''
-        self.split = re.split(r',| |-', textInput)
+#     def split(self, textInput):
+#         '''
+#         Split the text input into a list, using 3 delimeters:"," OR " " OR "-"
+#         Input: text string
+#         Output: list stored in the expense object
+#         '''
+#         self.split = re.split(r',| |-', textInput)
     
-    def getCcy(self):
-        '''
-        Returns the currency if specified in the user input:
-        Input: split string from user input
-        Output: trigram (string) of the currency or None, if no currency spcified, store
-        in the expense object.
-        '''
-        #We compare two sets to find the intersection. If the user has specified a currency
-        #in his input, and if this currency is managed, then we find it.
-        res = set(self.split) & set(managedCcy)
+#     def getCcy(self):
+#         '''
+#         Returns the currency if specified in the user input:
+#         Input: split string from user input
+#         Output: trigram (string) of the currency or None, if no currency spcified, store
+#         in the expense object.
+#         '''
+#         #We compare two sets to find the intersection. If the user has specified a currency
+#         #in his input, and if this currency is managed, then we find it.
+#         res = set(self.split) & set(managedCcy)
         
-        #If the currency has been found, we store it in the expense object. If not, 
-        #leave the object as is.
-        if len(res) > 0:
-            self.ccy = list(res)[0]
+#         #If the currency has been found, we store it in the expense object. If not, 
+#         #leave the object as is.
+#         if len(res) > 0:
+#             self.ccy = list(res)[0]
     
-    def getType(self):
-        '''
-        Deduct the type of expense from a word list that is managed separately.
-        Input: split string from user input.
-        Output: expense type as string and store it in the expense object. If no type
-        found, the attribute stays on its default value, 'various'.
-        '''
+#     def getType(self):
+#         '''
+#         Deduct the type of expense from a word list that is managed separately.
+#         Input: split string from user input.
+#         Output: expense type as string and store it in the expense object. If no type
+#         found, the attribute stays on its default value, 'various'.
+#         '''
 
-           #The magic loop, where the deduction happens
-        for accType, typeList in types.items():
-            for elt in typeList:
-                if elt in self.split:
-                    self.typex = accType
+#            #The magic loop, where the deduction happens
+#         for accType, typeList in types.items():
+#             for elt in typeList:
+#                 if elt in self.split:
+#                     self.typex = accType
      
-    def getAmount(self):
-        for elt in self.split:
-            try:
-                self.amount = float(elt)
-            except:
-                pass
+#     def getAmount(self):
+#         for elt in self.split:
+#             try:
+#                 self.amount = float(elt)
+#             except:
+#                 pass
     
-    def addReason(self):
-        '''
-        Adds a reason for the expense, based on the text inputted by the user.
-        Input: self.split, string
-        Output: self.reason completed
-        '''
-        self.reason = " ".join(self.split)
+#     def addReason(self):
+#         '''
+#         Adds a reason for the expense, based on the text inputted by the user.
+#         Input: self.split, string
+#         Output: self.reason completed
+#         '''
+#         self.reason = " ".join(self.split)
 
-    def checkComplete(self):
-        #Check if all attributes are filled
-        if any(elt == None for elt in self.__dict__.values()):
-            self.complete = False
-        else:
-            self.complete = True
+#     def checkComplete(self):
+#         #Check if all attributes are filled
+#         if any(elt == None for elt in self.__dict__.values()):
+#             self.complete = False
+#         else:
+#             self.complete = True
 
-    def to_tuple(self):
-        newTuple = (self.uid,
-                self.amount,
-                self.ccy,
-                self.date_created,
-                self.reason,
-                self.status,
-                self.typex,
-                self.receipt,
-                self.user,
-                )
-        return newTuple
+#     def to_tuple(self):
+#         newTuple = (self.uid,
+#                 self.amount,
+#                 self.ccy,
+#                 self.date_created,
+#                 self.reason,
+#                 self.status,
+#                 self.typex,
+#                 self.receipt,
+#                 self.user,
+#                 )
+#         return newTuple
 
-    def assign(self, dico):
-        """Takes the input from dictionnary, put them into the expense object as attributes"""
+#     def assign(self, dico):
+#         """Takes the input from dictionnary, put them into the expense object as attributes"""
 
-        for elt, value in dico.items():
-        #Checks if the key in the provided dictionnary actually exists in the expense object
-            if elt in self.__dict__.keys():
-                self.__setattr__(elt, value)
+#         for elt, value in dico.items():
+#         #Checks if the key in the provided dictionnary actually exists in the expense object
+#             if elt in self.__dict__.keys():
+#                 self.__setattr__(elt, value)
 
-    def add_to_db(self, dbname):
-        """Adds the completed expense to the items table in the db"""
+#     def add_to_db(self, dbname):
+#         """Adds the completed expense to the items table in the db"""
 
-        if self.complete == False:
-            return print(f'Expense is missing required data')
-        else:
-            conn = sqlite3.connect(dbname, check_same_thread=False)
-            data = self.to_tuple()
-            conn.execute('''INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)''', data)
-            conn.commit()
-            return print('Expense correctly saved in the db')
+#         if self.complete == False:
+#             return print(f'Expense is missing required data')
+#         else:
+#             conn = sqlite3.connect(dbname, check_same_thread=False)
+#             data = self.to_tuple()
+#             conn.execute('''INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?)''', data)
+#             conn.commit()
+#             return print('Expense correctly saved in the db')
