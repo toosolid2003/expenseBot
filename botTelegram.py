@@ -88,7 +88,7 @@ def chat_with_ai(update, context):
 
 def totalHandler(update, context):
 
-    logger.debug(f"Parsing input for {update.message.chat.username}.")
+    logger.debug(f"Manually parsing input for {update.message.chat.username}.")
     
     #Initiating the parser
     p = Parser()
@@ -120,6 +120,7 @@ def totalHandler(update, context):
     #automatically saved to the database and the 'complete' flag is True.
     #We just need to delete it. 
 
+    context.user_data['expense'].check_if_complete()
     if context.user_data['expense'].complete:
         update.message.reply_text("Thanks, I have recorded your expense!. \nFeel free to check your latest expenses using the /last command!")
         del context.user_data['expense']

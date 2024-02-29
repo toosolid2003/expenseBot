@@ -8142,3 +8142,204 @@ Complete: False
 2024-02-29 16:53:21,076 - DEBUG - Missing value: _receipt
 2024-02-29 16:53:21,076 - DEBUG - Missing value: _receipt
 2024-02-29 16:53:21,291 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:01:36,865 - INFO - Starting the bot
+2024-02-29 17:01:54,459 - DEBUG - Sending user input -Can you record an expense of 12 usd for a restaurant with Johnny?- to chatGPT for parsing.
+2024-02-29 17:02:17,532 - DEBUG - Parsing input for thedropper.
+2024-02-29 17:02:18,091 - DEBUG - Created a new expense object
+2024-02-29 17:02:18,092 - DEBUG - Parsed input: {'ccy': None, 'description': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': None, 'amount': None}
+2024-02-29 17:02:18,092 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:02:18,092 - DEBUG - Missing value: _amount
+2024-02-29 17:02:18,092 - DEBUG - Missing value: _description
+2024-02-29 17:02:18,311 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:02:39,170 - DEBUG - Sending user input -Record an expense of 56 eur- to chatGPT for parsing.
+2024-02-29 17:02:53,923 - DEBUG - Sending user input -restaurant- to chatGPT for parsing.
+2024-02-29 17:03:20,000 - DEBUG - Sending user input -amount: 45 eur
+currency: euros- to chatGPT for parsing.
+2024-02-29 17:03:26,802 - DEBUG - Parsing input for thedropper.
+2024-02-29 17:03:27,311 - DEBUG - Created a new expense object
+2024-02-29 17:03:27,311 - DEBUG - Parsed input: {'ccy': None, 'description': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_22.jpg', 'category': None, 'amount': None}
+2024-02-29 17:03:27,312 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:03:27,312 - DEBUG - Missing value: _amount
+2024-02-29 17:03:27,312 - DEBUG - Missing value: _description
+2024-02-29 17:03:27,476 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:06:09,233 - DEBUG - Parsing input for thedropper.
+2024-02-29 17:06:09,235 - DEBUG - Created a new expense object
+2024-02-29 17:06:09,235 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:06:09,235 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:06:09,235 - DEBUG - Missing value: _amount
+2024-02-29 17:06:09,235 - DEBUG - Missing value: _receipt
+2024-02-29 17:06:09,235 - DEBUG - Missing value: _receipt
+2024-02-29 17:06:09,404 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:08:05,480 - INFO - Starting the bot
+2024-02-29 17:08:10,202 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:08:10,203 - DEBUG - Created a new expense object
+2024-02-29 17:08:10,204 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:08:10,204 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:08:10,204 - DEBUG - Missing value: _amount
+2024-02-29 17:08:10,204 - DEBUG - Missing value: _receipt
+2024-02-29 17:08:10,204 - DEBUG - Missing value: _receipt
+2024-02-29 17:08:10,433 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:10:13,512 - INFO - Starting the bot
+2024-02-29 17:10:19,397 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:10:19,397 - DEBUG - Created a new expense object
+2024-02-29 17:10:19,397 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:10:19,400 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:11:04,694 - INFO - Starting the bot
+2024-02-29 17:11:10,914 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:11:10,914 - DEBUG - Created a new expense object
+2024-02-29 17:11:10,914 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:11:10,915 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:11:10,915 - DEBUG - Missing an attribute
+2024-02-29 17:11:10,915 - DEBUG - Missing an attribute
+2024-02-29 17:11:37,155 - INFO - Starting the bot
+2024-02-29 17:11:42,289 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:11:42,290 - DEBUG - Created a new expense object
+2024-02-29 17:11:42,290 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:11:42,290 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:11:42,290 - DEBUG - Missing an attribute
+2024-02-29 17:11:42,290 - DEBUG - Missing an attribute
+2024-02-29 17:18:17,427 - INFO - Starting the bot
+2024-02-29 17:18:23,388 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:18:23,389 - DEBUG - Created a new expense object
+2024-02-29 17:18:23,389 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:18:23,389 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:18:23,389 - DEBUG - Missing an attribute
+2024-02-29 17:18:23,389 - DEBUG - Missing an attribute
+2024-02-29 17:18:40,210 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:18:40,211 - DEBUG - Caption detected
+2024-02-29 17:18:40,343 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:18:40,343 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:18:40,343 - DEBUG - Missing an attribute
+2024-02-29 17:19:17,247 - INFO - Starting the bot
+2024-02-29 17:19:26,470 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:19:26,470 - DEBUG - Caption detected
+2024-02-29 17:19:26,584 - DEBUG - Created a new expense object
+2024-02-29 17:19:26,585 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:19:26,585 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:19:26,585 - DEBUG - Missing an attribute
+2024-02-29 17:19:26,585 - DEBUG - Missing an attribute
+2024-02-29 17:24:11,219 - INFO - Starting the bot
+2024-02-29 17:24:21,481 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:24:21,482 - DEBUG - Caption detected
+2024-02-29 17:24:21,613 - DEBUG - Created a new expense object
+2024-02-29 17:24:21,613 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-02-29 17:24:21,613 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:24:21,614 - DEBUG - Missing an attribute
+2024-02-29 17:24:21,614 - DEBUG - Missing an attribute
+2024-02-29 17:24:21,829 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:25:23,191 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:25:23,191 - DEBUG - Caption detected
+2024-02-29 17:25:23,452 - DEBUG - Created a new expense object
+2024-02-29 17:25:23,452 - DEBUG - Parsed input: {'ccy': 'EUR', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_22.jpg', 'category': 'accomodation', 'amount': 56.0}
+2024-02-29 17:25:23,453 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:25:23,453 - DEBUG - Missing an attribute
+2024-02-29 17:25:23,453 - DEBUG - Missing an attribute
+2024-02-29 17:25:23,625 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:25:43,730 - INFO - Starting the bot
+2024-02-29 17:26:32,934 - INFO - Starting the bot
+2024-02-29 17:26:42,064 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:26:42,065 - DEBUG - Caption detected
+2024-02-29 17:26:42,337 - DEBUG - Created a new expense object
+2024-02-29 17:26:42,337 - DEBUG - Parsed input: {'ccy': 'EUR', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_22.jpg', 'category': 'accomodation', 'amount': 57.0}
+2024-02-29 17:26:42,337 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:26:42,337 - DEBUG - Missing an attribute
+2024-02-29 17:26:42,338 - DEBUG - Missing an attribute
+2024-02-29 17:26:42,550 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:29:06,552 - INFO - Starting the bot
+2024-02-29 17:29:17,040 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:29:17,040 - DEBUG - Caption detected
+2024-02-29 17:29:17,601 - DEBUG - Created a new expense object
+2024-02-29 17:29:17,602 - DEBUG - Parsed input: {'ccy': 'EUR', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 90.0}
+2024-02-29 17:29:17,602 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:30:48,663 - INFO - Starting the bot
+2024-02-29 17:30:59,634 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:30:59,635 - DEBUG - Caption detected
+2024-02-29 17:30:59,749 - DEBUG - Created a new expense object
+2024-02-29 17:30:59,749 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 29.0}
+2024-02-29 17:30:59,749 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:33:02,540 - INFO - Starting the bot
+2024-02-29 17:33:12,163 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:33:12,164 - DEBUG - Caption detected
+2024-02-29 17:33:12,580 - DEBUG - Created a new expense object
+2024-02-29 17:33:12,581 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 598.0}
+2024-02-29 17:33:12,581 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:33:12,581 - DEBUG - Missing _amount
+2024-02-29 17:33:12,581 - DEBUG - Missing _description
+2024-02-29 17:33:12,581 - DEBUG - Missing _receipt
+2024-02-29 17:37:11,178 - DEBUG - Sending user input -Can you record a 56 usd expense for a hotel room in Chicago?- to chatGPT for parsing.
+2024-02-29 17:37:12,576 - DEBUG - Missing _amount
+2024-02-29 17:37:12,577 - DEBUG - Missing _description
+2024-02-29 17:37:12,577 - DEBUG - Missing _receipt
+2024-02-29 17:38:44,199 - INFO - Starting the bot
+2024-02-29 17:38:54,702 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:38:54,703 - DEBUG - Caption detected
+2024-02-29 17:38:54,828 - DEBUG - Created a new expense object
+2024-02-29 17:38:54,828 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 57.0}
+2024-02-29 17:38:54,828 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:38:54,828 - DEBUG - Missing _amount
+2024-02-29 17:38:54,828 - DEBUG - Missing _description
+2024-02-29 17:38:54,828 - DEBUG - Missing _receipt
+2024-02-29 17:39:25,179 - INFO - Starting the bot
+2024-02-29 17:39:36,464 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:39:36,464 - DEBUG - Caption detected
+2024-02-29 17:39:36,591 - DEBUG - Created a new expense object
+2024-02-29 17:39:36,591 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 57.0}
+2024-02-29 17:39:36,592 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:39:36,592 - DEBUG - Missing an attribute
+2024-02-29 17:39:36,592 - DEBUG - Missing an attribute
+2024-02-29 17:39:36,843 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:40:50,966 - INFO - Starting the bot
+2024-02-29 17:41:00,585 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:41:00,585 - DEBUG - Caption detected
+2024-02-29 17:41:00,699 - DEBUG - Created a new expense object
+2024-02-29 17:41:00,699 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 895.0}
+2024-02-29 17:41:00,699 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:41:00,699 - DEBUG - Missing _amount
+2024-02-29 17:41:00,699 - DEBUG - Missing _receipt
+2024-02-29 17:41:00,699 - DEBUG - Missing _amount
+2024-02-29 17:41:00,918 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:41:35,183 - INFO - Starting the bot
+2024-02-29 17:41:44,134 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:41:44,134 - DEBUG - Caption detected
+2024-02-29 17:41:44,259 - DEBUG - Created a new expense object
+2024-02-29 17:41:44,259 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 589.0}
+2024-02-29 17:41:44,259 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:41:44,259 - DEBUG - Missing _amount
+2024-02-29 17:41:44,259 - DEBUG - Missing _receipt
+2024-02-29 17:41:44,259 - DEBUG - Missing _amount
+2024-02-29 17:41:44,471 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:48:38,965 - INFO - Starting the bot
+2024-02-29 17:48:46,425 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:48:46,425 - DEBUG - Caption detected
+2024-02-29 17:48:46,720 - DEBUG - Created a new expense object
+2024-02-29 17:48:46,720 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 12.0}
+2024-02-29 17:48:46,720 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:48:46,720 - DEBUG - Missing _amount
+2024-02-29 17:48:46,720 - DEBUG - Missing _receipt
+2024-02-29 17:48:46,720 - DEBUG - Missing _amount
+2024-02-29 17:48:46,941 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:53:04,406 - INFO - Starting the bot
+2024-02-29 17:53:14,159 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:53:14,159 - DEBUG - Caption detected
+2024-02-29 17:53:14,277 - DEBUG - Created a new expense object
+2024-02-29 17:53:14,277 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 112.0}
+2024-02-29 17:53:14,278 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:53:14,659 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:54:22,422 - INFO - Starting the bot
+2024-02-29 17:54:32,656 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:54:32,656 - DEBUG - Caption detected
+2024-02-29 17:54:33,103 - DEBUG - Created a new expense object
+2024-02-29 17:54:33,104 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 89.0}
+2024-02-29 17:54:33,104 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:54:33,326 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:55:39,353 - INFO - Starting the bot
+2024-02-29 17:55:55,031 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:55:55,031 - DEBUG - Caption detected
+2024-02-29 17:55:55,127 - DEBUG - Created a new expense object
+2024-02-29 17:55:55,127 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_21.jpg', 'category': 'accomodation', 'amount': 12.0}
+2024-02-29 17:55:55,127 - DEBUG - Assigning the parsed data to the expense object
+2024-02-29 17:55:55,342 - DEBUG - Expense complete. Deleted now.
+2024-02-29 17:56:52,072 - DEBUG - Manually parsing input for thedropper.
+2024-02-29 17:56:52,073 - DEBUG - Created a new expense object
+2024-02-29 17:56:52,073 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 12.0}
+2024-02-29 17:56:52,073 - DEBUG - Assigning the parsed data to the expense object

@@ -29,30 +29,19 @@ class Expense:
         self.complete = False
     
     def get_input(self, input_dict):
-
+        for key, value in input_dict.items():
+            if value is not None:
+                self.__setattr__(key, value)
         
-     for key, value in input_dict.items():
-        if value is not None:
-            self.__setattr__(key, value)
-            
-
-
     def check_if_complete(self):
-        for key, value in self.__dict__.items():
-            if value == None:
-                logger.debug(f'Missing value: {key}')
-        # if any(value == None for key, value in self.__dict__.items()):
-        #     logger.debug(f"Missing an attribute: {key}")
-
-        else:
-            self.get_category()
+        if self.amount != None and self.description != None and self.receipt != None:
             self.complete = True
             self.save_to_db()
 
     def save_to_db(self):
-        print("expense ready to be injected")
-    
+        print("expense ready to be injected: {self}")
 
+    
     
     def get_user_ccy(self):
         '''Gets the default currency specified by the user. 
@@ -109,7 +98,7 @@ class Expense:
 
         #Store amount in object
         self._amount = val
-        self.check_if_complete()
+        # self.check_if_complete()
     
     @property
     def description(self):
@@ -118,7 +107,7 @@ class Expense:
     @description.setter
     def description(self, r):
         self._description = r
-        self.check_if_complete()
+        # self.check_if_complete()
     
     @property
     def receipt(self):
@@ -127,7 +116,7 @@ class Expense:
     @receipt.setter
     def receipt(self, r):
         self._receipt = r 
-        self.check_if_complete()
+        # self.check_if_complete()
     
 
     #this method just for fun

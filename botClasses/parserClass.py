@@ -59,7 +59,8 @@ class Parser():
         '''Split the input string with a series of delimiters. 
         Returns a list of splitted words'''
 
-        return re.split(r'[:,;\s]\s*', self.raw)
+        res = re.split(r'[:,;\s]\s*', self.raw)
+        return res
 
     def get_amount(self):
         for elt in self.resultList:
