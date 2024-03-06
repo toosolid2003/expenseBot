@@ -5,6 +5,7 @@ from currency_converter import CurrencyConverter, ECB_URL
 import urllib.request
 from logger.logger import logger
 from botClasses.parserClass import Parser
+from botClasses.classes import DBHelper
 
 class Expense:
     '''The Expense object. All attributes need to be not None in order for the expense to be recorded in a database,
@@ -39,7 +40,21 @@ class Expense:
             self.save_to_db()
 
     def save_to_db(self):
-        print("expense ready to be injected: {self}")
+        logger.debug(f"expense ready to be injected: {self}")
+        try:
+            data = (self.uid, 
+            self.amount, 
+            self.ccy, 
+            self.date, 
+            self.description, 
+            'Ready',
+            self.category,
+            self.receipt,
+            self.user)
+            db = DBHelper()
+            db.add_item(data)
+        except Exception as e:
+            logger.debug(f'Error while saving the expense: {e}')
 
     
     

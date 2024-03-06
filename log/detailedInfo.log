@@ -8343,3 +8343,59 @@ currency: euros- to chatGPT for parsing.
 2024-02-29 17:56:52,073 - DEBUG - Created a new expense object
 2024-02-29 17:56:52,073 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': None, 'category': 'accomodation', 'amount': 12.0}
 2024-02-29 17:56:52,073 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:14:20,897 - INFO - Starting the bot
+2024-03-06 11:14:38,914 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:14:38,914 - DEBUG - Caption detected
+2024-03-06 11:14:39,409 - DEBUG - Created a new expense object
+2024-03-06 11:14:39,410 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': 'accomodation', 'amount': 12.0}
+2024-03-06 11:14:39,410 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:15:09,015 - INFO - Starting the bot
+2024-03-06 11:15:17,641 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:15:17,642 - DEBUG - Caption detected
+2024-03-06 11:15:17,753 - DEBUG - Created a new expense object
+2024-03-06 11:15:17,753 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': 'accomodation', 'amount': 12.0}
+2024-03-06 11:15:17,753 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:15:37,968 - INFO - Starting the bot
+2024-03-06 11:15:45,760 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:15:45,761 - DEBUG - Caption detected
+2024-03-06 11:15:45,921 - DEBUG - Created a new expense object
+2024-03-06 11:15:45,921 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': 'accomodation', 'amount': 12.0}
+2024-03-06 11:15:45,922 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:15:46,140 - DEBUG - Expense complete. Deleted now.
+2024-03-06 11:34:17,319 - INFO - Starting the bot
+2024-03-06 11:34:33,104 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:34:33,105 - DEBUG - Caption detected
+2024-03-06 11:34:33,250 - DEBUG - Created a new expense object
+2024-03-06 11:34:33,251 - DEBUG - Parsed input: {'ccy': 'EUR', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': 'food & beverage', 'amount': 45.0}
+2024-03-06 11:34:33,251 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:34:33,251 - DEBUG - expense ready to be injected: Expense data:
+Amount: 45.0
+UID: 5a7cc387-817e-4b75-aaaf-db687fcc06fd
+Date: 2024-03-06
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg
+Ccy: EUR
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-06 11:34:33,485 - DEBUG - Expense complete. Deleted now.
+2024-03-06 11:34:37,499 - DEBUG - Sending user input -45 usd- to chatGPT for parsing.
+2024-03-06 11:34:39,926 - DEBUG - Sending user input -hotel- to chatGPT for parsing.
+2024-03-06 11:34:47,421 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:34:47,478 - DEBUG - Created a new expense object
+2024-03-06 11:34:47,478 - DEBUG - Parsed input: {'ccy': None, 'description': None, 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': None, 'amount': None}
+2024-03-06 11:34:47,478 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:35:24,732 - DEBUG - Manually parsing input for thedropper.
+2024-03-06 11:35:24,732 - DEBUG - Caption detected
+2024-03-06 11:35:24,796 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg', 'category': 'accomodation', 'amount': 45.0}
+2024-03-06 11:35:24,796 - DEBUG - Assigning the parsed data to the expense object
+2024-03-06 11:35:24,796 - DEBUG - expense ready to be injected: Expense data:
+Amount: 45.0
+UID: 980be383-a8f4-4853-a2e0-d25867b73d1e
+Date: 2024-03-06
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/thedropper/file_23.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-06 11:35:24,977 - DEBUG - Expense complete. Deleted now.
+2024-03-06 11:35:29,404 - DEBUG - Using function toMarkdown
