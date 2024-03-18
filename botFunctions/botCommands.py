@@ -11,8 +11,8 @@ import telegram
 import os
 from logger.logger import logger
 import time
-from maya import dateparser
 from openai import OpenAI, api_key
+import maya
 
 
 
@@ -180,8 +180,8 @@ def export(update, context):
     if len(context.args) >= 1:
 
         #Create and parse a date with all parameters after the /export command
-        date_exp = ' '.join(context.args)
-        date_exp = dateparser.parse(date_exp, languages=['fr']) 
+        p = ' '.join(context.args)
+        date_exp = maya.parse(p).datetime()
 
         responseBack = f'I have exported your expenses from {date_exp.strftime("%A, %B %-d")} and sent them to your email, {email}'
     else:
