@@ -132,7 +132,7 @@ class ExpenseReport:
         #Initiate constants and objects
 
         #API = SendGridAPIClient('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') 
-        sg = SendGridAPIClient('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')
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
 
         #Creating Mail object
         logger.debug('[*] Initiating mail object')
