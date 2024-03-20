@@ -154,9 +154,7 @@ def currency(update, context):
 
         #Creating a specific folder to save user's receipts
         try:
-            path = '/var/www/expenseBot/receipts/' + telegramUsername
-            os.mkdir(path)
-            path = '/var/www/expenseBot/exports/' + telegramUsername
+            path = 'receipts/' + telegramUsername
             os.mkdir(path)
         except:
             logger.error('Error when creating user\'s folder. User: %s', telegramUsername)

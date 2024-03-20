@@ -1,12 +1,8 @@
 # Standard imports 
 import pytest
 import sys
-
-#Add expenseBot folder to sys.path to be able to import the app's modules
-sys.path.append('/var/www/expenseBot/')
-
-#Class import
 from botClasses.classes import *
+
 
 
 def test_connection(setup_database):

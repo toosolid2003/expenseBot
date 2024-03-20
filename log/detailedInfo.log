@@ -8399,3 +8399,42 @@ description: hotel
 Complete: True
 2024-03-06 11:35:24,977 - DEBUG - Expense complete. Deleted now.
 2024-03-06 11:35:29,404 - DEBUG - Using function toMarkdown
+2024-03-20 10:36:37,030 - INFO - Starting the bot
+2024-03-20 10:44:26,423 - INFO - Starting the bot
+2024-03-20 10:44:51,324 - ERROR - Error when creating user's folder. User: thedropper
+2024-03-20 10:44:51,325 - INFO - Adding user thedropper to the users database
+2024-03-20 10:47:32,106 - INFO - Starting the bot
+2024-03-20 10:48:03,229 - ERROR - Error when creating user's folder. User: thedropper
+2024-03-20 10:48:03,230 - INFO - Adding user thedropper to the users database
+2024-03-20 10:49:53,020 - INFO - Starting the bot
+2024-03-20 10:50:15,720 - INFO - Adding user thedropper to the users database
+2024-03-20 10:58:18,311 - DEBUG - Using function parseText
+2024-03-20 10:58:18,315 - DEBUG - Using function parseText
+2024-03-20 10:58:18,319 - DEBUG - Using function parseText
+2024-03-20 10:58:18,326 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:18,326 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:18,326 - INFO - Missing: ['receipt']
+2024-03-20 10:58:18,326 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:18,328 - DEBUG - Using function getAmount
+2024-03-20 10:58:18,329 - DEBUG - Using function getAmount
+2024-03-20 10:58:18,329 - DEBUG - Using function getAmount
+2024-03-20 10:58:18,329 - DEBUG - Using function getType
+2024-03-20 10:58:45,159 - DEBUG - Using function parseText
+2024-03-20 10:58:45,163 - DEBUG - Using function parseText
+2024-03-20 10:58:45,167 - DEBUG - Using function parseText
+2024-03-20 10:58:45,173 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:45,173 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:45,173 - INFO - Missing: ['receipt']
+2024-03-20 10:58:45,174 - DEBUG - Using function checkCompletion
+2024-03-20 10:58:45,175 - DEBUG - Using function getAmount
+2024-03-20 10:58:45,176 - DEBUG - Using function getAmount
+2024-03-20 10:58:45,176 - DEBUG - Using function getAmount
+2024-03-20 10:58:45,176 - DEBUG - Using function getType
+2024-03-20 12:01:22,481 - INFO - Starting the bot
+2024-03-20 12:01:47,820 - INFO - Starting the bot
+2024-03-20 12:03:50,826 - INFO - Starting the bot
+2024-03-20 12:04:04,933 - INFO - Starting the bot
+2024-03-20 12:06:08,931 - INFO - Starting the bot
+2024-03-20 12:06:12,758 - DEBUG - User id: {'id': 467786379, 'username': 'thedropper', 'first_name': 'Thibaut', 'is_bot': False, 'language_code': 'en'}
+2024-03-20 12:06:50,109 - INFO - Starting the bot
+2024-03-20 12:06:55,576 - DEBUG - User id: 467786379
