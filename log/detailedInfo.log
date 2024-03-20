@@ -8438,3 +8438,94 @@ Complete: True
 2024-03-20 12:06:12,758 - DEBUG - User id: {'id': 467786379, 'username': 'thedropper', 'first_name': 'Thibaut', 'is_bot': False, 'language_code': 'en'}
 2024-03-20 12:06:50,109 - INFO - Starting the bot
 2024-03-20 12:06:55,576 - DEBUG - User id: 467786379
+2024-03-20 12:26:54,871 - INFO - Starting the bot
+2024-03-20 12:27:03,111 - DEBUG - Sending user input -/list- to chatGPT for parsing.
+2024-03-20 12:33:13,991 - INFO - Starting the bot
+2024-03-20 12:35:00,543 - INFO - Starting the bot
+2024-03-20 12:35:04,174 - DEBUG - Using function toMarkdown
+2024-03-20 12:35:34,148 - INFO - Starting the bot
+2024-03-20 12:37:10,152 - INFO - Starting the bot
+2024-03-20 12:40:30,015 - INFO - Starting the bot
+2024-03-20 12:40:35,372 - DEBUG - Using function toMarkdown
+2024-03-20 12:40:38,117 - DEBUG - Using function toMarkdown
+2024-03-20 12:43:19,740 - INFO - Starting the bot
+2024-03-20 12:44:53,974 - INFO - Starting the bot
+2024-03-20 12:45:00,118 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:45:00,118 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:45:33,573 - INFO - Starting the bot
+2024-03-20 12:45:39,870 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:45:39,871 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:45:39,871 - DEBUG - [*] Connecting to the db
+2024-03-20 12:45:39,871 - DEBUG - [*] Building the query
+2024-03-20 12:45:39,871 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2024-03-20 12:45:39,871 - DEBUG - [*] Executing the query
+2024-03-20 12:45:39,872 - DEBUG - [*] 3 items found in db
+2024-03-20 12:45:39,872 - DEBUG - [*] Loading the workbook template
+2024-03-20 12:46:12,538 - INFO - Starting the bot
+2024-03-20 12:46:18,671 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:46:18,673 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:46:18,673 - DEBUG - [*] Connecting to the db
+2024-03-20 12:46:18,673 - DEBUG - [*] Building the query
+2024-03-20 12:46:18,674 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2024-03-20 12:46:18,674 - DEBUG - [*] Executing the query
+2024-03-20 12:46:18,674 - DEBUG - [*] 3 items found in db
+2024-03-20 12:46:18,674 - DEBUG - [*] Loading the workbook template
+2024-03-20 12:46:18,690 - DEBUG - [*] Filling the spreadsheet
+2024-03-20 12:46:18,690 - DEBUG - [*] Saving the file on disk
+2024-03-20 12:47:52,164 - INFO - Starting the bot
+2024-03-20 12:48:08,666 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:48:08,667 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:48:08,667 - DEBUG - [*] Connecting to the db
+2024-03-20 12:48:08,667 - DEBUG - [*] Building the query
+2024-03-20 12:48:08,667 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2024-03-20 12:48:08,667 - DEBUG - [*] Executing the query
+2024-03-20 12:48:08,667 - DEBUG - [*] 3 items found in db
+2024-03-20 12:48:08,667 - DEBUG - [*] Loading the workbook template
+2024-03-20 12:48:08,676 - DEBUG - [*] Filling the spreadsheet
+2024-03-20 12:48:08,676 - DEBUG - [*] Saving the file on disk
+2024-03-20 12:48:33,676 - INFO - Starting the bot
+2024-03-20 12:48:38,705 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:48:38,706 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:48:38,706 - DEBUG - [*] Connecting to the db
+2024-03-20 12:48:38,706 - DEBUG - [*] Building the query
+2024-03-20 12:48:38,706 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2024-03-20 12:48:38,706 - DEBUG - [*] Executing the query
+2024-03-20 12:48:38,707 - DEBUG - [*] 3 items found in db
+2024-03-20 12:48:38,707 - DEBUG - [*] Loading the workbook template
+2024-03-20 12:48:38,724 - DEBUG - [*] Filling the spreadsheet
+2024-03-20 12:48:38,724 - DEBUG - [*] Saving the file on disk
+2024-03-20 12:49:03,034 - INFO - Starting the bot
+2024-03-20 12:49:07,069 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-20 12:49:07,070 - DEBUG - Date of expense: 2024-03-01 00:00:00+00:00.
+2024-03-20 12:49:07,070 - DEBUG - [*] Connecting to the db
+2024-03-20 12:49:07,071 - DEBUG - [*] Building the query
+2024-03-20 12:49:07,071 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=? AND date_expense>=?
+2024-03-20 12:49:07,071 - DEBUG - [*] Executing the query
+2024-03-20 12:49:07,071 - DEBUG - [*] 3 items found in db
+2024-03-20 12:49:07,071 - DEBUG - [*] Loading the workbook template
+2024-03-20 12:49:07,089 - DEBUG - [*] Filling the spreadsheet
+2024-03-20 12:49:07,089 - DEBUG - [*] Saving the file on disk
+2024-03-20 12:49:07,097 - DEBUG - [*] Creating filename for zip file
+2024-03-20 12:49:07,097 - DEBUG - [*] Filling the zip archive with receipts
+2024-03-20 12:50:04,850 - INFO - Starting the bot
+2024-03-20 12:50:23,228 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 12:50:23,229 - DEBUG - Caption detected
+2024-03-20 13:00:29,095 - INFO - Starting the bot
+2024-03-20 13:00:47,423 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:00:47,423 - DEBUG - Caption detected
+2024-03-20 13:01:46,331 - INFO - Starting the bot
+2024-03-20 13:02:00,498 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:02:00,499 - DEBUG - Caption detected
+2024-03-20 13:02:01,009 - DEBUG - Created a new expense object
+2024-03-20 13:02:01,009 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_24.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:02:01,009 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 13:02:01,010 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 5bf9e71c-b3ba-48da-885f-a66e15fb30a6
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_24.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 13:02:01,267 - DEBUG - Expense complete. Deleted now.

@@ -30,7 +30,7 @@ class Parser():
            'amount': self.get_amount(),
         }
     
-    def parse_picture(self, f, telegram_username, bot):
+    def parse_picture(self, f, telegram_id, bot):
          
         '''Saves a document on the local disk and returns a filepath to be stored in the database.
         Input: Telegram file_id, telegram_username and Telegram bot instance
@@ -38,7 +38,7 @@ class Parser():
 
         #Change the current directory to one which www-data has access to
         #cwd = os.getcwd()
-        os.chdir('receipts/' + telegram_username)
+        os.chdir('receipts/' + str(telegram_id))
 
         #Download the file
         try:

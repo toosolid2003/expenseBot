@@ -7,7 +7,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition, ContentId)
 import base64
 import sqlite3
-# from logger.logger import logger
+from logger.logger import logger
 
 class ExpenseReport:
     
@@ -15,9 +15,9 @@ class ExpenseReport:
         self.date = datetime.today()
         self.timestamp = int(time.time())
         self.format = '.xlsx'
-        self.template = '/var/www/expenseBot/exports/exportTemplate.xlsx'
+        self.template = 'exports/exportTemplate.xlsx'
         self.expenseList = None
-        self.user = user
+        self.user = str(user)
         self.receiptsPath = None
         self.reportPath = None
 
@@ -92,7 +92,7 @@ class ExpenseReport:
 
         #Saving the file
         logger.debug('[*] Saving the file on disk')
-        self.reportPath = '/var/www/expenseBot/exports/' + self.user + '/' + 'expenseReport_' + str(self.timestamp) + self.format
+        self.reportPath = 'exports/' + self.user + '/' + 'expenseReport_' + str(self.timestamp) + self.format
         wb.save(self.reportPath)
 
         return self.reportPath
@@ -102,7 +102,7 @@ class ExpenseReport:
 
         #Flename creation
         logger.debug('[*] Creating filename for zip file')
-        self.receiptsPath = '/var/www/expenseBot/exports/' + self.user + '/' + 'receiptsExports_' + str(self.timestamp) + '.zip'
+        self.receiptsPath = 'exports/' + self.user + '/' + 'receiptsExports_' + str(self.timestamp) + '.zip'
 
         #Creating the zipfile
         logger.debug('[*] Filling the zip archive with receipts')

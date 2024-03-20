@@ -35,7 +35,7 @@ def commandTrack(func):
         except:
             value = ''
 
-        db.add_datapoint(update.message.chat.username, func.__name__, value)
+        db.add_datapoint(update.message.from_user.id, func.__name__, value)
         return func(update, context)
     return wrapper
 
@@ -49,7 +49,7 @@ def inputTrack(func):
         else:
             value = '' 
 
-        db.add_datapoint(update.message.chat.username, func.__name__, value)
+        db.add_datapoint(update.message.from_user.id, func.__name__, value)
         return func(update, context)
     return wrapper
 
@@ -85,7 +85,7 @@ def start(update, context):
     """Handles the setup process"""
 
     #Checking if user exists
-    userExists = db.checkExistingUser(update.message.chat.username)
+    userExists = db.checkExistingUser(update.message.from_user.id)
     if userExists:
         update.message.reply_text('Hey, it looks like you already have an account with us. You are good to log your expenses. Type "/help" for more.')
         return ConversationHandler.END
@@ -137,7 +137,7 @@ def currency(update, context):
         update.message.reply_text('Thanks for that. Now, let me add you to our list of users.')
 
         #Adding the new user to the users database now
-        telegramUsername = update.message.chat.username
+        telegramUsername = update.message.from_user.id
         email = context.user_data['email']
         currency = context.user_data['currency']
 
@@ -171,7 +171,7 @@ def stopit(update, context):
 @commandTrack
 def export(update, context):
 
-    user = update.message.chat.username
+    user = update.message.from_user.id
     email = db.get_user_email(user)
     logger.debug(f'{user} with {email} tries to export expense items.')
     
@@ -188,7 +188,7 @@ def export(update, context):
 
     logger.debug(f'Date of expense: {date_exp}.')
     report = ExpenseReport(user)
-    report.getExpenses('/var/www/expenseBot/expenses.sqlite', date_exp)
+    report.getExpenses('expenses.sqlite', date_exp)
     report.generateXls()
     report.receiptZip()
 
@@ -205,7 +205,7 @@ def export(update, context):
 @commandTrack
 def last(update, context):
     #Extracting ALL pending expenses. We choose the "pending" status because it's the first one assigned to a new expense object.
-    allExpenses = db.extract_expenses(update.message.chat.username, "pending")
+    allExpenses = db.extract_expenses(update.message.from_user.id, "pending")
 
     if len(context.args) >= 1:
         nbExpenses = int(context.args[0])
@@ -229,13 +229,13 @@ def emailCheck(update, context):
 
     if len(context.args) == 1:
         try:
-            db.update_user_email(update.message.chat.username, context.args[0])
+            db.update_user_email(update.message.from_user.id, context.args[0])
         except Exception as e:
             logger.info(e)
 
         update.message.reply_text(f'I have updated your email, thanks!')
     else:
-        userEmail = db.get_user_email(update.message.chat.username)
+        userEmail = db.get_user_email(update.message.from_user.id)
         update.message.reply_text('Your current email address is {}'.format(userEmail))
         update.message.reply_text('Type /email followed by your new email address to update it.')
     
@@ -292,7 +292,7 @@ def parse(update, context):
 
 def save_data(update, context):
     if 'expense' not in context.user_data.keys():
-       context.user_data['expense'] = Expense(update.message.chat.username) 
+       context.user_data['expense'] = Expense(update.message.from_user.id) 
        logger.debug(f"Created a new expense object")
 
     

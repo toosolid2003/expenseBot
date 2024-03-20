@@ -18,7 +18,7 @@ class DBHelper:
         self.conn.execute(stmt)
         self.conn.commit()
 
-        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_username varchar, status varchar, email varchar, date_created date, currency text)'''
+        stmt = '''CREATE TABLE IF NOT EXISTS users (telegram_id varchar, status varchar, email varchar, date_created date, currency text)'''
         self.conn.execute(stmt)
         self.conn.commit()
 
@@ -97,13 +97,13 @@ class DBHelper:
         return list(expenseTuple)
 
 
-    def updateStatus(self, currentStatus, newStatus, telegram_username):
+    def updateStatus(self, currentStatus, newStatus, telegram_id):
         '''
         Updates the status of all expenses matching a current status, per user.
         Returns nothing. Just updated the db.
         '''
 
-        data = (newStatus, currentStatus, telegram_username)
+        data = (newStatus, currentStatus, telegram_id)
         c = self.conn.cursor()
         c.execute('''UPDATE items SET status = ? WHERE status = ? AND user = ?''', data)
         self.conn.commit()
@@ -114,17 +114,17 @@ class DBHelper:
 
 ################# User Table Helpers #################################
 
-    def add_user(self, telegram_username, email, ccy):
+    def add_user(self, telegram_id, email, ccy):
         '''Adds a user to the users table.
         Input:  telegram username, user email, date of creation, base currency
         Output: new entry in the users table. By default, the user is set to "active"'''
 
-        data = (telegram_username, 'beta', email, time.strftime('%d-%m-%Y'), ccy)
+        data = (telegram_id, 'beta', email, time.strftime('%d-%m-%Y'), ccy)
         stmt = '''INSERT INTO users VALUES (?,?,?,?,?)'''
         self.conn.execute(stmt, data)
         self.conn.commit()
 
-    def checkExistingUser(self, telegram_username):
+    def checkExistingUser(self, telegram_id):
         """
         Checks if a user already exists in the database. Takes the telegram handle as input (it's unique).
         Returns:
@@ -132,8 +132,8 @@ class DBHelper:
          - False if she does not.
          """
 
-        data = (telegram_username,)
-        stmt = '''SELECT * FROM users WHERE telegram_username=?'''
+        data = (telegram_id,)
+        stmt = '''SELECT * FROM users WHERE telegram_id=?'''
         c = self.conn.cursor()
         c.execute(stmt, data)
         result = c.fetchone()
@@ -146,7 +146,7 @@ class DBHelper:
     def get_users_by_status(self, status):
         data = (status,)
         c = self.conn.cursor()
-        c.execute('''SELECT telegram_username, email, date_created FROM users WHERE status = ?''', data)
+        c.execute('''SELECT telegram_id, email, date_created FROM users WHERE status = ?''', data)
 
         return c.fetchall()
 
@@ -159,7 +159,7 @@ class DBHelper:
         """
         
         data = (activeUser,)
-        stmt = '''SELECT currency FROM users WHERE telegram_username = ?'''
+        stmt = '''SELECT currency FROM users WHERE telegram_id = ?'''
         c = self.conn.cursor()
         c.execute(stmt, data)
         result = c.fetchone()
@@ -167,20 +167,20 @@ class DBHelper:
         return result[0]
 
         
-    def get_user_email(self, telegram_username):
-        stmt = '''SELECT email FROM users WHERE telegram_username=?'''
-        data = (telegram_username,)
+    def get_user_email(self, telegram_id):
+        stmt = '''SELECT email FROM users WHERE telegram_id=?'''
+        data = (telegram_id,)
         c = self.conn.cursor()
         c.execute(stmt, data)
         result = c.fetchone()
 
         return result[0]
 
-    def update_user_email(self, telegram_username, mel):
+    def update_user_email(self, telegram_id, mel):
         """Changes the email address for the user."""
         
-        stmt = '''UPDATE users SET email=? WHERE telegram_username=?'''
-        data = (mel, telegram_username)
+        stmt = '''UPDATE users SET email=? WHERE telegram_id=?'''
+        data = (mel, telegram_id)
         self.conn.execute(stmt, data)
         self.conn.commit()
 

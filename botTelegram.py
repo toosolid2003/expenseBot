@@ -71,7 +71,7 @@ def chat_with_ai(update, context):
     
         #Creates an expense object and stores it in context.user_data, if it does not exist yet.
         if 'expense' not in context.user_data.keys():
-            context.user_data['expense'] = Expense(update.message.chat.username) 
+            context.user_data['expense'] = Expense(update.message.from_user.id) 
     
         #Inject the parsing results from OpenAI as a dict into the expense object
         context.user_data['expense'].get_input(j)
@@ -88,7 +88,7 @@ def chat_with_ai(update, context):
 
 def totalHandler(update, context):
 
-    logger.debug(f"Manually parsing input for {update.message.chat.username}.")
+    logger.debug(f"Manually parsing input for {update.message.from_user.id}.")
     
     #Initiating the parser
     p = Parser()
@@ -96,17 +96,17 @@ def totalHandler(update, context):
     if update.message.caption:
         logger.debug(f'Caption detected')
         p.parse_text(update.message.caption)
-        p.parse_picture(update.message.photo[-1]['file_id'],update.message.chat.username, bot)
+        p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot)
     elif update.message.text:
         p.parse_text(update.message.text)
     else:
-        p.parse_picture(update.message.photo[-1]['file_id'],update.message.chat.username, bot) 
+        p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot) 
         #does not work with documents, like pdf or Excel
     
 
     #Creates an expense object and stores it in context.user_data, if it does not exist yet.
     if 'expense' not in context.user_data.keys():
-        context.user_data['expense'] = Expense(update.message.chat.username) 
+        context.user_data['expense'] = Expense(update.message.from_user.id) 
         logger.debug(f"Created a new expense object")
 
     
