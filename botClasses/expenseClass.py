@@ -20,12 +20,12 @@ class Expense:
 
     def __init__(self, user):
         self._amount = None
+        self.user = user
         self.date = date.today()
         self.uid = str(uuid4())
         self._description = None
         self.category = 'Undetermined'
-        self.ccy = self.get_user_ccy() 
-        self.user = user
+        self.ccy = None 
         self._receipt = None
         self.complete = False
     
@@ -36,11 +36,12 @@ class Expense:
         
     def check_if_complete(self):
         if self.amount != None and self.description != None and self.receipt != None:
+            self.ccy = self.get_user_ccy()
             self.complete = True
             self.save_to_db()
 
     def save_to_db(self):
-        logger.debug(f"expense ready to be injected: {self}")
+        # logger.debug(f"expense ready to be injected: {self}")
         try:
             data = (self.uid, 
             self.amount, 
@@ -62,8 +63,10 @@ class Expense:
         '''Gets the default currency specified by the user. 
         Input: database where user infornation is stored
         Output: 3 character uppercase string representing the currency.'''
+        db = DBHelper()
+        ccy = db.get_ccy(self.user)
 
-        return 'USD'
+        return ccy
     
     def pull_latest_rates(self):
         '''Get the latest currency conversion rates from the ECB. 

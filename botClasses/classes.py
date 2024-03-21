@@ -116,7 +116,7 @@ class DBHelper:
 
     def add_user(self, telegram_id, email, ccy):
         '''Adds a user to the users table.
-        Input:  telegram username, user email, date of creation, base currency
+        Input:  telegram id, user email, base currency (eg EUR, USD, etc)
         Output: new entry in the users table. By default, the user is set to "active"'''
 
         data = (telegram_id, 'beta', email, time.strftime('%d-%m-%Y'), ccy)
