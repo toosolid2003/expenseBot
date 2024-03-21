@@ -9871,3 +9871,63 @@ Complete: True
 2024-03-21 16:01:04,573 - DEBUG - Using function getAmount
 2024-03-21 16:01:04,573 - DEBUG - Using function getAmount
 2024-03-21 16:01:04,574 - DEBUG - Using function getType
+2024-03-21 16:29:20,851 - INFO - Starting the bot
+2024-03-21 16:29:53,673 - DEBUG - Using function toMarkdown
+2024-03-21 16:29:54,525 - DEBUG - Using function toMarkdown
+2024-03-21 16:29:54,676 - DEBUG - 467786379 with thibaut@segura.design tries to export expense items.
+2024-03-21 16:29:54,676 - DEBUG - Date of expense: None.
+2024-03-21 16:29:54,676 - DEBUG - [*] Connecting to the db
+2024-03-21 16:29:54,677 - DEBUG - [*] Building the query
+2024-03-21 16:29:54,677 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 16:29:54,677 - DEBUG - [*] Executing the query
+2024-03-21 16:29:54,678 - DEBUG - [*] 131 items found in db
+2024-03-21 16:29:54,678 - DEBUG - [*] Loading the workbook template
+2024-03-21 16:29:54,693 - DEBUG - [*] Filling the spreadsheet
+2024-03-21 16:29:54,695 - DEBUG - [*] Saving the file on disk
+2024-03-21 16:29:54,712 - DEBUG - [*] Creating filename for zip file
+2024-03-21 16:29:54,712 - DEBUG - [*] Filling the zip archive with receipts
+2024-03-21 16:29:54,860 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:29:54,860 - DEBUG - Caption detected
+2024-03-21 16:29:55,284 - DEBUG - Created a new expense object
+2024-03-21 16:29:55,284 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_30.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-21 16:29:55,285 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 16:29:55,285 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 1a54a129-3b5a-43b0-8c63-d8de2f8defa4
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_30.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-21 16:29:55,463 - DEBUG - Expense complete. Deleted now.
+2024-03-21 16:29:55,463 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:29:55,463 - DEBUG - Caption detected
+2024-03-21 16:29:55,786 - DEBUG - Created a new expense object
+2024-03-21 16:29:55,786 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_31.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-21 16:29:55,787 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 16:29:55,787 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 83e46c24-e774-4247-8592-e3fc421cf02c
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_31.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-21 16:29:55,963 - DEBUG - Expense complete. Deleted now.
+2024-03-21 16:29:55,964 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:29:55,964 - DEBUG - Caption detected
+2024-03-21 16:29:56,158 - DEBUG - Created a new expense object
+2024-03-21 16:29:56,158 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rental', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_32.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-21 16:29:56,158 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 16:29:56,158 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: b16a4e94-38f8-49c4-8bac-c36cf38b4058
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_32.jpg
+Ccy: USD
+Category: car rental
+description: car rental
+Complete: True
+2024-03-21 16:29:56,301 - DEBUG - Expense complete. Deleted now.
