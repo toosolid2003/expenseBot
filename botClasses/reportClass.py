@@ -51,7 +51,7 @@ class ExpenseReport:
             self.expenseList = c.fetchall()
             logger.debug(f'[*] {len(self.expenseList)} items found in db')
             conn.close()
-        except e as Exception:
+        except Exception as e:
             logger.debug(f'[x] Found an exception connecting to db:{e}')
 
         return True

@@ -8529,3 +8529,1345 @@ Category: food & beverage
 description: restaurant
 Complete: True
 2024-03-20 13:02:01,267 - DEBUG - Expense complete. Deleted now.
+2024-03-20 13:44:02,397 - INFO - Starting the bot
+2024-03-20 13:44:45,657 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:44:45,657 - DEBUG - Created a new expense object
+2024-03-20 13:44:45,657 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:44:45,657 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 13:44:49,663 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:44:49,663 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:44:49,664 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 13:46:17,627 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:46:17,627 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:46:17,627 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 13:47:13,824 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:47:13,824 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:47:13,824 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 13:48:05,082 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 13:48:05,082 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 13:48:05,082 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:19:01,217 - INFO - Starting the bot
+2024-03-20 14:19:01,443 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:19:01,444 - DEBUG - Created a new expense object
+2024-03-20 14:19:01,444 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': None, 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:19:01,445 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:19:01,445 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:19:01,445 - DEBUG - Caption detected
+2024-03-20 14:19:01,869 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:19:01,869 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:19:01,870 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: a1ed67d6-1270-4580-af8f-ab1897a0c2a7
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 14:19:02,089 - DEBUG - Expense complete. Deleted now.
+2024-03-20 14:19:32,418 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:19:32,418 - DEBUG - Caption detected
+2024-03-20 14:19:32,459 - DEBUG - Created a new expense object
+2024-03-20 14:19:32,460 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:19:32,460 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:19:32,460 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 6009cfa9-1c51-4154-abe4-d9f3b1109a7e
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 14:19:32,618 - DEBUG - Expense complete. Deleted now.
+2024-03-20 14:28:10,333 - INFO - Starting the bot
+2024-03-20 14:28:10,475 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:28:10,475 - DEBUG - Caption detected
+2024-03-20 14:28:10,585 - DEBUG - Created a new expense object
+2024-03-20 14:28:10,585 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:28:10,585 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:28:10,586 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 6c0343f8-9adf-40a4-a892-5cc95a933c5d
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 14:28:10,951 - DEBUG - Expense complete. Deleted now.
+2024-03-20 14:29:19,798 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:29:19,798 - DEBUG - Caption detected
+2024-03-20 14:29:19,870 - DEBUG - Created a new expense object
+2024-03-20 14:29:19,871 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:29:19,871 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:29:19,871 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: cc0bab95-0f25-4610-aa86-956399c01dd6
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 14:29:20,068 - DEBUG - Expense complete. Deleted now.
+2024-03-20 14:29:20,219 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 14:29:41,644 - INFO - Starting the bot
+2024-03-20 14:29:46,277 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 14:29:46,277 - DEBUG - Caption detected
+2024-03-20 14:29:46,363 - DEBUG - Created a new expense object
+2024-03-20 14:29:46,363 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 14:29:46,363 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 14:29:46,363 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 0c07044f-21a6-4358-960c-68772868e84d
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_25.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 14:29:46,568 - DEBUG - Expense complete. Deleted now.
+2024-03-20 14:29:46,734 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 14:29:48,652 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 14:29:50,593 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 14:29:52,646 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 14:29:54,558 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 19:58:04,888 - INFO - Starting the bot
+2024-03-20 19:58:05,172 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 19:58:05,172 - DEBUG - Caption detected
+2024-03-20 19:58:05,533 - DEBUG - Created a new expense object
+2024-03-20 19:58:05,533 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 19:58:05,533 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 19:58:05,533 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: ba9dc28d-2ff5-4586-bff7-078b61802f16
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 19:58:05,783 - DEBUG - Expense complete. Deleted now.
+2024-03-20 19:58:05,920 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:02:09,824 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:02:09,825 - DEBUG - Caption detected
+2024-03-20 20:02:09,865 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:02:09,865 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:02:09,866 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: e7666ec0-ce74-43d7-8a56-ac565a53f229
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:02:10,272 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:02:41,357 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:02:41,357 - DEBUG - Caption detected
+2024-03-20 20:02:41,389 - DEBUG - Created a new expense object
+2024-03-20 20:02:41,389 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:02:41,390 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:02:41,390 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 9cbfaeb0-db08-448d-b88b-bb432f54c01d
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:02:41,586 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:02:41,779 - DEBUG - Sending user input -No worries- to chatGPT for parsing.
+2024-03-20 20:16:41,756 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:43,239 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:44,609 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:46,059 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:47,791 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:49,648 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:51,352 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:53,104 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:54,768 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:16:56,302 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:00,572 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:02,119 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:03,572 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:05,442 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:06,807 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:08,332 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:09,677 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:11,063 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:12,315 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:13,624 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:14,949 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:16,566 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:17,669 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:19,346 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:20,965 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:23,220 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:24,607 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:25,946 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:26,982 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:28,141 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:29,652 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:31,418 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:33,036 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:34,537 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:35,675 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:36,970 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:38,254 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:39,601 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:45,881 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:47,320 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:48,550 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:50,099 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:51,231 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:52,871 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:54,144 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:55,749 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:57,602 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:17:58,786 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:00,490 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:02,182 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:03,378 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:04,310 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:05,409 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:06,976 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:08,091 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:09,371 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:10,704 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:12,300 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:13,645 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:14,775 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:16,143 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:17,870 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:19,294 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:20,566 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:21,711 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:22,931 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:24,237 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:25,835 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:27,415 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:28,515 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:29,720 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:30,997 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:32,471 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:33,994 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:35,481 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:36,633 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:37,935 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:39,543 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:40,899 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:42,137 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:43,413 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:44,382 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:45,645 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:47,176 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:48,449 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:49,857 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:51,256 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:52,475 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:54,007 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:55,410 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:56,414 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:57,512 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:58,762 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:18:59,926 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:01,218 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:02,198 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:03,463 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:04,943 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:06,345 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:08,146 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:09,196 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:10,596 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:11,945 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:13,533 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:14,983 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:16,388 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:17,892 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:19,021 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:20,323 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:21,472 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:22,646 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:24,026 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:25,314 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:26,651 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:27,666 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:28,811 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:30,069 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:31,635 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:32,831 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:34,115 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:35,951 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:37,248 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:38,944 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:40,155 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:41,315 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:42,951 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:44,119 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:45,095 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:46,224 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:47,950 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:49,269 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:50,977 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:51,982 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:53,179 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:54,505 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:55,624 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:57,074 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:19:58,636 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:20:01,230 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:20:02,547 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:20:04,657 - DEBUG - Sending user input -Hi- to chatGPT for parsing.
+2024-03-20 20:46:44,029 - INFO - Starting the bot
+2024-03-20 20:48:34,974 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:48:34,975 - DEBUG - Caption detected
+2024-03-20 20:48:35,082 - DEBUG - Created a new expense object
+2024-03-20 20:48:35,082 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:48:35,082 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:48:35,082 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 360fc158-5450-4118-b769-6096b2d1ac5f
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:48:35,304 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:49:11,149 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:49:11,149 - DEBUG - Caption detected
+2024-03-20 20:49:11,218 - DEBUG - Created a new expense object
+2024-03-20 20:49:11,219 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:49:11,219 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:49:11,219 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 4db989d0-5e7e-4d6b-900a-728978f42d7a
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:49:11,386 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:50:08,698 - INFO - Starting the bot
+2024-03-20 20:50:12,760 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:50:12,761 - DEBUG - Caption detected
+2024-03-20 20:50:12,851 - DEBUG - Created a new expense object
+2024-03-20 20:50:12,851 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:50:12,851 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:50:12,852 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: a893dd86-16ff-4627-85a6-ac0c7ed5ae0c
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:50:13,074 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:50:31,916 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:50:31,917 - DEBUG - Caption detected
+2024-03-20 20:50:31,957 - DEBUG - Created a new expense object
+2024-03-20 20:50:31,957 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:50:31,957 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:50:31,957 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: fa191f3d-d196-4707-8d13-b38c12f5ecf8
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:50:32,134 - DEBUG - Expense complete. Deleted now.
+2024-03-20 20:50:55,256 - INFO - Starting the bot
+2024-03-20 20:50:59,387 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 20:50:59,387 - DEBUG - Caption detected
+2024-03-20 20:50:59,486 - DEBUG - Created a new expense object
+2024-03-20 20:50:59,487 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 20:50:59,487 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 20:50:59,487 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: fbd39cbf-fca5-4396-aed5-63482b5660b8
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 20:50:59,694 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:16:40,535 - INFO - Starting the bot
+2024-03-20 21:16:40,672 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:16:40,672 - DEBUG - Caption detected
+2024-03-20 21:16:40,756 - DEBUG - Created a new expense object
+2024-03-20 21:16:40,756 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:16:40,756 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:16:40,756 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: ceabaa89-549e-4e0a-830a-2a4efec7a8a3
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:16:40,967 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:16:40,967 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:16:40,967 - DEBUG - Caption detected
+2024-03-20 21:16:41,013 - DEBUG - Created a new expense object
+2024-03-20 21:16:41,013 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:16:41,013 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:16:41,013 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 2658b018-1682-4136-8eef-a6c58d8c37c0
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:16:41,201 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:16:48,989 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:16:48,990 - DEBUG - Caption detected
+2024-03-20 21:16:49,035 - DEBUG - Created a new expense object
+2024-03-20 21:16:49,035 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:16:49,035 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:16:49,035 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: cbef5589-535e-456a-9329-6a48e9c7bb88
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:16:49,196 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:17:26,845 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:17:26,845 - DEBUG - Caption detected
+2024-03-20 21:17:26,893 - DEBUG - Created a new expense object
+2024-03-20 21:17:26,893 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:17:26,893 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:17:26,893 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: efb8104c-15f6-4035-bd65-5a1323d286d4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:17:27,072 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:18:14,529 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:18:14,530 - DEBUG - Caption detected
+2024-03-20 21:18:14,572 - DEBUG - Created a new expense object
+2024-03-20 21:18:14,572 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:18:14,572 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:18:14,572 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 579ab00f-cc04-45ae-93aa-1cedacf6e1af
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:18:14,801 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:22:07,065 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:22:07,065 - DEBUG - Caption detected
+2024-03-20 21:22:07,111 - DEBUG - Created a new expense object
+2024-03-20 21:22:07,111 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:22:07,111 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:22:07,111 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: d9f7b5cb-88bc-496c-8d9a-d5d6288bb004
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:22:07,274 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:23:00,230 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:23:00,230 - DEBUG - Caption detected
+2024-03-20 21:23:00,267 - DEBUG - Created a new expense object
+2024-03-20 21:23:00,267 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:23:00,267 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:23:00,267 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 41ff5102-efda-4e59-acaf-8e401b4340d8
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:23:00,453 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:23:18,779 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:23:18,779 - DEBUG - Caption detected
+2024-03-20 21:23:18,826 - DEBUG - Created a new expense object
+2024-03-20 21:23:18,826 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:23:18,826 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:23:18,826 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 3fe7fdf1-7bb9-41b8-b73c-c3cd3ff63c9c
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:23:19,006 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:29:56,660 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:29:56,660 - DEBUG - Caption detected
+2024-03-20 21:29:56,704 - DEBUG - Created a new expense object
+2024-03-20 21:29:56,704 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:29:56,704 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:29:56,704 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 07a4e69f-d487-49d6-a33e-a77b549fa75e
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:29:56,886 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:31:00,937 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:31:00,937 - DEBUG - Caption detected
+2024-03-20 21:31:00,982 - DEBUG - Created a new expense object
+2024-03-20 21:31:00,982 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:31:00,982 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:31:00,982 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 856c470d-4606-4a26-aad6-f0ceed661d79
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:31:01,142 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:31:01,293 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:31:01,293 - DEBUG - Caption detected
+2024-03-20 21:31:01,335 - DEBUG - Created a new expense object
+2024-03-20 21:31:01,336 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:31:01,336 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:31:01,336 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: ea2569be-d8a0-4d05-9d93-8019c41d204c
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:31:01,497 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:31:01,638 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:31:01,638 - DEBUG - Caption detected
+2024-03-20 21:31:01,696 - DEBUG - Created a new expense object
+2024-03-20 21:31:01,696 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:31:01,696 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:31:01,696 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 7cc497f1-6994-4971-b937-4d9efbc633a7
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:31:01,865 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:31:43,151 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:31:43,151 - DEBUG - Caption detected
+2024-03-20 21:31:43,208 - DEBUG - Created a new expense object
+2024-03-20 21:31:43,208 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:31:43,208 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:31:43,208 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 8b7b5466-f786-4948-a2cf-c038d28fe1c5
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:31:43,367 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:37:03,977 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:37:03,977 - DEBUG - Caption detected
+2024-03-20 21:37:04,039 - DEBUG - Created a new expense object
+2024-03-20 21:37:04,039 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:37:04,039 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:37:04,040 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 8c162b0b-2685-481f-83ed-b79c97068bdf
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:37:04,193 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:40:47,567 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:40:47,567 - DEBUG - Caption detected
+2024-03-20 21:40:47,621 - DEBUG - Created a new expense object
+2024-03-20 21:40:47,621 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau Label', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:40:47,621 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:40:47,621 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 3966e8f7-48b0-4d7a-8e7d-a5cedd87c179
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restau Label
+Complete: True
+2024-03-20 21:40:47,781 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:41:17,593 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:41:17,594 - DEBUG - Caption detected
+2024-03-20 21:41:17,647 - DEBUG - Created a new expense object
+2024-03-20 21:41:17,647 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:41:17,647 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:41:17,647 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: fd43a175-05ee-47ca-85ce-9f1e45ac0fa9
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:41:17,832 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:41:19,900 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:41:19,900 - DEBUG - Caption detected
+2024-03-20 21:41:19,943 - DEBUG - Created a new expense object
+2024-03-20 21:41:19,943 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:41:19,943 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:41:19,943 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 926720ba-7a2e-470e-8d79-f44f081eb410
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:41:20,106 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:41:22,235 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:41:22,235 - DEBUG - Caption detected
+2024-03-20 21:41:22,300 - DEBUG - Created a new expense object
+2024-03-20 21:41:22,300 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:41:22,300 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:41:22,300 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: e3daaf8e-20fc-45f3-9923-7ce2a8f1ca21
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:41:22,561 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:09,714 - INFO - Starting the bot
+2024-03-20 21:48:09,879 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:09,880 - DEBUG - Caption detected
+2024-03-20 21:48:09,966 - DEBUG - Created a new expense object
+2024-03-20 21:48:09,966 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:48:09,966 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:09,966 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 17094054-8323-451b-b34a-435d84fea967
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:48:10,169 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:10,169 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:10,169 - DEBUG - Caption detected
+2024-03-20 21:48:10,212 - DEBUG - Created a new expense object
+2024-03-20 21:48:10,213 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:48:10,213 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:10,213 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: aefe4d04-8be3-4acf-8c96-c281d13876b4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:48:10,373 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:10,373 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:10,374 - DEBUG - Caption detected
+2024-03-20 21:48:10,418 - DEBUG - Created a new expense object
+2024-03-20 21:48:10,418 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:48:10,419 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:10,419 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 25db9d89-849c-4c2e-85f0-40689b8be01d
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:48:10,608 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:23,246 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:23,246 - DEBUG - Caption detected
+2024-03-20 21:48:23,278 - DEBUG - Created a new expense object
+2024-03-20 21:48:23,278 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:48:23,278 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:23,278 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 9df5a4b2-ff34-4a1e-84ce-2228e18b0885
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:48:23,496 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:23,496 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:23,497 - DEBUG - Caption detected
+2024-03-20 21:48:23,533 - DEBUG - Created a new expense object
+2024-03-20 21:48:23,534 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:48:23,534 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:23,534 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 2506814b-afb4-4528-b403-3282bb2d094f
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:48:23,720 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:48:23,720 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:48:23,720 - DEBUG - Caption detected
+2024-03-20 21:48:23,766 - DEBUG - Created a new expense object
+2024-03-20 21:48:23,767 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:48:23,767 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:48:23,767 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: cf5903d8-01ee-4e0c-a296-c1879f621c44
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:48:23,921 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:49:40,877 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:49:40,878 - DEBUG - Caption detected
+2024-03-20 21:49:40,926 - DEBUG - Created a new expense object
+2024-03-20 21:49:40,926 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:49:40,926 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:49:40,926 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 313f27de-bc4c-4f92-8afb-a09fac278760
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:49:41,099 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:49:41,099 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:49:41,099 - DEBUG - Caption detected
+2024-03-20 21:49:41,144 - DEBUG - Created a new expense object
+2024-03-20 21:49:41,144 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:49:41,144 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:49:41,144 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 66d9adeb-a1a5-4656-a080-9b63dbc702ac
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:49:41,301 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:49:41,301 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:49:41,301 - DEBUG - Caption detected
+2024-03-20 21:49:41,336 - DEBUG - Created a new expense object
+2024-03-20 21:49:41,336 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:49:41,336 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:49:41,337 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: c09dba55-1a71-46bb-bc6e-ad207fba4f77
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:49:41,495 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:24,676 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:24,676 - DEBUG - Caption detected
+2024-03-20 21:50:24,716 - DEBUG - Created a new expense object
+2024-03-20 21:50:24,716 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:50:24,716 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:24,716 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 35ea40ae-beac-45bd-afe6-cc1527848d85
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:50:24,916 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:24,916 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:24,916 - DEBUG - Caption detected
+2024-03-20 21:50:24,953 - DEBUG - Created a new expense object
+2024-03-20 21:50:24,953 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:50:24,953 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:24,953 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: a571e647-dc5f-43ea-a74d-7acd463bf745
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:50:25,135 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:25,135 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:25,136 - DEBUG - Caption detected
+2024-03-20 21:50:25,171 - DEBUG - Created a new expense object
+2024-03-20 21:50:25,171 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:50:25,171 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:25,171 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: eafdbcf1-ca32-478d-a1c0-b539389e6227
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:50:25,333 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:45,950 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:45,951 - DEBUG - Caption detected
+2024-03-20 21:50:45,988 - DEBUG - Created a new expense object
+2024-03-20 21:50:45,988 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:50:45,988 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:45,988 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: bde4bab9-bbac-4ebb-89f1-5a68b2ea1db4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:50:46,147 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:46,147 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:46,147 - DEBUG - Caption detected
+2024-03-20 21:50:46,188 - DEBUG - Created a new expense object
+2024-03-20 21:50:46,188 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:50:46,188 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:46,188 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 7b25639e-6992-4661-a50c-cd9617710359
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:50:46,345 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:50:46,345 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:50:46,345 - DEBUG - Caption detected
+2024-03-20 21:50:46,383 - DEBUG - Created a new expense object
+2024-03-20 21:50:46,383 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:50:46,383 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:50:46,383 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: a243d804-d753-4334-b876-3cfc7c910b06
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:50:46,566 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:22,877 - INFO - Starting the bot
+2024-03-20 21:51:28,651 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:28,652 - DEBUG - Caption detected
+2024-03-20 21:51:28,767 - DEBUG - Created a new expense object
+2024-03-20 21:51:28,767 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:51:28,767 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:28,767 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: f843d618-fb42-4cd0-82b8-ed07b0942c48
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:51:29,004 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:29,005 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:29,005 - DEBUG - Caption detected
+2024-03-20 21:51:29,040 - DEBUG - Created a new expense object
+2024-03-20 21:51:29,040 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:51:29,040 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:29,040 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 4c118002-d0be-4f07-b03c-49e3c4049ff4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:51:29,207 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:29,208 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:29,208 - DEBUG - Caption detected
+2024-03-20 21:51:29,250 - DEBUG - Created a new expense object
+2024-03-20 21:51:29,250 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:51:29,250 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:29,250 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 50c905a7-1aa4-4d47-9b72-f162ba81a396
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:51:29,402 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:50,778 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:50,779 - DEBUG - Caption detected
+2024-03-20 21:51:50,811 - DEBUG - Created a new expense object
+2024-03-20 21:51:50,812 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 21:51:50,812 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:50,812 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: e3c8732d-6250-4a79-bf54-e540f53b78cd
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 21:51:50,964 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:50,964 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:50,964 - DEBUG - Caption detected
+2024-03-20 21:51:50,995 - DEBUG - Created a new expense object
+2024-03-20 21:51:50,995 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 21:51:50,995 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:50,995 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 87cbf466-2d36-4be2-ba53-3eaded5e3330
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 21:51:51,155 - DEBUG - Expense complete. Deleted now.
+2024-03-20 21:51:51,155 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 21:51:51,155 - DEBUG - Caption detected
+2024-03-20 21:51:51,191 - DEBUG - Created a new expense object
+2024-03-20 21:51:51,191 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 21:51:51,191 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 21:51:51,192 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 2c9cb722-0c81-4a6d-91a9-6d780c959bed
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 21:51:51,351 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:12:57,331 - INFO - Starting the bot
+2024-03-20 22:12:57,466 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:12:57,466 - DEBUG - Caption detected
+2024-03-20 22:12:57,549 - DEBUG - Created a new expense object
+2024-03-20 22:12:57,549 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 22:12:57,549 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:12:57,549 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: a0e7ec7d-36e9-4022-8d29-86d1dd84a3f3
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 22:12:57,811 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:12:57,811 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:12:57,811 - DEBUG - Caption detected
+2024-03-20 22:12:57,854 - DEBUG - Created a new expense object
+2024-03-20 22:12:57,854 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 22:12:57,854 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:12:57,854 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 1b6604c8-5a11-4149-9eab-ab143ed818c4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 22:12:58,032 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:12:58,033 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:12:58,033 - DEBUG - Caption detected
+2024-03-20 22:12:58,123 - DEBUG - Created a new expense object
+2024-03-20 22:12:58,124 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 22:12:58,124 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:12:58,124 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: badfea8d-8d24-432b-8d37-97009f89770f
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 22:12:58,299 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:02,436 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:02,436 - DEBUG - Caption detected
+2024-03-20 22:13:02,485 - DEBUG - Created a new expense object
+2024-03-20 22:13:02,485 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 22:13:02,485 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:02,485 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 75d031ac-96fc-4f72-a8c8-6aecc9d71926
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 22:13:02,640 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:02,640 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:02,641 - DEBUG - Caption detected
+2024-03-20 22:13:02,683 - DEBUG - Created a new expense object
+2024-03-20 22:13:02,684 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 22:13:02,684 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:02,684 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: c78e4cd5-cb51-4e76-b917-ad91e444d2f6
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 22:13:02,849 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:02,850 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:02,850 - DEBUG - Caption detected
+2024-03-20 22:13:02,902 - DEBUG - Created a new expense object
+2024-03-20 22:13:02,902 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 22:13:02,902 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:02,902 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 2838a134-c0a5-400e-a551-2febbc3d498f
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 22:13:03,069 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:14,480 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:14,480 - DEBUG - Caption detected
+2024-03-20 22:13:14,522 - DEBUG - Created a new expense object
+2024-03-20 22:13:14,522 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 22:13:14,522 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:14,522 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 3a77974b-f13a-4eb2-8449-3e949966c025
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 22:13:14,684 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:14,685 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:14,685 - DEBUG - Caption detected
+2024-03-20 22:13:14,726 - DEBUG - Created a new expense object
+2024-03-20 22:13:14,726 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 22:13:14,727 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:14,727 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: ad8b452b-4e49-4dc8-b0ce-ab3aa0ed8ca4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 22:13:14,900 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:14,901 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:14,901 - DEBUG - Caption detected
+2024-03-20 22:13:14,965 - DEBUG - Created a new expense object
+2024-03-20 22:13:14,965 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 22:13:14,965 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:14,965 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: c887c0d6-7f30-4779-a10f-4b0de2330d79
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 22:13:15,141 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:34,091 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:34,091 - DEBUG - Caption detected
+2024-03-20 22:13:34,135 - DEBUG - Created a new expense object
+2024-03-20 22:13:34,135 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-20 22:13:34,135 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:34,135 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 71a716f8-1bfe-4992-987f-9433d49544f4
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-20 22:13:34,314 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:34,314 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:34,315 - DEBUG - Caption detected
+2024-03-20 22:13:34,352 - DEBUG - Created a new expense object
+2024-03-20 22:13:34,352 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rentl', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-20 22:13:34,352 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:34,352 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: db24bb7d-6ae0-4606-ba5c-cad0672fac51
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: car rental
+description: car rentl
+Complete: True
+2024-03-20 22:13:34,505 - DEBUG - Expense complete. Deleted now.
+2024-03-20 22:13:34,505 - DEBUG - Manually parsing input for 467786379.
+2024-03-20 22:13:34,505 - DEBUG - Caption detected
+2024-03-20 22:13:34,555 - DEBUG - Created a new expense object
+2024-03-20 22:13:34,555 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-20 22:13:34,555 - DEBUG - Assigning the parsed data to the expense object
+2024-03-20 22:13:34,555 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 89e8467d-bce0-4b70-a0c4-202f3ff9aa2a
+Date: 2024-03-20
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_26.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-20 22:13:34,721 - DEBUG - Expense complete. Deleted now.
+2024-03-21 12:12:28,632 - DEBUG - Using function parseText
+2024-03-21 12:12:28,636 - DEBUG - Using function parseText
+2024-03-21 12:12:28,640 - DEBUG - Using function parseText
+2024-03-21 12:12:28,647 - DEBUG - Using function checkCompletion
+2024-03-21 12:12:28,647 - DEBUG - Using function checkCompletion
+2024-03-21 12:12:28,647 - INFO - Missing: ['receipt']
+2024-03-21 12:12:28,647 - DEBUG - Using function checkCompletion
+2024-03-21 12:12:28,649 - DEBUG - Using function getAmount
+2024-03-21 12:12:28,649 - DEBUG - Using function getAmount
+2024-03-21 12:12:28,650 - DEBUG - Using function getAmount
+2024-03-21 12:12:28,650 - DEBUG - Using function getType
+2024-03-21 12:12:29,511 - DEBUG - [*] Connecting to the db
+2024-03-21 12:12:29,511 - DEBUG - [*] Building the query
+2024-03-21 12:12:29,511 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 12:12:29,511 - DEBUG - [*] Executing the query
+2024-03-21 12:15:52,265 - DEBUG - Using function parseText
+2024-03-21 12:15:52,269 - DEBUG - Using function parseText
+2024-03-21 12:15:52,273 - DEBUG - Using function parseText
+2024-03-21 12:15:52,279 - DEBUG - Using function checkCompletion
+2024-03-21 12:15:52,280 - DEBUG - Using function checkCompletion
+2024-03-21 12:15:52,280 - INFO - Missing: ['receipt']
+2024-03-21 12:15:52,280 - DEBUG - Using function checkCompletion
+2024-03-21 12:15:52,282 - DEBUG - Using function getAmount
+2024-03-21 12:15:52,282 - DEBUG - Using function getAmount
+2024-03-21 12:15:52,282 - DEBUG - Using function getAmount
+2024-03-21 12:15:52,283 - DEBUG - Using function getType
+2024-03-21 12:15:53,712 - DEBUG - [*] Connecting to the db
+2024-03-21 12:15:53,712 - DEBUG - [*] Building the query
+2024-03-21 12:15:53,712 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 12:15:53,712 - DEBUG - [*] Executing the query
+2024-03-21 12:17:32,540 - DEBUG - Using function parseText
+2024-03-21 12:17:32,544 - DEBUG - Using function parseText
+2024-03-21 12:17:32,548 - DEBUG - Using function parseText
+2024-03-21 12:17:32,554 - DEBUG - Using function checkCompletion
+2024-03-21 12:17:32,554 - DEBUG - Using function checkCompletion
+2024-03-21 12:17:32,554 - INFO - Missing: ['receipt']
+2024-03-21 12:17:32,555 - DEBUG - Using function checkCompletion
+2024-03-21 12:17:32,556 - DEBUG - Using function getAmount
+2024-03-21 12:17:32,557 - DEBUG - Using function getAmount
+2024-03-21 12:17:32,557 - DEBUG - Using function getAmount
+2024-03-21 12:17:32,557 - DEBUG - Using function getType
+2024-03-21 12:17:33,288 - DEBUG - [*] Connecting to the db
+2024-03-21 12:17:33,289 - DEBUG - [*] Building the query
+2024-03-21 12:17:33,289 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 12:17:33,289 - DEBUG - [*] Executing the query
+2024-03-21 14:01:00,367 - INFO - Starting the bot
+2024-03-21 14:01:09,612 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:09,612 - DEBUG - Caption detected
+2024-03-21 14:01:09,617 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:09,617 - DEBUG - Caption detected
+2024-03-21 14:01:09,648 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:09,649 - DEBUG - Caption detected
+2024-03-21 14:01:09,650 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:09,650 - DEBUG - Caption detected
+2024-03-21 14:01:09,650 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:09,650 - DEBUG - Caption detected
+2024-03-21 14:01:10,174 - DEBUG - Created a new expense object
+2024-03-21 14:01:10,175 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_27.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-21 14:01:10,175 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:10,175 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 6b7fc1db-0aae-4165-8e7d-c2ddfadbfa01
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_27.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-21 14:01:10,387 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:10,387 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:10,387 - DEBUG - Caption detected
+2024-03-21 14:01:10,600 - DEBUG - Created a new expense object
+2024-03-21 14:01:10,600 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_28.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-21 14:01:10,600 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:10,600 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: 80b07981-664b-4679-9d15-06c1feae80ce
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_28.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-21 14:01:10,757 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:10,757 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:10,757 - DEBUG - Caption detected
+2024-03-21 14:01:10,758 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:10,758 - DEBUG - Caption detected
+2024-03-21 14:01:10,758 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:10,758 - DEBUG - Caption detected
+2024-03-21 14:01:10,961 - DEBUG - Created a new expense object
+2024-03-21 14:01:10,962 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rental', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-21 14:01:10,962 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:10,962 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 0c837153-9958-44f0-9b5a-ad77cdb9fd31
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg
+Ccy: USD
+Category: car rental
+description: car rental
+Complete: True
+2024-03-21 14:01:11,142 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:34,965 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:34,965 - DEBUG - Caption detected
+2024-03-21 14:01:35,050 - DEBUG - Created a new expense object
+2024-03-21 14:01:35,050 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg', 'category': 'food & beverage', 'amount': 12.0}
+2024-03-21 14:01:35,050 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:35,051 - DEBUG - expense ready to be injected: Expense data:
+Amount: 12.0
+UID: 808e93b9-a15e-432c-bea3-59cc47b77c6a
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-21 14:01:35,197 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:35,197 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,197 - DEBUG - Caption detected
+2024-03-21 14:01:35,198 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,198 - DEBUG - Caption detected
+2024-03-21 14:01:35,198 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,198 - DEBUG - Caption detected
+2024-03-21 14:01:35,325 - DEBUG - Created a new expense object
+2024-03-21 14:01:35,325 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'car rental', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg', 'category': 'car rental', 'amount': 189.0}
+2024-03-21 14:01:35,325 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:35,325 - DEBUG - expense ready to be injected: Expense data:
+Amount: 189.0
+UID: 6bd16dc6-b464-44de-818c-944060a636f5
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg
+Ccy: USD
+Category: car rental
+description: car rental
+Complete: True
+2024-03-21 14:01:35,496 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:35,497 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,497 - DEBUG - Caption detected
+2024-03-21 14:01:35,499 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,499 - DEBUG - Caption detected
+2024-03-21 14:01:35,500 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,501 - DEBUG - Caption detected
+2024-03-21 14:01:35,501 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,501 - DEBUG - Caption detected
+2024-03-21 14:01:35,593 - DEBUG - Created a new expense object
+2024-03-21 14:01:35,593 - DEBUG - Parsed input: {'ccy': None, 'description': 'hotel', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg', 'category': 'accomodation', 'amount': 50.0}
+2024-03-21 14:01:35,593 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 14:01:35,594 - DEBUG - expense ready to be injected: Expense data:
+Amount: 50.0
+UID: fcacb058-df7b-4b22-9f4c-da78573fbae1
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_29.jpg
+Ccy: USD
+Category: accomodation
+description: hotel
+Complete: True
+2024-03-21 14:01:35,766 - DEBUG - Expense complete. Deleted now.
+2024-03-21 14:01:35,766 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 14:01:35,767 - DEBUG - Caption detected
+2024-03-21 15:51:16,517 - DEBUG - Using function parseText
+2024-03-21 15:51:16,558 - DEBUG - Using function parseText
+2024-03-21 15:51:16,561 - DEBUG - Using function parseText
+2024-03-21 15:51:16,568 - DEBUG - Using function checkCompletion
+2024-03-21 15:51:16,568 - DEBUG - Using function checkCompletion
+2024-03-21 15:51:16,568 - INFO - Missing: ['receipt']
+2024-03-21 15:51:16,569 - DEBUG - Using function checkCompletion
+2024-03-21 15:51:16,571 - DEBUG - Using function getAmount
+2024-03-21 15:51:16,571 - DEBUG - Using function getAmount
+2024-03-21 15:51:16,571 - DEBUG - Using function getAmount
+2024-03-21 15:51:16,572 - DEBUG - Using function getType
+2024-03-21 15:51:18,204 - DEBUG - [*] Connecting to the db
+2024-03-21 15:51:18,205 - DEBUG - [*] Building the query
+2024-03-21 15:51:18,205 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 15:51:18,205 - DEBUG - [*] Executing the query
+2024-03-21 15:55:30,434 - DEBUG - [*] Connecting to the db
+2024-03-21 15:55:30,434 - DEBUG - [*] Building the query
+2024-03-21 15:55:30,434 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 15:55:30,434 - DEBUG - [*] Executing the query
+2024-03-21 15:57:13,423 - DEBUG - [*] Connecting to the db
+2024-03-21 15:57:13,423 - DEBUG - [*] Building the query
+2024-03-21 15:57:13,423 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 15:57:13,423 - DEBUG - [*] Executing the query
+2024-03-21 15:57:13,423 - DEBUG - [x] Found an exception connecting to db:no such table: items
+2024-03-21 16:00:30,472 - DEBUG - Using function parseText
+2024-03-21 16:00:30,512 - DEBUG - Using function parseText
+2024-03-21 16:00:30,515 - DEBUG - Using function parseText
+2024-03-21 16:00:30,522 - DEBUG - Using function checkCompletion
+2024-03-21 16:00:30,522 - DEBUG - Using function checkCompletion
+2024-03-21 16:00:30,522 - INFO - Missing: ['receipt']
+2024-03-21 16:00:30,522 - DEBUG - Using function checkCompletion
+2024-03-21 16:00:30,524 - DEBUG - Using function getAmount
+2024-03-21 16:00:30,524 - DEBUG - Using function getAmount
+2024-03-21 16:00:30,525 - DEBUG - Using function getAmount
+2024-03-21 16:00:30,525 - DEBUG - Using function getType
+2024-03-21 16:01:04,569 - DEBUG - Using function checkCompletion
+2024-03-21 16:01:04,569 - DEBUG - Using function checkCompletion
+2024-03-21 16:01:04,569 - INFO - Missing: ['receipt']
+2024-03-21 16:01:04,569 - DEBUG - Using function checkCompletion
+2024-03-21 16:01:04,572 - DEBUG - Using function getAmount
+2024-03-21 16:01:04,573 - DEBUG - Using function getAmount
+2024-03-21 16:01:04,573 - DEBUG - Using function getAmount
+2024-03-21 16:01:04,574 - DEBUG - Using function getType
