@@ -9931,3 +9931,40 @@ Category: car rental
 description: car rental
 Complete: True
 2024-03-21 16:29:56,301 - DEBUG - Expense complete. Deleted now.
+2024-03-21 16:37:06,747 - INFO - Starting the bot
+2024-03-21 16:37:24,781 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:37:24,782 - DEBUG - Caption detected
+2024-03-21 16:38:39,702 - INFO - Starting the bot
+2024-03-21 16:38:50,703 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:38:50,704 - DEBUG - Caption detected
+2024-03-21 16:40:29,174 - INFO - Starting the bot
+2024-03-21 16:40:39,400 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:40:39,400 - DEBUG - Caption detected
+2024-03-21 16:40:40,262 - DEBUG - Created a new expense object
+2024-03-21 16:40:40,263 - DEBUG - Parsed input: {'ccy': None, 'description': 'restaurant', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_33.numbers', 'category': 'food & beverage', 'amount': 30.0}
+2024-03-21 16:40:40,263 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 16:40:40,263 - DEBUG - expense ready to be injected: Expense data:
+Amount: 30.0
+UID: f9ea6878-ef87-4e5b-8c30-6f1d14f4af23
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_33.numbers
+Ccy: USD
+Category: food & beverage
+description: restaurant
+Complete: True
+2024-03-21 16:40:40,482 - DEBUG - Expense complete. Deleted now.
+2024-03-21 16:40:53,932 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 16:40:53,932 - DEBUG - Caption detected
+2024-03-21 16:40:54,301 - DEBUG - Created a new expense object
+2024-03-21 16:40:54,301 - DEBUG - Parsed input: {'ccy': 'USD', 'description': 'restau', 'receipt': '/Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_34.numbers', 'category': 'food & beverage', 'amount': 400.0}
+2024-03-21 16:40:54,301 - DEBUG - Assigning the parsed data to the expense object
+2024-03-21 16:40:54,301 - DEBUG - expense ready to be injected: Expense data:
+Amount: 400.0
+UID: c9cea198-96d6-4ba4-908c-ad652edd040e
+Date: 2024-03-21
+Receipt: /Users/thibautsegura/Documents/Code/expenseBot/receipts/467786379/file_34.numbers
+Ccy: USD
+Category: food & beverage
+description: restau
+Complete: True
+2024-03-21 16:40:54,493 - DEBUG - Expense complete. Deleted now.

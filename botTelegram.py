@@ -96,13 +96,12 @@ def totalHandler(update, context):
     if update.message.caption:
         logger.debug(f'Caption detected')
         p.parse_text(update.message.caption)
-        p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot)
-    elif update.message.text:
-        p.parse_text(update.message.text)
+        try:
+            p.parse_picture(update.message.document['file_id'],update.message.from_user.id, bot)
+        except IndexError:
+            p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot)    
     else:
-        p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot) 
-        #does not work with documents, like pdf or Excel
-    
+        p.parse_text(update.message.text)
 
     #Creates an expense object and stores it in context.user_data, if it does not exist yet.
     if 'expense' not in context.user_data.keys():
