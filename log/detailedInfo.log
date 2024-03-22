@@ -10007,3 +10007,44 @@ Category: food & beverage
 description: restau
 Complete: True
 2024-03-21 17:00:40,325 - DEBUG - Expense complete. Deleted now.
+2024-03-21 17:36:36,316 - INFO - Starting the bot
+2024-03-21 17:36:41,340 - DEBUG - Using function toMarkdown
+2024-03-21 17:36:41,567 - DEBUG - Using function toMarkdown
+2024-03-21 17:36:41,736 - DEBUG - 467786379 with toto@test.com tries to export expense items.
+2024-03-21 17:36:41,736 - DEBUG - Date of expense: None.
+2024-03-21 17:36:41,736 - DEBUG - [*] Connecting to the db
+2024-03-21 17:36:41,736 - DEBUG - [*] Building the query
+2024-03-21 17:36:41,736 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 17:36:41,736 - DEBUG - [*] Executing the query
+2024-03-21 17:36:41,737 - DEBUG - [*] 137 items found in db
+2024-03-21 17:36:41,737 - DEBUG - [*] Loading the workbook template
+2024-03-21 17:36:41,741 - DEBUG - [*] Filling the spreadsheet
+2024-03-21 17:36:41,742 - DEBUG - [*] Saving the file on disk
+2024-03-21 17:36:41,750 - DEBUG - [*] Creating filename for zip file
+2024-03-21 17:36:41,750 - DEBUG - [*] Filling the zip archive with receipts
+2024-03-21 17:36:42,550 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:42,550 - DEBUG - Caption detected
+2024-03-21 17:36:42,551 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:42,551 - DEBUG - Caption detected
+2024-03-21 17:36:42,552 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:42,552 - DEBUG - Caption detected
+2024-03-21 17:36:52,319 - DEBUG - 467786379 with toto@test.com tries to export expense items.
+2024-03-21 17:36:52,320 - DEBUG - Date of expense: None.
+2024-03-21 17:36:52,320 - DEBUG - [*] Connecting to the db
+2024-03-21 17:36:52,320 - DEBUG - [*] Building the query
+2024-03-21 17:36:52,320 - DEBUG - [*] Query built: SELECT * FROM items WHERE user=?
+2024-03-21 17:36:52,320 - DEBUG - [*] Executing the query
+2024-03-21 17:36:52,321 - DEBUG - [*] 137 items found in db
+2024-03-21 17:36:52,321 - DEBUG - [*] Loading the workbook template
+2024-03-21 17:36:52,335 - DEBUG - [*] Filling the spreadsheet
+2024-03-21 17:36:52,338 - DEBUG - [*] Saving the file on disk
+2024-03-21 17:36:52,354 - DEBUG - [*] Creating filename for zip file
+2024-03-21 17:36:52,354 - DEBUG - [*] Filling the zip archive with receipts
+2024-03-21 17:36:52,355 - DEBUG - Using function toMarkdown
+2024-03-21 17:36:52,686 - DEBUG - Using function toMarkdown
+2024-03-21 17:36:53,151 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:53,151 - DEBUG - Caption detected
+2024-03-21 17:36:53,175 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:53,176 - DEBUG - Caption detected
+2024-03-21 17:36:53,200 - DEBUG - Manually parsing input for 467786379.
+2024-03-21 17:36:53,201 - DEBUG - Caption detected

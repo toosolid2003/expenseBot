@@ -36,7 +36,17 @@ class Expense:
         
     def check_if_complete(self):
         if self.amount != None and self.description != None and self.receipt != None:
-            self.ccy = self.get_user_ccy()
+            #Check if a currency conversion is needed
+            base_ccy =self.get_user_ccy()
+            if self.ccy != base_ccy:
+                
+                #Get the latest rates and convert amout into the user's base currency
+                ccy_converter = self.pull_latest_rates()
+                self.amount = ccy_converter.convert(self.amount, self.ccy, base_ccy)
+
+                #Assign the base currency to the expense
+                self.ccy = base_ccy
+                
             self.complete = True
             self.save_to_db()
 
