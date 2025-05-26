@@ -5,6 +5,7 @@ import base64
 import openpyxl
 from botClasses.classes import DBHelper
 from os import path
+from dotenv import load_dotenv, dotenv_value
 
 #variables: 
 # - filepath
@@ -21,7 +22,7 @@ def sendExport(emailSender, emailRecipient, expenseReport, receipts):
     """
     #Initiate constants and objects
 
-    API = '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'
+    API = SENDGRID_API_KEY 
     sg = SendGridAPIClient(api_key=API)
 
     #Creating Mail object

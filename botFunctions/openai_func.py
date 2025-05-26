@@ -14,7 +14,7 @@ funcs = [
                                     "type":"integer",
                                     "description":"amount of the expense in numerical form"
                                 },
-                                "currency": {
+                                "ccy": {
                                     "type":"string",
                                     "description":"currency of the expense in ISO format or 3 capital letters"
                                 },

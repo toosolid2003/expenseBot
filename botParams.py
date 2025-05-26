@@ -1,8 +1,5 @@
 from telegram import Bot
 
-#KEY ='/etc/letsencrypt/live/prod.expensebot.design/privkey.pem'
-#CERT ='/etc/letsencrypt/live/prod.expensebot.design/fullchain.pem'
-
 
 KEY = 'ssl/private.key'
 CERT = 'ssl/cert.pem'

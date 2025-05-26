@@ -8,11 +8,11 @@ import json
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-
+from dotenv import load_dotenv, dotenv_value
 
 #Initiate the logger
 
-bot = Bot('994986692:AAF2wlYCT9_KIbLVxCRLNVVNfQMM9NJJJmA')
+bot = Bot(BOT_TOKEN)
 
 #Initiate the dispatcher
 dispatcher = setup(bot)   

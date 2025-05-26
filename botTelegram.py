@@ -11,13 +11,14 @@ import re
 from openai import OpenAI, api_key
 from botFunctions.openai_func import *
 import json
+from dotenv import load_dotenv, dotenv_value
 
 #################################################################
 # Constants
 #################################################################
 
 #Regular expression to identify a new expense. Not used yet.
-regex = r"[0-9]+[.]?[0-9]*[\s]?([a-z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
+regex = r"[0-9]+[.]?[0-9]*[\s]?([a-zA-Z]{3})?[,.;:]{1}[\s*][a-zA-Z0-9]*"
 
 #Parameters of the assistant
 assistant_mood = '''You are a professionnal assistant, focused on getting users to record their expenses.
@@ -25,7 +26,7 @@ Users need to provide you with the expense amount, its currency and description,
 The best is to provide all of it together, with the following syntax: amount currency, description. For instance: 
 12 usd, restaurant with Johhny.'''
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key=OPEN_AI)
 
 
 
@@ -41,7 +42,7 @@ def chat_with_ai(update, context):
     assert isinstance(update.message.text, str), "question should be a string"
 
 
-
+    # Step 1: See if the user has an intention to record an expense
     response = client.chat.completions.create(
     model="gpt-3.5-turbo-1106",
     messages=[{"role": "system", "content": assistant_mood},{"role": "user", "content": update.message.text }],
@@ -85,6 +86,42 @@ def chat_with_ai(update, context):
         text_response = response.choices[0].message.content
         update.message.reply_text(text_response)
 
+def ai_text_handler(update, context):
+    '''Handles the user inputs that dont match the regex'''
+
+    #Get the text input, whether from the caption or the normal text field
+    if update.message.text is not None:
+        user_input = update.message.text
+    elif update.message.caption is not None:
+        user_input = update.message.caption
+    else:
+        logger.debug(f'No text or caption provided')
+
+    #Is there any existing expense object? If not, create a new expense object
+    if 'expense' not in context.user_data.keys():
+        context.user_data['expense'] = Expense(update.message.from_user.id) 
+        logger.debug(f"Created a new expense object")
+
+    #Extract the data from the user input
+    res = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages = [{"role":"user","content":user_input}],
+        tools=funcs,
+        tool_choice={"type":"function", "function": {"name": "get_expense_data"}}
+    )
+
+    r = res.choices[0].message.tool_calls[0].function.arguments
+    j = json.loads(r) 
+    logger.debug(f'Extracted data: {j}')
+
+    #Add the extracted data to the expense object
+    context.user_data['expense'].get_input(j)
+
+    #Check if the expense object has all the data it needs.
+    context.user_data['expense'].check_if_complete()
+    logger.debug(f"Expense: {context.user_data['expense']}")
+
+    #If not, respond to user with the missing data points that he/she needs to provide
 
 def totalHandler(update, context):
 
@@ -96,12 +133,18 @@ def totalHandler(update, context):
     if update.message.caption:
         logger.debug(f'Caption detected')
         p.parse_text(update.message.caption)
+        
         try:
             p.parse_picture(update.message.document['file_id'],update.message.from_user.id, bot)
-        except IndexError:
+        except TypeError:
             p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot)    
-    else:
+    elif update.message.text:
         p.parse_text(update.message.text)
+    else:
+        try:
+            p.parse_picture(update.message.document['file_id'],update.message.from_user.id, bot)
+        except TypeError:
+            p.parse_picture(update.message.photo[-1]['file_id'],update.message.from_user.id, bot)    
 
     #Creates an expense object and stores it in context.user_data, if it does not exist yet.
     if 'expense' not in context.user_data.keys():
@@ -143,13 +186,11 @@ def totalHandler(update, context):
 #Starting the bot
 logger.info('Starting the bot')
 
-with open('bot.token','r') as fichier:
-    token = fichier.read()
-    TOKEN = token.replace('\n','')
+
 
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 
 #Initiate the "start" conversation handler
 conv_handler = ConversationHandler(
@@ -171,7 +212,7 @@ dispatcher.add_handler(CommandHandler('email', emailCheck,pass_args=True))
 dispatcher.add_handler(MessageHandler(Filters.document, totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.photo, totalHandler))
 dispatcher.add_handler(MessageHandler(Filters.text and Filters.regex(regex), totalHandler))
-dispatcher.add_handler(MessageHandler(Filters.text, chat_with_ai))
+dispatcher.add_handler(MessageHandler(Filters.text, ai_text_handler))
 
 #Starting the server
 # logger.info('Starting the server')

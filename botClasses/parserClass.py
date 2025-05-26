@@ -73,7 +73,7 @@ class Parser():
     def get_ccy(self, managedCcy):
 
         for elt in self.resultList:
-            if elt in managedCcy:
+            if elt.lower() in managedCcy:
                 return elt.upper()
 
     def get_description(self):

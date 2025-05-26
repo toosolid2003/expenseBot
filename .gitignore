@@ -18,5 +18,5 @@ support_files/
 test/
 botParams.py
 expensebot_env/
-sendgrid.env
 test_expenseBot.session
+.env
